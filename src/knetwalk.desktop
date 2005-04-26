@@ -1,0 +1,8 @@
+[KDE Desktop Entry]
+Type=Application
+Exec=knetwalk -caption "%c" %i %m
+Icon=knetwalk
+DocPath=knetwalk/index.html
+Categories=QT;KDE;Game;X-KDE-More
+Name=knetwalk
+Name[xx]=xxknetwalkxx

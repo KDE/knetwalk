@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE kcfg SYSTEM "http://www.kde.org/standards/kcfg/1.0/kcfg.dtd">
+<kcfg>
+  <kcfgfile name="knetwalkrc"/>
+  <group name="Preferences">
+    <entry name="username" type="String">
+      <label>Default author name</label>
+      <default/>
+    </entry>
+    <entry name="skill" type="Enum">
+      <label>Default author name</label>
+      <default>Novice</default>
+      <choices>
+        <choice name="Novice"/>
+        <choice name="Normal"/>
+        <choice name="Expert"/>
+        <choice name="Master"/>
+      </choices>
+    </entry>
+  </group>
+</kcfg>

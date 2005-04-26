@@ -1,0 +1,9 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="knetwalk" version="1">
+<MenuBar>
+</MenuBar>
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+<Action name="game_new"/>
+<Action name="game_highscores"/>
+</ToolBar>
+</kpartgui>

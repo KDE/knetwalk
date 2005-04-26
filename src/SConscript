@@ -1,0 +1,12 @@
+#! /usr/bin/env python
+Import( '*' )
+myenv=env.Copy()
+knetwalk_sources = [
+'cell.cpp', 'main.cpp', 'mainwindow.cpp', 'settings.kcfgc', 'highscores.cpp'
+]
+KDEprogram( "knetwalk", knetwalk_sources, myenv )
+KDEaddpaths( ['./', '../'], myenv )
+KDEaddlibs( ['qt-mt', 'kio', 'kdecore', 'kdegames'], myenv)
+KDEinstall( env['KDEDATA']+'/knetwalk/', 'knetwalkui.rc', myenv )
+KDEinstall( env['KDEXDG'], 'knetwalk.desktop', myenv )
+KDEinstall( env['KDEKCFG'], 'knetwalk.kcfg', myenv)
