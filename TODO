@@ -1,0 +1,5 @@
+* sound
+* fiber lighting should be made more evident (lighted/unlighted contrast)
+  the contrast between on/off is not blatant
+* no evident at the first time that even monitors or the server can change orientation
+* tiles size might be configurable (larger) - use kzoomwindow
