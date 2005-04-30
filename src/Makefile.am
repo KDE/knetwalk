@@ -1,4 +1,4 @@
-SUBDIRS  = pics
+SUBDIRS  = pics sounds
 
 INCLUDES = $(all_includes)
 
