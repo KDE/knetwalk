@@ -30,10 +30,10 @@ static const char version[] = "1.0";
 
 static KCmdLineOptions options[] =
 {
-	{ "novice", I18N_NOOP( "Start in Novice mode." ), 0 },
-	{ "normal", I18N_NOOP( "Start in Normal mode." ), 0 },
-	{ "expert", I18N_NOOP( "Start in Expert mode." ), 0 },
-	{ "master", I18N_NOOP( "Start in Master mode." ), 0 },
+	{ "Novice", I18N_NOOP( "Start in Novice mode." ), 0 },
+	{ "Normal", I18N_NOOP( "Start in Normal mode." ), 0 },
+	{ "Expert", I18N_NOOP( "Start in Expert mode." ), 0 },
+	{ "Master", I18N_NOOP( "Start in Master mode." ), 0 },
 	KCmdLineLastOption
 };
 
@@ -48,18 +48,20 @@ int main(int argc, char ** argv)
 	KCmdLineArgs::init(argc, argv, &about);
 	KCmdLineArgs::addCmdLineOptions(options);
 
-	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-	if (args->isSet("novice")) Settings::setSkill(Settings::EnumSkill::Novice);
-	if (args->isSet("normal")) Settings::setSkill(Settings::EnumSkill::Normal);
-	if (args->isSet("expert")) Settings::setSkill(Settings::EnumSkill::Expert);
-	if (args->isSet("master")) Settings::setSkill(Settings::EnumSkill::Master);
+	KApplication app;
 
 	KGlobal::locale()->insertCatalogue("libkdegames");
 
+	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+	if (args->isSet("Novice")) Settings::setSkill(Settings::EnumSkill::Novice);
+	if (args->isSet("Normal")) Settings::setSkill(Settings::EnumSkill::Normal);
+	if (args->isSet("Expert")) Settings::setSkill(Settings::EnumSkill::Expert);
+	if (args->isSet("Master")) Settings::setSkill(Settings::EnumSkill::Master);
+	
+	
 	KHighscore::init("knetwalk");
 	KExtHighscore::ExtManager manager;
 
-	KApplication app;
 
 	MainWindow* wi = new MainWindow;
 	app.setMainWidget(wi);
