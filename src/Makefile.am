@@ -12,6 +12,9 @@ knetwalk_METASOURCES = AUTO
 rcdir   = $(kde_datadir)/knetwalk
 rc_DATA = knetwalkui.rc
 
+appdatadir = $(kde_datadir)/knetwalk
+appdata_DATA = eventsrc
+
 messages: rc.cpp
 	$(XGETTEXT) rc.cpp *.cpp $(podir)/knetwalk.pot
 

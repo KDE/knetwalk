@@ -41,6 +41,8 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <kdebug.h>
+#include <knotifyclient.h>
+#include <knotifydialog.h>
 
 #include "settings.h"
 #include "cell.h"
@@ -61,10 +63,8 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) :
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-	//KHighscore::init("knetwalk");
-	//KExtHighscore::ExtManager manager;
-
-
+	KNotifyClient::startDaemon();
+	
 	/*QString appdir = kapp->applicationDirPath();
 	soundpath = appdir + "/sounds/";
 	if(!QFile::exists(soundpath))
@@ -185,6 +185,7 @@ void MainWindow::newGame(int sk)
 	statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
 	
 	//if(soundaction->isOn()) startsound->play();
+	KNotifyClient::event(winId(), "startsound");
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
 		board[i]->setDirs(Cell::None);
@@ -377,11 +378,13 @@ void MainWindow::rotate(int index, bool toleft)
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver())
 	{
 		//if(soundaction->isOn()) clicksound->play();
+		KNotifyClient::event(winId(), "clicksound");
 		blink(index);
 	}
 	else
 	{
 		//if(soundaction->isOn()) turnsound->play();
+		KNotifyClient::event(winId(), "turnsound");
 		board[index]->rotate(toleft ? -6 : 6);
 		updateConnections();
 		for(int i = 0; i < 14; i++)
@@ -394,6 +397,7 @@ void MainWindow::rotate(int index, bool toleft)
 
 		if (updateConnections())
 			kdDebug()<<"should play a sound there"<<endl;
+		KNotifyClient::event(winId(), "connectsound");
 		
 		m_clickcount++;
 		QString clicks = i18n("Click: %1");
@@ -402,6 +406,7 @@ void MainWindow::rotate(int index, bool toleft)
 		if(isGameOver())
 		{
 			kdDebug()<<"should play win sound here"<<endl;
+			KNotifyClient::event(winId(), "winsound");
 			blink(index);
 
 			KExtHighscore::Score score(KExtHighscore::Won);
@@ -448,6 +453,11 @@ void MainWindow::openHomepage()
 				tr("Could not launch your web browser.\n"
 					"Please, check the BROWSER environment's variable."));
 */
+}
+
+void MainWindow::configureNotifications()
+{
+	KNotifyDialog::configure(this);
 }
 
 bool MainWindow::startBrowser(const QString& url)

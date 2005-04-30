@@ -58,6 +58,7 @@ class MainWindow : public KMainWindow
 		void  openHomepage();
 		void  showHighscores();
 		void  configureHighscores();
+		void  configureNotifications();
 		
 	private:
 		Cell* uCell(Cell* cell) const;

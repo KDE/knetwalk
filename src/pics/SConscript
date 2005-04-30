@@ -27,5 +27,5 @@ files=[
 'server.png',
 ]
 
-KDEinstall(env['KDEDATA']+'/knetwalk/', files, myenv)
-KDEinstallas( env['KDEICONS']+'/hicolor/32x32/apps/knetwalk.png', 'hi32-app-knetwalk.png', env )
+myenv.KDEinstall('KDEDATA', 'knetwalk', files)
+myenv.KDEicon('knetwalk')

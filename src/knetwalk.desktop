@@ -1,8 +1,11 @@
 [KDE Desktop Entry]
 Type=Application
 Exec=knetwalk -caption "%c" %i %m
-Icon=knetwalk
 DocPath=knetwalk/index.html
-Categories=QT;KDE;Game;X-KDE-More
 Name=knetwalk
 Name[xx]=xxknetwalkxx
+Terminal=false
+Icon=knetwalk
+X-KDE-StartupNotify=true
+X-DCOP-ServiceType=Multi
+Categories=QT;KDE;Game;X-KDE-More
