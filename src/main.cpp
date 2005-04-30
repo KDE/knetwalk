@@ -27,65 +27,56 @@
 #include "mainwindow.h"
 
 static const char description[] =
-    I18N_NOOP("KNetWalk, a game for system administrators.");
+I18N_NOOP("KNetWalk, a game for system administrators.");
 
 static const char version[] = "1.0";
 
 static KCmdLineOptions options[] =
 {
-        { "+[URL]", I18N_NOOP( "Document to open." ), 0 },
-        KCmdLineLastOption
+	{ "novice", I18N_NOOP( "Start in Novice mode." ), 0 },
+	{ "normal", I18N_NOOP( "Start in Normal mode." ), 0 },
+	{ "expert", I18N_NOOP( "Start in Expert mode." ), 0 },
+	{ "master", I18N_NOOP( "Start in Master mode." ), 0 },
+	KCmdLineLastOption
 };
 
 int main(int argc, char ** argv)
 {
-        KAboutData about("knetwalk", I18N_NOOP("knetwalk"), version, description,
-                        KAboutData::License_GPL, "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy", 0, "tnagyemail-mail@yahoo.fr");
+	KAboutData about("knetwalk", I18N_NOOP("knetwalk"), version, description,
+			KAboutData::License_GPL, "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy", 0, "tnagyemail-mail@yahoo.fr");
 	about.addAuthor( "Andi Peredri", 0, "andi@ukr.net" );
-        about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );
+	about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );
 
-        KCmdLineArgs::init(argc, argv, &about);
-        KCmdLineArgs::addCmdLineOptions(options);
+	KCmdLineArgs::init(argc, argv, &about);
+	KCmdLineArgs::addCmdLineOptions(options);
 
-	KHighscore::init("knetwalk");
-	
-        KApplication app;
-	
-	if ((argc > 1) && QString(argv[1]) == "-help")
-	{
-		kdWarning("Usage: knetwalk [OPTIONS]\n"
-				"KNetWalk is a game for system administrators.\n"
-				"  -novice     set the skill Novice\n"
-				"  -amateur    set the skill Amateur\n"
-				"  -expert     set the skill Expert\n"
-				"  -master     set the skill Master\n"
-				"  -help       display this help and exit\n");
-		return 1;
-	}
+	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+	if (args->isSet("novice")) Settings::setSkill(Settings::EnumSkill::Novice);
+	if (args->isSet("normal")) Settings::setSkill(Settings::EnumSkill::Normal);
+	if (args->isSet("expert")) Settings::setSkill(Settings::EnumSkill::Expert);
+	if (args->isSet("master")) Settings::setSkill(Settings::EnumSkill::Master);
+
+	/*if (args->isSet("help"))
+	  {
+	  kdWarning("Usage: knetwalk [OPTIONS]\n"
+	  "KNetWalk is a game for system administrators.\n"
+	  "  -novice     set the skill Novice\n"
+	  "  -amateur    set the skill Amateur\n"
+	  "  -expert     set the skill Expert\n"
+	  "  -master     set the skill Master\n"
+	  "  -help       display this help and exit\n");
+	  return 1;
+	  }*/
 
 	KGlobal::locale()->insertCatalogue("libkdegames");
-	
-	//KHighscore::init("knetwalk");
+
+	KApplication app;
+	KHighscore::init("knetwalk");
 	KExtHighscore::ExtManager manager;
-	
+
 	MainWindow* wi = new MainWindow;
 	app.setMainWidget(wi);
 	wi->show();
-	
-	if (kapp->argc() > 1)
-	{
-		int skill=Settings::EnumSkill::Novice;
-		for(int i = 1; i < kapp->argc(); i++)
-		{
-			QString argument = kapp->argv()[i];
-			if(argument == "-novice")       skill = Settings::EnumSkill::Novice;
-			else if(argument == "-amateur") skill = Settings::EnumSkill::Normal;
-			else if(argument == "-expert")  skill = Settings::EnumSkill::Expert;
-			else if(argument == "-master")  skill = Settings::EnumSkill::Master;
-			else kdWarning()<<"Unknown option: '"<< argument << "'. Try -help."<<endl;
-		}
-		wi->newGame(skill);
-	}
 
 	return app.exec();
 }
