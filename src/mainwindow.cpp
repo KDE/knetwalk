@@ -43,12 +43,11 @@
 #include <kdebug.h>
 #include <knotifyclient.h>
 #include <knotifydialog.h>
+#include <kexthighscore.h>
 
 #include "settings.h"
 #include "cell.h"
 #include "mainwindow.h"
-//#include "highscores.h"
-#include <kexthighscore.h>
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
@@ -65,18 +64,6 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) :
 
 	KNotifyClient::startDaemon();
 	
-	/*QString appdir = kapp->applicationDirPath();
-	soundpath = appdir + "/sounds/";
-	if(!QFile::exists(soundpath))
-		soundpath = appdir + "/../share/qnetwalk/sounds/";*/
-
-	/*winsound     = new QSound(soundpath + "win.wav");
-	turnsound    = new QSound(soundpath + "turn.wav");
-	clicksound   = new QSound(soundpath + "click.wav");
-	startsound   = new QSound(soundpath + "start.wav");
-	connectsound = new QSound(soundpath + "connect.wav");
-	*/
-
 	KStdGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
 	
 	KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
@@ -109,24 +96,6 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) :
 		else if(argument == "-nosound") issound = false;
 		else qWarning("Unknown option: '" + argument + "'. Try -help.");
 	}
-
-	setDockWindowsMovable(false);
-	setDockMenuEnabled(false);
-
-	soundaction = new QAction(tr("&Sound"), CTRL+Key_S, this);
-	soundaction->setToggleAction(true);
-	soundaction->setOn(issound);
-
-	QPopupMenu* helpmenu=new QPopupMenu(this);
-	helpmenu->insertItem(tr("&Rules of Play"), this, SLOT(help()), Key_F1);
-	helpmenu->insertItem(QPixmap::fromMimeSource("homepage.png"), tr("&Homepage"), this, SLOT(openHomepage()));
-	helpmenu->insertSeparator();
-	helpmenu->insertItem(QPixmap::fromMimeSource("qnetwalk.png"), tr("&About QNetWalk"), this, SLOT(about()), CTRL+Key_A);
-	helpmenu->insertItem(tr("About &Qt"), kapp, SLOT(aboutQt()));
-
-	menuBar()->insertItem(tr("&Game"),  gamemenu);
-	menuBar()->insertItem(tr("&Skill"), skillmenu);
-	menuBar()->insertItem(tr("&Help"),  helpmenu);
 */
 	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", KIcon::User, 32).width();
 	const int cellsize = 32;
@@ -185,7 +154,7 @@ void MainWindow::newGame(int sk)
 	statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
 	
 	//if(soundaction->isOn()) startsound->play();
-	KNotifyClient::event(winId(), "startsound");
+	KNotifyClient::event(winId(), "startsound", i18n("New Game"));
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
 		board[i]->setDirs(Cell::None);
@@ -377,14 +346,12 @@ void MainWindow::rotate(int index, bool toleft)
 	const Cell::Dirs d = board[index]->dirs();
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver())
 	{
-		//if(soundaction->isOn()) clicksound->play();
-		KNotifyClient::event(winId(), "clicksound");
+		//KNotifyClient::event(winId(), "clicksound");
 		blink(index);
 	}
 	else
 	{
-		//if(soundaction->isOn()) turnsound->play();
-		KNotifyClient::event(winId(), "turnsound");
+		//KNotifyClient::event(winId(), "turnsound");
 		board[index]->rotate(toleft ? -6 : 6);
 		updateConnections();
 		for(int i = 0; i < 14; i++)
@@ -395,17 +362,15 @@ void MainWindow::rotate(int index, bool toleft)
 			board[index]->rotate(toleft ? -6 : 6);
 		}
 
-		if (updateConnections())
-			kdDebug()<<"should play a sound there"<<endl;
-		KNotifyClient::event(winId(), "connectsound");
+		if (updateConnections());
+			//KNotifyClient::event(winId(), "connectsound");
 		
 		m_clickcount++;
 		QString clicks = i18n("Click: %1");
 		statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
 		
-		if(isGameOver())
+		if (isGameOver())
 		{
-			kdDebug()<<"should play win sound here"<<endl;
 			KNotifyClient::event(winId(), "winsound");
 			blink(index);
 

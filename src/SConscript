@@ -20,4 +20,4 @@ sounds/turn.wav
 sounds/win.wav
 """.split()
 
-myenv.KDEinstall('KDEDATA', 'sounds', soundfiles)
+myenv.KDEinstall('KDEDATA', 'knetwalk/sounds', soundfiles)

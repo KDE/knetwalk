@@ -7,5 +7,3 @@ Name[xx]=xxknetwalkxx
 Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true
-X-DCOP-ServiceType=Multi
-Categories=QT;KDE;Game;X-KDE-More
