@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005 Andi Peredri                                 *
- *   andi@ukr.net                                                          *
+ *   Copyright (C) 2005, Thomas Nagy                                       *
+ *   tnagyemail-mail@yahoo@fr                                              *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License version 2        *
@@ -11,9 +11,6 @@
  *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
-
-//#include <qtextcodec.h>
-//#include <qtranslator.h>
 
 #include <kapplication.h>
 #include <kaboutdata.h>
@@ -43,7 +40,8 @@ static KCmdLineOptions options[] =
 int main(int argc, char ** argv)
 {
 	KAboutData about("knetwalk", I18N_NOOP("knetwalk"), version, description,
-			KAboutData::License_GPL, "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy", 0, "tnagyemail-mail@yahoo.fr");
+		KAboutData::License_GPL, "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy", 0, 
+		"tnagyemail-mail@yahoo.fr");
 	about.addAuthor( "Andi Peredri", 0, "andi@ukr.net" );
 	about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );
 
@@ -56,23 +54,12 @@ int main(int argc, char ** argv)
 	if (args->isSet("expert")) Settings::setSkill(Settings::EnumSkill::Expert);
 	if (args->isSet("master")) Settings::setSkill(Settings::EnumSkill::Master);
 
-	/*if (args->isSet("help"))
-	  {
-	  kdWarning("Usage: knetwalk [OPTIONS]\n"
-	  "KNetWalk is a game for system administrators.\n"
-	  "  -novice     set the skill Novice\n"
-	  "  -amateur    set the skill Amateur\n"
-	  "  -expert     set the skill Expert\n"
-	  "  -master     set the skill Master\n"
-	  "  -help       display this help and exit\n");
-	  return 1;
-	  }*/
-
 	KGlobal::locale()->insertCatalogue("libkdegames");
 
-	KApplication app;
 	KHighscore::init("knetwalk");
 	KExtHighscore::ExtManager manager;
+
+	KApplication app;
 
 	MainWindow* wi = new MainWindow;
 	app.setMainWidget(wi);
