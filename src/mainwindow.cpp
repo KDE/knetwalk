@@ -25,6 +25,7 @@
 #include <qsound.h>
 #include <qtimer.h>
 #include <qtoolbutton.h>
+#include <qwhatsthis.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -50,7 +51,6 @@
 #include "mainwindow.h"
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
-
 
 MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) : 
 	KMainWindow(parent, name, WStyle_NoBorder)
@@ -85,18 +85,15 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) :
 	createGUI();
 	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
 	
-/*	
-	for(int i = 1; i < kapp->argc(); i++)
-	{
-		QString argument = kapp->argv()[i];
-		if(argument == "-novice")       skill = Novice;
-		else if(argument == "-amateur") skill = Normal;
-		else if(argument == "-expert")  skill = Expert;
-		else if(argument == "-master")  skill = Master;
-		else if(argument == "-nosound") issound = false;
-		else qWarning("Unknown option: '" + argument + "'. Try -help.");
-	}
-*/
+
+	QWhatsThis::add(this, i18n("<h3>Rules of Game</h3>"
+			"<p>You are the system administrator and your goal"
+			" is to connect each computer to the central server."
+			"<p>Click the right mouse's button for turning the cable"
+			" in a clockwise direction, and left mouse's button"
+			" for turning the cable in a counter-clockwise direction."
+			"<p>Start the LAN with as few turns as possible!"));
+	
 	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", KIcon::User, 32).width();
 	const int cellsize = 32;
 	const int gridsize = cellsize * MasterBoardSize + 2;
@@ -153,7 +150,6 @@ void MainWindow::newGame(int sk)
 	QString clicks = i18n("Click: %1");
 	statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
 	
-	//if(soundaction->isOn()) startsound->play();
 	KNotifyClient::event(winId(), "startsound", i18n("New Game"));
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
@@ -346,12 +342,12 @@ void MainWindow::rotate(int index, bool toleft)
 	const Cell::Dirs d = board[index]->dirs();
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver())
 	{
-		//KNotifyClient::event(winId(), "clicksound");
+		KNotifyClient::event(winId(), "clicksound");
 		blink(index);
 	}
 	else
 	{
-		//KNotifyClient::event(winId(), "turnsound");
+		KNotifyClient::event(winId(), "turnsound");
 		board[index]->rotate(toleft ? -6 : 6);
 		updateConnections();
 		for(int i = 0; i < 14; i++)
@@ -362,8 +358,8 @@ void MainWindow::rotate(int index, bool toleft)
 			board[index]->rotate(toleft ? -6 : 6);
 		}
 
-		if (updateConnections());
-			//KNotifyClient::event(winId(), "connectsound");
+		if (updateConnections())
+			KNotifyClient::event(winId(), "connectsound");
 		
 		m_clickcount++;
 		QString clicks = i18n("Click: %1");
@@ -405,74 +401,14 @@ bool MainWindow::isGameOver()
 	return true;
 }
 
-
 void MainWindow::closeEvent(QCloseEvent* event)
 {
 	event->accept();
-}
-
-void MainWindow::openHomepage()
-{
-/*	if(!startBrowser("http://qt.osdn.org.ua/qnetwalk.html"))
-		QMessageBox::warning(this, tr("Error"),
-				tr("Could not launch your web browser.\n"
-					"Please, check the BROWSER environment's variable."));
-*/
 }
 
 void MainWindow::configureNotifications()
 {
 	KNotifyDialog::configure(this);
 }
-
-bool MainWindow::startBrowser(const QString& url)
-{
-	/*QStringList browsers;
-	QString env = getenv("BROWSER");
-	if(!env.isEmpty()) browsers << env;
-	browsers << "konqueror" << "mozilla" << "opera" << "netscape";
-
-	QProcess process;
-	while(!browsers.isEmpty())
-	{
-		process.clearArguments();
-		process.addArgument(browsers.first());
-		process.addArgument(url);
-		if(process.start()) return true;
-		browsers.remove(browsers.begin());
-	}
-	return false;*/
-}
-
-/*
-void MainWindow::help()
-{
-	QMessageBox box(this);
-	box.setCaption(tr("Rules of Play"));
-	box.setIconPixmap(QPixmap::fromMimeSource("computer2.png"));
-	box.setText(tr("<h3>Rules of Play</h3>"
-				"<p>You are the system administrator and your goal"
-				" is to connect each computer to the central server."
-				"<p>Click the right mouse's button for turning the cable"
-				" in a clockwise direction, and left mouse's button"
-				" for turning the cable in a counter-clockwise direction."
-				"<p>Start the LAN with as few turns as possible!"));
-	box.exec();
-}
-
-void MainWindow::about()
-{
-	QMessageBox box(this);
-	box.setCaption(tr("About QNetWalk"));
-	box.setIconPixmap(QPixmap::fromMimeSource("computer2.png"));
-	box.setText(tr("<h3>About QNetWalk 1.2</h3>"
-				"<p>QNetWalk is a free Qt-version of the NetWalk game."
-				"<p>Copyright (C) 2004, Andi Peredri"
-				"<p>Homepage: http://qt.osdn.org.ua/qnetwalk.html"
-				"<p>This program is distributed under the terms of the"
-				" GNU General Public License."));
-	box.exec();
-}
-*/
 
 #include "mainwindow.moc"

@@ -46,16 +46,13 @@ class MainWindow : public KMainWindow
 			MinimumNumCells = 20
 		};
 		typedef QValueList<Cell*> CellList;
-	protected slots:
-		//void  help();
-		//void  about();
+	public slots:
 		void  slotNewGame();
 		void  newGame(int);
 		
 		void  lClicked(int index);
 		void  rClicked(int index);
 		
-		void  openHomepage();
 		void  showHighscores();
 		void  configureHighscores();
 		void  configureNotifications();

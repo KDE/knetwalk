@@ -23,7 +23,7 @@
 #include <khighscore.h>
 
 #include "highscores.h"
-
+#include "settings.h"
 #include "mainwindow.h"
 
 static const char description[] =
@@ -59,22 +59,10 @@ int main(int argc, char ** argv)
 				"  -amateur    set the skill Amateur\n"
 				"  -expert     set the skill Expert\n"
 				"  -master     set the skill Master\n"
-				"  -nosound    disable all sound effects\n"
 				"  -help       display this help and exit\n");
 		return 1;
 	}
 
-/*	QTranslator qtranslator(&app);
-	qtranslator.load(QString("qt_") + QTextCodec::locale(), qInstallPathTranslations());
-	app.installTranslator(&qtranslator); */
-
-/*	QString appdir   = app.applicationDirPath();
-	QString filename = QString("qnetwalk_") + QTextCodec::locale();
-	QTranslator translator(&app);
-	if(!translator.load(filename, appdir + "/translations/"))
-		translator.load(filename, appdir + "/../share/qnetwalk/translations/");
-	app.installTranslator(&translator);
-*/
 	KGlobal::locale()->insertCatalogue("libkdegames");
 	
 	//KHighscore::init("knetwalk");
@@ -83,6 +71,21 @@ int main(int argc, char ** argv)
 	MainWindow* wi = new MainWindow;
 	app.setMainWidget(wi);
 	wi->show();
+	
+	if (kapp->argc() > 1)
+	{
+		int skill=Settings::EnumSkill::Novice;
+		for(int i = 1; i < kapp->argc(); i++)
+		{
+			QString argument = kapp->argv()[i];
+			if(argument == "-novice")       skill = Settings::EnumSkill::Novice;
+			else if(argument == "-amateur") skill = Settings::EnumSkill::Normal;
+			else if(argument == "-expert")  skill = Settings::EnumSkill::Expert;
+			else if(argument == "-master")  skill = Settings::EnumSkill::Master;
+			else kdWarning()<<"Unknown option: '"<< argument << "'. Try -help."<<endl;
+		}
+		wi->newGame(skill);
+	}
 
 	return app.exec();
 }
