@@ -5,7 +5,7 @@ knetwalk_sources = [
 'cell.cpp', 'main.cpp', 'mainwindow.cpp', 'settings.kcfgc', 'highscores.cpp'
 ]
 myenv.KDEprogram( "knetwalk", knetwalk_sources)
-myenv.KDEaddpaths( ['./', '../'])
+myenv.KDEaddpaths_includes( ['./', '#./'])
 myenv.KDEaddlibs( ['qt-mt', 'kio', 'kdecore', 'kdegames'])
 myenv.KDEinstall('KDEDATA', 'knetwalk', 'knetwalkui.rc')
 myenv.KDEinstall('KDEDATA', 'knetwalk', 'eventsrc')
