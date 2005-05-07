@@ -35,11 +35,11 @@ namespace KExtHighscore
 		s.duplicate(RANGE, 16);
 		setScoreHistogram(s, ScoreBound);
 */
-		Item *item = new Item((uint)0, i18n("Clicks"), Qt::AlignRight);
+		//Item *item = new Item((uint)0, i18n("Clicks"), Qt::AlignRight);
 		//addScoreItem("nb_actions", item);
 	}
 
-	QString ExtManager::gameTypeLabel(uint gameType, LabelType type) const
+	QString ExtManager::gameTypeLabel(uint gameType, LabelType /*type*/) const
 	{
 		/*const Level::Data &data = Level::DATA[gameType];
 		switch (type) {
