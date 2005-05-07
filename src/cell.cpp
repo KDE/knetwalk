@@ -78,6 +78,7 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent, 0, WNoAutoErase)
 	changed   = true;
 	connected = false;
 	root      = false;
+	locked    = false;
 }
 
 int Cell::index() const
@@ -99,6 +100,20 @@ bool Cell::isRotated() const
 {
 	return angle;
 }
+
+bool Cell::isLocked() const
+{
+    return locked;
+}
+
+void Cell::setLocked( bool newlocked )
+{
+	if ( locked == newlocked ) return;
+	locked = newlocked;
+	changed = true;
+	update();
+}
+
 
 void Cell::setDirs(Dirs d)
 {
@@ -136,7 +151,11 @@ void Cell::paintEvent(QPaintEvent*)
 	if(changed)
 	{
 		changed = false;
-		pixmap  = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background.png"), KIcon::NoGroup, 32);
+		if ( locked ) {
+	    pixmap = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background_locked.png"), KIcon::NoGroup, 32);
+		} else {
+			pixmap = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background.png"), KIcon::NoGroup, 32);
+		}
 
 		QPainter paint;
 		paint.begin(&pixmap);
@@ -188,6 +207,8 @@ void Cell::mousePressEvent(QMouseEvent* e)
 		emit lClicked(iindex);
 	else if(e->button() == RightButton)
 		emit rClicked(iindex);
+	else if(e->button() == MidButton)
+		emit mClicked(iindex);
 }
 
 void Cell::rotate(int a)

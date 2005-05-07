@@ -52,6 +52,7 @@ class MainWindow : public KMainWindow
 		
 		void  lClicked(int index);
 		void  rClicked(int index);
+		void  mClicked(int index);
 		
 		void  showHighscores();
 		void  configureHighscores();

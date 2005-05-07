@@ -30,13 +30,16 @@ class Cell : public QWidget
 		void setRoot(bool b);
 		void setLight(int l);
 		void setConnected(bool b);
+		void setLocked( bool newlocked = true );
 		bool isConnected() const;
 		bool isRotated() const;
+		bool isLocked() const;
 		Dirs dirs() const;
 		static void initPixmaps();
 	signals:
 		void lClicked(int);
 		void rClicked(int);
+		void mClicked(int);
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 		virtual void mousePressEvent(QMouseEvent*);
@@ -50,6 +53,7 @@ class Cell : public QWidget
 		bool    connected;
 		bool    changed;
 		bool    root;
+		bool    locked;
 		Dirs    ddirs;
 		QPixmap pixmap;
 };

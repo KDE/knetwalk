@@ -110,6 +110,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) :
 		board[i]->setFixedSize(cellsize, cellsize);
 		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
 		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
+		connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
 	}
 	srand(time(0));
 
@@ -156,6 +157,7 @@ void MainWindow::newGame(int sk)
 		board[i]->setDirs(Cell::None);
 		board[i]->setConnected(false);
 		board[i]->setRoot(false);
+		board[i]->setLocked(false);
 	}
 
 	const int size = (Settings::skill() == Settings::EnumSkill::Novice) ? NoviceBoardSize :
@@ -337,10 +339,15 @@ void MainWindow::rClicked(int index)
 	rotate(index, false);
 }
 
+void MainWindow::mClicked(int index)
+{
+	board[index]->setLocked( !board[index]->isLocked() );
+}
+
 void MainWindow::rotate(int index, bool toleft)
 {
 	const Cell::Dirs d = board[index]->dirs();
-	if((d == Cell::Free) || (d == Cell::None) || isGameOver())
+	if((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
 	{
 		KNotifyClient::event(winId(), "clicksound");
 		blink(index);
