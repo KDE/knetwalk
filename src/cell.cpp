@@ -158,8 +158,8 @@ void Cell::paintEvent(QPaintEvent*)
 			}
 
 			if(connected)
-				paint.drawPixmap(-offset, -offset, *connectedpixmap[ddirs]);
-			else paint.drawPixmap(-offset, -offset, *disconnectedpixmap[ddirs]);
+				paint.drawPixmap(int(-offset), int(-offset), *connectedpixmap[ddirs]);
+			else paint.drawPixmap(int(-offset), int(-offset), *disconnectedpixmap[ddirs]);
 			paint.resetXForm();
 
 			QPixmap pix;

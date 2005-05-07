@@ -52,7 +52,7 @@
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
-MainWindow::MainWindow(QWidget *parent, const char* name, WFlags fl) : 
+MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) : 
 	KMainWindow(parent, name, WStyle_NoBorder)
 {
 	m_clickcount = 0;
