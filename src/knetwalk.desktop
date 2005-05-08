@@ -3,7 +3,6 @@ Type=Application
 Exec=knetwalk -caption "%c" %i %m
 DocPath=knetwalk/index.html
 Name=knetwalk
-Name[xx]=xxknetwalkxx
 Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true
