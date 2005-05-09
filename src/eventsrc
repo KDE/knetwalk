@@ -43,6 +43,7 @@ default_presentation=0
 
 [connectsound]
 Name=Connect
+Name[ga]=Nasc
 default_sound=connect.wav
 default_presentation=0
 
@@ -97,6 +98,7 @@ default_presentation=1
 
 [startsound]
 Name=Connect
+Name[ga]=Nasc
 default_sound=start.wav
 default_presentation=1
 
