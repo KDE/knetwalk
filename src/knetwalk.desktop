@@ -7,3 +7,5 @@ Name[sv]=Knetwalk
 Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true
+Categories=Qt;KDE;Game;StrategyGame;
+Encoding=UTF-8
