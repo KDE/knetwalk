@@ -17,5 +17,5 @@ appdatadir = $(kde_datadir)/knetwalk
 appdata_DATA = eventsrc
 
 messages: rc.cpp
-	$(XGETTEXT) rc.cpp *.cpp $(podir)/knetwalk.pot
+	$(XGETTEXT) rc.cpp *.cpp -o $(podir)/knetwalk.pot
 
