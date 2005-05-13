@@ -45,6 +45,7 @@ default_presentation=0
 [connectsound]
 Name=Connect
 Name[br]=Kevreañ
+Name[da]=Forbind
 Name[ga]=Nasc
 Name[sv]=Anslut
 default_sound=connect.wav
@@ -102,6 +103,7 @@ default_presentation=1
 [startsound]
 Name=Connect
 Name[br]=Kevreañ
+Name[da]=Forbind
 Name[ga]=Nasc
 Name[sv]=Anslut
 default_sound=start.wav
