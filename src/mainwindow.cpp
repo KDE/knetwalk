@@ -15,17 +15,20 @@
 #include <qaction.h>
 #include <qapplication.h>
 #include <qeventloop.h>
-#include <qgrid.h>
+#include <q3grid.h>
 #include <qlabel.h>
 #include <qlayout.h>
 #include <qlineedit.h>
-#include <qprocess.h>
+#include <q3process.h>
 #include <qpushbutton.h>
 #include <qsettings.h>
 #include <qsound.h>
 #include <qtimer.h>
 #include <qtoolbutton.h>
-#include <qwhatsthis.h>
+#include <q3whatsthis.h>
+//Added by qt3to4:
+#include <Q3Frame>
+#include <QCloseEvent>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,8 +55,8 @@
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
-MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) : 
-	KMainWindow(parent, name, WStyle_NoBorder)
+MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) : 
+	KMainWindow(parent, name)
 {
 	m_clickcount = 0;
 	
@@ -86,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) :
 	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
 	
 
-	QWhatsThis::add(this, i18n("<h3>Rules of Game</h3>"
+	Q3WhatsThis::add(this, i18n("<h3>Rules of Game</h3>"
 			"<p>You are the system administrator and your goal"
 			" is to connect each computer to the central server."
 			"<p>Click the right mouse's button for turning the cable"
@@ -98,8 +101,8 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) :
 	const int cellsize = 32;
 	const int gridsize = cellsize * MasterBoardSize + 2;
 
-	QGrid* grid = new QGrid(MasterBoardSize, this);
-	grid->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	Q3Grid* grid = new Q3Grid(MasterBoardSize, this);
+	grid->setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
 	grid->setFixedSize(gridsize, gridsize);
 	setCentralWidget(grid);
 
@@ -359,9 +362,9 @@ void MainWindow::rotate(int index, bool toleft)
 		updateConnections();
 		for(int i = 0; i < 14; i++)
 		{
-			kapp->eventLoop()->processEvents(QEventLoop::ExcludeUserInput);
+			kapp->processEvents(QEventLoop::ExcludeUserInput);
 			QTimer::singleShot(20, board[index], SLOT(update()));
-			kapp->eventLoop()->processEvents(QEventLoop::ExcludeUserInput | QEventLoop::WaitForMore);
+			kapp->processEvents(QEventLoop::ExcludeUserInput | QEventLoop::WaitForMore);
 			board[index]->rotate(toleft ? -6 : 6);
 		}
 
@@ -388,9 +391,9 @@ void MainWindow::blink(int index)
 {
 	for(int i = 0; i < board[index]->width() * 2; i += 2)
 	{
-		kapp->eventLoop()->processEvents(QEventLoop::ExcludeUserInput);
+		kapp->processEvents(QEventLoop::ExcludeUserInput);
 		QTimer::singleShot(20, board[index], SLOT(update()));
-		kapp->eventLoop()->processEvents(QEventLoop::ExcludeUserInput |
+		kapp->processEvents(QEventLoop::ExcludeUserInput |
 				QEventLoop::WaitForMore);
 		board[index]->setLight(i);
 	}

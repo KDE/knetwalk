@@ -14,6 +14,10 @@
 
 #include <qpainter.h>
 #include <qimage.h>
+//Added by qt3to4:
+#include <QPixmap>
+#include <QMouseEvent>
+#include <QPaintEvent>
 
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -69,7 +73,7 @@ void Cell::initPixmaps()
 	}
 }
 
-Cell::Cell(QWidget* parent, int i) : QWidget(parent, 0, WNoAutoErase)
+Cell::Cell(QWidget* parent, int i) : QWidget(parent, 0, Qt::WNoAutoErase)
 {
 	angle     = 0;
 	light     = 0;
@@ -162,7 +166,7 @@ void Cell::paintEvent(QPaintEvent*)
 
 		if(light)
 		{
-			paint.setPen(QPen(white, 5));
+			paint.setPen(QPen(Qt::white, 5));
 			paint.drawLine(0, width() - light, width(), 2 * width() - light);
 		}
 
@@ -203,11 +207,11 @@ void Cell::paintEvent(QPaintEvent*)
 
 void Cell::mousePressEvent(QMouseEvent* e)
 {
-	if(e->button() == LeftButton)
+	if(e->button() == Qt::LeftButton)
 		emit lClicked(iindex);
-	else if(e->button() == RightButton)
+	else if(e->button() == Qt::RightButton)
 		emit rClicked(iindex);
-	else if(e->button() == MidButton)
+	else if(e->button() == Qt::MidButton)
 		emit mClicked(iindex);
 }
 

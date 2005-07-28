@@ -17,6 +17,10 @@
 
 #include <kapplication.h>
 #include <kmainwindow.h>
+//Added by qt3to4:
+#include <Q3ValueList>
+#include <Q3PopupMenu>
+#include <QCloseEvent>
 
 class Cell;
 class QAction;
@@ -28,7 +32,7 @@ class MainWindow : public KMainWindow
 {
 	Q_OBJECT
 	public:
-		MainWindow(QWidget *parent=0, const char* name=0, WFlags fl=0);
+		MainWindow(QWidget *parent=0, const char* name=0, Qt::WFlags fl=0);
 	protected:
 		virtual void closeEvent(QCloseEvent*);
 	private:
@@ -45,7 +49,7 @@ class MainWindow : public KMainWindow
 			NumHighscores   = 10,
 			MinimumNumCells = 20
 		};
-		typedef QValueList<Cell*> CellList;
+		typedef Q3ValueList<Cell*> CellList;
 	public slots:
 		void  slotNewGame();
 		void  newGame(int);
@@ -86,8 +90,8 @@ class MainWindow : public KMainWindow
 		QAction*    soundaction;
 		QStringList highscores;
 		QLCDNumber* lcd;
-		QPopupMenu* gamemenu;
-		QPopupMenu* skillmenu;
+		Q3PopupMenu* gamemenu;
+		Q3PopupMenu* skillmenu;
 
 		int m_clickcount;
 		KSelectAction* m_levels;
