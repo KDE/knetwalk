@@ -30,10 +30,10 @@ static const char version[] = "1.0";
 
 static KCmdLineOptions options[] =
 {
-	{ "Novice", I18N_NOOP( "Start in Novice mode." ), 0 },
-	{ "Normal", I18N_NOOP( "Start in Normal mode." ), 0 },
-	{ "Expert", I18N_NOOP( "Start in Expert mode." ), 0 },
-	{ "Master", I18N_NOOP( "Start in Master mode." ), 0 },
+	{ "Novice", I18N_NOOP( "Start in novice mode" ), 0 },
+	{ "Normal", I18N_NOOP( "Start in normal mode" ), 0 },
+	{ "Expert", I18N_NOOP( "Start in expert mode" ), 0 },
+	{ "Master", I18N_NOOP( "Start in master mode" ), 0 },
 	KCmdLineLastOption
 };
 
