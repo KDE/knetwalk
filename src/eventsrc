@@ -2,6 +2,7 @@
 IconName=knetwalk
 Comment=knetwalk
 Comment[sv]=Knetwalk
+Comment[xx]=xxknetwalkxx
 
 [clicksound]
 Name=Click
@@ -56,6 +57,7 @@ Name[ru]=Подключение
 Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
+Name[xx]=xxConnectxx
 default_sound=connect.wav
 default_presentation=0
 
@@ -122,6 +124,7 @@ Name[ru]=Подключение
 Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
+Name[xx]=xxConnectxx
 default_sound=start.wav
 default_presentation=1
 
@@ -135,6 +138,7 @@ Name[ru]=Поворот
 Name[sr]=Круг
 Name[sr@Latn]=Krug
 Name[sv]=Vänd
+Name[xx]=xxTurnxx
 default_sound=turn.wav
 default_presentation=0
 
