@@ -1,6 +1,7 @@
 [!Global!]
 IconName=knetwalk
 Comment=knetwalk
+Comment[fi]=Knetwalk
 Comment[sv]=Knetwalk
 Comment[xx]=xxknetwalkxx
 
@@ -52,6 +53,7 @@ Name[cs]=Propojení
 Name[cy]=Cysylltu
 Name[da]=Forbind
 Name[et]=Ühendus
+Name[fi]=Yhdistä
 Name[fr]=Connecter
 Name[ga]=Nasc
 Name[pa]=ਜੁੜੋ
@@ -121,6 +123,7 @@ Name[cs]=Propojení
 Name[cy]=Cysylltu
 Name[da]=Forbind
 Name[et]=Ühendus
+Name[fi]=Yhdistä
 Name[fr]=Connecter
 Name[ga]=Nasc
 Name[pa]=ਜੁੜੋ
@@ -137,6 +140,7 @@ Name=Turn
 Name[bg]=Ход
 Name[cs]=Tah
 Name[et]=Käik
+Name[fi]=Käännä
 Name[fr]=Tourner
 Name[pa]=ਵਾਰੀ
 Name[ru]=Поворот
