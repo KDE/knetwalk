@@ -40,7 +40,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char ** argv)
 {
 	KAboutData about("knetwalk", I18N_NOOP("knetwalk"), version, description,
-		KAboutData::License_GPL, "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy", 0, 
+		KAboutData::License_GPL, I18N_NOOP("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy"), 0, 
 		"tnagyemail-mail@yahoo.fr");
 	about.addAuthor( "Andi Peredri", 0, "andi@ukr.net" );
 	about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );

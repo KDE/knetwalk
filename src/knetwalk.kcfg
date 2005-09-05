@@ -6,7 +6,7 @@
   <kcfgfile name="knetwalkrc"/>
   <group name="Preferences">
     <entry name="username" type="String">
-      <label>Default author name</label>
+      <label>Default user name</label>
       <default/>
     </entry>
     <entry name="skill" type="Enum">
