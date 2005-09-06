@@ -10,7 +10,7 @@
       <default/>
     </entry>
     <entry name="skill" type="Enum">
-      <label>Default author name</label>
+      <label>Default difficulty level</label>
       <default>Novice</default>
       <choices>
         <choice name="Novice"/>
