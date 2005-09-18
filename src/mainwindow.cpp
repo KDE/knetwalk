@@ -25,7 +25,7 @@
 #include <qsound.h>
 #include <qtimer.h>
 #include <qtoolbutton.h>
-#include <q3whatsthis.h>
+
 //Added by qt3to4:
 #include <Q3Frame>
 #include <QCloseEvent>
@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
 	
 
-	Q3WhatsThis::add(this, i18n("<h3>Rules of Game</h3>"
+	this->setWhatsThis( i18n("<h3>Rules of Game</h3>"
 			"<p>You are the system administrator and your goal"
 			" is to connect each computer to the central server."
 			"<p>Click the right mouse's button for turning the cable"
