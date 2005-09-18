@@ -18,7 +18,7 @@
 #include <kapplication.h>
 #include <kmainwindow.h>
 //Added by qt3to4:
-#include <Q3ValueList>
+#include <QList>
 #include <Q3PopupMenu>
 #include <QCloseEvent>
 
@@ -49,7 +49,7 @@ class MainWindow : public KMainWindow
 			NumHighscores   = 10,
 			MinimumNumCells = 20
 		};
-		typedef Q3ValueList<Cell*> CellList;
+		typedef QList<Cell*> CellList;
 	public slots:
 		void  slotNewGame();
 		void  newGame(int);
