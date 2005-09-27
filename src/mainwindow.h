@@ -19,7 +19,6 @@
 #include <kmainwindow.h>
 //Added by qt3to4:
 #include <QList>
-#include <Q3PopupMenu>
 #include <QCloseEvent>
 
 class Cell;
@@ -90,8 +89,6 @@ class MainWindow : public KMainWindow
 		QAction*    soundaction;
 		QStringList highscores;
 		QLCDNumber* lcd;
-		Q3PopupMenu* gamemenu;
-		Q3PopupMenu* skillmenu;
 
 		int m_clickcount;
 		KSelectAction* m_levels;
