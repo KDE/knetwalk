@@ -50,7 +50,7 @@ int main(int argc, char ** argv)
 
 	KApplication app;
 
-	KGlobal::locale()->insertCatalogue("libkdegames");
+	KGlobal::locale()->insertCatalog("libkdegames");
 
 	KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 	if (args->isSet("Novice")) Settings::setSkill(Settings::EnumSkill::Novice);
