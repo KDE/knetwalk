@@ -18,6 +18,7 @@
 #include <klocale.h>
 #include <kdebug.h>
 #include <khighscore.h>
+#include <kglobal.h>
 
 #include "highscores.h"
 #include "settings.h"
