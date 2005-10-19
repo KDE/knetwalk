@@ -49,7 +49,7 @@ int main(int argc, char ** argv)
 	KCmdLineArgs::init(argc, argv, &about);
 	KCmdLineArgs::addCmdLineOptions(options);
 
-	KApplication app;
+	KApplication application;
 
 	KGlobal::locale()->insertCatalog("libkdegames");
 
@@ -64,10 +64,9 @@ int main(int argc, char ** argv)
 	KExtHighscore::ExtManager manager;
 
 
-	MainWindow* wi = new MainWindow;
-	app.setMainWidget(wi);
-	wi->show();
+	MainWindow window;
+	window.show();
 
-	return app.exec();
+	return application.exec();
 }
 
