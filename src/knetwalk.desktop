@@ -4,6 +4,7 @@ Exec=knetwalk -caption "%c" %i %m
 DocPath=knetwalk/index.html
 Name=knetwalk
 Name[fi]=Knetwalk
+Name[hu]=KNetWalk
 Name[sv]=Knetwalk
 Name[xx]=xxknetwalkxx
 Terminal=false
