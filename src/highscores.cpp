@@ -16,6 +16,7 @@
 #include <klocale.h>
 #include <kapplication.h>
 #include <kconfig.h>
+#include <kglobal.h>
 
 #include "defines.h"
 #include "highscores.h"
@@ -64,7 +65,7 @@ namespace KExtHighscore
 			default: Q_ASSERT(false);
 		}
 
-		KConfigGroupSaver cg(kapp->config(), group);
+		KConfigGroupSaver cg(KGlobal::config(), group);
 		QString name = cg.config()->readEntry("Name", QString::null);
 		if ( name.isNull() ) return;
 		if ( name.isEmpty() ) name = i18n("anonymous");
