@@ -65,11 +65,11 @@ namespace KExtHighscore
 			default: Q_ASSERT(false);
 		}
 
-		KConfigGroupSaver cg(KGlobal::config(), group);
-		QString name = cg.config()->readEntry("Name", QString::null);
+		KConfigGroup cg(KGlobal::config(), group);
+		QString name = cg.readEntry("Name", QString::null);
 		if ( name.isNull() ) return;
 		if ( name.isEmpty() ) name = i18n("anonymous");
-		int score = cg.config()->readNumEntry("score", 0);
+		int score = cg.readNumEntry("score", 0);
 		if ( score<=0 ) return;
 		Score s(Won);
 		s.setScore(score);
