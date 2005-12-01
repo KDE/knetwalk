@@ -6,7 +6,6 @@ Name=knetwalk
 Name[fi]=Knetwalk
 Name[hu]=KNetWalk
 Name[sv]=Knetwalk
-Name[xx]=xxknetwalkxx
 Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true
