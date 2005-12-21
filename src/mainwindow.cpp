@@ -86,12 +86,12 @@ MainWindow::MainWindow(QWidget *parent, const char* name, WFlags /*fl*/) :
 	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
 	
 
-	QWhatsThis::add(this, i18n("<h3>Rules of Game</h3>"
+	QWhatsThis::add(this, i18n("<h3>Rules of the Game</h3>"
 			"<p>You are the system administrator and your goal"
 			" is to connect each computer to the central server."
-			"<p>Click the right mouse's button for turning the cable"
-			" in a clockwise direction, and left mouse's button"
-			" for turning the cable in a counter-clockwise direction."
+			"<p>Click the right mouse button to turn the cable"
+			" in a clockwise direction, and the left mouse button"
+			" to turn it in a counter-clockwise direction."
 			"<p>Start the LAN with as few turns as possible!"));
 	
 	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", KIcon::User, 32).width();
