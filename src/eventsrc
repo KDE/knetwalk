@@ -39,6 +39,7 @@ Name[tr]=Tık
 Name[uk]=Клац
 Name[xx]=xxClickxx
 Name[zh_CN]=单击
+Comment=Click
 default_sound=click.wav
 default_presentation=0
 
@@ -53,6 +54,7 @@ Name[ga]=Nasc
 Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
+Comment=Connect
 default_sound=connect.wav
 default_presentation=0
 
@@ -102,6 +104,7 @@ Name[wa]=Djeu wangnî
 Name[xx]=xxGame wonxx
 Name[zh_CN]=您赢了游戏
 Name[zh_TW]=遊戲獲勝
+Comment=Game won
 default_sound=win.wav
 default_presentation=1
 
@@ -116,6 +119,7 @@ Name[ga]=Nasc
 Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
+Comment=Connect
 default_sound=start.wav
 default_presentation=1
 
@@ -126,6 +130,7 @@ Name[et]=Käik
 Name[sr]=Круг
 Name[sr@Latn]=Krug
 Name[sv]=Vänd
+Comment=Turn
 default_sound=turn.wav
 default_presentation=0
 
