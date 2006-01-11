@@ -66,7 +66,7 @@ namespace KExtHighscore
 		}
 
 		KConfigGroup cg(KGlobal::config(), group);
-		QString name = cg.readEntry("Name", QString::null);
+		QString name = cg.readEntry("Name", QString());
 		if ( name.isNull() ) return;
 		if ( name.isEmpty() ) name = i18n("anonymous");
 		int score = cg.readNumEntry("score", 0);
