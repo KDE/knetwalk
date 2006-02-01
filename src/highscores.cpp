@@ -69,7 +69,7 @@ namespace KExtHighscore
 		QString name = cg.readEntry("Name", QString());
 		if ( name.isNull() ) return;
 		if ( name.isEmpty() ) name = i18n("anonymous");
-		int score = cg.readNumEntry("score", 0);
+		int score = cg.readEntry("score", 0);
 		if ( score<=0 ) return;
 		Score s(Won);
 		s.setScore(score);
