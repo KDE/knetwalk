@@ -5,14 +5,17 @@ Comment[x-test]=xxknetwalkxx
 
 [clicksound]
 Name=Click
+Name[fr]=Clic
 Name[x-test]=xxClickxx
 Comment=Click
+Comment[fr]=Clic
 Comment[x-test]=xxClickxx
 default_sound=click.wav
 default_presentation=0
 
 [connectsound]
 Name=Connect
+Name[fr]=Connecter
 Name[x-test]=xxConnectxx
 Comment=Connect
 default_sound=connect.wav
@@ -20,14 +23,17 @@ default_presentation=0
 
 [winsound]
 Name=Game won
+Name[fr]=Partie gagnée
 Name[x-test]=xxGame wonxx
 Comment=Game won
+Comment[fr]=Partie gagnée
 Comment[x-test]=xxGame wonxx
 default_sound=win.wav
 default_presentation=1
 
 [startsound]
 Name=Connect
+Name[fr]=Connecter
 Name[x-test]=xxConnectxx
 Comment=Connect
 default_sound=start.wav
@@ -35,6 +41,7 @@ default_presentation=1
 
 [turnsound]
 Name=Turn
+Name[fr]=Tourner
 Name[x-test]=xxTurnxx
 Comment=Turn
 default_sound=turn.wav
