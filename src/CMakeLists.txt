@@ -20,7 +20,7 @@ kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 kde4_add_executable(knetwalk ${knetwalk_SRCS})
 
-target_link_libraries(knetwalk  ${QT_AND_KDECORE_LIBS} kdeui )
+target_link_libraries(knetwalk  ${LIB_KDEUI} kdegames )
 
 install_targets(/bin knetwalk )
 
