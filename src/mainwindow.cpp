@@ -97,7 +97,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 			" for turning the cable in a counter-clockwise direction."
 			"<p>Start the LAN with as few turns as possible!"));
 	
-	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", KIcon::User, 32).width();
+	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", K3Icon::User, 32).width();
 	const int cellsize = 32;
 	const int gridsize = cellsize * MasterBoardSize + 2;
 
