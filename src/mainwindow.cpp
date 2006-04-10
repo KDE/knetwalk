@@ -151,8 +151,8 @@ void MainWindow::newGame(int sk)
 	Settings::writeConfig();
 	
 	m_clickcount = 0;
-	QString clicks = i18n("Click: %1");
-	statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
+	QString clicks = i18n("Click: %1",m_clickcount);
+	statusBar()->changeItem(clicks,1);
 	
 	KNotifyClient::event(winId(), "startsound", i18n("New Game"));
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
@@ -372,8 +372,8 @@ void MainWindow::rotate(int index, bool toleft)
 			KNotifyClient::event(winId(), "connectsound");
 		
 		m_clickcount++;
-		QString clicks = i18n("Click: %1");
-		statusBar()->changeItem(clicks.arg(QString::number(m_clickcount)),1);
+		QString clicks = i18n("Click: %1",m_clickcount);
+		statusBar()->changeItem(clicks,1);
 		
 		if (isGameOver())
 		{
