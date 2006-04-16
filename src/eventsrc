@@ -1,6 +1,7 @@
 [!Global!]
 IconName=knetwalk
 Comment=knetwalk
+Comment[bn]=কে-নেটওয়াক
 Comment[fi]=Knetwalk
 Comment[hu]=KNetWalk
 Comment[sv]=Knetwalk
@@ -53,6 +54,7 @@ default_presentation=0
 [connectsound]
 Name=Connect
 Name[bg]=Връзка
+Name[bn]=সংযোগ স্থাপন করো
 Name[br]=Kevreañ
 Name[cs]=Propojení
 Name[da]=Forbind
@@ -136,6 +138,7 @@ default_presentation=1
 [startsound]
 Name=Connect
 Name[bg]=Връзка
+Name[bn]=সংযোগ স্থাপন করো
 Name[br]=Kevreañ
 Name[cs]=Propojení
 Name[da]=Forbind
@@ -167,6 +170,7 @@ default_presentation=1
 [turnsound]
 Name=Turn
 Name[bg]=Ход
+Name[bn]=ঘোরো
 Name[cs]=Tah
 Name[de]=Runde
 Name[et]=Käik
