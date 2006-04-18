@@ -51,9 +51,9 @@ void Cell::initPixmaps()
 	for(it = names.constBegin(); it != names.constEnd(); ++it)
 	{
 		connectedpixmap[it.key()]=new QPixmap(KGlobal::iconLoader()->loadIcon(
-					locate("data","knetwalk/cable"+it.data()+".png"), K3Icon::NoGroup, 32) );
+					locate("data","knetwalk/cable"+it.value()+".png"), K3Icon::NoGroup, 32) );
 
-		QImage image = connectedpixmap[it.key()]->convertToImage();
+		QImage image = connectedpixmap[it.key()]->toImage();
 		for(int y = 0; y < image.height(); y++)
 		{
 			QRgb* line = (QRgb*)image.scanLine(y);
@@ -69,11 +69,11 @@ void Cell::initPixmaps()
 				}
 			}
 		}
-		disconnectedpixmap[it.key()] = new QPixmap(image);
+		disconnectedpixmap[it.key()] = new QPixmap(QPixmap::fromImage( image ));
 	}
 }
 
-Cell::Cell(QWidget* parent, int i) : QWidget(parent, 0, Qt::WNoAutoErase)
+Cell::Cell(QWidget* parent, int i) : QWidget(parent, Qt::WNoAutoErase)
 {
 	angle     = 0;
 	light     = 0;
@@ -183,19 +183,19 @@ void Cell::paintEvent(QPaintEvent*)
 			if(connected)
 				paint.drawPixmap(int(-offset), int(-offset), *connectedpixmap[ddirs]);
 			else paint.drawPixmap(int(-offset), int(-offset), *disconnectedpixmap[ddirs]);
-			paint.resetXForm();
+			paint.resetMatrix();
 
 			QPixmap pix;
-			
+
 			if(root)
 			{
 				pix=KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/server.png"), K3Icon::NoGroup, 32);
 			}
 			else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
 			{
-				if(connected) 
+				if(connected)
 					pix=KGlobal::iconLoader()->loadIcon(locate("data","knetwalk/computer2.png"),K3Icon::NoGroup,32);
-				else 
+				else
 					pix=KGlobal::iconLoader()->loadIcon(locate("data","knetwalk/computer1.png"),K3Icon::NoGroup,32);
 			}
 			paint.drawPixmap(0, 0, pix);

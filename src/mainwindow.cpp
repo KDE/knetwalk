@@ -55,20 +55,20 @@
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
-MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) : 
+MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 	KMainWindow(parent, name)
 {
 	m_clickcount = 0;
-	
+
 	contrdirs[Cell::U] = Cell::D;
 	contrdirs[Cell::R] = Cell::L;
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
 	KNotifyClient::startDaemon();
-	
+
 	KStdGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
-	
+
 	KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
 	KStdGameAction::quit(this, SLOT(close()), actionCollection());
 	KStdGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 	setAutoSaveSettings();
 	createGUI();
 	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
-	
+
 
 	this->setWhatsThis( i18n("<h3>Rules of Game</h3>"
 			"<p>You are the system administrator and your goal"
@@ -96,7 +96,7 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 			" in a clockwise direction, and left mouse's button"
 			" for turning the cable in a counter-clockwise direction."
 			"<p>Start the LAN with as few turns as possible!"));
-	
+
 	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", K3Icon::User, 32).width();
 	const int cellsize = 32;
 	const int gridsize = cellsize * MasterBoardSize + 2;
@@ -137,7 +137,7 @@ void MainWindow::slotNewGame()
 
 void MainWindow::newGame(int sk)
 {
-	if (sk==Settings::EnumSkill::Novice || sk==Settings::EnumSkill::Normal 
+	if (sk==Settings::EnumSkill::Novice || sk==Settings::EnumSkill::Normal
 			|| sk==Settings::EnumSkill::Expert || sk==Settings::EnumSkill::Master)
 	{
 		Settings::setSkill(sk);
@@ -145,15 +145,15 @@ void MainWindow::newGame(int sk)
 
 	if(Settings::skill() == Settings::EnumSkill::Master) wrapped = true;
 	else wrapped = false;
-	
+
 	KExtHighscore::setGameType(Settings::skill());
-	
+
 	Settings::writeConfig();
-	
+
 	m_clickcount = 0;
 	QString clicks = i18n("Click: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
-	
+
 	KNotifyClient::event(winId(), "startsound", i18n("New Game"));
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
@@ -191,12 +191,12 @@ void MainWindow::newGame(int sk)
 			{
 				addRandomDir(list);
 				if(rand() % 2) addRandomDir(list);
-				list.remove(list.begin());
+				list.erase(list.begin());
 			}
 			else
 			{
 				list.append(list.first());
-				list.remove(list.begin());
+				list.erase(list.begin());
 			}
 		}
 
@@ -258,7 +258,7 @@ bool MainWindow::updateConnections()
 			newconnection[lcell->index()] = true;
 			list.append(lcell);
 		}
-		list.remove(list.begin());
+		list.erase(list.begin());
 	}
 
 	bool isnewconnection = false;
@@ -292,8 +292,8 @@ void MainWindow::addRandomDir(CellList& list)
 	for(int i = rand() % freecells.count(); i > 0; --i) ++it;
 
 	cell->setDirs(Cell::Dirs(cell->dirs() | it.key()));
-	it.data()->setDirs(contrdirs[it.key()]);
-	list.append(it.data());
+	it.value()->setDirs(contrdirs[it.key()]);
+	list.append(it.value());
 }
 
 Cell* MainWindow::uCell(Cell* cell) const
@@ -370,11 +370,11 @@ void MainWindow::rotate(int index, bool toleft)
 
 		if (updateConnections())
 			KNotifyClient::event(winId(), "connectsound");
-		
+
 		m_clickcount++;
 		QString clicks = i18n("Click: %1",m_clickcount);
 		statusBar()->changeItem(clicks,1);
-		
+
 		if (isGameOver())
 		{
 			KNotifyClient::event(winId(), "winsound");
