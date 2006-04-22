@@ -152,6 +152,7 @@ void Cell::setLight(int l)
 
 void Cell::paintEvent(QPaintEvent*)
 {
+	QPainter paint;
 	if(changed)
 	{
 		changed = false;
@@ -161,7 +162,6 @@ void Cell::paintEvent(QPaintEvent*)
 			pixmap = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background.png"), K3Icon::NoGroup, 32);
 		}
 
-		QPainter paint;
 		paint.begin(&pixmap);
 
 		if(light)
@@ -202,7 +202,9 @@ void Cell::paintEvent(QPaintEvent*)
 		}
 		paint.end();
 	}
-	bitBlt(this, 0, 0, &pixmap);
+	paint.begin(this);
+	paint.drawPixmap(0, 0, pixmap);
+	paint.end();
 }
 
 void Cell::mousePressEvent(QMouseEvent* e)
