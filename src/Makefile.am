@@ -16,8 +16,6 @@ rc_DATA = knetwalkui.rc
 appdatadir = $(kde_datadir)/knetwalk
 appdata_DATA = eventsrc
 
-messages: rc.cpp
-	$(XGETTEXT) rc.cpp *.cpp -o $(podir)/knetwalk.pot
 
 # for system-wide highscore file
 DESTBIN = $(DESTDIR)$(bindir)/$(bin_PROGRAMS)
