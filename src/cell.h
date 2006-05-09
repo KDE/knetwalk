@@ -16,7 +16,7 @@
 #define CELL_H
 
 #include <qpixmap.h>
-#include <qwidget.h>
+#include <QWidget>
 //Added by qt3to4:
 #include <QMouseEvent>
 #include <QPaintEvent>

@@ -16,11 +16,11 @@
 #include <qapplication.h>
 #include <qeventloop.h>
 #include <q3grid.h>
-#include <qlabel.h>
-#include <qlayout.h>
-#include <qlineedit.h>
+#include <QLabel>
+#include <QLayout>
+#include <QLineEdit>
 #include <q3process.h>
-#include <qpushbutton.h>
+#include <QPushButton>
 #include <qsettings.h>
 #include <qsound.h>
 #include <qtimer.h>
