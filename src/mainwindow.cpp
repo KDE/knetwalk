@@ -23,7 +23,7 @@
 #include <QPushButton>
 #include <qsettings.h>
 #include <qsound.h>
-#include <qtimer.h>
+#include <QTimer>
 #include <qtoolbutton.h>
 
 //Added by qt3to4:
