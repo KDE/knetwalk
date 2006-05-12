@@ -1,4 +1,3 @@
-kde4_header()
 
 add_subdirectory( pics ) 
 add_subdirectory( sounds ) 
@@ -30,7 +29,6 @@ install_targets(/bin knetwalk )
 install_files( ${DATA_INSTALL_DIR}/knetwalk FILES eventsrc )
 install_files( ${DATA_INSTALL_DIR}/knetwalk FILES knetwalkui.rc )
 
-kde4_footer()
 
 
 
