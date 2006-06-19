@@ -49,6 +49,7 @@ Name[tg]=Ангуштзанӣ
 Name[tr]=Tık
 Name[uk]=Клац
 Name[zh_CN]=单击
+Name[zh_TW]=點選
 default_sound=click.wav
 default_presentation=0
 
@@ -84,6 +85,7 @@ Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
 Name[uk]=З'єднати
+Name[zh_TW]=連結
 default_sound=connect.wav
 default_presentation=0
 
@@ -172,6 +174,7 @@ Name[sr]=Повежи се
 Name[sr@Latn]=Poveži se
 Name[sv]=Anslut
 Name[uk]=З'єднати
+Name[zh_TW]=連結
 default_sound=start.wav
 default_presentation=1
 
