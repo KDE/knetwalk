@@ -50,8 +50,7 @@ void Cell::initPixmaps()
 	NamesMap::ConstIterator it;
 	for(it = names.constBegin(); it != names.constEnd(); ++it)
 	{
-		connectedpixmap[it.key()]=new QPixmap(KGlobal::iconLoader()->loadIcon(
-					locate("data","knetwalk/cable"+it.value()+".png"), K3Icon::NoGroup, 32) );
+		connectedpixmap[it.key()]=new QPixmap(KGlobal::iconLoader()->loadIcon( KStandardDirs::locate("data","knetwalk/cable"+it.value()+".png"), K3Icon::NoGroup, 32) );
 
 		QImage image = connectedpixmap[it.key()]->toImage();
 		for(int y = 0; y < image.height(); y++)
