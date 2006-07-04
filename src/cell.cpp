@@ -157,9 +157,9 @@ void Cell::paintEvent(QPaintEvent*)
 	{
 		changed = false;
 		if ( locked ) {
-	    pixmap = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background_locked.png"), K3Icon::NoGroup, 32);
+	    pixmap = KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/background_locked.png"), K3Icon::NoGroup, 32);
 		} else {
-			pixmap = KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/background.png"), K3Icon::NoGroup, 32);
+			pixmap = KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/background.png"), K3Icon::NoGroup, 32);
 		}
 
 		paint.begin(&pixmap);
@@ -189,14 +189,14 @@ void Cell::paintEvent(QPaintEvent*)
 
 			if(root)
 			{
-				pix=KGlobal::iconLoader()->loadIcon(locate("data", "knetwalk/server.png"), K3Icon::NoGroup, 32);
+				pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/server.png"), K3Icon::NoGroup, 32);
 			}
 			else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
 			{
 				if(connected)
-					pix=KGlobal::iconLoader()->loadIcon(locate("data","knetwalk/computer2.png"),K3Icon::NoGroup,32);
+					pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data","knetwalk/computer2.png"),K3Icon::NoGroup,32);
 				else
-					pix=KGlobal::iconLoader()->loadIcon(locate("data","knetwalk/computer1.png"),K3Icon::NoGroup,32);
+					pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data","knetwalk/computer1.png"),K3Icon::NoGroup,32);
 			}
 			paint.drawPixmap(0, 0, pix);
 		}
