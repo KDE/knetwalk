@@ -26,8 +26,8 @@ install_targets(/bin knetwalk )
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/knetwalk FILES eventsrc )
-install_files( ${DATA_INSTALL_DIR}/knetwalk FILES knetwalkui.rc )
+install( FILES eventsrc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
+install( FILES knetwalkui.rc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
 
 
 
