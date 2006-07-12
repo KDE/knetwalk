@@ -156,9 +156,7 @@ void MainWindow::newGame(int sk)
 	QString clicks = i18n("Click: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
 
-	KNotification *notification = new KNotification( "startsound" );
-	notification->setText( i18n("New Game") );
-	notification->sendEvent();
+        KNotification::event( "startsound", i18n("New Game") );
 
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
@@ -357,14 +355,12 @@ void MainWindow::rotate(int index, bool toleft)
 	const Cell::Dirs d = board[index]->dirs();
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
 	{
-		KNotification *notification = new KNotification( "clicksound" );
-		notification->sendEvent();
+		KNotification::event( "clicksound" );
 		blink(index);
 	}
 	else
 	{
-		KNotification *notification = new KNotification( "turnsound" );
-		notification->sendEvent();
+		KNotification::event( "turnsound" );
 
 		board[index]->rotate(toleft ? -6 : 6);
 		updateConnections();
@@ -377,10 +373,7 @@ void MainWindow::rotate(int index, bool toleft)
 		}
 
 		if (updateConnections())
-                {
-			KNotification *notification = new KNotification( "connectsound" );
-			notification->sendEvent();
-                }
+			KNotification::event( "connectsound" );
 
 		m_clickcount++;
 		QString clicks = i18n("Click: %1",m_clickcount);
@@ -388,8 +381,7 @@ void MainWindow::rotate(int index, bool toleft)
 
 		if (isGameOver())
 		{
-			KNotification *notification = new KNotification( "winsound" );
-			notification->sendEvent();
+			KNotification::event( "winsound" );
 			blink(index);
 
 			KExtHighscore::Score score(KExtHighscore::Won);
