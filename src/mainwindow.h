@@ -31,7 +31,7 @@ class MainWindow : public KMainWindow
 {
 	Q_OBJECT
 	public:
-		MainWindow(QWidget *parent=0, const char* name=0, Qt::WFlags fl=0);
+		MainWindow(QWidget *parent=0);
 	protected:
 		virtual void closeEvent(QCloseEvent*);
 	private:

@@ -26,7 +26,7 @@ install(TARGETS knetwalk  DESTINATION ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
-install( FILES eventsrc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
+install( FILES knetwalk.notifyrc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
 install( FILES knetwalkui.rc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
 
 

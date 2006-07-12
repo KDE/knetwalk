@@ -45,7 +45,7 @@
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <kdebug.h>
-#include <knotifyclient.h>
+#include <knotification.h>
 #include <knotifydialog.h>
 #include <kexthighscore.h>
 
@@ -55,8 +55,8 @@
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
-MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
-	KMainWindow(parent, name)
+MainWindow::MainWindow(QWidget *parent)
+    : KMainWindow(parent)
 {
 	m_clickcount = 0;
 
@@ -64,8 +64,6 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 	contrdirs[Cell::R] = Cell::L;
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
-
-	KNotifyClient::startDaemon();
 
 	KStdGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
 
@@ -101,15 +99,19 @@ MainWindow::MainWindow(QWidget *parent, const char* name, Qt::WFlags /*fl*/) :
 	const int cellsize = 32;
 	const int gridsize = cellsize * MasterBoardSize + 2;
 
-	Q3Grid* grid = new Q3Grid(MasterBoardSize, this);
-	grid->setFrameStyle(Q3Frame::Panel | Q3Frame::Sunken);
-	grid->setFixedSize(gridsize, gridsize);
-	setCentralWidget(grid);
+	QFrame* frame = new QFrame(this);
+	frame->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	frame->setFixedSize(gridsize, gridsize);
+	QGridLayout* gridLay = new QGridLayout(frame);
+	gridLay->setMargin(0);
+	gridLay->setSpacing(0);
+	setCentralWidget(frame);
 
 	Cell::initPixmaps();
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
-		board[i] = new Cell(grid, i);
+		board[i] = new Cell(frame, i);
+		gridLay->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
 		board[i]->setFixedSize(cellsize, cellsize);
 		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
 		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
@@ -154,7 +156,10 @@ void MainWindow::newGame(int sk)
 	QString clicks = i18n("Click: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
 
-	KNotifyClient::event(winId(), "startsound", i18n("New Game"));
+	KNotification *notification = new KNotification( "startsound" );
+	notification->setText( i18n("New Game") );
+	notification->sendEvent();
+
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{
 		board[i]->setDirs(Cell::None);
@@ -352,12 +357,15 @@ void MainWindow::rotate(int index, bool toleft)
 	const Cell::Dirs d = board[index]->dirs();
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
 	{
-		KNotifyClient::event(winId(), "clicksound");
+		KNotification *notification = new KNotification( "clicksound" );
+		notification->sendEvent();
 		blink(index);
 	}
 	else
 	{
-		KNotifyClient::event(winId(), "turnsound");
+		KNotification *notification = new KNotification( "turnsound" );
+		notification->sendEvent();
+
 		board[index]->rotate(toleft ? -6 : 6);
 		updateConnections();
 		for(int i = 0; i < 14; i++)
@@ -369,7 +377,10 @@ void MainWindow::rotate(int index, bool toleft)
 		}
 
 		if (updateConnections())
-			KNotifyClient::event(winId(), "connectsound");
+                {
+			KNotification *notification = new KNotification( "connectsound" );
+			notification->sendEvent();
+                }
 
 		m_clickcount++;
 		QString clicks = i18n("Click: %1",m_clickcount);
@@ -377,7 +388,8 @@ void MainWindow::rotate(int index, bool toleft)
 
 		if (isGameOver())
 		{
-			KNotifyClient::event(winId(), "winsound");
+			KNotification *notification = new KNotification( "winsound" );
+			notification->sendEvent();
 			blink(index);
 
 			KExtHighscore::Score score(KExtHighscore::Won);
