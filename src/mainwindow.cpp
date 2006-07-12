@@ -46,7 +46,7 @@
 #include <kstatusbar.h>
 #include <kdebug.h>
 #include <knotification.h>
-#include <knotifydialog.h>
+#include <knotifyconfigwidget.h>
 #include <kexthighscore.h>
 
 #include "settings.h"
@@ -70,6 +70,8 @@ MainWindow::MainWindow(QWidget *parent)
 	KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
 	KStdGameAction::quit(this, SLOT(close()), actionCollection());
 	KStdGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
+
+	KStdAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
 
 	m_levels = KStdGameAction::chooseGameType(0, 0, actionCollection());
 	QStringList lst;
@@ -422,7 +424,7 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
 void MainWindow::configureNotifications()
 {
-	KNotifyDialog::configure(this);
+	KNotifyConfigWidget::configure(this);
 }
 
 #include "mainwindow.moc"

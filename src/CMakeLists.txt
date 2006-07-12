@@ -19,7 +19,8 @@ kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 kde4_add_executable(knetwalk ${knetwalk_SRCS})
 
-target_link_libraries(knetwalk  ${KDE4_KDEUI_LIBS} kdegames )
+message( STATUS "FIXME knetwalk: Added knotifyconfig lib explicitly for now (no corresponding KDE4_XXX var exists)" )
+target_link_libraries(knetwalk  ${KDE4_KDEUI_LIBS} kdegames knotifyconfig )
 
 install(TARGETS knetwalk  DESTINATION ${BIN_INSTALL_DIR} )
 
