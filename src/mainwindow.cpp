@@ -15,24 +15,16 @@
 #include <qaction.h>
 #include <qapplication.h>
 #include <qeventloop.h>
-#include <q3grid.h>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
-#include <q3process.h>
 #include <QPushButton>
 #include <qsettings.h>
 #include <qsound.h>
 #include <QTimer>
 #include <qtoolbutton.h>
 
-//Added by qt3to4:
-#include <Q3Frame>
 #include <QCloseEvent>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 #include <kglobal.h>
 #include <kiconloader.h>
@@ -42,12 +34,12 @@
 #include <kstdaction.h>
 #include <kaction.h>
 #include <kstdgameaction.h>
-#include <kmenubar.h>
 #include <kstatusbar.h>
-#include <kdebug.h>
 #include <knotification.h>
 #include <knotifyconfigwidget.h>
 #include <kexthighscore.h>
+
+#include <time.h>
 
 #include "settings.h"
 #include "cell.h"
