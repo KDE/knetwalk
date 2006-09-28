@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
 	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
 	setAutoSaveSettings();
 	createGUI();
-	connect(m_levels, SIGNAL(activated(int)), this, SLOT(newGame(int)));
+	connect(m_levels, SIGNAL(triggered(int)), this, SLOT(newGame(int)));
 
 
 	this->setWhatsThis( i18n("<h3>Rules of Game</h3>"
