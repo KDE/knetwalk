@@ -64,8 +64,8 @@ int main(int argc, char ** argv)
 	KExtHighscore::ExtManager manager;
 
 
-	MainWindow window;
-	window.show();
+	MainWindow* window = new MainWindow;
+	window->show();
 
 	return application.exec();
 }
