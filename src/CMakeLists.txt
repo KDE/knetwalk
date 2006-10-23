@@ -13,9 +13,9 @@ set(knetwalk_SRCS
    main.cpp 
    mainwindow.cpp )
 
-kde4_automoc(knetwalk ${knetwalk_SRCS})
+kde4_automoc(${knetwalk_SRCS})
 
-kde4_add_kcfg_files(knetwalk knetwalk_SRCS settings.kcfgc )
+kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 kde4_add_executable(knetwalk ${knetwalk_SRCS})
 
