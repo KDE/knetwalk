@@ -1,4 +1,4 @@
-[KDE Desktop Entry]
+[Desktop Entry]
 Type=Application
 Exec=knetwalk -caption "%c" %i %m
 DocPath=knetwalk/index.html
