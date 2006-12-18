@@ -31,7 +31,7 @@
 #include <klocale.h>
 #include <kscoredialog.h>
 #include <khighscore.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kaction.h>
 #include <kstdgameaction.h>
 #include <kstatusbar.h>
@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
 	KStdGameAction::quit(this, SLOT(close()), actionCollection());
 	KStdGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
 
-	KStdAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
+	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
 
 	m_levels = KStdGameAction::chooseGameType(0, 0, actionCollection());
 	QStringList lst;
