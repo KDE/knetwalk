@@ -29,12 +29,11 @@ namespace KExtHighscore
 		/*
 		setWWHighscores(KURL( HOMEPAGE ), VERSION);
 		setShowStatistics(true);
-		const uint RANGE[16] = {    1, 3120, 3180, 3240, 3300, 3360, 3420, 3480,
-			3510, 3540, 3550, 3560, 3570, 3580, 3590, 3600  };
+		*/
+		const uint RANGE[16] = { 0, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160 };
 		QMemArray<uint> s;
 		s.duplicate(RANGE, 16);
-		setScoreHistogram(s, ScoreBound);
-*/
+		setScoreHistogram(s, ScoreNotBound);
 		//Item *item = new Item((uint)0, i18n("Clicks"), Qt::AlignRight);
 		//addScoreItem("nb_actions", item);
 	}
