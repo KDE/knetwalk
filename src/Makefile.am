@@ -9,6 +9,8 @@ knetwalk_LDADD       = $(LIB_KDEGAMES) $(LIB_KDECORE) $(LIB_KDEUI) $(LIB_QT)
 knetwalk_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
 knetwalk_SOURCES     = cell.cpp highscores.cpp main.cpp mainwindow.cpp settings.kcfgc
 
+xdg_apps_DATA = knetwalk.desktop
+
 knetwalk_METASOURCES = AUTO
 rcdir   = $(kde_datadir)/knetwalk
 rc_DATA = knetwalkui.rc
