@@ -33,7 +33,7 @@
 #include <khighscore.h>
 #include <kstandardaction.h>
 #include <kaction.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <kstatusbar.h>
 #include <knotification.h>
 #include <knotifyconfigwidget.h>
@@ -57,15 +57,15 @@ MainWindow::MainWindow(QWidget *parent)
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-	KStdGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
+	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
 
-	KStdGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-	KStdGameAction::quit(this, SLOT(close()), actionCollection());
-	KStdGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
+	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
 
 	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
 
-	m_levels = KStdGameAction::chooseGameType(0, 0, actionCollection());
+	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
 	QStringList lst;
 	lst += i18n("Novice");
 	lst += i18n("Normal");
