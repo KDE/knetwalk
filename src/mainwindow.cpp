@@ -73,7 +73,7 @@ MainWindow::MainWindow(QWidget *parent)
 	lst += i18n("Master");
 	m_levels->setItems(lst);
 
-	setFixedSize(minimumSizeHint());
+	//setFixedSize(minimumSizeHint());
 
 	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
 	setAutoSaveSettings();
@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	QFrame* frame = new QFrame(this);
 	frame->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	frame->setFixedSize(gridsize, gridsize);
+	//frame->setFixedSize(gridsize, gridsize);
 	QGridLayout* gridLay = new QGridLayout(frame);
 	gridLay->setMargin(0);
 	gridLay->setSpacing(0);
@@ -106,7 +106,7 @@ MainWindow::MainWindow(QWidget *parent)
 	{
 		board[i] = new Cell(frame, i);
 		gridLay->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
-		board[i]->setFixedSize(cellsize, cellsize);
+		board[i]->resize(cellsize, cellsize);
 		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
 		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
 		connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));

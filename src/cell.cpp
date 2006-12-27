@@ -12,9 +12,9 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
-#include <qpainter.h>
-#include <qimage.h>
-//Added by qt3to4:
+#include <QPainter>
+//#include <QImage>
+
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QPaintEvent>
@@ -22,54 +22,30 @@
 #include <kglobal.h>
 #include <kiconloader.h>
 #include <kstandarddirs.h>
+#include <ksvgrenderer.h>
 
 #include "cell.h"
 
-Cell::PixmapMap Cell::connectedpixmap;
-Cell::PixmapMap Cell::disconnectedpixmap;
+Cell::NamesMap Cell::directionNames;
+KSvgRenderer Cell::allSvg;
 
 void Cell::initPixmaps()
 {
-	typedef QMap<int, QString> NamesMap;
-	NamesMap names;
-	names[L]     = "0001";
-	names[D]     = "0010";
-	names[D|L]   = "0011";
-	names[R]     = "0100";
-	names[R|L]   = "0101";
-	names[R|D]   = "0110";
-	names[R|D|L] = "0111";
-	names[U]     = "1000";
-	names[U|L]   = "1001";
-	names[U|D]   = "1010";
-	names[U|D|L] = "1011";
-	names[U|R]   = "1100";
-	names[U|R|L] = "1101";
-	names[U|R|D] = "1110";
-
-	NamesMap::ConstIterator it;
-	for(it = names.constBegin(); it != names.constEnd(); ++it)
-	{
-		connectedpixmap[it.key()]=new QPixmap(KGlobal::iconLoader()->loadIcon( KStandardDirs::locate("data","knetwalk/cable"+it.value()+".png"), K3Icon::NoGroup, 32) );
-
-		QImage image = connectedpixmap[it.key()]->toImage();
-		for(int y = 0; y < image.height(); y++)
-		{
-			QRgb* line = (QRgb*)image.scanLine(y);
-			for(int x = 0; x < image.width(); x++)
-			{
-				QRgb pix = line[x];
-				if(qAlpha(pix) == 255)
-				{
-					int g = (255 + 4 * qGreen(pix)) / 5;
-					int b = (255 + 4 * qBlue(pix)) / 5;
-					int r = (255 + 4 * qRed(pix)) / 5;
-					line[x] = qRgb(r, g, b);
-				}
-			}
-		}
-		disconnectedpixmap[it.key()] = new QPixmap(QPixmap::fromImage( image ));
-	}
+	directionNames[L]     = "0001";
+	directionNames[D]     = "0010";
+	directionNames[D|L]   = "0011";
+	directionNames[R]     = "0100";
+	directionNames[R|L]   = "0101";
+	directionNames[R|D]   = "0110";
+	directionNames[R|D|L] = "0111";
+	directionNames[U]     = "1000";
+	directionNames[U|L]   = "1001";
+	directionNames[U|D]   = "1010";
+	directionNames[U|D|L] = "1011";
+	directionNames[U|R]   = "1100";
+	directionNames[U|R|L] = "1101";
+	directionNames[U|R|D] = "1110";
+	allSvg.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 }
 
 Cell::Cell(QWidget* parent, int i) : QWidget(parent, Qt::WNoAutoErase)
@@ -82,6 +58,12 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent, Qt::WNoAutoErase)
 	connected = false;
 	root      = false;
 	locked    = false;
+	pixmapCache = new QPixmap(width(), height());
+}
+
+Cell::~Cell()
+{
+    delete pixmapCache;
 }
 
 int Cell::index() const
@@ -151,59 +133,58 @@ void Cell::setLight(int l)
 
 void Cell::paintEvent(QPaintEvent*)
 {
-	QPainter paint;
+	QPainter painter;
 	if(changed)
 	{
+		painter.begin(pixmapCache);
+
 		changed = false;
 		if ( locked ) {
-	    pixmap = KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/background_locked.png"), K3Icon::NoGroup, 32);
+			allSvg.render(&painter, "background-locked");
 		} else {
-			pixmap = KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/background.png"), K3Icon::NoGroup, 32);
+			allSvg.render(&painter, "background");
 		}
 
-		paint.begin(&pixmap);
-
+/*
 		if(light)
 		{
-			paint.setPen(QPen(Qt::white, 5));
-			paint.drawLine(0, width() - light, width(), 2 * width() - light);
+			painter.setPen(QPen(Qt::white, 5));
+			painter.drawLine(0, width() - light, width(), 2 * width() - light);
 		}
-
+*/
 		if((ddirs != Free) && (ddirs != None))
 		{
-			double offset = 0;
 			if(angle)
 			{
-				offset = width() / 2;
-				paint.translate(offset, offset);
-				paint.rotate(angle);
+				//double offset = 0;
+				//offset = width() / 2;
+				//painter.translate(offset, offset);
+				painter.rotate(angle);
 			}
 
 			if(connected)
-				paint.drawPixmap(int(-offset), int(-offset), *connectedpixmap[ddirs]);
-			else paint.drawPixmap(int(-offset), int(-offset), *disconnectedpixmap[ddirs]);
-			paint.resetMatrix();
+				allSvg.render(&painter, "cable" + directionNames[ddirs]);
+			else
+				allSvg.render(&painter, "cable" + directionNames[ddirs]);
 
-			QPixmap pix;
-
+			painter.resetMatrix();
 			if(root)
 			{
-				pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data", "knetwalk/server.png"), K3Icon::NoGroup, 32);
+				allSvg.render(&painter, "server");
 			}
 			else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
 			{
 				if(connected)
-					pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data","knetwalk/computer2.png"),K3Icon::NoGroup,32);
+					allSvg.render(&painter, "computer2");
 				else
-					pix=KGlobal::iconLoader()->loadIcon(KStandardDirs::locate("data","knetwalk/computer1.png"),K3Icon::NoGroup,32);
+					allSvg.render(&painter, "computer1");
 			}
-			paint.drawPixmap(0, 0, pix);
 		}
-		paint.end();
+		painter.end();
 	}
-	paint.begin(this);
-	paint.drawPixmap(0, 0, pixmap);
-	paint.end();
+	painter.begin(this);
+	painter.drawPixmap(0, 0, *pixmapCache);
+	painter.end();
 }
 
 void Cell::mousePressEvent(QMouseEvent* e)
@@ -214,6 +195,13 @@ void Cell::mousePressEvent(QMouseEvent* e)
 		emit rClicked(iindex);
 	else if(e->button() == Qt::MidButton)
 		emit mClicked(iindex);
+}
+
+void Cell::resizeEvent(QResizeEvent* e)
+{
+	changed = true;
+	delete pixmapCache;
+	pixmapCache = new QPixmap(e->size());
 }
 
 void Cell::rotate(int a)

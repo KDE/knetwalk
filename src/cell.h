@@ -15,11 +15,14 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <qpixmap.h>
 #include <QWidget>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QPaintEvent>
+
+#include <ksvgrenderer.h>
+
+class QPixmap;
+class QPaintEvent;
+class QMouseEvent;
+class QResizeEvent;
 
 class Cell : public QWidget
 {
@@ -27,6 +30,7 @@ class Cell : public QWidget
 	public:
 		enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
 		Cell(QWidget* parent, int i);
+		~Cell();
 		int  index() const;
 		void rotate(int a);
 		void setDirs(Dirs d);
@@ -46,10 +50,11 @@ class Cell : public QWidget
 	protected:
 		virtual void paintEvent(QPaintEvent*);
 		virtual void mousePressEvent(QMouseEvent*);
+		virtual void resizeEvent(QResizeEvent*);
 	private:
-		typedef QMap<int, QPixmap*> PixmapMap;
-		static  PixmapMap connectedpixmap;
-		static  PixmapMap disconnectedpixmap;
+		typedef QMap<int, QString> NamesMap;
+		static NamesMap directionNames;
+		static KSvgRenderer allSvg;
 		int     angle;
 		int     light;
 		int     iindex;
@@ -58,7 +63,7 @@ class Cell : public QWidget
 		bool    root;
 		bool    locked;
 		Dirs    ddirs;
-		QPixmap pixmap;
+		QPixmap *pixmapCache;
 };
 
 #endif
