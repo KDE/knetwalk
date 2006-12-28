@@ -369,14 +369,14 @@ void MainWindow::rotate(int index, bool toleft)
 	{
 		KNotification::event( "turnsound" );
 
-		board[index]->rotate(toleft ? -6 : 6);
+		board[index]->rotate(toleft ? -3 : 3);
 		updateConnections();
-		for(int i = 0; i < 14; i++)
+		for(int i = 0; i < 29; i++)
 		{
 			kapp->processEvents(QEventLoop::ExcludeUserInput);
 			QTimer::singleShot(20, board[index], SLOT(update()));
 			kapp->processEvents(QEventLoop::ExcludeUserInput | QEventLoop::WaitForMore);
-			board[index]->rotate(toleft ? -6 : 6);
+			board[index]->rotate(toleft ? -3 : 3);
 		}
 
 		if (updateConnections())

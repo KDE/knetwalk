@@ -157,10 +157,12 @@ void Cell::paintEvent(QPaintEvent*)
 		{
 			if(angle)
 			{
-				//double offset = 0;
-				//offset = width() / 2;
-				//painter.translate(offset, offset);
+				double woffset, hoffset;
+				woffset = width() / 2;
+				hoffset = height() / 2;
+				painter.translate(woffset, hoffset);
 				painter.rotate(angle);
+				painter.translate(-woffset, -hoffset);
 			}
 
 			if(connected)
