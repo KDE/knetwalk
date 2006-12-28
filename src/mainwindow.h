@@ -17,14 +17,17 @@
 
 #include <kapplication.h>
 #include <kmainwindow.h>
+#include <ksvgrenderer.h>
 //Added by qt3to4:
 #include <QList>
-#include <QCloseEvent>
 
 class Cell;
 class QAction;
 class QSound;
 class QLCDNumber;
+class QCloseEvent;
+class QResizeEvent;
+class QPixmap;
 class KSelectAction;
 
 class MainWindow : public KMainWindow
@@ -32,8 +35,11 @@ class MainWindow : public KMainWindow
 	Q_OBJECT
 	public:
 		MainWindow(QWidget *parent=0);
+		virtual ~MainWindow();
 	protected:
 		virtual void closeEvent(QCloseEvent*);
+		virtual void paintEvent(QPaintEvent*);
+		virtual void resizeEvent(QResizeEvent*);
 	private:
 		//enum Skill { Novice, Normal, Expert, Master };
 		enum BoardSize
@@ -92,6 +98,10 @@ class MainWindow : public KMainWindow
 
 		int m_clickcount;
 		KSelectAction* m_levels;
+		KSvgRenderer m_background;
+
+		QPixmap *pixmapCache;
+		bool m_invalidCache;
 };
 
 #endif // MAINWINDOW_H

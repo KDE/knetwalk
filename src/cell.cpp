@@ -136,14 +136,15 @@ void Cell::paintEvent(QPaintEvent*)
 	QPainter painter;
 	if(changed)
 	{
+		pixmapCache->fill(QColor(0, 0, 0, 0));
 		painter.begin(pixmapCache);
 
 		changed = false;
-		if ( locked ) {
+		/*if ( locked ) {
 			allSvg.render(&painter, "background-locked");
 		} else {
 			allSvg.render(&painter, "background");
-		}
+		}*/
 
 /*
 		if(light)
