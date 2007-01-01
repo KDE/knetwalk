@@ -136,14 +136,15 @@ void Cell::paintEvent(QPaintEvent*)
 	QPainter painter;
 	if(changed)
 	{
+		pixmapCache->fill(QColor(0, 0, 0, 0));
 		painter.begin(pixmapCache);
 
 		changed = false;
-		if ( locked ) {
+		/*if ( locked ) {
 			allSvg.render(&painter, "background-locked");
 		} else {
 			allSvg.render(&painter, "background");
-		}
+		}*/
 
 /*
 		if(light)
@@ -156,10 +157,12 @@ void Cell::paintEvent(QPaintEvent*)
 		{
 			if(angle)
 			{
-				//double offset = 0;
-				//offset = width() / 2;
-				//painter.translate(offset, offset);
+				double woffset, hoffset;
+				woffset = width() / 2;
+				hoffset = height() / 2;
+				painter.translate(woffset, hoffset);
 				painter.rotate(angle);
+				painter.translate(-woffset, -hoffset);
 			}
 
 			if(connected)

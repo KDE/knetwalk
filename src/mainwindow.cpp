@@ -23,6 +23,9 @@
 #include <qsound.h>
 #include <QTimer>
 #include <qtoolbutton.h>
+#include <QPainter>
+#include <QPixmap>
+#include <QPaintEvent>
 
 #include <QCloseEvent>
 
@@ -38,6 +41,7 @@
 #include <knotification.h>
 #include <knotifyconfigwidget.h>
 #include <kexthighscore.h>
+#include <kstandarddirs.h>
 
 #include <time.h>
 
@@ -113,7 +117,16 @@ MainWindow::MainWindow(QWidget *parent)
 	}
 	srand(time(0));
 
+	pixmapCache = new QPixmap(frame->size());
+	m_invalidCache = true;
+	m_background.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
+
 	slotNewGame();
+}
+
+MainWindow::~MainWindow()
+{
+	delete pixmapCache;
 }
 
 void MainWindow::configureHighscores()
@@ -356,14 +369,14 @@ void MainWindow::rotate(int index, bool toleft)
 	{
 		KNotification::event( "turnsound" );
 
-		board[index]->rotate(toleft ? -6 : 6);
+		board[index]->rotate(toleft ? -3 : 3);
 		updateConnections();
-		for(int i = 0; i < 14; i++)
+		for(int i = 0; i < 29; i++)
 		{
 			kapp->processEvents(QEventLoop::ExcludeUserInput);
 			QTimer::singleShot(20, board[index], SLOT(update()));
 			kapp->processEvents(QEventLoop::ExcludeUserInput | QEventLoop::WaitForMore);
-			board[index]->rotate(toleft ? -6 : 6);
+			board[index]->rotate(toleft ? -3 : 3);
 		}
 
 		if (updateConnections())
@@ -417,6 +430,36 @@ void MainWindow::closeEvent(QCloseEvent* event)
 void MainWindow::configureNotifications()
 {
 	KNotifyConfigWidget::configure(this);
+}
+
+void MainWindow::paintEvent(QPaintEvent* e)
+{
+	if (e->rect().intersects(centralWidget()->geometry()))
+	{
+		QPainter painter;
+		QRect updateRect = e->rect().intersect(centralWidget()->geometry());
+
+		if (m_invalidCache)
+		{
+			m_invalidCache = false;
+			painter.begin(pixmapCache);
+			m_background.render(&painter, "background");
+			painter.end();
+		}
+
+		QPoint p = centralWidget()->mapFromParent(QPoint(updateRect.x(), updateRect.y()));
+		QRect pixmapRect(p.x(), p.y(), updateRect.width(), updateRect.height());
+		painter.begin(this);
+		painter.drawPixmap(updateRect, *pixmapCache, pixmapRect);
+		painter.end();
+	}
+}
+
+void MainWindow::resizeEvent(QResizeEvent*)
+{
+	m_invalidCache = true;
+	delete pixmapCache;
+	pixmapCache = new QPixmap(centralWidget()->size());
 }
 
 #include "mainwindow.moc"
