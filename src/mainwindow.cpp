@@ -36,6 +36,7 @@
 #include <khighscore.h>
 #include <kstandardaction.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kstandardgameaction.h>
 #include <kstatusbar.h>
 #include <knotification.h>
@@ -61,15 +62,23 @@ MainWindow::MainWindow(QWidget *parent)
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
+        QAction *action;
 
-	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
-	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
+	action = KStandardGameAction::gameNew(this, SLOT(slotNewGame()), this);
+        actionCollection()->addAction(action->objectName(), action);
 
-	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
+	action = KStandardGameAction::highscores(this, SLOT(showHighscores()), this);
+        actionCollection()->addAction(action->objectName(), action);
+	action = KStandardGameAction::quit(this, SLOT(close()), this);
+        actionCollection()->addAction(action->objectName(), action);
+	action = KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), this);
+        actionCollection()->addAction(action->objectName(), action);
 
-	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
+	action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), this);
+        actionCollection()->addAction(action->objectName(), action);
+
+	m_levels = KStandardGameAction::chooseGameType(0, 0, this);
+        actionCollection()->addAction(m_levels->objectName(), m_levels);
 	QStringList lst;
 	lst += i18n("Novice");
 	lst += i18n("Normal");
