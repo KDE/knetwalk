@@ -35,6 +35,7 @@
 #include <kscoredialog.h>
 #include <khighscore.h>
 #include <kstandardaction.h>
+#include <kapplication.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kstandardgameaction.h>

@@ -15,7 +15,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <kapplication.h>
 #include <kmainwindow.h>
 #include <ksvgrenderer.h>
 //Added by qt3to4:
