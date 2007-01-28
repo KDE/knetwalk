@@ -16,6 +16,7 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <kglobal.h>
+#include <kconfiggroup.h>
 
 #include "defines.h"
 #include "highscores.h"
