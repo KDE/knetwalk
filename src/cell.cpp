@@ -48,7 +48,7 @@ void Cell::initPixmaps()
 	allSvg.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 }
 
-Cell::Cell(QWidget* parent, int i) : QWidget(parent, Qt::WNoAutoErase)
+Cell::Cell(QWidget* parent, int i) : QWidget(parent)
 {
 	angle     = 0;
 	light     = 0;

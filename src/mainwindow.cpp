@@ -383,9 +383,9 @@ void MainWindow::rotate(int index, bool toleft)
 		updateConnections();
 		for(int i = 0; i < 29; i++)
 		{
-			kapp->processEvents(QEventLoop::ExcludeUserInput);
+			kapp->processEvents(QEventLoop::ExcludeUserInputEvents);
 			QTimer::singleShot(20, board[index], SLOT(update()));
-			kapp->processEvents(QEventLoop::ExcludeUserInput | QEventLoop::WaitForMore);
+			kapp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
 			board[index]->rotate(toleft ? -3 : 3);
 		}
 
@@ -412,10 +412,10 @@ void MainWindow::blink(int index)
 {
 	for(int i = 0; i < board[index]->width() * 2; i += 2)
 	{
-		kapp->processEvents(QEventLoop::ExcludeUserInput);
+		kapp->processEvents(QEventLoop::ExcludeUserInputEvents);
 		QTimer::singleShot(20, board[index], SLOT(update()));
-		kapp->processEvents(QEventLoop::ExcludeUserInput |
-				QEventLoop::WaitForMore);
+		kapp->processEvents(QEventLoop::ExcludeUserInputEvents |
+				QEventLoop::WaitForMoreEvents);
 		board[index]->setLight(i);
 	}
 	board[index]->setLight(0);
