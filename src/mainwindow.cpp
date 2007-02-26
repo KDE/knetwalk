@@ -35,7 +35,6 @@
 #include <kscoredialog.h>
 #include <khighscore.h>
 #include <kstandardaction.h>
-#include <kapplication.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kstandardgameaction.h>
@@ -383,9 +382,9 @@ void MainWindow::rotate(int index, bool toleft)
 		updateConnections();
 		for(int i = 0; i < 29; i++)
 		{
-			kapp->processEvents(QEventLoop::ExcludeUserInputEvents);
+			qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 			QTimer::singleShot(20, board[index], SLOT(update()));
-			kapp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
+			qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
 			board[index]->rotate(toleft ? -3 : 3);
 		}
 
@@ -412,9 +411,9 @@ void MainWindow::blink(int index)
 {
 	for(int i = 0; i < board[index]->width() * 2; i += 2)
 	{
-		kapp->processEvents(QEventLoop::ExcludeUserInputEvents);
+		qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
 		QTimer::singleShot(20, board[index], SLOT(update()));
-		kapp->processEvents(QEventLoop::ExcludeUserInputEvents |
+		qApp->processEvents(QEventLoop::ExcludeUserInputEvents |
 				QEventLoop::WaitForMoreEvents);
 		board[index]->setLight(i);
 	}
