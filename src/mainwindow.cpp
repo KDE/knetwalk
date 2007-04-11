@@ -12,6 +12,8 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
+#include "mainwindow.h"
+
 #include <qaction.h>
 #include <qapplication.h>
 #include <qeventloop.h>
@@ -48,7 +50,6 @@
 
 #include "settings.h"
 #include "cell.h"
-#include "mainwindow.h"
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 

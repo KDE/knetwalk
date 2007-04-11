@@ -12,6 +12,8 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
+#include "cell.h"
+
 #include <QPainter>
 //#include <QImage>
 
@@ -23,8 +25,6 @@
 #include <kiconloader.h>
 #include <kstandarddirs.h>
 #include <ksvgrenderer.h>
-
-#include "cell.h"
 
 Cell::NamesMap Cell::directionNames;
 KSvgRenderer Cell::allSvg;

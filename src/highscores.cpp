@@ -12,6 +12,8 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
+#include "highscores.h"
+
 #include <kurl.h>
 #include <klocale.h>
 #include <kconfig.h>
@@ -19,7 +21,6 @@
 #include <kconfiggroup.h>
 
 #include "defines.h"
-#include "highscores.h"
 #include "settings.h"
 
 namespace KExtHighscore
