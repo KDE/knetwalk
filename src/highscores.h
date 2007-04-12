@@ -15,8 +15,7 @@
 #ifndef HIGHSCORES_H
 #define HIGHSCORES_H
 
-#include <kexthighscore.h>
-#include <kdemacros.h>
+#include <KExtHighscore>
 
 namespace KExtHighscore
 {

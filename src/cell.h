@@ -17,7 +17,7 @@
 
 #include <QWidget>
 
-#include <ksvgrenderer.h>
+#include <KSvgRenderer>
 
 class QPixmap;
 class QPaintEvent;

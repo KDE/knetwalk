@@ -15,9 +15,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <kmainwindow.h>
-#include <ksvgrenderer.h>
-//Added by qt3to4:
+#include <KMainWindow>
+#include <KSvgRenderer>
+
 #include <QList>
 
 class Cell;
@@ -57,15 +57,15 @@ class MainWindow : public KMainWindow
 	public slots:
 		void  slotNewGame();
 		void  newGame(int);
-		
+
 		void  lClicked(int index);
 		void  rClicked(int index);
 		void  mClicked(int index);
-		
+
 		void  showHighscores();
 		void  configureHighscores();
 		void  configureNotifications();
-		
+
 	private:
 		Cell* uCell(Cell* cell) const;
 		Cell* dCell(Cell* cell) const;
@@ -82,13 +82,13 @@ class MainWindow : public KMainWindow
 		bool        wrapped;
 		Cell*       root;
 		Cell*       board[MasterBoardSize * MasterBoardSize];
-		
+
 		QSound*     clicksound;
 		QSound*     connectsound;
 		QSound*     startsound;
 		QSound*     turnsound;
 		QSound*     winsound;
-		
+
 		QString     username;
 		QString     soundpath;
 		QAction*    soundaction;

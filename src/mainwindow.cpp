@@ -14,37 +14,36 @@
 
 #include "mainwindow.h"
 
-#include <qaction.h>
-#include <qapplication.h>
-#include <qeventloop.h>
+#include <QAction>
+#include <QApplication>
+#include <QEventLoop>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
 #include <QPushButton>
-#include <qsettings.h>
-#include <qsound.h>
+#include <QSettings>
 #include <QTimer>
-#include <qtoolbutton.h>
+#include <QToolButton>
 #include <QPainter>
 #include <QPixmap>
 #include <QPaintEvent>
 
 #include <QCloseEvent>
 
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kscoredialog.h>
-#include <khighscore.h>
-#include <kstandardaction.h>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kstandardgameaction.h>
-#include <kstatusbar.h>
-#include <knotification.h>
-#include <knotifyconfigwidget.h>
-#include <kexthighscore.h>
-#include <kstandarddirs.h>
+#include <KGlobal>
+#include <KIconLoader>
+#include <KLocale>
+#include <KScoreDialog>
+#include <KHighscore>
+#include <KStandardAction>
+#include <KAction>
+#include <KActionCollection>
+#include <KStandardGameAction>
+#include <KStatusBar>
+#include <KNotification>
+#include <KNotifyConfigWidget>
+#include <KExtHighscore>
+#include <KStandardDirs>
 
 #include <time.h>
 
@@ -105,7 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", K3Icon::User, 32).width();
 	const int cellsize = 32;
-	const int gridsize = cellsize * MasterBoardSize + 2;
+	//const int gridsize = cellsize * MasterBoardSize + 2;
 
 	QFrame* frame = new QFrame(this);
 	frame->setFrameStyle(QFrame::Panel | QFrame::Sunken);

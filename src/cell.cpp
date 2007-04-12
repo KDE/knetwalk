@@ -15,16 +15,14 @@
 #include "cell.h"
 
 #include <QPainter>
-//#include <QImage>
-
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QPaintEvent>
 
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <ksvgrenderer.h>
+#include <KGlobal>
+#include <KIconLoader>
+#include <KStandardDirs>
+#include <KSvgRenderer>
 
 Cell::NamesMap Cell::directionNames;
 KSvgRenderer Cell::allSvg;

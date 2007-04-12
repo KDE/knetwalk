@@ -12,13 +12,13 @@
  *   GNU General Public License for more details.                          *
  ***************************************************************************/
 
-#include <kapplication.h>
-#include <kaboutdata.h>
-#include <kcmdlineargs.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <khighscore.h>
-#include <kglobal.h>
+#include <KApplication>
+#include <KAboutData>
+#include <KCmdLineArgs>
+#include <KLocale>
+#include <KDebug>
+#include <KHighscore>
+#include <KGlobal>
 
 #include "highscores.h"
 #include "settings.h"
@@ -41,7 +41,7 @@ static KCmdLineOptions options[] =
 int main(int argc, char ** argv)
 {
 	KAboutData about("knetwalk", I18N_NOOP("knetwalk"), version, description,
-		KAboutData::License_GPL, I18N_NOOP("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy"), 0, 
+		KAboutData::License_GPL, I18N_NOOP("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy"), 0,
 		"tnagyemail-mail@yahoo.fr");
 	about.addAuthor( "Andi Peredri", 0, "andi@ukr.net" );
 	about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );
@@ -58,8 +58,8 @@ int main(int argc, char ** argv)
 	if (args->isSet("Normal")) Settings::setSkill(Settings::EnumSkill::Normal);
 	if (args->isSet("Expert")) Settings::setSkill(Settings::EnumSkill::Expert);
 	if (args->isSet("Master")) Settings::setSkill(Settings::EnumSkill::Master);
-	
-	
+
+
 	KHighscore::init("knetwalk");
 	KExtHighscore::ExtManager manager;
 

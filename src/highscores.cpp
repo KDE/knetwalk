@@ -14,11 +14,11 @@
 
 #include "highscores.h"
 
-#include <kurl.h>
-#include <klocale.h>
-#include <kconfig.h>
-#include <kglobal.h>
-#include <kconfiggroup.h>
+#include <KUrl>
+#include <KLocale>
+#include <KConfig>
+#include <KGlobal>
+#include <KConfigGroup>
 
 #include "defines.h"
 #include "settings.h"
