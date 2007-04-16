@@ -53,7 +53,7 @@
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
 MainWindow::MainWindow(QWidget *parent)
-    : KMainWindow(parent)
+    : KXmlGuiWindow(parent)
 {
 	m_clickcount = 0;
 

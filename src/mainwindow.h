@@ -15,7 +15,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <KMainWindow>
+#include <KXmlGuiWindow>
 #include <KSvgRenderer>
 
 #include <QList>
@@ -29,7 +29,7 @@ class QResizeEvent;
 class QPixmap;
 class KSelectAction;
 
-class MainWindow : public KMainWindow
+class MainWindow : public KXmlGuiWindow
 {
 	Q_OBJECT
 	public:
