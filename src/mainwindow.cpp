@@ -44,6 +44,7 @@
 #include <KNotifyConfigWidget>
 #include <KExtHighscore>
 #include <KStandardDirs>
+#include <KSelectAction>
 
 #include <time.h>
 
