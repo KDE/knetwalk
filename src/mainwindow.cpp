@@ -108,7 +108,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//const int gridsize = cellsize * MasterBoardSize + 2;
 
 	QFrame* frame = new QFrame(this);
-	frame->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	frame->setFrameStyle(QFrame::NoFrame);
 	//frame->setFixedSize(gridsize, gridsize);
 	QGridLayout* gridLay = new QGridLayout(frame);
 	gridLay->setMargin(0);
