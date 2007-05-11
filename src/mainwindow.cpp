@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005 Andi Peredri                                 *
- *   andi@ukr.net                                                          *
+ *   Copyright (C) 2004, 2005 Andi Peredri <andi@ukr.net                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License version 2        *
@@ -63,23 +62,18 @@ MainWindow::MainWindow(QWidget *parent)
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-        QAction *action;
+	QAction *action;
 
-	action = KStandardGameAction::gameNew(this, SLOT(slotNewGame()), this);
-        actionCollection()->addAction(action->objectName(), action);
+	// Game
+	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
+	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+	KStandardGameAction::quit(this, SLOT(close()), this);
+	
+	// Preferences
+	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
+	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
 
-	action = KStandardGameAction::highscores(this, SLOT(showHighscores()), this);
-        actionCollection()->addAction(action->objectName(), action);
-	action = KStandardGameAction::quit(this, SLOT(close()), this);
-        actionCollection()->addAction(action->objectName(), action);
-	action = KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), this);
-        actionCollection()->addAction(action->objectName(), action);
-
-	action = KStandardAction::configureNotifications(this, SLOT(configureNotifications()), this);
-        actionCollection()->addAction(action->objectName(), action);
-
-	m_levels = KStandardGameAction::chooseGameType(0, 0, this);
-        actionCollection()->addAction(m_levels->objectName(), m_levels);
+	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
 	QStringList lst;
 	lst += i18n("Novice");
 	lst += i18n("Normal");
