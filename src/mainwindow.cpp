@@ -62,8 +62,6 @@ MainWindow::MainWindow(QWidget *parent)
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-	QAction *action;
-
 	// Game
 	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
 	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
