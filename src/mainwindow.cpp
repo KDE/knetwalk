@@ -65,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// Game
 	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
 	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-	KStandardGameAction::quit(this, SLOT(close()), this);
+	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
 	
 	// Preferences
 	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
