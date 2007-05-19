@@ -1,5 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005 Andi Peredri <andi@ukr.net                   *
+ *   Copyright (C) 2004, 2005 Andi Peredri <andi@ukr.net>                  *
+ *   Copyright (C) 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch>     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License version 2        *
@@ -53,7 +54,7 @@
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
 MainWindow::MainWindow(QWidget *parent)
-    : KXmlGuiWindow(parent)
+	: KXmlGuiWindow(parent)
 {
 	m_clickcount = 0;
 
@@ -62,28 +63,12 @@ MainWindow::MainWindow(QWidget *parent)
 	contrdirs[Cell::D] = Cell::U;
 	contrdirs[Cell::L] = Cell::R;
 
-	// Game
-	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
-	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
-	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+	setupActions();
 	
-	// Preferences
-	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
-	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
-
-	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
-	QStringList lst;
-	lst += i18n("Novice");
-	lst += i18n("Normal");
-	lst += i18n("Expert");
-	lst += i18n("Master");
-	m_levels->setItems(lst);
-
 	//setFixedSize(minimumSizeHint());
 
 	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
 	setAutoSaveSettings();
-	createGUI();
 	connect(m_levels, SIGNAL(triggered(int)), this, SLOT(newGame(int)));
 
 
@@ -131,6 +116,28 @@ MainWindow::~MainWindow()
 	delete pixmapCache;
 }
 
+void MainWindow::setupActions()
+{
+	// Game
+	KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
+	KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
+	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+	
+	// Settings
+	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
+	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
+
+	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
+	QStringList lst;
+	lst += i18n("Novice");
+	lst += i18n("Normal");
+	lst += i18n("Expert");
+	lst += i18n("Master");
+	m_levels->setItems(lst);
+
+	setupGUI();
+}
+
 void MainWindow::configureHighscores()
 {
 	KExtHighscore::configure(this);
@@ -165,7 +172,7 @@ void MainWindow::newGame(int sk)
 	QString clicks = i18n("Click: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
 
-        KNotification::event( "startsound", i18n("New Game") );
+	KNotification::event( "startsound", i18n("New Game") );
 
 	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
 	{

@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004, 2005 Andi Peredri                                 *
- *   andi@ukr.net                                                          *
+ *   Copyright (C) 2004, 2005 Andi Peredri <andi@ukr.net>                  *
+ *   Copyright (C) 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch>     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License version 2        *
@@ -36,6 +36,7 @@ class MainWindow : public KXmlGuiWindow
 		explicit MainWindow(QWidget *parent=0);
 		virtual ~MainWindow();
 	protected:
+		void setupActions();
 		virtual void closeEvent(QCloseEvent*);
 		virtual void paintEvent(QPaintEvent*);
 		virtual void resizeEvent(QResizeEvent*);
