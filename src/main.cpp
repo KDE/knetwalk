@@ -1,6 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005, Thomas Nagy                                       *
- *   tnagyemail-mail@yahoo@fr                                              *
+ *   Copyright (C) 2005 Thomas Nagy <tnagyemail-mail@yahoo.fr>             *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License version 2        *
