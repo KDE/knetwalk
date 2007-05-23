@@ -166,7 +166,7 @@ void MainWindow::newGame(int sk)
 
 	KExtHighscore::setGameType(Settings::skill());
 
-	Settings::writeConfig();
+	Settings::self()->writeConfig();
 
 	m_clickcount = 0;
 	QString clicks = i18n("Click: %1",m_clickcount);
