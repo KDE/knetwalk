@@ -57,7 +57,7 @@ int main(int argc, char ** argv)
 	if (args->isSet("Normal")) Settings::setSkill(Settings::EnumSkill::Normal);
 	if (args->isSet("Expert")) Settings::setSkill(Settings::EnumSkill::Expert);
 	if (args->isSet("Master")) Settings::setSkill(Settings::EnumSkill::Master);
-	
+	args->clear();	
 	
 	KHighscore::init("knetwalk");
 	KExtHighscore::ExtManager manager;
