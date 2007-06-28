@@ -86,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 	QFrame* frame = new QFrame(this);
 	frame->setFrameStyle(QFrame::NoFrame);
+	frame->setMinimumSize(MINIMUM_WIDTH, MINIMUM_HEIGHT);
 	//frame->setFixedSize(gridsize, gridsize);
 	QGridLayout* gridLay = new QGridLayout(frame);
 	gridLay->setMargin(0);

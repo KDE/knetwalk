@@ -54,6 +54,8 @@ class MainWindow : public KXmlGuiWindow
 			NumHighscores   = 10,
 			MinimumNumCells = 20
 		};
+		static int const MINIMUM_WIDTH = 200;
+		static int const MINIMUM_HEIGHT = 150;
 		typedef QList<Cell*> CellList;
 	public slots:
 		void  slotNewGame();
