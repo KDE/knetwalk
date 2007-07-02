@@ -28,24 +28,21 @@ I18N_NOOP("KNetWalk, a game for system administrators.");
 
 static const char version[] = "1.0";
 
-static KCmdLineOptions options[] =
-{
-	{ "Novice", I18N_NOOP( "Start in novice mode" ), 0 },
-	{ "Normal", I18N_NOOP( "Start in normal mode" ), 0 },
-	{ "Expert", I18N_NOOP( "Start in expert mode" ), 0 },
-	{ "Master", I18N_NOOP( "Start in master mode" ), 0 },
-	KCmdLineLastOption
-};
-
 int main(int argc, char ** argv)
 {
-	KAboutData about("knetwalk", I18N_NOOP("KNetWalk"), version, description,
-		KAboutData::License_GPL, I18N_NOOP("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy"), 0,
+	KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version, ki18n(description),
+		KAboutData::License_GPL, ki18n("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy"), KLocalizedString(),
 		"tnagyemail-mail@yahoo.fr");
-	about.addAuthor( "Andi Peredri", 0, "andi@ukr.net" );
-	about.addAuthor( "Thomas Nagy", 0, "tnagy2^8@yahoo.fr" );
+	about.addAuthor( ki18n("Andi Peredri"), KLocalizedString(), "andi@ukr.net" );
+	about.addAuthor( ki18n("Thomas Nagy"), KLocalizedString(), "tnagy2^8@yahoo.fr" );
 
 	KCmdLineArgs::init(argc, argv, &about);
+
+	KCmdLineOptions options;
+	options.add("Novice", ki18n( "Start in novice mode" ));
+	options.add("Normal", ki18n( "Start in normal mode" ));
+	options.add("Expert", ki18n( "Start in expert mode" ));
+	options.add("Master", ki18n( "Start in master mode" ));
 	KCmdLineArgs::addCmdLineOptions(options);
 
 	KApplication application;
