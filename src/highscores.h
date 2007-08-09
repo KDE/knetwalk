@@ -26,8 +26,8 @@ namespace KExtHighscore
 			ExtManager();
 
 		private:
-			QString gameTypeLabel(uint gameTye, LabelType) const;
-			void convertLegacy(uint gameType);
+			QString gameTypeLabel(uint gameType, LabelType) const;
+			void convertLegacy(uint);
 			bool isStrictlyLess(const Score &s1, const Score &s2) const;
 	};
 }

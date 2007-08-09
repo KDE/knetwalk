@@ -45,6 +45,7 @@
 #include <KExtHighscore>
 #include <KStandardDirs>
 #include <KSelectAction>
+#include <KGameDifficulty>
 
 #include <time.h>
 
@@ -69,7 +70,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
 	setAutoSaveSettings();
-	connect(m_levels, SIGNAL(triggered(int)), this, SLOT(newGame(int)));
 
 
 	this->setWhatsThis( i18n("<h3>Rules of Game</h3>"
@@ -109,6 +109,16 @@ MainWindow::MainWindow(QWidget *parent)
 	m_invalidCache = true;
 	m_background.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 
+	// Difficulty
+	KGameDifficulty::init(this, this, SLOT(slotNewGame()));
+	KGameDifficulty::addStandardLevel(KGameDifficulty::easy);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::medium);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::hard);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::veryHard);
+	KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
+
+	setupGUI();
+
 	slotNewGame();
 }
 
@@ -127,16 +137,6 @@ void MainWindow::setupActions()
 	// Settings
 	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
 	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
-
-	m_levels = KStandardGameAction::chooseGameType(0, 0, actionCollection());
-	QStringList lst;
-	lst += i18n("Novice");
-	lst += i18n("Normal");
-	lst += i18n("Expert");
-	lst += i18n("Master");
-	m_levels->setItems(lst);
-
-	setupGUI();
 }
 
 void MainWindow::configureHighscores()
@@ -151,21 +151,27 @@ void MainWindow::showHighscores()
 
 void MainWindow::slotNewGame()
 {
-	newGame( Settings::skill() );
-}
-
-void MainWindow::newGame(int sk)
-{
-	if (sk==Settings::EnumSkill::Novice || sk==Settings::EnumSkill::Normal
-			|| sk==Settings::EnumSkill::Expert || sk==Settings::EnumSkill::Master)
-	{
-		Settings::setSkill(sk);
-	}
-
-	if(Settings::skill() == Settings::EnumSkill::Master) wrapped = true;
+	KGameDifficulty::standardLevel l = KGameDifficulty::level();
+	Settings::setSkill((int) l);
+	
+	if(l == KGameDifficulty::veryHard) wrapped = true;
 	else wrapped = false;
 
-	KExtHighscore::setGameType(Settings::skill());
+	switch (l) {
+		case KGameDifficulty::easy:
+		default:
+			KExtHighscore::setGameType(0);
+			break;
+		case KGameDifficulty::medium:
+			KExtHighscore::setGameType(1);
+			break;
+		case KGameDifficulty::hard:
+			KExtHighscore::setGameType(2);
+			break;
+		case KGameDifficulty::veryHard:
+			KExtHighscore::setGameType(3);
+			break;
+	}
 
 	Settings::self()->writeConfig();
 
@@ -183,9 +189,9 @@ void MainWindow::newGame(int sk)
 		board[i]->setLocked(false);
 	}
 
-	const int size = (Settings::skill() == Settings::EnumSkill::Novice) ? NoviceBoardSize :
-		(Settings::skill() == Settings::EnumSkill::Normal) ? NormalBoardSize :
-		(Settings::skill() == Settings::EnumSkill::Expert) ? ExpertBoardSize : MasterBoardSize;
+	const int size = (l == KGameDifficulty::easy) ? NoviceBoardSize :
+		(l == KGameDifficulty::medium) ? NormalBoardSize :
+		(l == KGameDifficulty::hard) ? ExpertBoardSize : MasterBoardSize;
 
 	const int start = (MasterBoardSize - size) / 2;
 	const int rootrow = rand() % size;

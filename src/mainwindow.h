@@ -41,7 +41,6 @@ class MainWindow : public KXmlGuiWindow
 		virtual void paintEvent(QPaintEvent*);
 		virtual void resizeEvent(QResizeEvent*);
 	private:
-		//enum Skill { Novice, Normal, Expert, Master };
 		enum BoardSize
 		{
 			NoviceBoardSize = 5,
@@ -59,7 +58,6 @@ class MainWindow : public KXmlGuiWindow
 		typedef QList<Cell*> CellList;
 	public slots:
 		void  slotNewGame();
-		void  newGame(int);
 
 		void  lClicked(int index);
 		void  rClicked(int index);
@@ -99,7 +97,6 @@ class MainWindow : public KXmlGuiWindow
 		QLCDNumber* lcd;
 
 		int m_clickcount;
-		KSelectAction* m_levels;
 		KSvgRenderer m_background;
 
 		QPixmap *pixmapCache;

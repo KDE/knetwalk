@@ -19,6 +19,7 @@
 #include <KConfig>
 #include <KGlobal>
 #include <KConfigGroup>
+#include <KGameDifficulty>
 
 #include "defines.h"
 #include "settings.h"
@@ -54,17 +55,9 @@ namespace KExtHighscore
 		return i18n(levels[gameType]);
 	}
 
-	void ExtManager::convertLegacy(uint gameType)
+	void ExtManager::convertLegacy(uint)
 	{
-		QString group;
-		switch (gameType)
-		{
-			case Settings::EnumSkill::Novice: group = "Novice level"; break;
-			case Settings::EnumSkill::Normal: group = "Normal level"; break;
-			case Settings::EnumSkill::Expert: group = "Expert level"; break;
-			case Settings::EnumSkill::Master: group = "Master level"; break;
-			default: Q_ASSERT(false);
-		}
+		QString group = KGameDifficulty::levelString();
 
 		KConfigGroup cg(KGlobal::config(), group);
 		QString name = cg.readEntry("Name", QString());
