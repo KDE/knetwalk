@@ -66,28 +66,15 @@ MainWindow::MainWindow(QWidget *parent)
 
 	setupActions();
 	
-	//setFixedSize(minimumSizeHint());
-
 	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
 	setAutoSaveSettings();
 
-
-	this->setWhatsThis( i18n("<h3>Rules of Game</h3>"
-			"<p>You are the system administrator and your goal"
-			" is to connect each computer to the central server.</p>"
-			"<p>Click the right mouse's button for turning the cable"
-			" in a clockwise direction, and left mouse's button"
-			" for turning the cable in a counter-clockwise direction.</p>"
-			"<p>Start the LAN with as few turns as possible!</p>"));
-
-	//const int cellsize = KGlobal::iconLoader()->loadIcon("knetwalk/background.png", K3Icon::User, 32).width();
 	const int cellsize = 32;
-	//const int gridsize = cellsize * MasterBoardSize + 2;
 
 	QFrame* frame = new QFrame(this);
 	frame->setFrameStyle(QFrame::NoFrame);
 	frame->setMinimumSize(MINIMUM_WIDTH, MINIMUM_HEIGHT);
-	//frame->setFixedSize(gridsize, gridsize);
+
 	QGridLayout* gridLay = new QGridLayout(frame);
 	gridLay->setMargin(0);
 	gridLay->setSpacing(0);
@@ -102,6 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
 		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
 		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
 		connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
+		board[i]->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the system administrator and your goal is to connect each computer to the central server.</p><p>Click the right mouse's button for turning the cable in a clockwise direction, and left mouse's button for turning the cable in a counter-clockwise direction.</p><p>Start the LAN with as few turns as possible!</p>"));
 	}
 	srand(time(0));
 
