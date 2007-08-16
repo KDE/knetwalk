@@ -51,7 +51,7 @@ namespace KExtHighscore
 			case I18N:     return i18n(level[gameType]);
 			case WW:       return data.wwLabel;
 		}
-		return QString::null;*/
+		return QString();*/
 		return i18n(levels[gameType]);
 	}
 
