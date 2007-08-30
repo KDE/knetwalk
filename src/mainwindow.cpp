@@ -99,10 +99,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 	// Difficulty
 	KGameDifficulty::init(this, this, SLOT(slotNewGame()));
-	KGameDifficulty::addStandardLevel(KGameDifficulty::easy);
-	KGameDifficulty::addStandardLevel(KGameDifficulty::medium);
-	KGameDifficulty::addStandardLevel(KGameDifficulty::hard);
-	KGameDifficulty::addStandardLevel(KGameDifficulty::veryHard);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
+	KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
 	KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
 
 	setupGUI();
@@ -142,21 +142,21 @@ void MainWindow::slotNewGame()
 	KGameDifficulty::standardLevel l = KGameDifficulty::level();
 	Settings::setSkill((int) l);
 	
-	if(l == KGameDifficulty::veryHard) wrapped = true;
+	if(l == KGameDifficulty::VeryHard) wrapped = true;
 	else wrapped = false;
 
 	switch (l) {
-		case KGameDifficulty::easy:
+		case KGameDifficulty::Easy:
 		default:
 			KExtHighscore::setGameType(0);
 			break;
-		case KGameDifficulty::medium:
+		case KGameDifficulty::Medium:
 			KExtHighscore::setGameType(1);
 			break;
-		case KGameDifficulty::hard:
+		case KGameDifficulty::Hard:
 			KExtHighscore::setGameType(2);
 			break;
-		case KGameDifficulty::veryHard:
+		case KGameDifficulty::VeryHard:
 			KExtHighscore::setGameType(3);
 			break;
 	}
@@ -177,9 +177,9 @@ void MainWindow::slotNewGame()
 		board[i]->setLocked(false);
 	}
 
-	const int size = (l == KGameDifficulty::easy) ? NoviceBoardSize :
-		(l == KGameDifficulty::medium) ? NormalBoardSize :
-		(l == KGameDifficulty::hard) ? ExpertBoardSize : MasterBoardSize;
+	const int size = (l == KGameDifficulty::Easy) ? NoviceBoardSize :
+		(l == KGameDifficulty::Medium) ? NormalBoardSize :
+		(l == KGameDifficulty::Hard) ? ExpertBoardSize : MasterBoardSize;
 
 	const int start = (MasterBoardSize - size) / 2;
 	const int rootrow = rand() % size;
