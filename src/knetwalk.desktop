@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Exec=knetwalk -caption "%c"
-DocPath=knetwalk/index.html
+X-DocPath=knetwalk/index.html
 Name=knetwalk
 Name[fi]=Knetwalk
 Name[hu]=KNetWalk
