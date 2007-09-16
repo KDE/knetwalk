@@ -27,7 +27,6 @@ class QLCDNumber;
 class QCloseEvent;
 class QResizeEvent;
 class QPixmap;
-class KSelectAction;
 
 class MainWindow : public KXmlGuiWindow
 {
