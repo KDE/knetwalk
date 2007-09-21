@@ -10,6 +10,7 @@ Name[pa]=ਕੇ-ਨੈੱਟਵਾਕ
 Name[sv]=Knetwalk
 Name[te]=కెనెట్ వాక్
 Name[x-test]=xxknetwalkxx
+GenericName=Network Construction Game
 Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true

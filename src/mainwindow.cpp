@@ -164,7 +164,7 @@ void MainWindow::slotNewGame()
 	Settings::self()->writeConfig();
 
 	m_clickcount = 0;
-	QString clicks = i18n("Click: %1",m_clickcount);
+	QString clicks = i18n("Moves: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
 
 	KNotification::event( "startsound", i18n("New Game") );
@@ -387,7 +387,7 @@ void MainWindow::rotate(int index, bool toleft)
 			KNotification::event( "connectsound" );
 
 		m_clickcount++;
-		QString clicks = i18n("Click: %1",m_clickcount);
+		QString clicks = i18n("Moves: %1",m_clickcount);
 		statusBar()->changeItem(clicks,1);
 
 		if (isGameOver())
