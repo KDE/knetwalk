@@ -66,7 +66,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 	setupActions();
 	
-	statusBar()->insertItem("abcdefghijklmnopqrst: 0  ",1);
+	statusBar()->insertPermanentItem("abcdefghijklmnopqrst: 0  ",1, 1);
+	statusBar()->setItemAlignment(1, Qt::AlignLeft & Qt::AlignVCenter);
 	setAutoSaveSettings();
 
 	const int cellsize = 32;
@@ -164,7 +165,7 @@ void MainWindow::slotNewGame()
 	Settings::self()->writeConfig();
 
 	m_clickcount = 0;
-	QString clicks = i18n("Moves: %1",m_clickcount);
+	QString clicks = i18nc("Number of mouse clicks", "Moves: %1",m_clickcount);
 	statusBar()->changeItem(clicks,1);
 
 	KNotification::event( "startsound", i18n("New Game") );
