@@ -167,18 +167,22 @@ void Cell::paintEvent(QPaintEvent*)
 				allSvg.render(&painter, "cable" + directionNames[ddirs]);
 			else
 				allSvg.render(&painter, "cable" + directionNames[ddirs]);
-
+			
+			int w = pixmapCache->width();
+			int h = pixmapCache->height();
+			qreal ratio = 0.6;
+                        QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 0.6 * w, 0.6 * h);
 			painter.resetMatrix();
 			if(root)
 			{
-				allSvg.render(&painter, "server");
+				allSvg.render(&painter, "server", boundingRect);
 			}
 			else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
 			{
 				if(connected)
-					allSvg.render(&painter, "computer2");
+					allSvg.render(&painter, "computer2", boundingRect);
 				else
-					allSvg.render(&painter, "computer1");
+					allSvg.render(&painter, "computer1", boundingRect);
 			}
 		}
 		painter.end();
