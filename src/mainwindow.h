@@ -78,6 +78,7 @@ class MainWindow : public KXmlGuiWindow
 		void  rotate(int index, bool toleft);
 		void  addRandomDir(CellList& list);
 		void  dialog(const QString& caption, const QString& text);
+		int gameSize();
 	private:
 		bool        wrapped;
 		Cell*       root;

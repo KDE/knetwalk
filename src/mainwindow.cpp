@@ -42,7 +42,7 @@
 #include <KStatusBar>
 #include <KNotification>
 #include <KNotifyConfigWidget>
-#include <KExtHighscore>
+#include <KScoreDialog>
 #include <KStandardDirs>
 #include <KSelectAction>
 #include <KGameDifficulty>
@@ -130,12 +130,13 @@ void MainWindow::setupActions()
 
 void MainWindow::configureHighscores()
 {
-	KExtHighscore::configure(this);
+	kDebug() << "Does nothing\n";
 }
 
 void MainWindow::showHighscores()
 {
-	KExtHighscore::show(this);
+	KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Custom1, this);
+	ksdialog.exec();
 }
 
 void MainWindow::slotNewGame()
@@ -145,22 +146,6 @@ void MainWindow::slotNewGame()
 	
 	if(l == KGameDifficulty::VeryHard) wrapped = true;
 	else wrapped = false;
-
-	switch (l) {
-		case KGameDifficulty::Easy:
-		default:
-			KExtHighscore::setGameType(0);
-			break;
-		case KGameDifficulty::Medium:
-			KExtHighscore::setGameType(1);
-			break;
-		case KGameDifficulty::Hard:
-			KExtHighscore::setGameType(2);
-			break;
-		case KGameDifficulty::VeryHard:
-			KExtHighscore::setGameType(3);
-			break;
-	}
 
 	Settings::self()->writeConfig();
 
@@ -178,9 +163,7 @@ void MainWindow::slotNewGame()
 		board[i]->setLocked(false);
 	}
 
-	const int size = (l == KGameDifficulty::Easy) ? NoviceBoardSize :
-		(l == KGameDifficulty::Medium) ? NormalBoardSize :
-		(l == KGameDifficulty::Hard) ? ExpertBoardSize : MasterBoardSize;
+	const int size = gameSize();
 
 	const int start = (MasterBoardSize - size) / 2;
 	const int rootrow = rand() % size;
@@ -395,10 +378,18 @@ void MainWindow::rotate(int index, bool toleft)
 		{
 			KNotification::event( "winsound" );
 			blink(index);
-
-			KExtHighscore::Score score(KExtHighscore::Won);
-			score.setScore(m_clickcount);
-			KExtHighscore::submitScore(score, this);
+			
+			KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Custom1, this);
+			ksdialog.setConfigGroup(KGameDifficulty::levelString());
+			
+			//ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
+			//KScoreDialog::FieldInfo scoreInfo;
+			//scoreInfo[KScoreDialog::Score].setNum(1000 * gameSize() * gameSize() / m_clickcount);
+			//scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
+			
+			ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
+			
+			ksdialog.exec();
 		}
 	}
 }
@@ -425,6 +416,16 @@ bool MainWindow::isGameOver()
 			return false;
 	}
 	return true;
+}
+
+int MainWindow::gameSize()
+{
+    switch (KGameDifficulty::level()) {
+        case KGameDifficulty::Easy: return NoviceBoardSize;
+        case KGameDifficulty::Medium: return NormalBoardSize;
+        case KGameDifficulty::Hard: return ExpertBoardSize;
+        default: return MasterBoardSize;
+    }
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)

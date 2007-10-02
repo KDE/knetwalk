@@ -56,8 +56,6 @@ int main(int argc, char ** argv)
 	if (args->isSet("Master")) Settings::setSkill(Settings::EnumSkill::Master);
 
 	args->clear();
-	KHighscore::init("knetwalk");
-	KExtHighscore::ExtManager manager;
 
 
 	MainWindow* window = new MainWindow;
