@@ -19,7 +19,6 @@
 #include <KHighscore>
 #include <KGlobal>
 
-#include "highscores.h"
 #include "settings.h"
 #include "mainwindow.h"
 

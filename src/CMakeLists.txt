@@ -8,7 +8,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames/highscore  )
 
 set(knetwalk_SRCS 
    cell.cpp 
-   highscores.cpp 
    main.cpp 
    mainwindow.cpp )
 
