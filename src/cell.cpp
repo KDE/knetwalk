@@ -23,6 +23,7 @@
 #include <KIconLoader>
 #include <KStandardDirs>
 #include <KSvgRenderer>
+#include <KDebug>
 
 Cell::NamesMap Cell::directionNames;
 KSvgRenderer Cell::allSvg;
@@ -52,16 +53,19 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent)
 	light     = 0;
 	iindex    = i;
 	ddirs     = Free;
-	changed   = true;
 	connected = false;
 	root      = false;
 	locked    = false;
 	pixmapCache = new QPixmap(width(), height());
+	forgroundCache = new QPixmap(width(), height());
+	
+	forgroundChanged = true;
 }
 
 Cell::~Cell()
 {
     delete pixmapCache;
+    delete forgroundCache;
 }
 
 int Cell::index() const
@@ -93,7 +97,7 @@ void Cell::setLocked( bool newlocked )
 {
 	if ( locked == newlocked ) return;
 	locked = newlocked;
-	changed = true;
+	forgroundChanged = true;
 	update();
 }
 
@@ -102,7 +106,7 @@ void Cell::setDirs(Dirs d)
 {
 	if(ddirs == d) return;
 	ddirs = d;
-	changed = true;
+	forgroundChanged = true;
 	update();
 }
 
@@ -110,7 +114,7 @@ void Cell::setConnected(bool b)
 {
 	if(connected == b) return;
 	connected = b;
-	changed = true;
+	forgroundChanged = true;
 	update();
 }
 
@@ -118,26 +122,34 @@ void Cell::setRoot(bool b)
 {
 	if(root == b) return;
 	root = b;
-	changed = true;
+	cableChanged = true;
+	if (!(ddirs & None)) 
+	   forgroundChanged = true;
 	update();
 }
 
 void Cell::setLight(int l)
 {
 	light = l;
-	changed = true;
+	forgroundChanged = true;
 	update();
 }
 
 void Cell::paintEvent(QPaintEvent*)
 {
+        if (ddirs == Free) {
+            //return;
+        }
+        if (ddirs == None) {
+            //return;
+        }
+        
 	QPainter painter;
-	if(changed)
+	if (forgroundChanged)
 	{
-		pixmapCache->fill(QColor(0, 0, 0, 0));
-		painter.begin(pixmapCache);
+		forgroundCache->fill(QColor(0, 0, 0, 0));
+		painter.begin(forgroundCache);
 
-		changed = false;
 		/*if ( locked ) {
 			allSvg.render(&painter, "background-locked");
 		} else {
@@ -151,45 +163,58 @@ void Cell::paintEvent(QPaintEvent*)
 			painter.drawLine(0, width() - light, width(), 2 * width() - light);
 		}
 */
-		if((ddirs != Free) && (ddirs != None))
+		
+		int w = pixmapCache->width();
+		int h = pixmapCache->height();
+		const qreal ratio = 0.8;
+                       QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
+                                            ratio * w, ratio * h);
+		if(root)
 		{
-			if(angle)
-			{
-				double woffset, hoffset;
-				woffset = width() / 2;
-				hoffset = height() / 2;
-				painter.translate(woffset, hoffset);
-				painter.rotate(angle);
-				painter.translate(-woffset, -hoffset);
-			}
-
-			if(connected)
-				allSvg.render(&painter, "cable" + directionNames[ddirs]);
-			else
-				allSvg.render(&painter, "cable" + directionNames[ddirs]);
-			
-			int w = pixmapCache->width();
-			int h = pixmapCache->height();
-			qreal ratio = 0.6;
-                        QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 0.6 * w, 0.6 * h);
-			painter.resetMatrix();
-			if(root)
-			{
-				allSvg.render(&painter, "server", boundingRect);
-			}
-			else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
-			{
-				if(connected)
-					allSvg.render(&painter, "computer2", boundingRect);
-				else
-					allSvg.render(&painter, "computer1", boundingRect);
-			}
+			allSvg.render(&painter, "server", boundingRect);
 		}
+		else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
+		{
+			if(connected)
+				allSvg.render(&painter, "computer2", boundingRect);
+			else
+				allSvg.render(&painter, "computer1", boundingRect);
+		}
+		painter.end();
+	}
+	if (ddirs & None) {
+		*pixmapCache = *forgroundCache;
+	}
+	else if (forgroundChanged || cableChanged) {
+		
+		pixmapCache->fill(QColor(0, 0, 0, 0));
+		painter.begin(pixmapCache);
+		
+		if(angle)
+		{
+			double woffset, hoffset;
+			woffset = width() / 2;
+			hoffset = height() / 2;
+			painter.translate(woffset, hoffset);
+			painter.rotate(angle);
+			painter.translate(-woffset, -hoffset);
+		}
+		if(connected)
+			allSvg.render(&painter, "cable" + directionNames[ddirs]);
+		else
+			allSvg.render(&painter, "cable" + directionNames[ddirs]);
+		
+		painter.resetMatrix();
+		
+		painter.drawPixmap(0, 0, *forgroundCache);
 		painter.end();
 	}
 	painter.begin(this);
 	painter.drawPixmap(0, 0, *pixmapCache);
 	painter.end();
+	
+	forgroundChanged = false;
+	cableChanged = false;
 }
 
 void Cell::mousePressEvent(QMouseEvent* e)
@@ -204,15 +229,19 @@ void Cell::mousePressEvent(QMouseEvent* e)
 
 void Cell::resizeEvent(QResizeEvent* e)
 {
-	changed = true;
+	forgroundChanged = true;
 	delete pixmapCache;
+	delete forgroundCache;
 	pixmapCache = new QPixmap(e->size());
+	forgroundCache = new QPixmap(e->size());
 }
 
 void Cell::rotate(int a)
 {
+        kDebug() << angle << endl;
 	angle += a;
-	changed = true;
+        kDebug() << angle << endl;
+	cableChanged = true;
 	while(angle >= 45)
 	{
 		angle -= 90;

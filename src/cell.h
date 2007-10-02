@@ -59,11 +59,14 @@ class Cell : public QWidget
 		int     light;
 		int     iindex;
 		bool    connected;
-		bool    changed;
+		bool    cableChanged;
+		bool    forgroundChanged;
 		bool    root;
 		bool    locked;
 		Dirs    ddirs;
+		// TODO: any reason for the following being pointers
 		QPixmap *pixmapCache;
+		QPixmap *forgroundCache;
 };
 
 #endif

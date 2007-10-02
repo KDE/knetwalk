@@ -135,7 +135,7 @@ void MainWindow::configureHighscores()
 
 void MainWindow::showHighscores()
 {
-	KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Custom1, this);
+	KScoreDialog ksdialog(KScoreDialog::Name, this);
 	ksdialog.exec();
 }
 
@@ -357,14 +357,13 @@ void MainWindow::rotate(int index, bool toleft)
 	{
 		KNotification::event( "turnsound" );
 
-		board[index]->rotate(toleft ? -3 : 3);
 		updateConnections();
-		for(int i = 0; i < 29; i++)
+		for(int i = 0; i < 18; i++)
 		{
 			qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-			QTimer::singleShot(20, board[index], SLOT(update()));
+			QTimer::singleShot(35, board[index], SLOT(update()));
 			qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
-			board[index]->rotate(toleft ? -3 : 3);
+			board[index]->rotate(toleft ? -5 : 5);
 		}
 
 		if (updateConnections())
@@ -379,7 +378,7 @@ void MainWindow::rotate(int index, bool toleft)
 			KNotification::event( "winsound" );
 			blink(index);
 			
-			KScoreDialog ksdialog(KScoreDialog::Name | KScoreDialog::Custom1, this);
+			KScoreDialog ksdialog(KScoreDialog::Name, this);
 			ksdialog.setConfigGroup(KGameDifficulty::levelString());
 			
 			//ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
