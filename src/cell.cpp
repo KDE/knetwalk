@@ -167,8 +167,8 @@ void Cell::paintEvent(QPaintEvent*)
 		int w = pixmapCache->width();
 		int h = pixmapCache->height();
 		const qreal ratio = 0.8;
-                       QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
-                                            ratio * w, ratio * h);
+                QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
+                                     ratio * w, ratio * h);
 		if(root)
 		{
 			allSvg.render(&painter, "server", boundingRect);
@@ -199,10 +199,17 @@ void Cell::paintEvent(QPaintEvent*)
 			painter.rotate(angle);
 			painter.translate(-woffset, -hoffset);
 		}
+		
+		int w = pixmapCache->width();
+		int h = pixmapCache->height();
+		const qreal ratio = 1.03;
+                QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
+                                     ratio * w, ratio * h);
+		
 		if(connected)
-			allSvg.render(&painter, "cable" + directionNames[ddirs]);
+			allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
 		else
-			allSvg.render(&painter, "cable" + directionNames[ddirs]);
+			allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
 		
 		painter.resetMatrix();
 		

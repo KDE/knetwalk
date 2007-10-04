@@ -447,8 +447,16 @@ void MainWindow::paintEvent(QPaintEvent* e)
 		if (m_invalidCache)
 		{
 			m_invalidCache = false;
+			
+			int w = pixmapCache->width();
+			int h = pixmapCache->height();
+			const qreal ratio = 1.02;
+            	    	QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
+                                            ratio * w, ratio * h);
+			
 			painter.begin(pixmapCache);
-			m_background.render(&painter, "background");
+			//pixmapCache->fill(QColor(255, 0, 0)); // for testing only
+			m_background.render(&painter, "background", boundingRect);
 			painter.end();
 		}
 
