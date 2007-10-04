@@ -471,6 +471,16 @@ void MainWindow::paintEvent(QPaintEvent* e)
 void MainWindow::resizeEvent(QResizeEvent*)
 {
 	m_invalidCache = true;
+	
+	// keep aspect ratio
+	int width = centralWidget()->width();
+	int height = centralWidget()->height();
+	int size = qMin(width, height);
+	int borderLeft = (width - size)/2;
+	int borderTop = (height - size)/2;
+	QRect r(borderLeft, borderTop, size, size);
+	qobject_cast<QFrame *>(centralWidget())->setFrameRect(r);
+	
 	delete pixmapCache;
 	pixmapCache = new QPixmap(centralWidget()->size());
 }
