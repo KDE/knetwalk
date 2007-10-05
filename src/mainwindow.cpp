@@ -124,14 +124,9 @@ void MainWindow::setupActions()
 	KStandardGameAction::quit(this, SLOT(close()), actionCollection());
 	
 	// Settings
-	KStandardGameAction::configureHighscores(this, SLOT(configureHighscores()), actionCollection());
 	KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
 }
 
-void MainWindow::configureHighscores()
-{
-	kDebug() << "Does nothing\n";
-}
 
 void MainWindow::showHighscores()
 {

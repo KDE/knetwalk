@@ -63,7 +63,6 @@ class MainWindow : public KXmlGuiWindow
 		void  mClicked(int index);
 
 		void  showHighscores();
-		void  configureHighscores();
 		void  configureNotifications();
 
 	private:
