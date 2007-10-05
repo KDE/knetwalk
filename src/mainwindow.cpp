@@ -469,15 +469,24 @@ void MainWindow::paintEvent(QPaintEvent* e)
         {
             m_invalidCache = false;
             
-            int w = pixmapCache->width();
-            int h = pixmapCache->height();
+            // calculate the background bounding rect
+            int width = pixmapCache->width();
+            int height = pixmapCache->height();
             const qreal ratio = 1.02;
-                        QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
-                                            ratio * w, ratio * h);
+            QRectF bgRect((1.0-ratio)/2 * width, (1.0-ratio)/2 * height, 
+                                 ratio * width, ratio * height);
+            
+            // calculate overlay bounding rect
+            int size = qMin(width, height);
+            size = static_cast<int>(size * 0.96); // add a border
+            int borderLeft = (width - size)/2;
+            int borderTop = (height - size)/2;
+            QRect overlayRect(borderLeft, borderTop, size, size);
             
             painter.begin(pixmapCache);
             //pixmapCache->fill(QColor(255, 0, 0)); // for testing only
-            m_background.render(&painter, "background", boundingRect);
+            m_background.render(&painter, "background", bgRect);
+            m_background.render(&painter, "overlay", overlayRect);
             painter.end();
         }
 
@@ -497,7 +506,7 @@ void MainWindow::resizeEvent(QResizeEvent*)
     int width = centralWidget()->width();
     int height = centralWidget()->height();
     int size = qMin(width, height);
-    size = static_cast<int>(size * 0.95); // add a border
+    size = static_cast<int>(size * 0.92); // add a border
     int borderLeft = (width - size)/2;
     int borderTop = (height - size)/2;
     QRect r(borderLeft, borderTop, size, size);
