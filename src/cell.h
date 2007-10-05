@@ -28,6 +28,8 @@ class Cell : public QWidget
 {
 	Q_OBJECT
 	public:
+	        // Free or None means it's not used, if it has only one direction
+	        // it's a computer or a server
 		enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
 		Cell(QWidget* parent, int i);
 		~Cell();

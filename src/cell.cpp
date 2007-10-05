@@ -137,6 +137,10 @@ void Cell::setLight(int l)
 
 void Cell::paintEvent(QPaintEvent*)
 {
+        if (width() == 0 || height() == 0) {
+                kDebug() << "Painting empty area" << endl;
+                return;
+        }
         if (ddirs == Free) {
             //return;
         }
@@ -148,6 +152,8 @@ void Cell::paintEvent(QPaintEvent*)
 	if (forgroundChanged)
 	{
 		forgroundCache->fill(QColor(0, 0, 0, 0));
+		//if (ddirs & None) forgroundCache->fill(QColor(255, 0, 0, 100));
+		//if (ddirs == Free) forgroundCache->fill(QColor(255, 255, 255, 100));
 		painter.begin(forgroundCache);
 
 		/*if ( locked ) {
@@ -173,6 +179,7 @@ void Cell::paintEvent(QPaintEvent*)
 		{
 			allSvg.render(&painter, "server", boundingRect);
 		}
+		// if the cell has only one direction and isn't a server
 		else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
 		{
 			if(connected)
@@ -245,9 +252,7 @@ void Cell::resizeEvent(QResizeEvent* e)
 
 void Cell::rotate(int a)
 {
-        kDebug() << angle << endl;
 	angle += a;
-        kDebug() << angle << endl;
 	cableChanged = true;
 	while(angle >= 45)
 	{

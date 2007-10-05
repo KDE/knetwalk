@@ -27,6 +27,7 @@ class QLCDNumber;
 class QCloseEvent;
 class QResizeEvent;
 class QPixmap;
+class QGridLayout;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -36,6 +37,7 @@ class MainWindow : public KXmlGuiWindow
 		virtual ~MainWindow();
 	protected:
 		void setupActions();
+		void createBoard();
 		virtual void closeEvent(QCloseEvent*);
 		virtual void paintEvent(QPaintEvent*);
 		virtual void resizeEvent(QResizeEvent*);
@@ -77,11 +79,13 @@ class MainWindow : public KXmlGuiWindow
 		void  rotate(int index, bool toleft);
 		void  addRandomDir(CellList& list);
 		void  dialog(const QString& caption, const QString& text);
-		int gameSize();
+		int boardSize();
+		void setBoardSize(int size);
 	private:
 		bool        wrapped;
 		Cell*       root;
 		Cell*       board[MasterBoardSize * MasterBoardSize];
+		QGridLayout* gridLayout;
 
 		QSound*     clicksound;
 		QSound*     connectsound;

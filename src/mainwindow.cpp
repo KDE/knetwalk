@@ -70,31 +70,11 @@ MainWindow::MainWindow(QWidget *parent)
 	statusBar()->setItemAlignment(1, Qt::AlignLeft & Qt::AlignVCenter);
 	setAutoSaveSettings();
 
-	const int cellsize = 32;
-
-	QFrame* frame = new QFrame(this);
-	frame->setFrameStyle(QFrame::NoFrame);
-	frame->setMinimumSize(MINIMUM_WIDTH, MINIMUM_HEIGHT);
-
-	QGridLayout* gridLay = new QGridLayout(frame);
-	gridLay->setMargin(0);
-	gridLay->setSpacing(0);
-	setCentralWidget(frame);
-
-	Cell::initPixmaps();
-	for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
-	{
-		board[i] = new Cell(frame, i);
-		gridLay->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
-		board[i]->resize(cellsize, cellsize);
-		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
-		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
-		connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
-		board[i]->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the system administrator and your goal is to connect each computer to the central server.</p><p>Click the right mouse's button for turning the cable in a clockwise direction, and left mouse's button for turning the cable in a counter-clockwise direction.</p><p>Start the LAN with as few turns as possible!</p>"));
-	}
+	createBoard();
+	
 	srand(time(0));
 
-	pixmapCache = new QPixmap(frame->size());
+	pixmapCache = new QPixmap(centralWidget()->size());
 	m_invalidCache = true;
 	m_background.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 
@@ -114,6 +94,51 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
 	delete pixmapCache;
+}
+
+void MainWindow::createBoard()
+{
+	QFrame* frame = new QFrame(this);
+	frame->setFrameStyle(QFrame::NoFrame);
+	frame->setMinimumSize(MINIMUM_WIDTH, MINIMUM_HEIGHT);
+
+	gridLayout = new QGridLayout(frame);
+	gridLayout->setMargin(0);
+	gridLayout->setSpacing(0);
+	setCentralWidget(frame);
+
+	Cell::initPixmaps();
+	for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+	{
+		board[i] = new Cell(frame, i);
+		gridLayout->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
+		//board[i]->resize(32, 32); //TODO: needed ???
+		connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
+		connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
+		connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
+		board[i]->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the system administrator and your goal is to connect each computer to the central server.</p><p>Click the right mouse's button for turning the cable in a clockwise direction, and left mouse's button for turning the cable in a counter-clockwise direction.</p><p>Start the LAN with as few turns as possible!</p>"));
+	}
+}
+
+void MainWindow::setBoardSize(int size)
+{
+    if (!(size%2) || size > MasterBoardSize) {
+        kDebug() << "Wrong size!!\n";
+        return;
+    }
+    //boardSize = size
+    int start = (MasterBoardSize - size)/2;
+    for (int i = 0; i < start; ++i) {
+        // TODO: set only the last rows and columns to zero not half at the beginning and half at the end
+        gridLayout->setRowStretch(i, 0);
+        gridLayout->setRowStretch(MasterBoardSize - 1 - i, 0);
+        gridLayout->setColumnStretch(i, 0);
+        gridLayout->setColumnStretch(MasterBoardSize - 1 - i, 0);
+    }
+    for (int i = start; i < start + size; ++i) {
+        gridLayout->setRowStretch(i, 1);
+        gridLayout->setColumnStretch(i, 1);
+    }
 }
 
 void MainWindow::setupActions()
@@ -158,7 +183,8 @@ void MainWindow::slotNewGame()
 		board[i]->setLocked(false);
 	}
 
-	const int size = gameSize();
+	const int size = boardSize();
+	setBoardSize(size);
 
 	const int start = (MasterBoardSize - size) / 2;
 	const int rootrow = rand() % size;
@@ -378,7 +404,7 @@ void MainWindow::rotate(int index, bool toleft)
 			
 			//ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
 			//KScoreDialog::FieldInfo scoreInfo;
-			//scoreInfo[KScoreDialog::Score].setNum(1000 * gameSize() * gameSize() / m_clickcount);
+			//scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
 			//scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
 			
 			ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
@@ -412,7 +438,7 @@ bool MainWindow::isGameOver()
 	return true;
 }
 
-int MainWindow::gameSize()
+int MainWindow::boardSize()
 {
     switch (KGameDifficulty::level()) {
         case KGameDifficulty::Easy: return NoviceBoardSize;
@@ -471,6 +497,7 @@ void MainWindow::resizeEvent(QResizeEvent*)
 	int width = centralWidget()->width();
 	int height = centralWidget()->height();
 	int size = qMin(width, height);
+	size *= 0.95; // add a border
 	int borderLeft = (width - size)/2;
 	int borderTop = (height - size)/2;
 	QRect r(borderLeft, borderTop, size, size);
