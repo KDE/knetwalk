@@ -209,7 +209,7 @@ void Cell::paintEvent(QPaintEvent*)
                             ratio * w, ratio * h);
         
         if(connected)
-            allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
+            allSvg.render(&painter, "cablecon" + directionNames[ddirs], boundingRect);
         else
             allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
         
