@@ -152,8 +152,8 @@ void Cell::paintEvent(QPaintEvent*)
 	if (forgroundChanged)
 	{
 		forgroundCache->fill(QColor(0, 0, 0, 0));
-		//if (ddirs & None) forgroundCache->fill(QColor(255, 0, 0, 100));
-		//if (ddirs == Free) forgroundCache->fill(QColor(255, 255, 255, 100));
+		//if (locked) forgroundCache->fill(QColor(0, 0, 0, 100));
+		//if (locked) forgroundCache->fill(QColor(255, 255, 255, 100));
 		painter.begin(forgroundCache);
 
 		/*if ( locked ) {
@@ -193,8 +193,9 @@ void Cell::paintEvent(QPaintEvent*)
 		*pixmapCache = *forgroundCache;
 	}
 	else if (forgroundChanged || cableChanged) {
+		if (locked) pixmapCache->fill(QColor(0, 0, 0, 100));
+		else pixmapCache->fill(QColor(0, 0, 0, 0));
 		
-		pixmapCache->fill(QColor(0, 0, 0, 0));
 		painter.begin(pixmapCache);
 		
 		if(angle)

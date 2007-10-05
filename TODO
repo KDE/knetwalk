@@ -1,5 +1,5 @@
-* Fiber lighting should be made more evident (lighted/unlighted contrast)
-  The contrast between on/off is not blatant
-* Connect all your friends so you can talk on the phone together
-* Make more obvious that even monitors or the server can change orientation
-* Tiles size should be configurable (larger) - use kzoomwindow
+BUGS: 
+* when locking a cell the computer freezes for a while (seems to be caused by notifications, may be becouse of brocked kdebase)
+
+short term:
+* performance improvement (only one svg renderer, caching (?))

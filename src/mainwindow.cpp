@@ -126,7 +126,7 @@ void MainWindow::setBoardSize(int size)
         kDebug() << "Wrong size!!\n";
         return;
     }
-    //boardSize = size
+    //TODO: boardSize = size
     int start = (MasterBoardSize - size)/2;
     for (int i = 0; i < start; ++i) {
         // TODO: set only the last rows and columns to zero not half at the beginning and half at the end
