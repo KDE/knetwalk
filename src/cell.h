@@ -53,8 +53,6 @@ class Cell : public QWidget
 		virtual void paintEvent(QPaintEvent*);
 		virtual void mousePressEvent(QMouseEvent*);
 		virtual void resizeEvent(QResizeEvent*);
-		virtual void enterEvent(QEvent*);
-		virtual void leaveEvent(QEvent*);
 	private:
 		typedef QMap<int, QString> NamesMap;
 		static NamesMap directionNames;
@@ -62,7 +60,6 @@ class Cell : public QWidget
 		int     angle;
 		int     light;
 		int     iindex;
-		bool    hovered; // hovered by the mouse cursor
 		bool    connected;
 		bool    cableChanged;
 		bool    forgroundChanged;
