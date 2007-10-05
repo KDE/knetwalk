@@ -1,5 +1,2 @@
-BUGS: 
-* when locking a cell the computer freezes for a while (seems to be caused by notifications, may be becouse of brocked kdebase)
-
 short term:
 * performance improvement (only one svg renderer, caching (?))

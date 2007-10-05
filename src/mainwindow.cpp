@@ -372,7 +372,7 @@ void MainWindow::rotate(int index, bool toleft)
 	if((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
 	{
 		KNotification::event( "clicksound" );
-		blink(index);
+		//blink(index);
 	}
 	else
 	{
@@ -497,7 +497,7 @@ void MainWindow::resizeEvent(QResizeEvent*)
 	int width = centralWidget()->width();
 	int height = centralWidget()->height();
 	int size = qMin(width, height);
-	size *= 0.95; // add a border
+	size = static_cast<int>(size * 0.95); // add a border
 	int borderLeft = (width - size)/2;
 	int borderTop = (height - size)/2;
 	QRect r(borderLeft, borderTop, size, size);

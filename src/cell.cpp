@@ -56,10 +56,12 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent)
 	connected = false;
 	root      = false;
 	locked    = false;
+	hovered   = false; // TODO: what if the cell starts being hovered??
 	pixmapCache = new QPixmap(width(), height());
 	forgroundCache = new QPixmap(width(), height());
 	
 	forgroundChanged = true;
+	setMouseTracking(true);
 }
 
 Cell::~Cell()
@@ -160,15 +162,14 @@ void Cell::paintEvent(QPaintEvent*)
 			allSvg.render(&painter, "background-locked");
 		} else {
 			allSvg.render(&painter, "background");
-		}*/
+		}
 
-/*
 		if(light)
 		{
 			painter.setPen(QPen(Qt::white, 5));
 			painter.drawLine(0, width() - light, width(), 2 * width() - light);
-		}
-*/
+		}*/
+
 		
 		int w = pixmapCache->width();
 		int h = pixmapCache->height();
@@ -225,6 +226,11 @@ void Cell::paintEvent(QPaintEvent*)
 		painter.end();
 	}
 	painter.begin(this);
+	if (hovered && !locked) {
+	   painter.setBrush(QColor(255, 255, 255, 30));
+	   painter.setPen(Qt::NoPen);
+	   painter.drawRect(0, 0, pixmapCache->width(), pixmapCache->height());
+	}
 	painter.drawPixmap(0, 0, *pixmapCache);
 	painter.end();
 	
@@ -249,6 +255,21 @@ void Cell::resizeEvent(QResizeEvent* e)
 	delete forgroundCache;
 	pixmapCache = new QPixmap(e->size());
 	forgroundCache = new QPixmap(e->size());
+}
+
+
+void Cell::enterEvent(QEvent*)
+{
+    hovered = true;
+    cableChanged = true;
+    update();
+}
+
+void Cell::leaveEvent(QEvent*)
+{
+    hovered = false;
+    cableChanged = true;
+    update();
 }
 
 void Cell::rotate(int a)
