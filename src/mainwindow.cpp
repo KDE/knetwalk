@@ -49,6 +49,7 @@
 
 #include <time.h>
 
+#include "consts.h"
 #include "settings.h"
 #include "cell.h"
 
@@ -382,7 +383,7 @@ void MainWindow::rotate(int index, bool toleft)
         for(int i = 0; i < 18; i++)
         {
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-            QTimer::singleShot(35, board[index], SLOT(update()));
+            QTimer::singleShot(ANIMATION_UPDATE_INTERVAL, board[index], SLOT(update()));
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
             board[index]->rotate(toleft ? -5 : 5);
         }
@@ -419,7 +420,7 @@ void MainWindow::blink(int index)
     for(int i = 0; i < board[index]->width() * 2; i += 2)
     {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-        QTimer::singleShot(20, board[index], SLOT(update()));
+        QTimer::singleShot(ANIMATION_UPDATE_INTERVAL, board[index], SLOT(update()));
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents |
         QEventLoop::WaitForMoreEvents);
         board[index]->setLight(i);
@@ -472,13 +473,13 @@ void MainWindow::paintEvent(QPaintEvent* e)
             // calculate the background bounding rect
             int width = pixmapCache->width();
             int height = pixmapCache->height();
-            const qreal ratio = 1.02;
-            QRectF bgRect((1.0-ratio)/2 * width, (1.0-ratio)/2 * height, 
+            qreal ratio = 1.0 - BACKGROUND_BORDER*2;
+            QRectF bgRect(BACKGROUND_BORDER * width, BACKGROUND_BORDER * height, 
                                  ratio * width, ratio * height);
             
-            // calculate overlay bounding rect
+            // calculate background overlay bounding rect
             int size = qMin(width, height);
-            size = static_cast<int>(size * 0.96); // add a border
+            size = static_cast<int>(size * (1.0 - 2*OVERLAY_BORDER)); // add a border
             int borderLeft = (width - size)/2;
             int borderTop = (height - size)/2;
             QRect overlayRect(borderLeft, borderTop, size, size);
@@ -506,7 +507,7 @@ void MainWindow::resizeEvent(QResizeEvent*)
     int width = centralWidget()->width();
     int height = centralWidget()->height();
     int size = qMin(width, height);
-    size = static_cast<int>(size * 0.92); // add a border
+    size = static_cast<int>(size * (1.0 - 2*BOARD_BORDER)); // add a border
     int borderLeft = (width - size)/2;
     int borderTop = (height - size)/2;
     QRect r(borderLeft, borderTop, size, size);

@@ -25,6 +25,8 @@
 #include <KSvgRenderer>
 #include <KDebug>
 
+#include "consts.h"
+
 Cell::NamesMap Cell::directionNames;
 KSvgRenderer Cell::allSvg;
 
@@ -164,8 +166,8 @@ void Cell::paintEvent(QPaintEvent*)
         
         int w = pixmapCache->width();
         int h = pixmapCache->height();
-        const qreal ratio = 0.8;
-        QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
+        const qreal ratio = 1.0 - CELL_FORGROUND_BORDER*2;
+        QRectF boundingRect(CELL_FORGROUND_BORDER * w, CELL_FORGROUND_BORDER * h, 
                              ratio * w, ratio * h);
         if(root)
         {
@@ -185,7 +187,7 @@ void Cell::paintEvent(QPaintEvent*)
         *pixmapCache = *forgroundCache;
     }
     else if (forgroundChanged || cableChanged) {
-        if (locked) pixmapCache->fill(QColor(0, 0, 0, 100));
+        if (locked) pixmapCache->fill(LOCKED_CELL_COLOR);
         else pixmapCache->fill(QColor(0, 0, 0, 0));
         
         painter.begin(pixmapCache);
@@ -202,9 +204,9 @@ void Cell::paintEvent(QPaintEvent*)
         
         int w = pixmapCache->width();
         int h = pixmapCache->height();
-        const qreal ratio = 1.03;
-                QRectF boundingRect((1.0-ratio)/2 * w, (1.0-ratio)/2 * h, 
-                                     ratio * w, ratio * h);
+        const qreal ratio = 1.0 - CELL_BORDER*2;
+        QRectF boundingRect(CELL_BORDER * w, CELL_BORDER * h, 
+                            ratio * w, ratio * h);
         
         if(connected)
             allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
@@ -218,9 +220,9 @@ void Cell::paintEvent(QPaintEvent*)
     }
     painter.begin(this);
     if (underMouse() && !locked) {
-       painter.setBrush(QColor(255, 255, 255, 30));
-       painter.setPen(Qt::NoPen);
-       painter.drawRect(0, 0, pixmapCache->width(), pixmapCache->height());
+        painter.setBrush(HOVERED_CELL_COLOR);
+        painter.setPen(Qt::NoPen);
+        painter.drawRect(0, 0, pixmapCache->width(), pixmapCache->height());
     }
     painter.drawPixmap(0, 0, *pixmapCache);
     painter.end();
@@ -231,11 +233,11 @@ void Cell::paintEvent(QPaintEvent*)
 
 void Cell::mousePressEvent(QMouseEvent* e)
 {
-    if(e->button() == Qt::LeftButton)
+    if (e->button() == Qt::LeftButton)
         emit lClicked(iindex);
-    else if(e->button() == Qt::RightButton)
+    else if (e->button() == Qt::RightButton)
         emit rClicked(iindex);
-    else if(e->button() == Qt::MidButton)
+    else if (e->button() == Qt::MidButton)
         emit mClicked(iindex);
 }
 
@@ -252,24 +254,24 @@ void Cell::rotate(int a)
 {
     angle += a;
     cableChanged = true;
-    while(angle >= 45)
+    while (angle >= 45)
     {
         angle -= 90;
         int newdirs = Free;
-        if(ddirs & U) newdirs |= R;
-        if(ddirs & R) newdirs |= D;
-        if(ddirs & D) newdirs |= L;
-        if(ddirs & L) newdirs |= U;
+        if (ddirs & U) newdirs |= R;
+        if (ddirs & R) newdirs |= D;
+        if (ddirs & D) newdirs |= L;
+        if (ddirs & L) newdirs |= U;
         setDirs(Dirs(newdirs));
     }
-    while(angle < -45)
+    while (angle < -45)
     {
         angle += 90;
         int newdirs = Free;
-        if(ddirs & U) newdirs |= L;
-        if(ddirs & R) newdirs |= U;
-        if(ddirs & D) newdirs |= R;
-        if(ddirs & L) newdirs |= D;
+        if (ddirs & U) newdirs |= L;
+        if (ddirs & R) newdirs |= U;
+        if (ddirs & D) newdirs |= R;
+        if (ddirs & L) newdirs |= D;
         setDirs(Dirs(newdirs));
     }
     update();
