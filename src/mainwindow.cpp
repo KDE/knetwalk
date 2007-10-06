@@ -358,16 +358,19 @@ Cell* MainWindow::rCell(Cell* cell) const
 
 void MainWindow::lClicked(int index)
 {
+    KGameDifficulty::setRunning(true);
     rotate(index, true);
 }
 
 void MainWindow::rClicked(int index)
 {
+    KGameDifficulty::setRunning(true);
     rotate(index, false);
 }
 
 void MainWindow::mClicked(int index)
 {
+    KGameDifficulty::setRunning(true);
     board[index]->setLocked( !board[index]->isLocked() );
 }
 
@@ -400,7 +403,8 @@ void MainWindow::rotate(int index, bool toleft)
         statusBar()->changeItem(clicks,1);
 
         if (isGameOver())
-        {
+        {   
+            KGameDifficulty::setRunning(false);
             KNotification::event( "winsound" );
             blink(index);
             
