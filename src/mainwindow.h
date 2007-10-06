@@ -31,77 +31,82 @@ class QGridLayout;
 
 class MainWindow : public KXmlGuiWindow
 {
-    Q_OBJECT
-    public:
-        explicit MainWindow(QWidget *parent=0);
-        virtual ~MainWindow();
-    protected:
-        void setupActions();
-        void createBoard();
-        virtual void closeEvent(QCloseEvent*);
-        virtual void paintEvent(QPaintEvent*);
-        virtual void resizeEvent(QResizeEvent*);
-    private:
-        enum BoardSize
-        {
-            NoviceBoardSize = 5,
-            NormalBoardSize = 7,
-            ExpertBoardSize = 9,
-            MasterBoardSize = 9
-        };
-        enum
-        {
-            NumHighscores   = 10,
-            MinimumNumCells = 20
-        };
-        typedef QList<Cell*> CellList;
-    public slots:
-        void  slotNewGame();
+Q_OBJECT
+public:
+    explicit MainWindow(QWidget *parent=0);
+    virtual ~MainWindow();
+    
+protected:
+    void setupActions();
+    void createBoard();
+    virtual void closeEvent(QCloseEvent*);
+    virtual void paintEvent(QPaintEvent*);
+    virtual void resizeEvent(QResizeEvent*);
+    
+private:
+    enum BoardSize
+    {
+        NoviceBoardSize = 5,
+        NormalBoardSize = 7,
+        ExpertBoardSize = 9,
+        MasterBoardSize = 9
+    };
+    enum
+    {
+        NumHighscores   = 10,
+        MinimumNumCells = 20
+    };
+    typedef QList<Cell*> CellList;
+    
+public slots:
+    void  startNewGame();
 
-        void  lClicked(int index);
-        void  rClicked(int index);
-        void  mClicked(int index);
+    void  lClicked(int index);
+    void  rClicked(int index);
+    void  mClicked(int index);
 
-        void  showHighscores();
-        void  configureNotifications();
+    void  showHighscores();
+    void  configureNotifications();
+    void  newDifficulty();
 
-    private:
-        Cell* uCell(Cell* cell) const;
-        Cell* dCell(Cell* cell) const;
-        Cell* lCell(Cell* cell) const;
-        Cell* rCell(Cell* cell) const;
-        bool  isGameOver();
-        bool  startBrowser(const QString& url);
-        bool  updateConnections();
-        void  blink(int index);
-        void  rotate(int index, bool toleft);
-        void  addRandomDir(CellList& list);
-        void  dialog(const QString& caption, const QString& text);
-        int boardSize();
-        void setBoardSize(int size);
-    private:
-        bool        wrapped;
-        Cell*       root;
-        Cell*       board[MasterBoardSize * MasterBoardSize];
-        QGridLayout* gridLayout;
+private:
+    Cell* uCell(Cell* cell) const;
+    Cell* dCell(Cell* cell) const;
+    Cell* lCell(Cell* cell) const;
+    Cell* rCell(Cell* cell) const;
+    bool  isGameOver();
+    bool  startBrowser(const QString& url);
+    bool  updateConnections();
+    void  blink(int index);
+    void  rotate(int index, bool toleft);
+    void  addRandomDir(CellList& list);
+    void  dialog(const QString& caption, const QString& text);
+    int boardSize();
+    void setBoardSize(int size);
+    
+private:
+    bool        wrapped;
+    Cell*       root;
+    Cell*       board[MasterBoardSize * MasterBoardSize];
+    QGridLayout* gridLayout;
 
-        QSound*     clicksound;
-        QSound*     connectsound;
-        QSound*     startsound;
-        QSound*     turnsound;
-        QSound*     winsound;
+    QSound*     clicksound;
+    QSound*     connectsound;
+    QSound*     startsound;
+    QSound*     turnsound;
+    QSound*     winsound;
 
-        QString     username;
-        QString     soundpath;
-        QAction*    soundaction;
-        QStringList highscores;
-        QLCDNumber* lcd;
+    QString     username;
+    QString     soundpath;
+    QAction*    soundaction;
+    QStringList highscores;
+    QLCDNumber* lcd;
 
-        int m_clickcount;
-        KSvgRenderer m_background;
+    int m_clickcount;
+    KSvgRenderer m_background;
 
-        QPixmap *pixmapCache;
-        bool m_invalidCache;
+    QPixmap *pixmapCache;
+    bool m_invalidCache;
 };
 
 #endif // MAINWINDOW_H

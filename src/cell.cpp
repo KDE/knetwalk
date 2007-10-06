@@ -144,91 +144,110 @@ void Cell::paintEvent(QPaintEvent*)
         kDebug() << "Painting empty area" << endl;
         return;
     }
-        
-    QPainter painter;
+    
     if (forgroundChanged)
     {
-        forgroundCache->fill(QColor(0, 0, 0, 0));
-        painter.begin(forgroundCache);
-
-        /*if ( locked ) {
-            allSvg.render(&painter, "background-locked");
-        } else {
-            allSvg.render(&painter, "background");
-        }
-
-        if(light)
-        {
-            painter.setPen(QPen(Qt::white, 5));
-            painter.drawLine(0, width() - light, width(), 2 * width() - light);
-        }*/
-
-        
-        int w = pixmapCache->width();
-        int h = pixmapCache->height();
-        const qreal ratio = 1.0 - CELL_FORGROUND_BORDER*2;
-        QRectF boundingRect(CELL_FORGROUND_BORDER * w, CELL_FORGROUND_BORDER * h, 
-                             ratio * w, ratio * h);
-        if(root)
-        {
-            allSvg.render(&painter, "server", boundingRect);
-        }
-        // if the cell has only one direction and isn't a server
-        else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
-        {
-            if(connected)
-                allSvg.render(&painter, "computer2", boundingRect);
-            else
-                allSvg.render(&painter, "computer1", boundingRect);
-        }
-        painter.end();
+        // paint the terminals or server on the forgroundCache
+        paintForground();
     }
-    if (ddirs & None) {
+    if (ddirs == None || ddirs == Free) {
         *pixmapCache = *forgroundCache;
     }
     else if (forgroundChanged || cableChanged) {
-        if (locked) pixmapCache->fill(LOCKED_CELL_COLOR);
-        else pixmapCache->fill(QColor(0, 0, 0, 0));
-        
-        painter.begin(pixmapCache);
-        
-        if(angle)
-        {
-            double woffset, hoffset;
-            woffset = width() / 2;
-            hoffset = height() / 2;
-            painter.translate(woffset, hoffset);
-            painter.rotate(angle);
-            painter.translate(-woffset, -hoffset);
-        }
-        
-        int w = pixmapCache->width();
-        int h = pixmapCache->height();
-        const qreal ratio = 1.0 - CELL_BORDER*2;
-        QRectF boundingRect(CELL_BORDER * w, CELL_BORDER * h, 
-                            ratio * w, ratio * h);
-        
-        if(connected)
-            allSvg.render(&painter, "cablecon" + directionNames[ddirs], boundingRect);
-        else
-            allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
-        
-        painter.resetMatrix();
-        
-        painter.drawPixmap(0, 0, *forgroundCache);
-        painter.end();
+        // paints everything on the cache
+        paintOnCache();
     }
+    
+    
+    QPainter painter;
     painter.begin(this);
+    
+    // light on hover
     if (underMouse() && !locked) {
-        painter.setBrush(HOVERED_CELL_COLOR);
+        painter.setBrush(HoveredCellColor);
         painter.setPen(Qt::NoPen);
         painter.drawRect(0, 0, pixmapCache->width(), pixmapCache->height());
     }
+    
     painter.drawPixmap(0, 0, *pixmapCache);
     painter.end();
     
     forgroundChanged = false;
     cableChanged = false;
+}
+
+void Cell::paintForground()
+{
+    QPainter painter;
+    forgroundCache->fill(QColor(0, 0, 0, 0));
+    painter.begin(forgroundCache);
+
+    /*if ( locked ) {
+        allSvg.render(&painter, "background-locked");
+    } else {
+        allSvg.render(&painter, "background");
+    }
+
+    if (light)
+    {
+        painter.setPen(QPen(Qt::white, 5));
+        painter.drawLine(0, width() - light, width(), 2 * width() - light);
+    }*/
+
+    
+    int w = pixmapCache->width();
+    int h = pixmapCache->height();
+    const qreal ratio = 1.0 - CellForgroundBorder*2;
+    QRectF boundingRect(CellForgroundBorder * w, CellForgroundBorder * h, 
+                            ratio * w, ratio * h);
+    if(root)
+    {
+        allSvg.render(&painter, "server", boundingRect);
+    }
+    // if the cell has only one direction and isn't a server
+    else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
+    {
+        if(connected)
+            allSvg.render(&painter, "computer2", boundingRect);
+        else
+            allSvg.render(&painter, "computer1", boundingRect);
+    }
+    painter.end();
+}
+
+void Cell::paintOnCache()
+{
+    QPainter painter;
+    if (locked) pixmapCache->fill(LockedCellColor);
+    else pixmapCache->fill(QColor(0, 0, 0, 0));
+    
+    painter.begin(pixmapCache);
+    
+    if(angle)
+    {
+        double woffset, hoffset;
+        woffset = width() / 2;
+        hoffset = height() / 2;
+        painter.translate(woffset, hoffset);
+        painter.rotate(angle);
+        painter.translate(-woffset, -hoffset);
+    }
+    
+    int w = pixmapCache->width();
+    int h = pixmapCache->height();
+    const qreal ratio = 1.0 - CellBorder*2;
+    QRectF boundingRect(CellBorder * w, CellBorder * h, 
+                        ratio * w, ratio * h);
+    
+    if(connected)
+        allSvg.render(&painter, "cablecon" + directionNames[ddirs], boundingRect);
+    else
+        allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
+    
+    painter.resetMatrix();
+    
+    painter.drawPixmap(0, 0, *forgroundCache);
+    painter.end();
 }
 
 void Cell::mousePressEvent(QMouseEvent* e)

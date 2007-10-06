@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setupActions();
     
-    statusBar()->insertPermanentItem("abcdefghijklmnopqrst: 0  ",1, 1);
+    statusBar()->insertPermanentItem("abcdefghijklmnopqrst: 0  ", 1, 1);
     statusBar()->setItemAlignment(1, Qt::AlignLeft & Qt::AlignVCenter);
     setAutoSaveSettings();
 
@@ -80,16 +80,15 @@ MainWindow::MainWindow(QWidget *parent)
     m_background.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 
     // Difficulty
-    KGameDifficulty::init(this, this, SLOT(slotNewGame()));
+    KGameDifficulty::init(this, this, SLOT(startNewGame()));
     KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
     KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
 
     setupGUI();
 
-    slotNewGame();
+    startNewGame();
 }
 
 MainWindow::~MainWindow()
@@ -101,7 +100,7 @@ void MainWindow::createBoard()
 {
     QFrame* frame = new QFrame(this);
     frame->setFrameStyle(QFrame::NoFrame);
-    frame->setMinimumSize(MINIMUM_WIDTH, MINIMUM_HEIGHT);
+    frame->setMinimumSize(MinimumWidth, MinimumHeight);
 
     gridLayout = new QGridLayout(frame);
     gridLayout->setMargin(0);
@@ -145,7 +144,7 @@ void MainWindow::setBoardSize(int size)
 void MainWindow::setupActions()
 {
     // Game
-    KStandardGameAction::gameNew(this, SLOT(slotNewGame()), actionCollection());
+    KStandardGameAction::gameNew(this, SLOT(startNewGame()), actionCollection());
     KStandardGameAction::highscores(this, SLOT(showHighscores()), actionCollection());
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
     
@@ -160,23 +159,28 @@ void MainWindow::showHighscores()
     ksdialog.exec();
 }
 
-void MainWindow::slotNewGame()
+void MainWindow::newDifficulty()
+{
+    
+}
+
+void MainWindow::startNewGame()
 {
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
     Settings::setSkill((int) l);
     
-    if(l == KGameDifficulty::VeryHard) wrapped = true;
+    if (l == KGameDifficulty::VeryHard) wrapped = true;
     else wrapped = false;
 
     Settings::self()->writeConfig();
 
     m_clickcount = 0;
-    QString clicks = i18nc("Number of mouse clicks", "Moves: %1",m_clickcount);
-    statusBar()->changeItem(clicks,1);
+    QString clicks = i18nc("Number of mouse clicks", "Moves: %1", m_clickcount);
+    statusBar()->changeItem(clicks, 1);
 
     KNotification::event( "startsound", i18n("New Game") );
 
-    for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
         board[i]->setDirs(Cell::None);
         board[i]->setConnected(false);
@@ -195,22 +199,22 @@ void MainWindow::slotNewGame()
     root->setConnected(true);
     root->setRoot(true);
 
-    while(true)
+    while (true)
     {
-        for(int row = start; row < start + size; row++)
+        for (int row = start; row < start + size; row++)
             for(int col = start; col < start + size; col++)
                 board[row * MasterBoardSize + col]->setDirs(Cell::Free);
 
         CellList list;
         list.append(root);
-        if(rand() % 2) addRandomDir(list);
+        if (rand() % 2) addRandomDir(list);
 
-        while(!list.isEmpty())
+        while (!list.isEmpty())
         {
             if(rand() % 2)
             {
                 addRandomDir(list);
-                if(rand() % 2) addRandomDir(list);
+                if (rand() % 2) addRandomDir(list);
                 list.erase(list.begin());
             }
             else
@@ -221,15 +225,15 @@ void MainWindow::slotNewGame()
         }
 
         int cells = 0;
-        for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+        for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         {
             Cell::Dirs d = board[i]->dirs();
-            if((d != Cell::Free) && (d != Cell::None)) cells++;
+            if ((d != Cell::Free) && (d != Cell::None)) cells++;
         }
-        if(cells >= MinimumNumCells) break;
+        if (cells >= MinimumNumCells) break;
     }
 
-    for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         board[i]->rotate((rand() % 4) * 90);
     updateConnections();
 }
@@ -237,16 +241,16 @@ void MainWindow::slotNewGame()
 bool MainWindow::updateConnections()
 {
     bool newconnection[MasterBoardSize * MasterBoardSize];
-    for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         newconnection[i] = false;
 
     CellList list;
-    if(!root->isRotated())
+    if (!root->isRotated())
     {
         newconnection[root->index()] = true;
         list.append(root);
     }
-    while(!list.isEmpty())
+    while (!list.isEmpty())
     {
         Cell* cell = list.first();
         Cell* ucell = uCell(cell);
@@ -254,25 +258,25 @@ bool MainWindow::updateConnections()
         Cell* dcell = dCell(cell);
         Cell* lcell = lCell(cell);
 
-        if((cell->dirs() & Cell::U) && ucell && (ucell->dirs() & Cell::D) &&
+        if ((cell->dirs() & Cell::U) && ucell && (ucell->dirs() & Cell::D) &&
                 !newconnection[ucell->index()] && !ucell->isRotated())
         {
             newconnection[ucell->index()] = true;
             list.append(ucell);
         }
-        if((cell->dirs() & Cell::R) && rcell && (rcell->dirs() & Cell::L) &&
+        if ((cell->dirs() & Cell::R) && rcell && (rcell->dirs() & Cell::L) &&
                 !newconnection[rcell->index()] && !rcell->isRotated())
         {
             newconnection[rcell->index()] = true;
             list.append(rcell);
         }
-        if((cell->dirs() & Cell::D) && dcell && (dcell->dirs() & Cell::U) &&
+        if ((cell->dirs() & Cell::D) && dcell && (dcell->dirs() & Cell::U) &&
                 !newconnection[dcell->index()] && !dcell->isRotated())
         {
             newconnection[dcell->index()] = true;
             list.append(dcell);
         }
-        if((cell->dirs() & Cell::L) && lcell && (lcell->dirs() & Cell::R) &&
+        if ((cell->dirs() & Cell::L) && lcell && (lcell->dirs() & Cell::R) &&
                 !newconnection[lcell->index()] && !lcell->isRotated())
         {
             newconnection[lcell->index()] = true;
@@ -282,9 +286,9 @@ bool MainWindow::updateConnections()
     }
 
     bool isnewconnection = false;
-    for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
-        if(!board[i]->isConnected() && newconnection[i])
+        if (!board[i]->isConnected() && newconnection[i])
             isnewconnection = true;
         board[i]->setConnected(newconnection[i]);
     }
@@ -302,14 +306,14 @@ void MainWindow::addRandomDir(CellList& list)
     typedef QMap<Cell::Dirs, Cell*> CellMap;
     CellMap freecells;
 
-    if(ucell && ucell->dirs() == Cell::Free) freecells[Cell::U] = ucell;
-    if(rcell && rcell->dirs() == Cell::Free) freecells[Cell::R] = rcell;
-    if(dcell && dcell->dirs() == Cell::Free) freecells[Cell::D] = dcell;
-    if(lcell && lcell->dirs() == Cell::Free) freecells[Cell::L] = lcell;
-    if(freecells.isEmpty()) return;
+    if (ucell && ucell->dirs() == Cell::Free) freecells[Cell::U] = ucell;
+    if (rcell && rcell->dirs() == Cell::Free) freecells[Cell::R] = rcell;
+    if (dcell && dcell->dirs() == Cell::Free) freecells[Cell::D] = dcell;
+    if (lcell && lcell->dirs() == Cell::Free) freecells[Cell::L] = lcell;
+    if (freecells.isEmpty()) return;
 
     CellMap::ConstIterator it = freecells.constBegin();
-    for(int i = rand() % freecells.count(); i > 0; --i) ++it;
+    for (int i = rand() % freecells.count(); i > 0; --i) ++it;
 
     cell->setDirs(Cell::Dirs(cell->dirs() | it.key()));
     it.value()->setDirs(contrdirs[it.key()]);
@@ -318,36 +322,36 @@ void MainWindow::addRandomDir(CellList& list)
 
 Cell* MainWindow::uCell(Cell* cell) const
 {
-    if(cell->index() >= MasterBoardSize)
+    if (cell->index() >= MasterBoardSize)
         return board[cell->index() - MasterBoardSize];
-    else if(wrapped)
+    else if (wrapped)
         return board[MasterBoardSize * (MasterBoardSize - 1) + cell->index()];
     else return 0;
 }
 
 Cell* MainWindow::dCell(Cell* cell) const
 {
-    if(cell->index() < MasterBoardSize * (MasterBoardSize - 1))
+    if (cell->index() < MasterBoardSize * (MasterBoardSize - 1))
         return board[cell->index() + MasterBoardSize];
-    else if(wrapped)
+    else if (wrapped)
         return board[cell->index() - MasterBoardSize * (MasterBoardSize - 1)];
     else return 0;
 }
 
 Cell* MainWindow::lCell(Cell* cell) const
 {
-    if(cell->index() % MasterBoardSize > 0)
+    if (cell->index() % MasterBoardSize > 0)
         return board[cell->index() - 1];
-    else if(wrapped)
+    else if (wrapped)
         return board[cell->index() - 1 + MasterBoardSize];
     else return 0;
 }
 
 Cell* MainWindow::rCell(Cell* cell) const
 {
-    if(cell->index() % MasterBoardSize < MasterBoardSize - 1)
+    if (cell->index() % MasterBoardSize < MasterBoardSize - 1)
         return board[cell->index() + 1];
-    else if(wrapped)
+    else if (wrapped)
         return board[cell->index() + 1 - MasterBoardSize];
     else return 0;
 }
@@ -370,7 +374,7 @@ void MainWindow::mClicked(int index)
 void MainWindow::rotate(int index, bool toleft)
 {
     const Cell::Dirs d = board[index]->dirs();
-    if((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
+    if ((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
     {
         KNotification::event( "clicksound" );
         //blink(index);
@@ -380,10 +384,10 @@ void MainWindow::rotate(int index, bool toleft)
         KNotification::event( "turnsound" );
 
         updateConnections();
-        for(int i = 0; i < 18; i++)
+        for (int i = 0; i < 18; i++)
         {
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-            QTimer::singleShot(ANIMATION_UPDATE_INTERVAL, board[index], SLOT(update()));
+            QTimer::singleShot(AnimationUpdateInterval, board[index], SLOT(update()));
             qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
             board[index]->rotate(toleft ? -5 : 5);
         }
@@ -417,10 +421,10 @@ void MainWindow::rotate(int index, bool toleft)
 
 void MainWindow::blink(int index)
 {
-    for(int i = 0; i < board[index]->width() * 2; i += 2)
+    for (int i = 0; i < board[index]->width() * 2; i += 2)
     {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-        QTimer::singleShot(ANIMATION_UPDATE_INTERVAL, board[index], SLOT(update()));
+        QTimer::singleShot(AnimationUpdateInterval, board[index], SLOT(update()));
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents |
         QEventLoop::WaitForMoreEvents);
         board[index]->setLight(i);
@@ -430,10 +434,10 @@ void MainWindow::blink(int index)
 
 bool MainWindow::isGameOver()
 {
-    for(int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
+    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
         const Cell::Dirs d = board[i]->dirs();
-        if((d != Cell::Free) && (d != Cell::None) && !board[i]->isConnected())
+        if ((d != Cell::Free) && (d != Cell::None) && !board[i]->isConnected())
             return false;
     }
     return true;
@@ -473,13 +477,13 @@ void MainWindow::paintEvent(QPaintEvent* e)
             // calculate the background bounding rect
             int width = pixmapCache->width();
             int height = pixmapCache->height();
-            qreal ratio = 1.0 - BACKGROUND_BORDER*2;
-            QRectF bgRect(BACKGROUND_BORDER * width, BACKGROUND_BORDER * height, 
+            qreal ratio = 1.0 - BackgroundBorder*2;
+            QRectF bgRect(BackgroundBorder * width, BackgroundBorder * height, 
                                  ratio * width, ratio * height);
             
             // calculate background overlay bounding rect
             int size = qMin(width, height);
-            size = static_cast<int>(size * (1.0 - 2*OVERLAY_BORDER)); // add a border
+            size = static_cast<int>(size * (1.0 - 2*OverlayBorder)); // add a border
             int borderLeft = (width - size)/2;
             int borderTop = (height - size)/2;
             QRect overlayRect(borderLeft, borderTop, size, size);
@@ -507,7 +511,7 @@ void MainWindow::resizeEvent(QResizeEvent*)
     int width = centralWidget()->width();
     int height = centralWidget()->height();
     int size = qMin(width, height);
-    size = static_cast<int>(size * (1.0 - 2*BOARD_BORDER)); // add a border
+    size = static_cast<int>(size * (1.0 - 2*BoardBorder)); // add a border
     int borderLeft = (width - size)/2;
     int borderTop = (height - size)/2;
     QRect r(borderLeft, borderTop, size, size);

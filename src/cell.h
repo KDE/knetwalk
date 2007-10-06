@@ -26,49 +26,55 @@ class QResizeEvent;
 
 class Cell : public QWidget
 {
-    Q_OBJECT
-    public:
-            // Free or None means it's not used, if it has only one direction
-            // it's a computer or a server
-        enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
-        Cell(QWidget* parent, int i);
-        ~Cell();
-        int  index() const;
-        void rotate(int a);
-        void setDirs(Dirs d);
-        void setRoot(bool b);
-        void setLight(int l);
-        void setConnected(bool b);
-        void setLocked( bool newlocked = true );
-        bool isConnected() const;
-        bool isRotated() const;
-        bool isLocked() const;
-        Dirs dirs() const;
-        static void initPixmaps();
-    signals:
-        void lClicked(int);
-        void rClicked(int);
-        void mClicked(int);
-    protected:
-        virtual void paintEvent(QPaintEvent*);
-        virtual void mousePressEvent(QMouseEvent*);
-        virtual void resizeEvent(QResizeEvent*);
-    private:
-        typedef QMap<int, QString> NamesMap;
-        static NamesMap directionNames;
-        static KSvgRenderer allSvg;
-        int     angle;
-        int     light;
-        int     iindex;
-        bool    connected;
-        bool    cableChanged;
-        bool    forgroundChanged;
-        bool    root;
-        bool    locked;
-        Dirs    ddirs;
-        // TODO: any reason for the following being pointers
-        QPixmap *pixmapCache;
-        QPixmap *forgroundCache;
+Q_OBJECT
+public:
+    // Free or None means it's not used, 
+    // if it has only one direction it's a terminal or a server
+    enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
+    Cell(QWidget* parent, int i);
+    ~Cell();
+    int  index() const;
+    void rotate(int a);
+    void setDirs(Dirs d);
+    void setRoot(bool b);
+    void setLight(int l);
+    void setConnected(bool b);
+    void setLocked( bool newlocked = true );
+    bool isConnected() const;
+    bool isRotated() const;
+    bool isLocked() const;
+    Dirs dirs() const;
+    static void initPixmaps();
+    
+signals:
+    void lClicked(int);
+    void rClicked(int);
+    void mClicked(int);
+    
+protected:
+    virtual void paintEvent(QPaintEvent*);
+    virtual void mousePressEvent(QMouseEvent*);
+    virtual void resizeEvent(QResizeEvent*);
+    
+private:
+    void paintForground();
+    // paints the forground, the cables and the background on the pixmap
+    void paintOnCache();
+    
+    typedef QMap<int, QString> NamesMap;
+    static NamesMap directionNames;
+    static KSvgRenderer allSvg;
+    int     angle;
+    int     light;
+    int     iindex;
+    bool    connected;
+    bool    cableChanged;
+    bool    forgroundChanged;
+    bool    root;
+    bool    locked;
+    Dirs    ddirs;
+    QPixmap *pixmapCache;
+    QPixmap *forgroundCache;
 };
 
 #endif
