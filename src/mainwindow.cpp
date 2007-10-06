@@ -52,6 +52,7 @@
 #include "consts.h"
 #include "settings.h"
 #include "cell.h"
+#include "view.h"
 
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
@@ -98,19 +99,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::createBoard()
 {
-    QFrame* frame = new QFrame(this);
-    frame->setFrameStyle(QFrame::NoFrame);
-    frame->setMinimumSize(MinimumWidth, MinimumHeight);
+    View* view = new View(this);
+    view->setFrameStyle(QFrame::NoFrame);
+    view->setMinimumSize(MinimumWidth, MinimumHeight);
 
-    gridLayout = new QGridLayout(frame);
+    gridLayout = new QGridLayout(view);
     gridLayout->setMargin(0);
     gridLayout->setSpacing(0);
-    setCentralWidget(frame);
+    setCentralWidget(view);
 
     Cell::initPixmaps();
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
-        board[i] = new Cell(frame, i);
+        board[i] = new Cell(view, i);
         gridLayout->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
         //board[i]->resize(32, 32); //TODO: needed ???
         connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
@@ -406,7 +407,7 @@ void MainWindow::rotate(int index, bool toleft)
         {   
             KGameDifficulty::setRunning(false);
             KNotification::event( "winsound" );
-            blink(index);
+            //blink(index);
             
             KScoreDialog ksdialog(KScoreDialog::Name, this);
             ksdialog.setConfigGroup(KGameDifficulty::levelString());
@@ -478,9 +479,14 @@ void MainWindow::paintEvent(QPaintEvent* e)
         {
             m_invalidCache = false;
             
+            // keep aspect ratio
+            int width = centralWidget()->width();
+            int height = centralWidget()->height();
+            
+            delete pixmapCache;
+            pixmapCache = new QPixmap(width, height);
+            
             // calculate the background bounding rect
-            int width = pixmapCache->width();
-            int height = pixmapCache->height();
             qreal ratio = 1.0 - BackgroundBorder*2;
             QRectF bgRect(BackgroundBorder * width, BackgroundBorder * height, 
                                  ratio * width, ratio * height);
@@ -502,6 +508,7 @@ void MainWindow::paintEvent(QPaintEvent* e)
         QPoint p = centralWidget()->mapFromParent(QPoint(updateRect.x(), updateRect.y()));
         QRect pixmapRect(p.x(), p.y(), updateRect.width(), updateRect.height());
         painter.begin(this);
+        
         painter.drawPixmap(updateRect, *pixmapCache, pixmapRect);
         painter.end();
     }
@@ -510,19 +517,6 @@ void MainWindow::paintEvent(QPaintEvent* e)
 void MainWindow::resizeEvent(QResizeEvent*)
 {
     m_invalidCache = true;
-    
-    // keep aspect ratio
-    int width = centralWidget()->width();
-    int height = centralWidget()->height();
-    int size = qMin(width, height);
-    size = static_cast<int>(size * (1.0 - 2*BoardBorder)); // add a border
-    int borderLeft = (width - size)/2;
-    int borderTop = (height - size)/2;
-    QRect r(borderLeft, borderTop, size, size);
-    qobject_cast<QFrame *>(centralWidget())->setFrameRect(r);
-    
-    delete pixmapCache;
-    pixmapCache = new QPixmap(centralWidget()->size());
 }
 
 #include "mainwindow.moc"
