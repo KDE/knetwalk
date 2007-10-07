@@ -284,17 +284,25 @@ void Cell::resizeEvent(QResizeEvent* e)
 
 void Cell::animateRotation(bool clockWise) 
 {
-    animationClockWise = clockWise;
-    
-    if (timeLine->state() == QTimeLine::Running) {
-        timeLine->setFrameRange(timeLine->currentFrame(), timeLine->endFrame() + 90);
+    // if there is already an animation running make a new animition
+    // taking into account also the new click
+    if (timeLine->state() == QTimeLine::Running) 
+    {
+        totalRotation += clockWise ? 90 : -90;
+        
+        timeLine->setFrameRange(timeLine->currentFrame(), totalRotation);
         timeLine->stop();
         timeLine->setCurrentTime(0);
+        
         timeLine->start();
     }
-    else {
-        angleStart = angle;
-        timeLine->setFrameRange(0, 90);
+    else 
+    {
+        rotationStart = angle;
+        totalRotation = clockWise ? 90 : -90;
+        
+        timeLine->setFrameRange(0, totalRotation);
+        
         timeLine->start();
     }
 }
@@ -302,12 +310,11 @@ void Cell::animateRotation(bool clockWise)
 void Cell::rotateStep(int a)
 {
     kDebug() << a << endl;
-    if (!animationClockWise) a = -a;
     
-    int newAngle = angleStart + a;
+    int newAngle = rotationStart + a;
     rotate(newAngle - angle);
     
-    if (!(a % 90) && a != 0) {
+    if (a == totalRotation) {
         emit connectionsChanged();
     }
 }
@@ -319,7 +326,7 @@ void Cell::rotate(int a)
     while (angle > 45)
     {
         angle -= 90;
-        angleStart -= 90;
+        rotationStart -= 90;
         int newdirs = Free;
         if (ddirs & U) newdirs |= R;
         if (ddirs & R) newdirs |= D;
@@ -330,7 +337,7 @@ void Cell::rotate(int a)
     while (angle < -45)
     {
         angle += 90;
-        angleStart += 90;
+        rotationStart += 90;
         int newdirs = Free;
         if (ddirs & U) newdirs |= L;
         if (ddirs & R) newdirs |= U;

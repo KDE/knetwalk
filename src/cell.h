@@ -84,8 +84,8 @@ private:
     QPixmap *forgroundCache;
     
     // used by the animation of the rotation
-    int angleStart;
-    int animationClockWise;
+    int rotationStart;
+    int totalRotation;
     QTimeLine *timeLine;
 };
 
