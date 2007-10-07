@@ -36,6 +36,8 @@ public:
     explicit MainWindow(QWidget *parent=0);
     virtual ~MainWindow();
     
+    static int boardSize();
+    
 protected:
     void setupActions();
     void createBoard();
@@ -80,7 +82,6 @@ private:
     void  rotate(int index, bool clockWise);
     void  addRandomDir(CellList& list);
     void  dialog(const QString& caption, const QString& text);
-    int   boardSize();
     void  setBoardSize(int size);
     
 private:

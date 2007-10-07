@@ -280,6 +280,8 @@ void Cell::resizeEvent(QResizeEvent* e)
     delete forgroundCache;
     pixmapCache = new QPixmap(e->size());
     forgroundCache = new QPixmap(e->size());
+    
+    kDebug() << pixmapCache->width() << pixmapCache->height() << endl;
 }
 
 void Cell::animateRotation(bool clockWise) 
