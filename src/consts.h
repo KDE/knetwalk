@@ -7,7 +7,7 @@ int const MinimumWidth = 200;
 int const MinimumHeight = 200;
 
 // used for the rotation of cables
-int const AnimationUpdateInterval = 50;
+int const AnimationTime = 400;
 
 // relative numbers
 const qreal BoardBorder = 0.04;

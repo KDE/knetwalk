@@ -58,7 +58,7 @@ private:
     };
     typedef QList<Cell*> CellList;
     
-public slots:
+private slots:
     void  startNewGame();
 
     void  lClicked(int index);
@@ -67,25 +67,25 @@ public slots:
 
     void  showHighscores();
     void  configureNotifications();
-    void  newDifficulty();
+    void  updateConnections();
 
 private:
     Cell* uCell(Cell* cell) const;
     Cell* dCell(Cell* cell) const;
     Cell* lCell(Cell* cell) const;
     Cell* rCell(Cell* cell) const;
-    bool  isGameOver();
+    void  checkIfGameEnded();
     bool  startBrowser(const QString& url);
-    bool  updateConnections();
     void  blink(int index);
-    void  rotate(int index, bool toleft);
+    void  rotate(int index, bool clockWise);
     void  addRandomDir(CellList& list);
     void  dialog(const QString& caption, const QString& text);
-    int boardSize();
-    void setBoardSize(int size);
+    int   boardSize();
+    void  setBoardSize(int size);
     
 private:
     bool        wrapped;
+    bool        gameEnded;
     Cell*       root;
     Cell*       board[MasterBoardSize * MasterBoardSize];
     QGridLayout* gridLayout;

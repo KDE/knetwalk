@@ -20,6 +20,7 @@
 #include <KSvgRenderer>
 
 class QPixmap;
+class QTimeLine;
 class QPaintEvent;
 class QMouseEvent;
 class QResizeEvent;
@@ -35,6 +36,7 @@ public:
     ~Cell();
     int  index() const;
     void rotate(int a);
+    void animateRotation(bool toLeft);
     void setDirs(Dirs d);
     void setRoot(bool b);
     void setLight(int l);
@@ -45,11 +47,16 @@ public:
     bool isLocked() const;
     Dirs dirs() const;
     static void initPixmaps();
-    
+
+private slots:
+    // angle is relative to angleStart
+    void rotateStep(int angle);
+
 signals:
     void lClicked(int);
     void rClicked(int);
     void mClicked(int);
+    void connectionsChanged();
     
 protected:
     virtual void paintEvent(QPaintEvent*);
@@ -75,6 +82,11 @@ private:
     Dirs    ddirs;
     QPixmap *pixmapCache;
     QPixmap *forgroundCache;
+    
+    // used by the animation of the rotation
+    int angleStart;
+    int animationClockWise;
+    QTimeLine *timeLine;
 };
 
 #endif

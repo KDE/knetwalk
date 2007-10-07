@@ -85,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
     KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
 
     setupGUI();
@@ -117,6 +118,7 @@ void MainWindow::createBoard()
         connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
         connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
         connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
+        connect(board[i], SIGNAL(connectionsChanged()), SLOT(updateConnections()));
         board[i]->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the system administrator and your goal is to connect each computer to the central server.</p><p>Click the right mouse's button for turning the cable in a clockwise direction, and left mouse's button for turning the cable in a counter-clockwise direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
 }
@@ -160,13 +162,10 @@ void MainWindow::showHighscores()
     ksdialog.exec();
 }
 
-void MainWindow::newDifficulty()
-{
-    
-}
-
 void MainWindow::startNewGame()
 {
+    gameEnded = false;
+    
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
     Settings::setSkill((int) l);
     
@@ -239,7 +238,7 @@ void MainWindow::startNewGame()
     updateConnections();
 }
 
-bool MainWindow::updateConnections()
+void MainWindow::updateConnections()
 {
     bool newconnection[MasterBoardSize * MasterBoardSize];
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
@@ -286,14 +285,16 @@ bool MainWindow::updateConnections()
         list.erase(list.begin());
     }
 
-    bool isnewconnection = false;
+    bool newConnections = false;
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
         if (!board[i]->isConnected() && newconnection[i])
-            isnewconnection = true;
+            newConnections = true;
         board[i]->setConnected(newconnection[i]);
     }
-    return isnewconnection;
+    
+    if (newConnections)
+        checkIfGameEnded();
 }
 
 void MainWindow::addRandomDir(CellList& list)
@@ -360,13 +361,13 @@ Cell* MainWindow::rCell(Cell* cell) const
 void MainWindow::lClicked(int index)
 {
     KGameDifficulty::setRunning(true);
-    rotate(index, true);
+    rotate(index, false);
 }
 
 void MainWindow::rClicked(int index)
 {
     KGameDifficulty::setRunning(true);
-    rotate(index, false);
+    rotate(index, true);
 }
 
 void MainWindow::mClicked(int index)
@@ -375,10 +376,10 @@ void MainWindow::mClicked(int index)
     board[index]->setLocked( !board[index]->isLocked() );
 }
 
-void MainWindow::rotate(int index, bool toleft)
+void MainWindow::rotate(int index, bool clockWise)
 {
     const Cell::Dirs d = board[index]->dirs();
-    if ((d == Cell::Free) || (d == Cell::None) || isGameOver() || board[index]->isLocked() )
+    if ((d == Cell::Free) || (d == Cell::None) || gameEnded || board[index]->isLocked() )
     {
         KNotification::event( "clicksound" );
         //blink(index);
@@ -387,40 +388,15 @@ void MainWindow::rotate(int index, bool toleft)
     {
         KNotification::event( "turnsound" );
 
-        updateConnections();
-        for (int i = 0; i < 18; i++)
-        {
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-            QTimer::singleShot(AnimationUpdateInterval, board[index], SLOT(update()));
-            qApp->processEvents(QEventLoop::ExcludeUserInputEvents | QEventLoop::WaitForMoreEvents);
-            board[index]->rotate(toleft ? -5 : 5);
-        }
+        board[index]->animateRotation(clockWise);
 
-        if (updateConnections())
-            KNotification::event( "connectsound" );
+        // FIXME: won't work!!!
+        //if (updateConnections())
+        //    KNotification::event( "connectsound" );
 
         m_clickcount++;
         QString clicks = i18n("Moves: %1",m_clickcount);
         statusBar()->changeItem(clicks,1);
-
-        if (isGameOver())
-        {   
-            KGameDifficulty::setRunning(false);
-            KNotification::event( "winsound" );
-            //blink(index);
-            
-            KScoreDialog ksdialog(KScoreDialog::Name, this);
-            ksdialog.setConfigGroup(KGameDifficulty::levelString());
-            
-            //ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
-            //KScoreDialog::FieldInfo scoreInfo;
-            //scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
-            //scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
-            
-            ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
-            
-            ksdialog.exec();
-        }
     }
 }
 
@@ -429,7 +405,7 @@ void MainWindow::blink(int index)
     for (int i = 0; i < board[index]->width() * 2; i += 2)
     {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-        QTimer::singleShot(AnimationUpdateInterval, board[index], SLOT(update()));
+        QTimer::singleShot(30, board[index], SLOT(update()));
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents |
         QEventLoop::WaitForMoreEvents);
         board[index]->setLight(i);
@@ -437,15 +413,35 @@ void MainWindow::blink(int index)
     board[index]->setLight(0);
 }
 
-bool MainWindow::isGameOver()
+void MainWindow::checkIfGameEnded()
 {
+    bool ended = true;
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
         const Cell::Dirs d = board[i]->dirs();
         if ((d != Cell::Free) && (d != Cell::None) && !board[i]->isConnected())
-            return false;
+            ended = false;
     }
-    return true;
+    
+    if (ended)
+    {
+        KNotification::event( "winsound" );
+        //blink(index);
+        
+        KScoreDialog ksdialog(KScoreDialog::Name, this);
+        ksdialog.setConfigGroup(KGameDifficulty::levelString());
+        
+        //ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
+        //KScoreDialog::FieldInfo scoreInfo;
+        //scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
+        //scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
+        
+        ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
+        ksdialog.exec();
+        
+        KGameDifficulty::setRunning(false);
+        gameEnded = true;
+    }
 }
 
 int MainWindow::boardSize()

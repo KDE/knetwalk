@@ -18,6 +18,7 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QPaintEvent>
+#include <QTimeLine>
 
 #include <KGlobal>
 #include <KIconLoader>
@@ -63,12 +64,18 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent)
     
     forgroundChanged = true;
     setAttribute(Qt::WA_Hover, true);
+    
+    timeLine = new QTimeLine(AnimationTime, this);
+    timeLine->setCurveShape(QTimeLine::EaseOutCurve);
+    //timeLine->setUpdateInterval(80);
+    connect(timeLine, SIGNAL(frameChanged(int)), SLOT(rotateStep(int)));
 }
 
 Cell::~Cell()
 {
     delete pixmapCache;
     delete forgroundCache;
+    delete timeLine;
 }
 
 int Cell::index() const
@@ -83,6 +90,9 @@ Cell::Dirs Cell::dirs() const
 
 bool Cell::isConnected() const
 {
+    // animating cables are never connected
+    //if (timeLine->state() == QTimeLine::Running) return false;
+    
     return connected;
 }
 
@@ -207,7 +217,7 @@ void Cell::paintForground()
     // if the cell has only one direction and isn't a server
     else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
     {
-        if(connected)
+        if(isConnected())
             allSvg.render(&painter, "computer2", boundingRect);
         else
             allSvg.render(&painter, "computer1", boundingRect);
@@ -239,7 +249,7 @@ void Cell::paintOnCache()
     QRectF boundingRect(CellBorder * w, CellBorder * h, 
                         ratio * w, ratio * h);
     
-    if(connected)
+    if(isConnected())
         allSvg.render(&painter, "cablecon" + directionNames[ddirs], boundingRect);
     else
         allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
@@ -252,6 +262,9 @@ void Cell::paintOnCache()
 
 void Cell::mousePressEvent(QMouseEvent* e)
 {
+    // do nothing if there is an animation running
+    //if (timeLine->state() == QTimeLine::Running) return;
+    
     if (e->button() == Qt::LeftButton)
         emit lClicked(iindex);
     else if (e->button() == Qt::RightButton)
@@ -269,13 +282,44 @@ void Cell::resizeEvent(QResizeEvent* e)
     forgroundCache = new QPixmap(e->size());
 }
 
+void Cell::animateRotation(bool clockWise) 
+{
+    animationClockWise = clockWise;
+    
+    if (timeLine->state() == QTimeLine::Running) {
+        timeLine->setFrameRange(timeLine->currentFrame(), timeLine->endFrame() + 90);
+        timeLine->stop();
+        timeLine->setCurrentTime(0);
+        timeLine->start();
+    }
+    else {
+        angleStart = angle;
+        timeLine->setFrameRange(0, 90);
+        timeLine->start();
+    }
+}
+
+void Cell::rotateStep(int a)
+{
+    kDebug() << a << endl;
+    if (!animationClockWise) a = -a;
+    
+    int newAngle = angleStart + a;
+    rotate(newAngle - angle);
+    
+    if (!(a % 90) && a != 0) {
+        emit connectionsChanged();
+    }
+}
+
 void Cell::rotate(int a)
 {
     angle += a;
-    cableChanged = true;
-    while (angle >= 45)
+    
+    while (angle > 45)
     {
         angle -= 90;
+        angleStart -= 90;
         int newdirs = Free;
         if (ddirs & U) newdirs |= R;
         if (ddirs & R) newdirs |= D;
@@ -286,6 +330,7 @@ void Cell::rotate(int a)
     while (angle < -45)
     {
         angle += 90;
+        angleStart += 90;
         int newdirs = Free;
         if (ddirs & U) newdirs |= L;
         if (ddirs & R) newdirs |= U;
@@ -293,6 +338,8 @@ void Cell::rotate(int a)
         if (ddirs & L) newdirs |= D;
         setDirs(Dirs(newdirs));
     }
+    
+    cableChanged = true;
     update();
 }
 
