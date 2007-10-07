@@ -235,7 +235,9 @@ void MainWindow::startNewGame()
 
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         board[i]->rotate((rand() % 4) * 90);
+    
     updateConnections();
+    KGameDifficulty::setRunning(false); // setRunning(true) on the first click
 }
 
 void MainWindow::updateConnections()
