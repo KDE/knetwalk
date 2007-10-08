@@ -77,22 +77,22 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <sect1 id="rules">
 <title>Rules</title>
 <itemizedlist>
-<listitem>There is only one possible correct solution for every game.</listitem>
-<listitem>When playing the Very Hard difficulty level connections can wrap from left to right and from top to bottom.</listitem>
-<listitem>The game ends when every terminal and every wire is connected to the server.</listitem>
-<listitem>The score represents the number of clicks it took to complete the game. The lower the score the better.</listitem>
+<listitem><para>There is only one possible correct solution for every game.</para></listitem>
+<listitem><para>When playing the Very Hard difficulty level connections can wrap from left to right and from top to bottom.</para></listitem>
+<listitem><para>The game ends when every terminal and every wire is connected to the server.</para></listitem>
+<listitem><para>The score represents the number of clicks it took to complete the game. The lower the score the better.</para></listitem>
 </itemizedlist>
 </sect1>
 
 <sect1 id="stategies-and-tips">
 <title>Strategies and Tips</title>
 <itemizedlist>
-<listitem>Start seeking for squares which orientation can be easily determined.</listitem>
-<listitem>Once you are sure of the orientation of a square you can mark it using the &MMB;. This is particularly usefull in harder games.</listitem>
-<listitem>Look for I-shaped and T-shaped wires near the borders, and L-shaped wires near the edges. The position of these squares can be easily determined, unless you are playing the Very Hard difficulty level.</listitem>
-<listitem>When playing the Very Hard difficulty level a good place to start looking is near empty squares, if present, and near regions containing many terminals grouped together.</listitem>
-<listitem>Even when playing with the same difficulty level some games are easier than others, restart the game if you want to get a different board.</listitem>
-<listitem>If you want to get a good score, only do a move when you are sure.</listitem>
+<listitem><para>Start seeking for squares which orientation can be easily determined.</para></listitem>
+<listitem><para>Once you are sure of the orientation of a square you can mark it using the &MMB;. This is particularly usefull in harder games.</para></listitem>
+<listitem><para>Look for I-shaped and T-shaped wires near the borders, and L-shaped wires near the edges. The position of these squares can be easily determined, unless you are playing the Very Hard difficulty level.</para></listitem>
+<listitem><para>When playing the Very Hard difficulty level a good place to start looking is near empty squares, if present, and near regions containing many terminals grouped together.</para></listitem>
+<listitem><para>Even when playing with the same difficulty level some games are easier than others, restart the game if you want to get a different board.</para></listitem>
+<listitem><para>If you want to get a good score, only do a move when you are sure.</para></listitem>
 </itemizedlist>
 </sect1>
 
@@ -206,13 +206,12 @@ Toggles on and off the display of the statusbar.
 <para>Lets you set the difficulty level from a sub-menu.</para>
 <para>There are four levels of difficulty:
 <itemizedlist>
-<listitem><guimenuitem>Easy</guimenuitem>: 5 rows, 5 columns, without wrapping.</listitem>
-<listitem><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</listitem>
-<listitem><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</listitem>
-<listitem><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</listitem>
+<listitem><para><guimenuitem>Easy</guimenuitem>: 5 rows, 5 columns, without wrapping.</para></listitem>
+<listitem><para><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</para></listitem>
+<listitem><para><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</para></listitem>
+<listitem><para><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</para></listitem>
 </itemizedlist>
-</para>
-</listitem>
+</para></listitem>
 </varlistentry>
 
 <varlistentry>
