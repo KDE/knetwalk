@@ -1,4 +1,3 @@
-
 add_subdirectory( pics ) 
 add_subdirectory( sounds ) 
 
@@ -9,7 +8,8 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames/highscore  )
 set(knetwalk_SRCS 
    cell.cpp 
    main.cpp 
-   mainwindow.cpp )
+   mainwindow.cpp
+   renderer.cpp )
 
 kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 

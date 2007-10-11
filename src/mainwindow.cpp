@@ -54,6 +54,8 @@
 #include "cell.h"
 #include "view.h"
 
+#include "renderer.h"
+
 static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -483,23 +485,18 @@ void MainWindow::paintEvent(QPaintEvent* e)
             
             delete pixmapCache;
             pixmapCache = new QPixmap(width, height);
-            
-            // calculate the background bounding rect
-            qreal ratio = 1.0 - BackgroundBorder*2;
-            QRectF bgRect(BackgroundBorder * width, BackgroundBorder * height, 
-                                 ratio * width, ratio * height);
+            *pixmapCache = Renderer::self()->backgroundPixmap(centralWidget()->size());
             
             // calculate background overlay bounding rect
             int size = qMin(width, height);
             size = static_cast<int>(size * (1.0 - 2*OverlayBorder)); // add a border
             int borderLeft = (width - size)/2;
             int borderTop = (height - size)/2;
-            QRect overlayRect(borderLeft, borderTop, size, size);
+            
+            QPixmap overlay = Renderer::self()->backgroundOverlayPixmap(size);
             
             painter.begin(pixmapCache);
-            //pixmapCache->fill(QColor(255, 0, 0)); // for testing only
-            m_background.render(&painter, "background", bgRect);
-            m_background.render(&painter, "overlay", overlayRect);
+            painter.drawPixmap(borderLeft, borderTop, overlay);
             painter.end();
         }
 

@@ -27,6 +27,7 @@
 #include <KDebug>
 
 #include "consts.h"
+#include "renderer.h"
 
 Cell::NamesMap Cell::directionNames;
 KSvgRenderer Cell::allSvg;
@@ -47,7 +48,7 @@ void Cell::initPixmaps()
     directionNames[U|R]   = "1100";
     directionNames[U|R|L] = "1101";
     directionNames[U|R|D] = "1110";
-    allSvg.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
+    //allSvg.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 }
 
 Cell::Cell(QWidget* parent, int i) : QWidget(parent)
@@ -188,76 +189,35 @@ void Cell::paintEvent(QPaintEvent*)
 
 void Cell::paintForground()
 {
-    QPainter painter;
-    forgroundCache->fill(QColor(0, 0, 0, 0));
-    painter.begin(forgroundCache);
-
-    /*if ( locked ) {
-        allSvg.render(&painter, "background-locked");
-    } else {
-        allSvg.render(&painter, "background");
-    }
-
-    if (light)
-    {
-        painter.setPen(QPen(Qt::white, 5));
-        painter.drawLine(0, width() - light, width(), 2 * width() - light);
-    }*/
-
-    
-    int w = pixmapCache->width();
-    int h = pixmapCache->height();
-    const qreal ratio = 1.0 - CellForgroundBorder*2;
-    QRectF boundingRect(CellForgroundBorder * w, CellForgroundBorder * h, 
-                            ratio * w, ratio * h);
-    if(root)
-    {
-        allSvg.render(&painter, "server", boundingRect);
-    }
-    // if the cell has only one direction and isn't a server
+    if (root)
+        *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
     else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
-    {
-        if(isConnected())
-            allSvg.render(&painter, "computer2", boundingRect);
-        else
-            allSvg.render(&painter, "computer1", boundingRect);
-    }
-    painter.end();
+        // if the cell has only one direction and isn't a server
+        *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
+    else 
+        forgroundCache->fill(Qt::transparent);
 }
 
 void Cell::paintOnCache()
-{
-    QPainter painter;
+{   
     if (locked) pixmapCache->fill(LockedCellColor);
-    else pixmapCache->fill(QColor(0, 0, 0, 0));
+    else pixmapCache->fill(Qt::transparent);
     
-    painter.begin(pixmapCache);
+    QPixmap cable( Renderer::self()->cablesPixmap(width(), ddirs, isConnected()) );
+    QPainter painter(pixmapCache);
     
     if(angle)
     {
-        double woffset, hoffset;
-        woffset = width() / 2;
-        hoffset = height() / 2;
-        painter.translate(woffset, hoffset);
+        qreal offset = width() / 2.0;
+        painter.translate(offset, offset);
         painter.rotate(angle);
-        painter.translate(-woffset, -hoffset);
+        painter.translate(-offset, -offset);
     }
     
-    int w = pixmapCache->width();
-    int h = pixmapCache->height();
-    const qreal ratio = 1.0 - CellBorder*2;
-    QRectF boundingRect(CellBorder * w, CellBorder * h, 
-                        ratio * w, ratio * h);
-    
-    if(isConnected())
-        allSvg.render(&painter, "cablecon" + directionNames[ddirs], boundingRect);
-    else
-        allSvg.render(&painter, "cable" + directionNames[ddirs], boundingRect);
-    
+    painter.drawPixmap(0, 0, cable);
     painter.resetMatrix();
     
     painter.drawPixmap(0, 0, *forgroundCache);
-    painter.end();
 }
 
 void Cell::mousePressEvent(QMouseEvent* e)
@@ -280,8 +240,6 @@ void Cell::resizeEvent(QResizeEvent* e)
     delete forgroundCache;
     pixmapCache = new QPixmap(e->size());
     forgroundCache = new QPixmap(e->size());
-    
-    kDebug() << pixmapCache->width() << pixmapCache->height() << endl;
 }
 
 void Cell::animateRotation(bool clockWise) 
@@ -311,8 +269,6 @@ void Cell::animateRotation(bool clockWise)
 
 void Cell::rotateStep(int a)
 {
-    kDebug() << a << endl;
-    
     int newAngle = rotationStart + a;
     rotate(newAngle - angle);
     
