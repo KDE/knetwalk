@@ -104,7 +104,6 @@ private:
     QLCDNumber* lcd;
 
     int m_clickcount;
-    KSvgRenderer m_background;
 
     QPixmap *pixmapCache;
     bool m_invalidCache;

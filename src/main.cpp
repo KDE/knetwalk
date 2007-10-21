@@ -38,10 +38,10 @@ int main(int argc, char ** argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
-    options.add("Novice", ki18n( "Start in novice mode" ));
-    options.add("Normal", ki18n( "Start in normal mode" ));
-    options.add("Expert", ki18n( "Start in expert mode" ));
-    options.add("Master", ki18n( "Start in master mode" ));
+    options.add("Easy", ki18n( "Start with Easy difficulty level" ));
+    options.add("Medium", ki18n( "Start with Medium difficulty level" ));
+    options.add("Hard", ki18n( "Start with Hard difficulty level" ));
+    options.add("VeryHard", ki18n( "Start with Very Hard difficulty level" ));
     KCmdLineArgs::addCmdLineOptions(options);
 
     KApplication application;
@@ -49,10 +49,10 @@ int main(int argc, char ** argv)
     KGlobal::locale()->insertCatalog("libkdegames");
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("Novice")) Settings::setSkill(Settings::EnumSkill::Novice);
-    if (args->isSet("Normal")) Settings::setSkill(Settings::EnumSkill::Normal);
-    if (args->isSet("Expert")) Settings::setSkill(Settings::EnumSkill::Expert);
-    if (args->isSet("Master")) Settings::setSkill(Settings::EnumSkill::Master);
+    if (args->isSet("Easy")) Settings::setSkill(Settings::EnumSkill::Easy);
+    if (args->isSet("Medium")) Settings::setSkill(Settings::EnumSkill::Medium);
+    if (args->isSet("Hard")) Settings::setSkill(Settings::EnumSkill::Hard);
+    if (args->isSet("VeryHard")) Settings::setSkill(Settings::EnumSkill::VeryHard);
 
     args->clear();
 

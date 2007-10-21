@@ -14,13 +14,13 @@
       <label>Default user name</label>
     </entry>
     <entry name="skill" type="Enum">
-      <label>Default difficulty level</label>
-      <default>Novice</default>
+      <label>The difficulty level.</label>
+      <default>Easy</default>
       <choices>
-        <choice name="Novice"/>
-        <choice name="Normal"/>
-        <choice name="Expert"/>
-        <choice name="Master"/>
+        <choice name="Easy"/>
+        <choice name="Medium"/>
+        <choice name="Hard"/>
+        <choice name="VeryHard"/>
       </choices>
     </entry>
   </group>

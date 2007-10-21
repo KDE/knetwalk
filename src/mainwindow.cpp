@@ -34,7 +34,6 @@
 #include <KIconLoader>
 #include <KLocale>
 #include <KScoreDialog>
-#include <KHighscore>
 #include <KStandardAction>
 #include <KAction>
 #include <KActionCollection>
@@ -61,6 +60,7 @@ static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
+    kDebug() << Settings::skill();
     m_clickcount = 0;
 
     contrdirs[Cell::U] = Cell::D;
@@ -80,15 +80,22 @@ MainWindow::MainWindow(QWidget *parent)
 
     pixmapCache = new QPixmap(centralWidget()->size());
     m_invalidCache = true;
-    m_background.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 
+    // default values of KConfig XT don't seem to work
+    // this works around it. TODO: see why
+    
     // Difficulty
     KGameDifficulty::init(this, this, SLOT(startNewGame()));
     KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
     KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
     KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
-    KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
+    
+    if (Settings::skill() == 0) 
+        KGameDifficulty::setLevel(KGameDifficulty::Easy);
+    else 
+        KGameDifficulty::setLevel((KGameDifficulty::standardLevel) (Settings::skill()));
+    kDebug() << KGameDifficulty::levelString() << Settings::skill();
 
     setupGUI();
 

@@ -48,7 +48,6 @@ void Cell::initPixmaps()
     directionNames[U|R]   = "1100";
     directionNames[U|R|L] = "1101";
     directionNames[U|R|D] = "1110";
-    //allSvg.load( KStandardDirs::locate( "data","knetwalk/all.svgz" ) );
 }
 
 Cell::Cell(QWidget* parent, int i) : QWidget(parent)
