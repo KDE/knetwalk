@@ -8,7 +8,7 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>&knetwalk;</title>
+<title>The &kappname; Handbook</title>
 
 <authorgroup>
 <author>
@@ -17,8 +17,10 @@
 <affiliation>
 <address><email>fela.kde@gmail.com</email></address></affiliation>
 </author>
-
-
+<author>
+<firstname>Eugene</firstname><surname>Trounev</surname>
+<affiliation><address><email>eugene.trounev@gmail.com</email></address></affiliation>
+</author>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
@@ -34,7 +36,7 @@
 
 <abstract>
 <para>
-&knetwalk;, a game for system administrators.</para>
+&kappname;, a game for system administrators.</para>
 </abstract>
 
 <keywordset>
@@ -50,7 +52,7 @@
 <title>Introduction</title>
 
 <para>
-&knetwalk; is a single player logic game.
+&kappname; is a single player logic game.
 </para>
 
 <para>
@@ -237,7 +239,7 @@ Toggles on and off the display of the statusbar.
 Notifications...</guimenuitem></menuchoice></term>
 <listitem><para>This item displays a standard &kde; notifications configuration
 dialog, where you can change the notifications (sounds, visible messages,
-&etc;) used by &knetwalk;.</para></listitem>
+&etc;) used by &kappname;.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -299,7 +301,7 @@ dialog, where you can change the notifications (sounds, visible messages,
 <title>Credits and License</title>
 
 <para>
-&knetwalk;
+&kappname;
 </para>
 <para>
 Program copyright 2004 - 2007 by Andi Peredri, Thomas Nagy and Fela Winkelmolen <email>fela.kde@gmail.com</email>
@@ -319,7 +321,7 @@ Documentation copyright 2007 by Fela Winkelmolen <email>fela.kde@gmail.com</emai
 <title>Installation</title>
 
 <sect1 id="getting-knetwalk">
-<title>How to obtain &knetwalk;</title>
+<title>How to obtain &kappname;</title>
 
 &install.intro.documentation;
 
