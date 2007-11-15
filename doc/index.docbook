@@ -8,7 +8,7 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>The &kappname; Handbook</title>
+<title>The &knetwalk; Handbook</title>
 
 <authorgroup>
 <author>
@@ -31,12 +31,12 @@
     
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2007-10-08</date>
-<releaseinfo>1.0.0</releaseinfo>
+<date>2007-11-13</date>
+<releaseinfo>2.0.0</releaseinfo>
 
 <abstract>
 <para>
-&kappname;, a game for system administrators.</para>
+&knetwalk;, a game for system administrators.</para>
 </abstract>
 
 <keywordset>
@@ -52,7 +52,7 @@
 <title>Introduction</title>
 
 <para>
-&kappname; is a single player logic game.
+&knetwalk; is a single player logic game.
 </para>
 
 <para>
@@ -61,7 +61,7 @@ The object of the game is to start the LAN, connecting all the terminals to the 
 </chapter>
 
 <chapter id="how-to-play">
-<title>How to play</title>
+<title>How to Play</title>
 
 <para>
 The player is presented with a rectangular grid containing a server, several terminals, and pieces of wire.  The object of the game is to rotate these elements until every client is connected  to  the server, and no wires are left unconnected.  Optionally, you can try to get a high score by minimizing the number of rotations needed.
@@ -80,7 +80,7 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <title>Rules</title>
 <itemizedlist>
 <listitem><para>There is only one possible correct solution for every game.</para></listitem>
-<listitem><para>When playing the Very Hard difficulty level connections can wrap from left to right and from top to bottom.</para></listitem>
+<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level connections can wrap from left to right and from top to bottom.</para></listitem>
 <listitem><para>The game ends when every terminal and every wire is connected to the server.</para></listitem>
 <listitem><para>The score represents the number of clicks it took to complete the game. The lower the score the better.</para></listitem>
 </itemizedlist>
@@ -91,8 +91,8 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <itemizedlist>
 <listitem><para>Start seeking for squares which orientation can be easily determined.</para></listitem>
 <listitem><para>Once you are sure of the orientation of a square you can mark it using the &MMB;. This is particularly usefull in harder games.</para></listitem>
-<listitem><para>Look for I-shaped and T-shaped wires near the borders, and L-shaped wires near the edges. The position of these squares can be easily determined, unless you are playing the Very Hard difficulty level.</para></listitem>
-<listitem><para>When playing the Very Hard difficulty level a good place to start looking is near empty squares, if present, and near regions containing many terminals grouped together.</para></listitem>
+<listitem><para>Look for I-shaped and T-shaped wires near the borders, and L-shaped wires near the edges. The position of these squares can be easily determined, unless you are playing the <guilabel>Very hard</guilabel> difficulty level.</para></listitem>
+<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level a good place to start looking is near empty squares, if present, and near regions containing many terminals grouped together.</para></listitem>
 <listitem><para>Even when playing with the same difficulty level some games are easier than others, restart the game if you want to get a different board.</para></listitem>
 <listitem><para>If you want to get a good score, only do a move when you are sure.</para></listitem>
 </itemizedlist>
@@ -202,7 +202,7 @@ Toggles on and off the display of the statusbar.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guisubmenu>Choose Game Type</guisubmenu>
+<guisubmenu>Difficulty</guisubmenu>
 </menuchoice></term>
 <listitem>
 <para>Lets you set the difficulty level from a sub-menu.</para>
@@ -239,7 +239,7 @@ Toggles on and off the display of the statusbar.
 Notifications...</guimenuitem></menuchoice></term>
 <listitem><para>This item displays a standard &kde; notifications configuration
 dialog, where you can change the notifications (sounds, visible messages,
-&etc;) used by &kappname;.</para></listitem>
+&etc;) used by &knetwalk;.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -301,7 +301,7 @@ dialog, where you can change the notifications (sounds, visible messages,
 <title>Credits and License</title>
 
 <para>
-&kappname;
+&knetwalk;
 </para>
 <para>
 Program copyright 2004 - 2007 by Andi Peredri, Thomas Nagy and Fela Winkelmolen <email>fela.kde@gmail.com</email>
@@ -321,7 +321,7 @@ Documentation copyright 2007 by Fela Winkelmolen <email>fela.kde@gmail.com</emai
 <title>Installation</title>
 
 <sect1 id="getting-knetwalk">
-<title>How to obtain &kappname;</title>
+<title>How to obtain &knetwalk;</title>
 
 &install.intro.documentation;
 
