@@ -151,7 +151,7 @@ void Cell::setLight(int l)
 void Cell::paintEvent(QPaintEvent*)
 {
     if (width() == 0 || height() == 0) {
-        kDebug() << "Painting empty area" << endl;
+        kDebug() << "Painting empty area";
         return;
     }
     
