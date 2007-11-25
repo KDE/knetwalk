@@ -2,6 +2,7 @@
 Name=Default
 Name[be]=Прадвызначаны
 Name[br]=Dre ziouer
+Name[ca]=Predeterminat
 Name[de]=Standard
 Name[el]=Προκαθορισμένο
 Name[es]=Predeterminado
@@ -23,6 +24,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=KNetWalk Default theme for KDE 4
+Description[ca]=Tema predeterminat de KNetWalk per KDE 4
 Description[de]=KNetWalk Standard-Design für KDE 4
 Description[el]=Προκαθορισμένο θέμα KNetWalk για το KDE4
 Description[es]=El tema predeterminado de KNetWalk para KDE 4
