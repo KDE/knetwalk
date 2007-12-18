@@ -14,11 +14,11 @@ set(knetwalk_SRCS
 kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 set(knetwalk_icons
-	pics/hi16-app-knetwalk.png
-	pics/hi32-app-knetwalk.png
-	pics/hi48-app-knetwalk.png
-	pics/hi64-app-knetwalk.png
-	pics/hi128-app-knetwalk.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi16-app-knetwalk.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi32-app-knetwalk.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi48-app-knetwalk.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi64-app-knetwalk.png
+	${CMAKE_CURRENT_SOURCE_DIR}/pics/hi128-app-knetwalk.png
 )
 kde4_add_win32_app_icon(knetwalk_SRCS ${knetwalk_icons})
 kde4_add_executable(knetwalk ${knetwalk_SRCS})
