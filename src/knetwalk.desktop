@@ -3,6 +3,7 @@ Type=Application
 Exec=knetwalk -caption "%c"
 X-DocPath=knetwalk/index.html
 Name=knetwalk
+Name[bn]=কে-নেটওয়াক
 Name[fi]=Knetwalk
 Name[hu]=KNetWalk
 Name[ne]=केडीई नेटवाल्क
