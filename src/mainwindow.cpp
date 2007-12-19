@@ -19,21 +19,15 @@
 
 #include "mainwindow.h"
 
-#include <QAction>
-#include <QApplication>
 #include <QEventLoop>
-#include <QLabel>
-#include <QLayout>
-#include <QLineEdit>
 #include <QPushButton>
-#include <QSettings>
 #include <QTimer>
-#include <QToolButton>
 #include <QPainter>
 #include <QPixmap>
 #include <QPaintEvent>
-
+#include <QGridLayout>
 #include <QCloseEvent>
+#include <QApplication>
 
 #include <KGlobal>
 #include <KIconLoader>
