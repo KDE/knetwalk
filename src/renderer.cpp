@@ -121,6 +121,7 @@ QPixmap Renderer::backgroundPixmap( const QSize& size ) const
         pixmap.fill(Qt::red); // TODO: testing only make transparent
         QPainter p(&pixmap);
         m_renderer->render(&p, "background", bgRect);
+        p.end();
         m_cache->insert(cacheName, pixmap);
         kDebug() << "cache size:" << m_cache->size() << "kb";
     }
@@ -139,6 +140,7 @@ QPixmap Renderer::backgroundOverlayPixmap(int size) const
         pixmap.fill(Qt::transparent);
         QPainter p(&pixmap);
         m_renderer->render(&p, "overlay");
+        p.end();
         
         m_cache->insert(cacheName, pixmap);
         kDebug() << "cache size:" << m_cache->size() << "kb";
@@ -164,8 +166,7 @@ QPixmap Renderer::cablesPixmap(int size, int dirs, bool isConnected) const
     QRectF boundingRect(CellBorder * size, CellBorder * size, 
                         ratio * size, ratio * size);
     
-    QPainter painter;
-    painter.begin(&pixmap);
+    QPainter painter(&pixmap);
     m_renderer->render(&painter, elementId, boundingRect);
     painter.end();
     
@@ -197,6 +198,7 @@ QPixmap Renderer::computerPixmap(int size, bool root, bool connected) const
     pixmap.fill(Qt::transparent);
     QPainter p(&pixmap);
     m_renderer->render(&p, elementId, boundingRect);
+    p.end();
     
     m_cache->insert(cacheName, pixmap);
     kDebug() << "cache size:" << m_cache->size() << "kb";
