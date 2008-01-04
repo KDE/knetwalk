@@ -102,7 +102,7 @@ Comment[uk]=Клац
 Comment[x-test]=xxClickxx
 Comment[zh_CN]=单击
 Comment[zh_TW]=點擊
-Sound=click.wav
+Sound=
 Action=None
 
 [Event/connectsound]
@@ -171,7 +171,7 @@ Comment[uk]=З'єднати
 Comment[x-test]=xxConnectxx
 Comment[zh_CN]=连接
 Comment[zh_TW]=連線
-Sound=connect.wav
+Sound=KDE-Window-Move-Stop.ogg
 Action=None
 
 [Event/winsound]
@@ -267,7 +267,7 @@ Comment[uk]=Гру виграно
 Comment[x-test]=xxGame wonxx
 Comment[zh_CN]=赢了游戏
 Comment[zh_TW]=您贏了
-Sound=win.wav
+Sound=KDE-K3B-Insert-Medium.ogg
 Action=Sound
 
 [Event/startsound]
@@ -336,7 +336,7 @@ Comment[uk]=З'єднати
 Comment[x-test]=xxConnectxx
 Comment[zh_CN]=连接
 Comment[zh_TW]=連線
-Sound=start.wav
+Sound=KDE-Im-User-Auth.ogg
 Action=Sound
 
 [Event/turnsound]
@@ -396,6 +396,6 @@ Comment[sv]=Omgång
 Comment[uk]=Хід
 Comment[x-test]=xxTurnxx
 Comment[zh_CN]=旋转
-Sound=turn.wav
+Sound=KDE-Window-Move-ogg
 Action=None
 
