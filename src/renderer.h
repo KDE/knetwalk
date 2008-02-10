@@ -1,6 +1,6 @@
 /*
     Copyright 2007 Dmitry Suzdalev <dimsuz@gmail.com>
-    Copyright 2007 Fela Winkelmolen <dimsuz@gmail.com>
+    Copyright 2007 Fela Winkelmolen <fela.kde@gmail.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
