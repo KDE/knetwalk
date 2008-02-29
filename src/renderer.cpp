@@ -177,7 +177,7 @@ QPixmap Renderer::cablesPixmap(int size, int dirs, bool isConnected) const
 }
 
 QPixmap Renderer::computerPixmap(int size, bool root, bool connected) const
-{
+{ 
     QPixmap pixmap;
     QString elementId;
     if (root) elementId = "server";

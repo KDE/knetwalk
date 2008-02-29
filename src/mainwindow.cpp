@@ -53,8 +53,9 @@
 #include "view.h"
 
 #include "renderer.h"
+#include "abstractgrid.h"
 
-static QMap<Cell::Dirs, Cell::Dirs> contrdirs;
+static QMap<Directions, Directions> contrdirs;
 
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
@@ -62,10 +63,10 @@ MainWindow::MainWindow(QWidget *parent)
     kDebug() << Settings::skill();
     m_clickcount = 0;
 
-    contrdirs[Cell::U] = Cell::D;
-    contrdirs[Cell::R] = Cell::L;
-    contrdirs[Cell::D] = Cell::U;
-    contrdirs[Cell::L] = Cell::R;
+    contrdirs[Up] = Down;
+    contrdirs[Right] = Left;
+    contrdirs[Down] = Up;
+    contrdirs[Left] = Right;
 
     setupActions();
     
@@ -190,7 +191,7 @@ void MainWindow::startNewGame()
 
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
-        board[i]->setDirs(Cell::None);
+        board[i]->setDirs(None);
         board[i]->setConnected(false);
         board[i]->setRoot(false);
         board[i]->setLocked(false);
@@ -198,7 +199,29 @@ void MainWindow::startNewGame()
 
     const int size = boardSize();
     setBoardSize(size);
+    
+    AbstractGrid grid(size, size, NotWrapped);
 
+    const int start = (MasterBoardSize - size) / 2;
+    
+    int i = 0; // index of grid
+    for (int r = start; r < start+size; ++r)
+    for (int c = start; c < start+size; ++c)
+    {
+        int index = r * MasterBoardSize + c; // index of board
+        board[index]->setDirs(grid.cells()[i]->cables);
+        board[index]->setConnected(false);
+        board[index]->setRoot(false);
+        board[index]->setLocked(false);
+        
+        if (grid.cells()[i]->isServer) {
+            board[index]->setConnected(true); // TODO: put in Cell::setRoot()
+            board[index]->setRoot(true);
+            root = board[index];
+        }
+        ++i;
+    }
+    /*
     const int start = (MasterBoardSize - size) / 2;
     const int rootrow = rand() % size;
     const int rootcol = rand() % size;
@@ -211,7 +234,7 @@ void MainWindow::startNewGame()
     {
         for (int row = start; row < start + size; row++)
             for(int col = start; col < start + size; col++)
-                board[row * MasterBoardSize + col]->setDirs(Cell::Free);
+                board[row * MasterBoardSize + col]->setDirs(None);
 
         CellList list;
         list.append(root);
@@ -235,15 +258,15 @@ void MainWindow::startNewGame()
         int cells = 0;
         for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         {
-            Cell::Dirs d = board[i]->dirs();
-            if ((d != Cell::Free) && (d != Cell::None)) cells++;
+            Directions d = board[i]->dirs();
+            if ((d != None) && (d != Cell::None)) cells++;
         }
         if (cells >= MinimumNumCells) break;
     }
 
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
         board[i]->rotate((rand() % 4) * 90);
-    
+    */
     updateConnections();
     KGameDifficulty::setRunning(false); // setRunning(true) on the first click
 }
@@ -268,25 +291,25 @@ void MainWindow::updateConnections()
         Cell* dcell = dCell(cell);
         Cell* lcell = lCell(cell);
 
-        if ((cell->dirs() & Cell::U) && ucell && (ucell->dirs() & Cell::D) &&
+        if ((cell->dirs() & Up) && ucell && (ucell->dirs() & Down) &&
                 !newconnection[ucell->index()] && !ucell->isRotated())
         {
             newconnection[ucell->index()] = true;
             list.append(ucell);
         }
-        if ((cell->dirs() & Cell::R) && rcell && (rcell->dirs() & Cell::L) &&
+        if ((cell->dirs() & Right) && rcell && (rcell->dirs() & Left) &&
                 !newconnection[rcell->index()] && !rcell->isRotated())
         {
             newconnection[rcell->index()] = true;
             list.append(rcell);
         }
-        if ((cell->dirs() & Cell::D) && dcell && (dcell->dirs() & Cell::U) &&
+        if ((cell->dirs() & Down) && dcell && (dcell->dirs() & Up) &&
                 !newconnection[dcell->index()] && !dcell->isRotated())
         {
             newconnection[dcell->index()] = true;
             list.append(dcell);
         }
-        if ((cell->dirs() & Cell::L) && lcell && (lcell->dirs() & Cell::R) &&
+        if ((cell->dirs() & Left) && lcell && (lcell->dirs() & Right) &&
                 !newconnection[lcell->index()] && !lcell->isRotated())
         {
             newconnection[lcell->index()] = true;
@@ -315,19 +338,19 @@ void MainWindow::addRandomDir(CellList& list)
     Cell* dcell = dCell(cell);
     Cell* lcell = lCell(cell);
 
-    typedef QMap<Cell::Dirs, Cell*> CellMap;
+    typedef QMap<Directions, Cell*> CellMap;
     CellMap freecells;
 
-    if (ucell && ucell->dirs() == Cell::Free) freecells[Cell::U] = ucell;
-    if (rcell && rcell->dirs() == Cell::Free) freecells[Cell::R] = rcell;
-    if (dcell && dcell->dirs() == Cell::Free) freecells[Cell::D] = dcell;
-    if (lcell && lcell->dirs() == Cell::Free) freecells[Cell::L] = lcell;
+    if (ucell && ucell->dirs() == None) freecells[Up] = ucell;
+    if (rcell && rcell->dirs() == None) freecells[Right] = rcell;
+    if (dcell && dcell->dirs() == None) freecells[Down] = dcell;
+    if (lcell && lcell->dirs() == None) freecells[Left] = lcell;
     if (freecells.isEmpty()) return;
 
     CellMap::ConstIterator it = freecells.constBegin();
     for (int i = rand() % freecells.count(); i > 0; --i) ++it;
 
-    cell->setDirs(Cell::Dirs(cell->dirs() | it.key()));
+    cell->setDirs(Directions(cell->dirs() | it.key()));
     it.value()->setDirs(contrdirs[it.key()]);
     list.append(it.value());
 }
@@ -388,8 +411,8 @@ void MainWindow::mClicked(int index)
 
 void MainWindow::rotate(int index, bool clockWise)
 {
-    const Cell::Dirs d = board[index]->dirs();
-    if ((d == Cell::Free) || (d == Cell::None) || gameEnded || board[index]->isLocked() )
+    const Directions d = board[index]->dirs();
+    if ((d == None) || gameEnded || board[index]->isLocked() )
     {
         KNotification::event( "clicksound" );
         //blink(index);
@@ -428,8 +451,8 @@ void MainWindow::checkIfGameEnded()
     bool ended = true;
     for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
     {
-        const Cell::Dirs d = board[i]->dirs();
-        if ((d != Cell::Free) && (d != Cell::None) && !board[i]->isConnected())
+        const Directions d = board[i]->dirs();
+        if ((d != None) && !board[i]->isConnected())
             ended = false;
     }
     

@@ -9,7 +9,8 @@ set(knetwalk_SRCS
    cell.cpp 
    main.cpp 
    mainwindow.cpp
-   renderer.cpp )
+   renderer.cpp 
+   abstractgrid.cpp)
 
 kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 

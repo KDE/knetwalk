@@ -35,7 +35,7 @@ class Renderer
 public:
     // Free or None means it's not used, 
     // if it has only one direction it's a terminal or a server
-    enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
+    enum Directions { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
     static Renderer* self();
     bool loadTheme( const QString& themeName );
     QPixmap backgroundPixmap(const QSize& size) const;

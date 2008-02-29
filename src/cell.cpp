@@ -38,20 +38,20 @@ KSvgRenderer Cell::allSvg;
 
 void Cell::initPixmaps()
 {
-    directionNames[L]     = "0001";
-    directionNames[D]     = "0010";
-    directionNames[D|L]   = "0011";
-    directionNames[R]     = "0100";
-    directionNames[R|L]   = "0101";
-    directionNames[R|D]   = "0110";
-    directionNames[R|D|L] = "0111";
-    directionNames[U]     = "1000";
-    directionNames[U|L]   = "1001";
-    directionNames[U|D]   = "1010";
-    directionNames[U|D|L] = "1011";
-    directionNames[U|R]   = "1100";
-    directionNames[U|R|L] = "1101";
-    directionNames[U|R|D] = "1110";
+    directionNames[Left]            = "0001";
+    directionNames[Down]            = "0010";
+    directionNames[Down|Left]       = "0011";
+    directionNames[Right]           = "0100";
+    directionNames[Right|Left]      = "0101";
+    directionNames[Right|Down]      = "0110";
+    directionNames[Right|Down|Left] = "0111";
+    directionNames[Up]              = "1000";
+    directionNames[Up|Left]         = "1001";
+    directionNames[Up|Down]         = "1010";
+    directionNames[Up|Down|Left]    = "1011";
+    directionNames[Up|Right]        = "1100";
+    directionNames[Up|Right|Left]   = "1101";
+    directionNames[Up|Right|Down]   = "1110";
 }
 
 Cell::Cell(QWidget* parent, int i) : QWidget(parent)
@@ -59,7 +59,7 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent)
     angle     = 0;
     light     = 0;
     iindex    = i;
-    ddirs     = Free;
+    ddirs     = None;
     connected = false;
     root      = false;
     locked    = false;
@@ -87,7 +87,7 @@ int Cell::index() const
     return iindex;
 }
 
-Cell::Dirs Cell::dirs() const
+Directions Cell::dirs() const
 {
     return ddirs;
 }
@@ -119,7 +119,7 @@ void Cell::setLocked( bool newlocked )
 }
 
 
-void Cell::setDirs(Dirs d)
+void Cell::setDirs(Directions d)
 {
     if(ddirs == d) return;
     ddirs = d;
@@ -164,7 +164,7 @@ void Cell::paintEvent(QPaintEvent*)
         // paint the terminals or server on the forgroundCache
         paintForground();
     }
-    if (ddirs == None || ddirs == Free) {
+    if (ddirs == None /*|| ddirs == Free*/) {
         *pixmapCache = *forgroundCache;
     }
     else if (forgroundChanged || cableChanged) {
@@ -194,7 +194,7 @@ void Cell::paintForground()
 {
     if (root)
         *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
-    else if(ddirs == U || ddirs == L || ddirs == D || ddirs == R)
+    else if(ddirs == Up || ddirs == Left || ddirs == Down || ddirs == Right)
         // if the cell has only one direction and isn't a server
         *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
     else 
@@ -288,23 +288,23 @@ void Cell::rotate(int a)
     {
         angle -= 90;
         rotationStart -= 90;
-        int newdirs = Free;
-        if (ddirs & U) newdirs |= R;
-        if (ddirs & R) newdirs |= D;
-        if (ddirs & D) newdirs |= L;
-        if (ddirs & L) newdirs |= U;
-        setDirs(Dirs(newdirs));
+        int newdirs = None;
+        if (ddirs & Up) newdirs |= Right;
+        if (ddirs & Right) newdirs |= Down;
+        if (ddirs & Down) newdirs |= Left;
+        if (ddirs & Left) newdirs |= Up;
+        setDirs(Directions(newdirs));
     }
     while (angle < -45)
     {
         angle += 90;
         rotationStart += 90;
-        int newdirs = Free;
-        if (ddirs & U) newdirs |= L;
-        if (ddirs & R) newdirs |= U;
-        if (ddirs & D) newdirs |= R;
-        if (ddirs & L) newdirs |= D;
-        setDirs(Dirs(newdirs));
+        int newdirs = None;
+        if (ddirs & Up) newdirs |= Left;
+        if (ddirs & Right) newdirs |= Up;
+        if (ddirs & Down) newdirs |= Right;
+        if (ddirs & Left) newdirs |= Down;
+        setDirs(Directions(newdirs));
     }
     
     cableChanged = true;

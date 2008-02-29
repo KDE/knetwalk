@@ -23,6 +23,8 @@
 
 #include <KSvgRenderer>
 
+#include "abstractgrid.h"
+
 class QPixmap;
 class QTimeLine;
 class QPaintEvent;
@@ -35,13 +37,12 @@ Q_OBJECT
 public:
     // Free or None means it's not used, 
     // if it has only one direction it's a terminal or a server
-    enum Dirs { Free = 0, U = 1, R = 2, D = 4, L = 8, None = 16 };
     Cell(QWidget* parent, int i);
     ~Cell();
     int  index() const;
     void rotate(int a);
     void animateRotation(bool toLeft);
-    void setDirs(Dirs d);
+    void setDirs(Directions d);
     void setRoot(bool b);
     void setLight(int l);
     void setConnected(bool b);
@@ -49,7 +50,7 @@ public:
     bool isConnected() const;
     bool isRotated() const;
     bool isLocked() const;
-    Dirs dirs() const;
+    Directions dirs() const;
     static void initPixmaps();
 
 private slots:
@@ -83,7 +84,7 @@ private:
     bool    forgroundChanged;
     bool    root;
     bool    locked;
-    Dirs    ddirs;
+    Directions    ddirs;
     QPixmap *pixmapCache;
     QPixmap *forgroundCache;
     
