@@ -209,12 +209,12 @@ void MainWindow::startNewGame()
     for (int c = start; c < start+size; ++c)
     {
         int index = r * MasterBoardSize + c; // index of board
-        board[index]->setDirs(grid.cells()[i]->cables);
+        board[index]->setDirs(grid.cells()[i]->cables());
         board[index]->setConnected(false);
         board[index]->setRoot(false);
         board[index]->setLocked(false);
         
-        if (grid.cells()[i]->isServer) {
+        if (grid.cells()[i]->isServer()) {
             board[index]->setConnected(true); // TODO: put in Cell::setRoot()
             board[index]->setRoot(true);
             root = board[index];
