@@ -39,7 +39,7 @@ Renderer::Renderer()
     m_cache = new KPixmapCache("knetwalk-cache");
     m_cache->setCacheLimit(3*1024);
 
-    if(!loadTheme( Settings::theme() ))
+    if(!loadTheme(Settings::theme()))
         kDebug() << "Failed to load any game theme!";
     
     directionNames[L]     = "0001";
@@ -64,22 +64,21 @@ Renderer::~Renderer()
     delete m_cache;
 }
 
-bool Renderer::loadTheme( const QString& themeName )
+bool Renderer::loadTheme(const QString& themeName)
 {
-    // variable saying whether to discard old cache upon successful new theme loading
+    // variable saying whether to discard old cache upon 
+    // successful new theme loading
     // we won't discard it if m_currentTheme is empty meaning that
     // this is the first time loadTheme() is called
     // (i.e. during startup) as we want to pick the cache from disc
     bool discardCache = !m_currentTheme.isEmpty();
 
-    if( !m_currentTheme.isEmpty() && m_currentTheme == themeName )
-    {
+    if(!m_currentTheme.isEmpty() && m_currentTheme == themeName) {
         kDebug() << "Notice: not loading the same theme";
         return true; // this is not an error
     }
     KGameTheme theme;
-    if ( !theme.load( themeName ) )
-    {
+    if (!theme.load(themeName))  {
         kDebug() << "Failed to load theme" << Settings::theme();
         kDebug() << "Trying to load default";
         if(!theme.loadDefault())
@@ -90,23 +89,20 @@ bool Renderer::loadTheme( const QString& themeName )
 
     bool res = m_renderer->load( theme.graphics() );
     kDebug() << "loading" << theme.graphics();
-    if ( !res )
-        return false;
+    if (!res) return false;
 
-    if(discardCache)
-    {
+    if (discardCache) {
         kDebug() << "discarding cache";
         m_cache->discard();
     }
     return true;
 }
 
-QPixmap Renderer::backgroundPixmap( const QSize& size ) const
+QPixmap Renderer::backgroundPixmap(const QSize& size) const
 {
     QPixmap pixmap;
     QString cacheName = QString("background%1x%2").arg(size.width()).arg(size.height());
-    if(!m_cache->find( cacheName, pixmap ))
-    {
+    if(!m_cache->find(cacheName, pixmap)) {
         
         // calculate the background bounding rect
         int const w = size.width();
@@ -131,8 +127,7 @@ QPixmap Renderer::backgroundOverlayPixmap(int size) const
 {
     QPixmap pixmap;
     QString cacheName = QString("overlay%1").arg(size);
-    if ( !m_cache->find(cacheName, pixmap) )
-    {
+    if (!m_cache->find(cacheName, pixmap)) {
         kDebug() << "re-rendering overlay";
         
         pixmap = QPixmap(size, size);

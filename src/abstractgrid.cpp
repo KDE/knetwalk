@@ -214,38 +214,46 @@ void AbstractGrid::addRandomCable(QList<uint>& list)
 
 int AbstractGrid::uCell(uint cell) const
 {
-    if (cell >= m_width)
+    if (cell >= m_width) {
         return cell - m_width;
-    else if (m_isWrapped)
+    } else if (m_isWrapped) {
         return m_width * (m_height - 1) + cell;
-    else return NO_CELL;
+    } else {
+        return NO_CELL;
+    }
 }
 
 int AbstractGrid::dCell(uint cell) const
 {
-    if (cell < m_width * (m_height - 1))
+    if (cell < m_width * (m_height - 1)) {
         return cell + m_width;
-    else if (m_isWrapped)
+    } else if (m_isWrapped) {
         return cell - m_width * (m_height - 1);
-    else return NO_CELL;
+    } else {
+        return NO_CELL;
+    }
 }
 
 int AbstractGrid::lCell(uint cell) const
 {
-    if (cell % m_width > 0)
+    if (cell % m_width > 0) {
         return cell - 1;
-    else if (m_isWrapped)
+    } else if (m_isWrapped) {
         return cell - 1 + m_width;
-    else return NO_CELL;
+    } else {
+        return NO_CELL;
+    }
 }
 
 int AbstractGrid::rCell(uint cell) const
 {
-    if (cell % m_width < m_width - 1)
+    if (cell % m_width < m_width - 1) {
         return cell + 1;
-    else if (m_isWrapped)
+    } else if (m_isWrapped) {
         return cell + 1 - m_width;
-    else return NO_CELL;
+    } else {
+        return NO_CELL;
+    }
 }
 
 // TODO: something better to invert directions (remove duplication etc...)

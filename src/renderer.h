@@ -42,11 +42,12 @@ public:
     QPixmap backgroundOverlayPixmap(int) const;
     QPixmap cablesPixmap(int size, int dirs, bool isConnected) const;
     QPixmap computerPixmap(int size, bool isServer, bool connected) const;
+    
 private:
     // disable copy - it's singleton
     Renderer();
-    Renderer( const Renderer& );
-    Renderer& operator=( const Renderer& );
+    Renderer(const Renderer&);
+    Renderer& operator=(const Renderer&);
     ~Renderer();
 
     KSvgRenderer *m_renderer;

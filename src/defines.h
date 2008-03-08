@@ -19,10 +19,10 @@
 #define _DEFINES_H
 
 const char *levels[4] = {
-I18N_NOOP("Novice"),
-I18N_NOOP("Normal"),
-I18N_NOOP("Expert"),
-I18N_NOOP("Master")
+  I18N_NOOP("Novice"),
+  I18N_NOOP("Normal"),
+  I18N_NOOP("Expert"),
+  I18N_NOOP("Master")
 };
 
 #endif // _DEFINES_H

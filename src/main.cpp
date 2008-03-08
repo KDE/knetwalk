@@ -34,11 +34,22 @@ static const char version[] = "2.0.0";
 
 int main(int argc, char ** argv)
 {
-    KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version, ki18n(description),
-        KAboutData::License_GPL, ki18n("(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy\n (C) 2007 Fela Winkelmolen"));
-    about.addAuthor( ki18n("Fela Winkelmolen"), ki18n("current maintainer"), "fela.kde@gmail.com");
-    about.addAuthor( ki18n("Andi Peredri"), ki18n("original author"), "andi@ukr.net" );
-    about.addAuthor( ki18n("Thomas Nagy"), ki18n("KDE port"), "tnagy2^8@yahoo.fr" );
+    KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version,
+        ki18n(description), KAboutData::License_GPL, 
+        ki18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+        "(C) 2007-2008 Fela Winkelmolen"));
+    
+    about.addAuthor(ki18n("Fela Winkelmolen"), 
+                    ki18n("current maintainer"),    
+                    "fela.kde@gmail.com");
+    
+    about.addAuthor(ki18n("Andi Peredri"), 
+                    ki18n("original author"), 
+                    "andi@ukr.net");
+    
+    about.addAuthor(ki18n("Thomas Nagy"), 
+                    ki18n("KDE port"), 
+                    "tnagy2^8@yahoo.fr");
 
     KCmdLineArgs::init(argc, argv, &about);
 

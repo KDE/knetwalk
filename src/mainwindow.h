@@ -51,17 +51,16 @@ protected:
     virtual void resizeEvent(QResizeEvent*);
     
 private:
-    enum BoardSize
-    {
-        NoviceBoardSize = 5,
-        NormalBoardSize = 7,
-        ExpertBoardSize = 9,
-        MasterBoardSize = 9
+    enum BoardSize {
+      NoviceBoardSize = 5,
+      NormalBoardSize = 7,
+      ExpertBoardSize = 9,
+      MasterBoardSize = 9
     };
-    enum
-    {
-        NumHighscores   = 10,
-        MinimumNumCells = 20
+    
+    enum {
+      NumHighscores   = 10,
+      MinimumNumCells = 20
     };
     typedef QList<Cell*> CellList;
     

@@ -72,7 +72,7 @@ Cell::Cell(QWidget* parent, int i) : QWidget(parent)
     timeLine = new QTimeLine(AnimationTime, this);
     timeLine->setCurveShape(QTimeLine::EaseOutCurve);
     //timeLine->setUpdateInterval(80);
-    connect(timeLine, SIGNAL(frameChanged(int)), SLOT(rotateStep(int)));
+    connect(timeLine, SIGNAL(frameChanged(int)), SLOT(rotateStep(int)));        
 }
 
 Cell::~Cell()
@@ -159,15 +159,14 @@ void Cell::paintEvent(QPaintEvent*)
         return;
     }
     
-    if (forgroundChanged)
-    {
+    if (forgroundChanged) {
         // paint the terminals or server on the forgroundCache
         paintForground();
     }
+    
     if (ddirs == None /*|| ddirs == Free*/) {
         *pixmapCache = *forgroundCache;
-    }
-    else if (forgroundChanged || cableChanged) {
+    } else if (forgroundChanged || cableChanged) {
         // paints everything on the cache
         paintOnCache();
     }
@@ -192,25 +191,32 @@ void Cell::paintEvent(QPaintEvent*)
 
 void Cell::paintForground()
 {
-    if (root)
-        *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
-    else if(ddirs == Up || ddirs == Left || ddirs == Down || ddirs == Right)
+    if (root) {
+        *forgroundCache = 
+                Renderer::self()->computerPixmap(width(), root, isConnected());
+    } else if(ddirs == Up || ddirs == Left || ddirs == Down || ddirs == Right) {
         // if the cell has only one direction and isn't a server
-        *forgroundCache = Renderer::self()->computerPixmap(width(), root, isConnected());
-    else 
+        *forgroundCache = 
+                Renderer::self()->computerPixmap(width(), root, isConnected());
+    } else { 
         forgroundCache->fill(Qt::transparent);
+    }
 }
 
 void Cell::paintOnCache()
 {   
-    if (locked) pixmapCache->fill(LockedCellColor);
-    else pixmapCache->fill(Qt::transparent);
+    if (locked) {
+        pixmapCache->fill(LockedCellColor);
+    } else {
+        pixmapCache->fill(Qt::transparent);
+    }
     
-    QPixmap cable( Renderer::self()->cablesPixmap(width(), ddirs, isConnected()) );
+    
+    QPixmap cable(Renderer::self()->cablesPixmap(width(),
+                  ddirs, isConnected()));
     QPainter painter(pixmapCache);
     
-    if(angle)
-    {
+    if (angle != 0) {
         qreal offset = width() / 2.0;
         painter.translate(offset, offset);
         painter.rotate(angle);
@@ -228,12 +234,13 @@ void Cell::mousePressEvent(QMouseEvent* e)
     // do nothing if there is an animation running
     //if (timeLine->state() == QTimeLine::Running) return;
     
-    if (e->button() == Qt::LeftButton)
+    if (e->button() == Qt::LeftButton) {
         emit lClicked(iindex);
-    else if (e->button() == Qt::RightButton)
+    } else if (e->button() == Qt::RightButton) {
         emit rClicked(iindex);
-    else if (e->button() == Qt::MidButton)
+    } else if (e->button() == Qt::MidButton) {
         emit mClicked(iindex);
+    }
 }
 
 void Cell::resizeEvent(QResizeEvent* e)
@@ -249,8 +256,7 @@ void Cell::animateRotation(bool clockWise)
 {
     // if there is already an animation running make a new animition
     // taking into account also the new click
-    if (timeLine->state() == QTimeLine::Running) 
-    {
+    if (timeLine->state() == QTimeLine::Running) {
         totalRotation += clockWise ? 90 : -90;
         
         timeLine->setFrameRange(timeLine->currentFrame(), totalRotation);
@@ -258,9 +264,7 @@ void Cell::animateRotation(bool clockWise)
         timeLine->setCurrentTime(0);
         
         timeLine->start();
-    }
-    else 
-    {
+    } else {
         rotationStart = angle;
         totalRotation = clockWise ? 90 : -90;
         
@@ -284,8 +288,7 @@ void Cell::rotate(int a)
 {
     angle += a;
     
-    while (angle > 45)
-    {
+    while (angle > 45) {
         angle -= 90;
         rotationStart -= 90;
         int newdirs = None;
@@ -295,8 +298,8 @@ void Cell::rotate(int a)
         if (ddirs & Left) newdirs |= Up;
         setDirs(Directions(newdirs));
     }
-    while (angle < -45)
-    {
+    
+    while (angle < -45) {
         angle += 90;
         rotationStart += 90;
         int newdirs = None;
