@@ -1,2 +1,15 @@
-short term:
-* performance improvement (only one svg renderer, caching (?))
+1. review game logic
+    - make the game end when all cpu's are connected, not also cables (change docu accordingly)
+    - change scoring system (show moves, starting from -xx and time, and score (less is more))
+    - make boards wider than high, if it doesn't cause problems
+1a. rewrite graphic scene code
+    - use QGraphicsScene/View
+    - caching
+    - themable
+    
+2. add shortcuts
+3. support for changing themes (KHotNewStuff ???)
+4. use pop-up notification used in other games (for instance kmines)
+5. whatsthis isn't show easily add an help icon or questionmark or something... (in the game field maybe..)
+6. initial window size depending one the screen size (possible with kde? also usefull in other games!)
+7. show the solution
