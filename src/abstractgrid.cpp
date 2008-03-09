@@ -116,6 +116,8 @@ void AbstractCell::reset()
 }
 
 
+
+
 AbstractGrid::AbstractGrid(uint width, uint height, Wrapping wrapping)
 {
     m_width = width;
@@ -124,9 +126,8 @@ AbstractGrid::AbstractGrid(uint width, uint height, Wrapping wrapping)
     
     createGrid();
     
-    while(!isValid()) {
-        kDebug() << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
-        kDebug() << "Invalid grid creating new one!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    while(hasUnneededCables() || solutionCount() != 1) {
+        // the grid is invalid: create a new one
         createGrid();
     }
     
@@ -316,57 +317,40 @@ Directions AbstractGrid::invertDirection(Directions givenDirection)
     return invDirs[givenDirection];
 }
 
-bool AbstractGrid::isValid()
-{
-    // TODO: remove debug messages
-    kDebug() << "isValid()";
-    isSolutionCount = 0;
-    int sols = solutions();
-    kDebug() << "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << sols << "count:" 
-             << isSolutionCount;
-    //return solutions(movesDone) == 1;
-    sleep(3);
-    return sols == 1;
-}
 
-// I use a depth first search (more memory efficient), 
-// i'm only interested in knowing if there are solutions
-// other than the "right" one
-int AbstractGrid::solutions()
+int AbstractGrid::solutionCount()
 {
     MoveList possibleNextMoves;
+    // TODO: put following in external function
     foreach (AbstractCell *cell, m_cells) {
         if (!cell->hasBeenMoved()) {
             Directions dirs = cell->cables();
             Move move;
             if (dirs == None) {
+                // no cables
                 move = Move(cell->index(), Move::None);
                 possibleNextMoves.append(move);
-                break;
-            }
-            
-            if (dirs == (Up | Down) || dirs == (Left | Right)) {
+            } else if (dirs == (Up | Down) || dirs == (Left | Right)) {
+                // cables forming a line
+                move = Move(cell->index(), Move::None);
+                possibleNextMoves.append(move);
+                
+                move = Move(cell->index(), Move::Left);
+                possibleNextMoves.append(move);
+            } else {
+                // other kind of cables
                 move = Move(cell->index(), Move::None);
                 possibleNextMoves.append(move);
                 
                 move = Move(cell->index(), Move::Left);
                 possibleNextMoves.append(move);
                 
-                break;
+                move = Move(cell->index(), Move::Right);
+                possibleNextMoves.append(move);
+                
+                move = Move(cell->index(), Move::Inverted);
+                possibleNextMoves.append(move);
             }
-            
-            // else
-            move = Move(cell->index(), Move::None);
-            possibleNextMoves.append(move);
-            
-            move = Move(cell->index(), Move::Left);
-            possibleNextMoves.append(move);
-            
-            move = Move(cell->index(), Move::Right);
-            possibleNextMoves.append(move);
-            
-            move = Move(cell->index(), Move::Inverted);
-            possibleNextMoves.append(move);
             break;
         }
     }
@@ -396,8 +380,8 @@ int AbstractGrid::solutions()
             break;
         }
         
-        if (check()) {
-            solutionsFound += solutions(); // recursive call
+        if (movesDoneArePossible()) {
+            solutionsFound += solutionCount(); // recursive call
         }
         
         m_cells[index]->reset(); // undo move
@@ -405,7 +389,7 @@ int AbstractGrid::solutions()
     return solutionsFound;
 }
 
-bool AbstractGrid::check() 
+bool AbstractGrid::movesDoneArePossible() 
 {
     foreach (AbstractCell *cell, m_cells) {
         if (!cell->hasBeenMoved()) continue;
@@ -433,21 +417,18 @@ bool AbstractGrid::check()
                 if (!(m_cells[lcell]->cables() & Right)) return false;
             }
         }
-        
         if (cables & Right) {
             int rcell = rCell(cell->index());
             if (rcell != NO_CELL && m_cells[rcell]->hasBeenMoved()) {
                 if (!(m_cells[rcell]->cables() & Left)) return false;
             }
         }
-        
         if (cables & Up) {
             int ucell = uCell(cell->index());
             if (ucell != NO_CELL && m_cells[ucell]->hasBeenMoved()) {
                 if (!(m_cells[ucell]->cables() & Down)) return false;
             }
         }
-        
         if (cables & Down) {
             int dcell = dCell(cell->index());
             if (dcell != NO_CELL && m_cells[dcell]->hasBeenMoved()) {
@@ -456,17 +437,32 @@ bool AbstractGrid::check()
         }
     }
     
+    // nothing was wrong
     return true;
+}
+
+bool AbstractGrid::hasUnneededCables()
+{
+    foreach (AbstractCell *cell, m_cells) {
+        if (cell->isTerminal() || cell->isServer()) continue;
+        
+        Directions oldCables = cell->cables();
+        cell->setCables(None);
+        
+        bool solution = isSolution();
+        cell->setCables(oldCables);
+        
+        if (solution) {
+            // it has a solution also when the cables of cell are removed
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 bool AbstractGrid::isSolution() 
 {
-    /*print();
-    kDebug() << "isSolution()";
-    sleep(5);*/
-    // TODO debug only
-    ++isSolutionCount;
-    
     updateConnections();
     // return false if there is a terminal that isn't connected
     foreach (AbstractCell *cell, m_cells) {

@@ -96,9 +96,7 @@ public:
     //bool isWrapped() {return m_isWrapped;}
     
 private:
-    // TODO: debug only
-    int isSolutionCount;
-
+    // used when an index of a cell is required
     static const int NO_CELL = -1;
 
     QList<AbstractCell *> m_cells;
@@ -128,15 +126,18 @@ private:
     bool isValid();
     
     // return the number of solutions given a few moves already done
-    int solutions();
+    int solutionCount();
     
-    // return false if the moves are clearly impossible
-    bool check();
+    // returns true if you can connect all terminal without usign all cables
+    bool hasUnneededCables();
     
-    // checks if moves is a solution
+    // return false if some of the moves done are clearly wrong
+    bool movesDoneArePossible();
+    
+    // returns true if all terminals are connected to the server
     bool isSolution();
     
-    // updates the connections of the squares
+    // updates the connections of the cells
     void updateConnections();
 };
 
