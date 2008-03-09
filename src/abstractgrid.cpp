@@ -481,7 +481,7 @@ bool AbstractGrid::isSolution()
 void AbstractGrid::updateConnections()
 {
     // TODO: add int AbstractGrid::cellsCount()
-    bool newConnections[m_width * m_height];
+    QVector<bool> newConnections(m_width * m_height);
     for (uint i = 0; i < m_width * m_height; ++i) {
         newConnections[i] = false;
     }
