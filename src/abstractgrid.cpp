@@ -16,12 +16,13 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "abstractgrid.h"
+
 #include <cstdlib> // rand()
 #include <unistd.h> // sleep()
 #include <QMap>
 #include <QString>
 #include <KDebug>
-#include "abstractgrid.h"
 
 
 AbstractCell::AbstractCell(int index) 

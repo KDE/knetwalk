@@ -40,7 +40,6 @@
 #include <KStatusBar>
 #include <KNotification>
 #include <KNotifyConfigWidget>
-#include <KScoreDialog>
 #include <KStandardDirs>
 #include <KSelectAction>
 #include <KGameDifficulty>
