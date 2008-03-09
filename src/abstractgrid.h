@@ -30,7 +30,8 @@ public:
     int index() const {return m_index;}
     bool isServer() const {return m_isServer;}
     bool isConnected() const {return m_isConnected;}
-    bool isInOriginalPosition() const {return m_isInOriginalPosition;}
+    bool hasBeenMoved() const {return !m_isInOriginalPosition;}
+    bool isTerminal() const;
     
     // only used to change the cables (not to rotate the cell!)
     void setCables(Directions newCables);    
@@ -44,42 +45,38 @@ public:
     
     void reset();
     
+    char *toString();
+    
 protected: // TODO: maybe could be private..
     int m_index;
     Directions originalCables;
     Directions m_cables;
     bool m_isServer;
     bool m_isConnected;
-    bool m_isInOriginalPosition;
+    bool m_isInOriginalPosition; // TODO: change to !m_hasBeenMoved
 };
 
-/*
 class Move
 {
 public:
-    Move(Directions cables, int index);
+    enum MoveDirection {None, Left, Right, Inverted};
+    Move() {}
     
-    Directions cables() const {return m_cables;}
-    bool noMove() const {return m_noMove;}
-    int index() const {return m_index;}
+    Move(int index, MoveDirection move) {
+        m_index = index;
+        m_move = move;
+    }
     
-    void emptyMove(); // set noMove to false
-    void turnRight();
-    void turnLeft();
-    void turnTwice(); // turns the cables by 180 degrees
-    
-    // unset all rotations
-    void unset();
-    
+    int index() {return m_index;}
+    MoveDirection move() {return m_move;}
+
 private:
     int m_index;
-    Directions originalCables;
-    Directions m_cables;
-    bool m_noMove;
+    MoveDirection m_move;
 };
 
 typedef QList<Move> MoveList;
-*/
+
 
 class AbstractGrid
 {
@@ -91,6 +88,9 @@ public:
     
     // ownership remains to the AbstractGrid
     QList<AbstractCell *> cells() const {return m_cells;}
+    
+    void print(); // outputs the grid
+    
     //int width() {return m_width;}
     //int height() {return m_height;}
     //bool isWrapped() {return m_isWrapped;}
@@ -124,20 +124,20 @@ private:
     // !!! a single direction is expected as parameter (not bitwise ORed!!) !!!
     Directions invertDirection(Directions givenDirection);
     
-    /*
+    
     bool isValid();
     
     // return the number of solutions given a few moves already done
-    int solutions(MoveList moves);
+    int solutions();
     
     // return false if the moves are clearly impossible
-    bool check(MoveList moves);
+    bool check();
     
     // checks if moves is a solution
-    bool isSolution(MoveList moves);
+    bool isSolution();
     
     // updates the connections of the squares
-    void updateConnections();*/
+    void updateConnections();
 };
 
 #endif // ABSTRACT_GRID
