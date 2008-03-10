@@ -84,7 +84,6 @@ private:
     bool  startBrowser(const QString& url);
     void  blink(int index);
     void  rotate(int index, bool clockWise);
-    void  addRandomDir(CellList& list);
     void  dialog(const QString& caption, const QString& text);
     void  setBoardSize(int size);
     

@@ -30,7 +30,7 @@
 static const char description[] =
 I18N_NOOP("KNetWalk, a game for system administrators.");
 
-static const char version[] = "2.0.0";
+static const char version[] = "2.5.0";
 
 int main(int argc, char ** argv)
 {
@@ -54,21 +54,28 @@ int main(int argc, char ** argv)
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;
-    options.add("Easy", ki18n( "Start with Easy difficulty level" ));
-    options.add("Medium", ki18n( "Start with Medium difficulty level" ));
-    options.add("Hard", ki18n( "Start with Hard difficulty level" ));
-    options.add("VeryHard", ki18n( "Start with Very Hard difficulty level" ));
+    options.add("Easy", ki18n("Start with Easy difficulty level"));
+    options.add("Medium", ki18n("Start with Medium difficulty level"));
+    options.add("Hard", ki18n("Start with Hard difficulty level"));
+    options.add("VeryHard", ki18n("Start with Very Hard difficulty level"));
     KCmdLineArgs::addCmdLineOptions(options);
 
     KApplication application;
     KGlobal::locale()->insertCatalog("libkdegames");
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("Easy")) Settings::setSkill(Settings::EnumSkill::Easy);
-    if (args->isSet("Medium")) Settings::setSkill(Settings::EnumSkill::Medium);
-    if (args->isSet("Hard")) Settings::setSkill(Settings::EnumSkill::Hard);
-    if (args->isSet("VeryHard")) Settings::setSkill(Settings::EnumSkill::VeryHard);
-
+    if (args->isSet("Easy")) {
+        Settings::setSkill(Settings::EnumSkill::Easy);
+    }
+    if (args->isSet("Medium")) {
+        Settings::setSkill(Settings::EnumSkill::Medium);
+    }
+    if (args->isSet("Hard")) {
+        Settings::setSkill(Settings::EnumSkill::Hard);
+    }
+    if (args->isSet("VeryHard")) {
+        Settings::setSkill(Settings::EnumSkill::VeryHard);
+    }
     args->clear();
 
 

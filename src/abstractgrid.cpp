@@ -26,12 +26,9 @@
 
 
 AbstractCell::AbstractCell(int index) 
+    : m_index(index)
 {
-    m_index = index;
-    m_cables = originalCables = None;
-    m_isServer = false;
-    m_isConnected = false;
-    m_isInOriginalPosition = true;
+    makeEmpty();
 }
 
 char *AbstractCell::toString() {
@@ -64,7 +61,7 @@ bool AbstractCell::isTerminal() const
 void AbstractCell::setCables(Directions newCables) 
 {
     m_cables = originalCables = newCables;
-    m_isInOriginalPosition = true;
+    m_hasBeenMoved = false;
 }
 
 void AbstractCell::setServer(bool isServer) 
@@ -77,9 +74,17 @@ void AbstractCell::setConnected(bool isConnected)
     m_isConnected = isConnected;
 }
 
+void AbstractCell::makeEmpty()
+{
+    m_cables = originalCables = None;
+    m_isServer = false;
+    m_isConnected = false;
+    m_hasBeenMoved = false;
+}
+
 void AbstractCell::emptyMove()
 {
-    m_isInOriginalPosition = false;
+    m_hasBeenMoved = true;
 }
 
 void AbstractCell::turnClockwise() 
@@ -90,7 +95,7 @@ void AbstractCell::turnClockwise()
     if (m_cables & Down) newdirs = Directions(newdirs | Left);
     if (m_cables & Left) newdirs = Directions(newdirs | Up);
     m_cables = newdirs;
-    m_isInOriginalPosition = false;
+    m_hasBeenMoved = true;
 }
 
 void AbstractCell::turnCounterclockwise() 
@@ -101,7 +106,7 @@ void AbstractCell::turnCounterclockwise()
     if (m_cables & Down) newdirs = Directions(newdirs | Right);
     if (m_cables & Left) newdirs = Directions(newdirs | Down);
     m_cables = newdirs;
-    m_isInOriginalPosition = false;
+    m_hasBeenMoved = true;
 }
 
 void AbstractCell::invert() 
@@ -112,15 +117,29 @@ void AbstractCell::invert()
 
 void AbstractCell::reset() 
 {
-    m_isInOriginalPosition = true;
     m_cables = originalCables;
+    m_hasBeenMoved = false;
 }
 
 
 
 
-AbstractGrid::AbstractGrid(uint width, uint height, Wrapping wrapping)
+
+AbstractGrid::~AbstractGrid()
 {
+    while (!m_cells.isEmpty()) delete m_cells.takeFirst();
+}
+
+void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
+{
+    if ((width * height) != (m_width * m_height)) {
+        while (!m_cells.isEmpty()) delete m_cells.takeFirst();
+        
+        for (uint index = 0; index < width*height; ++index) {
+            m_cells.append(newCell(index));
+        }
+    }
+    
     m_width = width;
     m_height = height;
     m_isWrapped = wrapping;
@@ -140,12 +159,6 @@ AbstractGrid::AbstractGrid(uint width, uint height, Wrapping wrapping)
             m_cells[i]->turnClockwise();
         }
     }
-}
-
-AbstractGrid::~AbstractGrid()
-{
-    while (!m_cells.isEmpty())
-        delete m_cells.takeFirst();
 }
 
 void AbstractGrid::print() {
@@ -174,13 +187,8 @@ void AbstractGrid::print() {
 
 void AbstractGrid::createGrid()
 {
-    while (!m_cells.isEmpty()){
-        delete m_cells.takeFirst();
-    }
-    
-    // and create new cells
     for (uint i = 0; i < m_width*m_height; ++i) {
-        m_cells.append(new AbstractCell(i));
+        m_cells[i]->makeEmpty();
     }
 
     // add a random server
@@ -392,6 +400,7 @@ int AbstractGrid::solutionCount()
 
 bool AbstractGrid::movesDoneArePossible() 
 {
+    
     foreach (AbstractCell *cell, m_cells) {
         if (!cell->hasBeenMoved()) continue;
         
@@ -445,7 +454,9 @@ bool AbstractGrid::movesDoneArePossible()
 bool AbstractGrid::hasUnneededCables()
 {
     foreach (AbstractCell *cell, m_cells) {
-        if (cell->isTerminal() || cell->isServer()) continue;
+        if (cell->isTerminal() || cell->isServer() || cell->cables() == None) {
+            continue;
+        }
         
         Directions oldCables = cell->cables();
         cell->setCables(None);
@@ -464,6 +475,9 @@ bool AbstractGrid::hasUnneededCables()
 
 bool AbstractGrid::isSolution() 
 {
+    foreach (AbstractCell *cell, m_cells) {
+        cell->setConnected(false);
+    }
     updateConnections();
     // return false if there is a terminal that isn't connected
     foreach (AbstractCell *cell, m_cells) {
@@ -496,7 +510,6 @@ void AbstractGrid::updateConnections()
         int dindex = dCell(cell_index);
         int lindex = lCell(cell_index);
         
-        // TODO: aren't needed only use indexes
         AbstractCell *cell = m_cells[cell_index];
         AbstractCell *ucell = (uindex != NO_CELL) ? m_cells[uindex] : 0;
         AbstractCell *rcell = (rindex != NO_CELL) ? m_cells[rindex] : 0;

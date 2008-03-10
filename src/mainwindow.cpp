@@ -174,7 +174,8 @@ void MainWindow::setupActions()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
     
     // Settings
-    KStandardAction::configureNotifications(this, SLOT(configureNotifications()), actionCollection());
+    KStandardAction::configureNotifications(this, 
+                SLOT(configureNotifications()), actionCollection());
 }
 
 
@@ -215,7 +216,9 @@ void MainWindow::startNewGame()
     const int size = boardSize();
     setBoardSize(size);
     
-    AbstractGrid grid(size, size, NotWrapped);
+    // TODO: enable wrapped
+    AbstractGrid grid;
+    grid.initializeGrid(size, size, (Wrapping)wrapped);
 
     const int start = (MasterBoardSize - size) / 2;
     
@@ -337,31 +340,6 @@ void MainWindow::updateConnections()
     }
     
     if (newConnections) checkIfGameEnded();
-}
-
-void MainWindow::addRandomDir(CellList& list)
-{
-    Cell* cell = list.first();
-    Cell* ucell = uCell(cell);
-    Cell* rcell = rCell(cell);
-    Cell* dcell = dCell(cell);
-    Cell* lcell = lCell(cell);
-
-    typedef QMap<Directions, Cell*> CellMap;
-    CellMap freecells;
-
-    if (ucell && ucell->dirs() == None) freecells[Up] = ucell;
-    if (rcell && rcell->dirs() == None) freecells[Right] = rcell;
-    if (dcell && dcell->dirs() == None) freecells[Down] = dcell;
-    if (lcell && lcell->dirs() == None) freecells[Left] = lcell;
-    if (freecells.isEmpty()) return;
-
-    CellMap::ConstIterator it = freecells.constBegin();
-    for (int i = rand() % freecells.count(); i > 0; --i) ++it;
-
-    cell->setDirs(Directions(cell->dirs() | it.key()));
-    it.value()->setDirs(contrdirs[it.key()]);
-    list.append(it.value());
 }
 
 Cell* MainWindow::uCell(Cell* cell) const

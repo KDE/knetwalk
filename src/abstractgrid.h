@@ -30,30 +30,35 @@ public:
     int index() const {return m_index;}
     bool isServer() const {return m_isServer;}
     bool isConnected() const {return m_isConnected;}
-    bool hasBeenMoved() const {return !m_isInOriginalPosition;}
+    bool hasBeenMoved() const {return m_hasBeenMoved;}
     bool isTerminal() const;
     
-    // only used to change the cables (not to rotate the cell!)
+    // should not be used to rotate the cell
     void setCables(Directions newCables);    
     void setServer(bool isServer=true);    
     void setConnected(bool isConnected=true);
     
-    void emptyMove(); // sets isInOriginalPosition to false
+    // sets the cell as if newly created
+    void makeEmpty();
+    
+    void emptyMove(); // sets hasBeenMoved to true
     void turnClockwise();
     void turnCounterclockwise();
     void invert(); // turns the cables by 180 degrees
     
+    // reset to the original position
     void reset();
     
+    // used for debugging only
     char *toString();
     
-protected: // TODO: maybe could be private..
+private:
     int m_index;
     Directions originalCables;
     Directions m_cables;
     bool m_isServer;
     bool m_isConnected;
-    bool m_isInOriginalPosition; // TODO: change to !m_hasBeenMoved
+    bool m_hasBeenMoved;
 };
 
 class Move
@@ -83,19 +88,26 @@ class AbstractGrid
 public:
     // creates a grid made of AbstractCells, which will be a valid game
     // this is the main purpose of the class
-    AbstractGrid(uint width, uint height, Wrapping w=NotWrapped); 
-    ~AbstractGrid();
+    AbstractGrid() {} 
+    virtual ~AbstractGrid();
+    
+public: //TODO: make protected
+    void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
     
     // ownership remains to the AbstractGrid
     QList<AbstractCell *> cells() const {return m_cells;}
-    
-    void print(); // outputs the grid
     
     //int width() {return m_width;}
     //int height() {return m_height;}
     //bool isWrapped() {return m_isWrapped;}
     
+protected:
+    virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
+    
 private:
+    // used for debugging only
+    void print(); // outputs the grid
+
     // used when an index of a cell is required
     static const int NO_CELL = -1;
 
@@ -122,13 +134,11 @@ private:
     // !!! a single direction is expected as parameter (not bitwise ORed!!) !!!
     Directions invertDirection(Directions givenDirection);
     
-    
-    bool isValid();
-    
     // return the number of solutions given a few moves already done
     int solutionCount();
     
     // returns true if you can connect all terminal without usign all cables
+    // (doesn't really work as I wanted, doesn't detect most cases)
     bool hasUnneededCables();
     
     // return false if some of the moves done are clearly wrong
