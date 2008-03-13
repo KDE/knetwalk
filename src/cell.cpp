@@ -54,19 +54,12 @@ void Cell::initPixmaps()
     directionNames[Up|Right|Down]   = "1110";
 }
 
-Cell::Cell(QWidget* parent, int i) : QWidget(parent)
+Cell::Cell(QWidget* parent, int index) 
+    : QWidget(parent), AbstractCell(index)
 {
-    angle     = 0;
-    light     = 0;
-    iindex    = i;
-    ddirs     = None;
-    connected = false;
-    root      = false;
-    locked    = false;
     pixmapCache = new QPixmap(width(), height());
     forgroundCache = new QPixmap(width(), height());
     
-    forgroundChanged = true;
     setAttribute(Qt::WA_Hover, true);
     
     timeLine = new QTimeLine(AnimationTime, this);
@@ -82,22 +75,13 @@ Cell::~Cell()
     delete timeLine;
 }
 
-int Cell::index() const
+void Cell::makeEmpty()
 {
-    return iindex;
-}
-
-Directions Cell::dirs() const
-{
-    return ddirs;
-}
-
-bool Cell::isConnected() const
-{
-    // animating cables are never connected
-    //if (timeLine->state() == QTimeLine::Running) return false;
-    
-    return connected;
+    AbstractCell::makeEmpty();
+    angle = 0;
+    light = 0;
+    locked = false;
+    forgroundChanged = true;
 }
 
 bool Cell::isRotated() const
@@ -110,7 +94,7 @@ bool Cell::isLocked() const
     return locked;
 }
 
-void Cell::setLocked( bool newlocked )
+void Cell::setLocked(bool newlocked)
 {
     if ( locked == newlocked ) return;
     locked = newlocked;
@@ -118,11 +102,16 @@ void Cell::setLocked( bool newlocked )
     update();
 }
 
-
-void Cell::setDirs(Directions d)
+void Cell::setConnected(bool isConnected)
 {
-    if(ddirs == d) return;
-    ddirs = d;
+    AbstractCell::setConnected(isConnected);
+    forgroundChanged = true;
+}
+
+/*void Cell::setDirs(Directions d)
+{
+    if(cables() == d) return;
+    cables() = d;
     forgroundChanged = true;
     update();
 }
@@ -137,10 +126,10 @@ void Cell::setConnected(bool b)
 
 void Cell::setRoot(bool b)
 {
-    if(root == b) return;
-    root = b;
+    if(isServer() == b) return;
+    isServer() = b;
     cableChanged = true;
-    if (!(ddirs & None)) 
+    if (!(cables() & None)) 
        forgroundChanged = true;
     update();
 }
@@ -150,7 +139,7 @@ void Cell::setLight(int l)
     light = l;
     forgroundChanged = true;
     update();
-}
+}*/
 
 void Cell::paintEvent(QPaintEvent*)
 {
@@ -164,7 +153,7 @@ void Cell::paintEvent(QPaintEvent*)
         paintForground();
     }
     
-    if (ddirs == None /*|| ddirs == Free*/) {
+    if (cables() == None /*|| cables() == Free*/) {
         *pixmapCache = *forgroundCache;
     } else if (forgroundChanged || cableChanged) {
         // paints everything on the cache
@@ -191,13 +180,9 @@ void Cell::paintEvent(QPaintEvent*)
 
 void Cell::paintForground()
 {
-    if (root) {
-        *forgroundCache = 
-                Renderer::self()->computerPixmap(width(), root, isConnected());
-    } else if(ddirs == Up || ddirs == Left || ddirs == Down || ddirs == Right) {
-        // if the cell has only one direction and isn't a server
-        *forgroundCache = 
-                Renderer::self()->computerPixmap(width(), root, isConnected());
+    if (isServer() || isTerminal()) {
+        *forgroundCache = Renderer::self()->computerPixmap(width(), isServer(), 
+                                                           isConnected());
     } else { 
         forgroundCache->fill(Qt::transparent);
     }
@@ -213,7 +198,7 @@ void Cell::paintOnCache()
     
     
     QPixmap cable(Renderer::self()->cablesPixmap(width(),
-                  ddirs, isConnected()));
+                  cables(), isConnected()));
     QPainter painter(pixmapCache);
     
     if (angle != 0) {
@@ -235,11 +220,11 @@ void Cell::mousePressEvent(QMouseEvent* e)
     //if (timeLine->state() == QTimeLine::Running) return;
     
     if (e->button() == Qt::LeftButton) {
-        emit lClicked(iindex);
+        emit lClicked(index());
     } else if (e->button() == Qt::RightButton) {
-        emit rClicked(iindex);
+        emit rClicked(index());
     } else if (e->button() == Qt::MidButton) {
-        emit mClicked(iindex);
+        emit mClicked(index());
     }
 }
 
@@ -291,23 +276,25 @@ void Cell::rotate(int a)
     while (angle > 45) {
         angle -= 90;
         rotationStart -= 90;
-        int newdirs = None;
-        if (ddirs & Up) newdirs |= Right;
-        if (ddirs & Right) newdirs |= Down;
-        if (ddirs & Down) newdirs |= Left;
-        if (ddirs & Left) newdirs |= Up;
-        setDirs(Directions(newdirs));
+        rotateClockwise();
+        /*int newdirs = None;
+        if (cables() & Up) newdirs |= Right;
+        if (cables() & Right) newdirs |= Down;
+        if (cables() & Down) newdirs |= Left;
+        if (cables() & Left) newdirs |= Up;
+        setDirs(Directions(newdirs));*/
     }
     
     while (angle < -45) {
         angle += 90;
         rotationStart += 90;
-        int newdirs = None;
-        if (ddirs & Up) newdirs |= Left;
-        if (ddirs & Right) newdirs |= Up;
-        if (ddirs & Down) newdirs |= Right;
-        if (ddirs & Left) newdirs |= Down;
-        setDirs(Directions(newdirs));
+        rotateCounterclockwise();
+        /*int newdirs = None;
+        if (cables() & Up) newdirs |= Left;
+        if (cables() & Right) newdirs |= Up;
+        if (cables() & Down) newdirs |= Right;
+        if (cables() & Left) newdirs |= Down;
+        setDirs(Directions(newdirs));*/
     }
     
     cableChanged = true;

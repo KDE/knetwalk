@@ -31,29 +31,29 @@ class QPaintEvent;
 class QMouseEvent;
 class QResizeEvent;
 
-class Cell : public QWidget
+class Cell : public QWidget, public AbstractCell
 {
 Q_OBJECT
 public:
-    // Free or None means it's not used, 
-    // if it has only one direction it's a terminal or a server
-    Cell(QWidget* parent, int i);
+    Cell(QWidget* parent, int index);
     ~Cell();
-    int  index() const;
+    
+    virtual void makeEmpty();
+    
     void rotate(int a);
     void animateRotation(bool toLeft);
-    void setDirs(Directions d);
+    /*void setDirs(Directions d);
     void setRoot(bool b);
     void setLight(int l);
-    void setConnected(bool b);
-    void setLocked( bool newlocked = true );
-    bool isConnected() const;
+    void setConnected(bool b);*/
+    void setLocked(bool newlocked=true);
+    virtual void setConnected(bool isConnected);
     bool isRotated() const;
     bool isLocked() const;
-    Directions dirs() const;
     static void initPixmaps();
 
 private slots:
+    // used by the animation
     // angle is relative to angleStart
     void rotateStep(int angle);
 
@@ -78,13 +78,9 @@ private:
     static KSvgRenderer allSvg;
     int     angle;
     int     light;
-    int     iindex;
-    bool    connected;
     bool    cableChanged;
     bool    forgroundChanged;
-    bool    root;
     bool    locked;
-    Directions    ddirs;
     QPixmap *pixmapCache;
     QPixmap *forgroundCache;
     

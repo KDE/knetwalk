@@ -87,7 +87,7 @@ void AbstractCell::emptyMove()
     m_hasBeenMoved = true;
 }
 
-void AbstractCell::turnClockwise() 
+void AbstractCell::rotateClockwise() 
 {
     Directions newdirs = None;
     if (m_cables & Up) newdirs = Directions(newdirs | Right);
@@ -98,7 +98,7 @@ void AbstractCell::turnClockwise()
     m_hasBeenMoved = true;
 }
 
-void AbstractCell::turnCounterclockwise() 
+void AbstractCell::rotateCounterclockwise() 
 {
     Directions newdirs = None;
     if (m_cables & Up) newdirs = Directions(newdirs | Left);
@@ -111,8 +111,8 @@ void AbstractCell::turnCounterclockwise()
 
 void AbstractCell::invert() 
 {
-    turnClockwise();
-    turnClockwise();
+    rotateClockwise();
+    rotateClockwise();
 }
 
 void AbstractCell::reset() 
@@ -156,7 +156,7 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
         int rotation = rand() % 4; // 0..3
         for (int j = 0; j < rotation; ++j) {
             // ratate every cable clockwise
-            m_cells[i]->turnClockwise();
+            m_cells[i]->rotateClockwise();
         }
     }
 }
@@ -187,20 +187,20 @@ void AbstractGrid::print() {
 
 void AbstractGrid::createGrid()
 {
-    for (uint i = 0; i < m_width*m_height; ++i) {
+    for (int i = 0; i < cellCount(); ++i) {
         m_cells[i]->makeEmpty();
     }
 
     // add a random server
-    server_index = rand() % (m_width*m_height);
+    server_index = rand() % (cellCount());
     m_cells[server_index]->setServer(true);
     
     // number of cells that aren't free
-    uint cellCount = 0;
+    int notFreeCells = 0;
     // TODO:use a global constant instead of 10 / 8
-    const uint MinimumNumCells = m_width*m_height * 8 / 10;
+    const int MinimumNumCells = cellCount() * 8 / 10;
     // retries until the minimum number of cells is big enough
-    while (cellCount < MinimumNumCells) {
+    while (notFreeCells < MinimumNumCells) {
         QList<uint> list;
         list.append(server_index);
         if (rand() % 2) addRandomCable(list);
@@ -221,9 +221,9 @@ void AbstractGrid::createGrid()
         }
         
         // count not empty cells
-        cellCount = 0;
-        for (uint i = 0; i < m_width*m_height; ++i) {
-            if (m_cells[i]->cables() != None) ++cellCount;
+        notFreeCells = 0;
+        for (int i = 0; i < cellCount(); ++i) {
+            if (m_cells[i]->cables() != None) ++notFreeCells;
         }
     }
 }
@@ -379,10 +379,10 @@ int AbstractGrid::solutionCount()
             m_cells[index]->emptyMove();
             break;
         case Move::Right:
-            m_cells[index]->turnClockwise();
+            m_cells[index]->rotateClockwise();
             break;
         case Move::Left:
-            m_cells[index]->turnCounterclockwise();
+            m_cells[index]->rotateCounterclockwise();
             break;
         case Move::Inverted:
             m_cells[index]->invert();

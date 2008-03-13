@@ -19,6 +19,8 @@
 
 #include "mainwindow.h"
 
+#include <unistd.h> // sleep()
+
 #include <QEventLoop>
 #include <QPushButton>
 #include <QTimer>
@@ -62,10 +64,10 @@ MainWindow::MainWindow(QWidget *parent)
     kDebug() << Settings::skill();
     m_clickcount = 0;
 
-    contrdirs[Up] = Down;
+    /*contrdirs[Up] = Down;
     contrdirs[Right] = Left;
     contrdirs[Down] = Up;
-    contrdirs[Left] = Right;
+    contrdirs[Left] = Right;*/
 
     setupActions();
     
@@ -100,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setupGUI();
 
-    startNewGame();
+    //startNewGame();
 }
 
 MainWindow::~MainWindow()
@@ -111,8 +113,6 @@ MainWindow::~MainWindow()
 void MainWindow::createBoard()
 {
     View* view = new View(this);
-    view->setFrameStyle(QFrame::NoFrame);
-    view->setMinimumSize(MinimumWidth, MinimumHeight);
 
     gridLayout = new QGridLayout(view);
     gridLayout->setMargin(0);
@@ -120,27 +120,9 @@ void MainWindow::createBoard()
     setCentralWidget(view);
 
     Cell::initPixmaps();
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
-        board[i] = new Cell(view, i);
-        gridLayout->addWidget(board[i], i / MasterBoardSize, i % MasterBoardSize);
-        //board[i]->resize(32, 32); //TODO: needed ???
-        connect(board[i], SIGNAL(lClicked(int)), SLOT(lClicked(int)));
-        connect(board[i], SIGNAL(rClicked(int)), SLOT(rClicked(int)));
-        connect(board[i], SIGNAL(mClicked(int)), SLOT(mClicked(int)));
-        
-        connect(board[i], SIGNAL(connectionsChanged()), 
-                SLOT(updateConnections()));
-        
-        board[i]->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
-        "system administrator and your goal is to connect each terminal and "
-        "each cable to the central server.</p><p>Click the right mouse's "
-        "button for turning the cable in a clockwise direction, and left "
-        "mouse's button for turning the cable in a counter-clockwise "
-        "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
-    }
 }
 
-void MainWindow::setBoardSize(int size)
+/*void MainWindow::setBoardSize(int size)
 {
     if (!(size%2) || size > MasterBoardSize) {
         kDebug() << "Wrong size!!\n";
@@ -160,7 +142,7 @@ void MainWindow::setBoardSize(int size)
         gridLayout->setRowStretch(i, 1);
         gridLayout->setColumnStretch(i, 1);
     }
-}
+}*/
 
 void MainWindow::setupActions()
 {
@@ -187,18 +169,9 @@ void MainWindow::showHighscores()
 
 void MainWindow::startNewGame()
 {
+    kDebug() << "new game$$$$$$$$$$$$$$$$$$$$$$";
     gameEnded = false;
     
-    KGameDifficulty::standardLevel l = KGameDifficulty::level();
-    Settings::setSkill((int) l);
-    
-    if (l == KGameDifficulty::VeryHard) {
-        wrapped = true;
-    } else {
-        wrapped = false;
-    }
-
-    Settings::self()->writeConfig();
 
     m_clickcount = 0;
     QString clicks = i18nc("Number of mouse clicks", "Moves: %1", m_clickcount);
@@ -206,21 +179,54 @@ void MainWindow::startNewGame()
 
     KNotification::event( "startsound", i18n("New Game") );
 
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
+    /*for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
         board[i]->setDirs(None);
         board[i]->setConnected(false);
         board[i]->setRoot(false);
         board[i]->setLocked(false);
+    }*/
+  
+    KGameDifficulty::standardLevel l = KGameDifficulty::level();
+    Settings::setSkill((int) l);
+    
+    Settings::self()->writeConfig();
+    
+    const bool isWrapped = (l == KGameDifficulty::VeryHard);
+    const int size = boardSize();    
+    
+    //setBoardSize(size); TODO: remove this function
+    
+    QGridLayout *gridLayout = 
+            static_cast<QGridLayout *>(centralWidget()->layout());
+    
+    for (int i = 0; i < cellCount(); ++i) {
+        gridLayout->removeWidget(cellAt(i));
+    }
+    
+    initializeGrid(size, size, (Wrapping)isWrapped);
+    
+    for (int i = 0; i < cellCount(); i++) {
+        gridLayout->addWidget(cellAt(i), 
+                i / AbstractGrid::width(), i % AbstractGrid::width());
+        
+        cellAt(i)->disconnect();
+        connect(cellAt(i), SIGNAL(lClicked(int)), SLOT(lClicked(int)));
+        connect(cellAt(i), SIGNAL(rClicked(int)), SLOT(rClicked(int)));
+        connect(cellAt(i), SIGNAL(mClicked(int)), SLOT(mClicked(int)));
+        
+        // called when a rotation ends
+        connect(cellAt(i), SIGNAL(connectionsChanged()), 
+                SLOT(updateConnections()));
+        
+        cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
+          "system administrator and your goal is to connect each terminal and "
+          "each cable to the central server.</p><p>Click the right mouse's "
+          "button for turning the cable in a clockwise direction, and left "
+          "mouse's button for turning the cable in a counter-clockwise "
+          "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
 
-    const int size = boardSize();
-    setBoardSize(size);
-    
-    // TODO: enable wrapped
-    AbstractGrid grid;
-    grid.initializeGrid(size, size, (Wrapping)wrapped);
-
-    const int start = (MasterBoardSize - size) / 2;
+    /*const int start = (MasterBoardSize - size) / 2;
     
     int i = 0; // index of grid
     for (int r = start; r < start+size; ++r)
@@ -238,6 +244,8 @@ void MainWindow::startNewGame()
         }
         ++i;
     } // for for
+    */
+    
     /*
     const int start = (MasterBoardSize - size) / 2;
     const int rootrow = rand() % size;
@@ -285,9 +293,11 @@ void MainWindow::startNewGame()
         board[i]->rotate((rand() % 4) * 90);
     */
     updateConnections();
+    // TODO: change the following
     KGameDifficulty::setRunning(false); // setRunning(true) on the first click
 }
 
+/*
 void MainWindow::updateConnections()
 {
     bool newconnection[MasterBoardSize * MasterBoardSize];
@@ -384,7 +394,7 @@ Cell* MainWindow::rCell(Cell* cell) const
     } else {
         return 0;
     }
-}
+}*/
 
 void MainWindow::lClicked(int index)
 {
@@ -401,31 +411,45 @@ void MainWindow::rClicked(int index)
 void MainWindow::mClicked(int index)
 {
     KGameDifficulty::setRunning(true);
-    board[index]->setLocked( !board[index]->isLocked() );
+    cellAt(index)->setLocked(!cellAt(index)->isLocked());
 }
 
 void MainWindow::rotate(int index, bool clockWise)
 {
-    const Directions d = board[index]->dirs();
-    if ((d == None) || gameEnded || board[index]->isLocked()) {
+    const Directions d = cellAt(index)->cables();
+    
+    if ((d == None) || gameEnded || cellAt(index)->isLocked()) {
         KNotification::event( "clicksound" );
         //blink(index);
     } else {
         KNotification::event( "turnsound" );
         
-        board[index]->animateRotation(clockWise);
+        cellAt(index)->animateRotation(clockWise);
         
         // FIXME: won't work!!!
         //if (updateConnections())
         //    KNotification::event( "connectsound" );
         
-        m_clickcount++;
-        QString clicks = i18n("Moves: %1",m_clickcount);
+        ++m_clickcount;
+        QString clicks = i18n("Moves: %1", m_clickcount);
         statusBar()->changeItem(clicks,1);
     }
 }
 
-void MainWindow::blink(int index)
+
+void MainWindow::updateConnections() 
+{
+    AbstractGrid::updateConnections();
+    
+    for (int i = 0; i < cellCount(); ++i) {
+        cellAt(i)->update();
+    }    
+    //if (newConnections) 
+    
+    checkIfGameEnded();
+}
+
+/*void MainWindow::blink(int index)
 {
     for (int i = 0; i < board[index]->width() * 2; i += 2) {
         qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
@@ -436,35 +460,32 @@ void MainWindow::blink(int index)
     }
     
     board[index]->setLight(0);
-}
+}*/
+
 
 void MainWindow::checkIfGameEnded()
 {
-    bool ended = true;
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
-        const Directions d = board[i]->dirs();
-        if ((d != None) && !board[i]->isConnected())
-            ended = false;
-    }
+    kDebug() << "GameWon?????????????????????????????????????????????????????????";
+    if (!isSolution()) return;
+    kDebug() << "Yes!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+    sleep(3);
     
-    if (ended) {
-        KNotification::event( "winsound" );
-        //blink(index);
-        
-        KScoreDialog ksdialog(KScoreDialog::Name, this);
-        ksdialog.setConfigGroup(KGameDifficulty::levelString());
-        
-        //ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
-        //KScoreDialog::FieldInfo scoreInfo;
-        //scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
-        //scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
-        
-        ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
-        ksdialog.exec();
-        
-        KGameDifficulty::setRunning(false);
-        gameEnded = true;
-    }
+    KNotification::event( "winsound" );
+    //blink(index);
+    
+    KScoreDialog ksdialog(KScoreDialog::Name, this);
+    ksdialog.setConfigGroup(KGameDifficulty::levelString());
+    
+    //ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
+    //KScoreDialog::FieldInfo scoreInfo;
+    //scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
+    //scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
+    
+    ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
+    ksdialog.exec();
+    
+    KGameDifficulty::setRunning(false);
+    gameEnded = true;
 }
 
 int MainWindow::boardSize()
@@ -475,6 +496,11 @@ int MainWindow::boardSize()
     case KGameDifficulty::Hard: return ExpertBoardSize;
     default: return MasterBoardSize;
     }
+}
+
+Cell *MainWindow::cellAt(int index)
+{
+    return static_cast<Cell *>(cells()[index]);
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)

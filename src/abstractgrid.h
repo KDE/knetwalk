@@ -21,10 +21,12 @@
 #include <QList>
 #include "globals.h"
 
-struct AbstractCell
+class AbstractCell
 {
 public:
     AbstractCell(int index);
+    
+    virtual ~AbstractCell() {}
     
     Directions cables() const {return m_cables;}
     int index() const {return m_index;}
@@ -35,16 +37,16 @@ public:
     
     // should not be used to rotate the cell
     void setCables(Directions newCables);    
-    void setServer(bool isServer=true);    
-    void setConnected(bool isConnected=true);
+    void setServer(bool isServer);    
+    virtual void setConnected(bool isConnected);
     
     // sets the cell as if newly created
-    void makeEmpty();
+    virtual void makeEmpty();
     
     void emptyMove(); // sets hasBeenMoved to true
-    void turnClockwise();
-    void turnCounterclockwise();
-    void invert(); // turns the cables by 180 degrees
+    void rotateClockwise();
+    void rotateCounterclockwise();
+    void invert(); // rotates the cables by 180 degrees
     
     // reset to the original position
     void reset();
@@ -91,18 +93,24 @@ public:
     AbstractGrid() {} 
     virtual ~AbstractGrid();
     
-public: //TODO: make protected
+protected:
     void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
     
     // ownership remains to the AbstractGrid
     QList<AbstractCell *> cells() const {return m_cells;}
+    int cellCount() {return m_cells.size();} // TODO: use in the cpp file
     
-    //int width() {return m_width;}
-    //int height() {return m_height;}
+    int width() {return m_width;}
+    int height() {return m_height;}
     //bool isWrapped() {return m_isWrapped;}
     
-protected:
     virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
+    
+    // updates the connections of the cells
+    void updateConnections();
+    
+    // returns true if all terminals are connected to the server
+    bool isSolution();
     
 private:
     // used for debugging only
@@ -143,12 +151,6 @@ private:
     
     // return false if some of the moves done are clearly wrong
     bool movesDoneArePossible();
-    
-    // returns true if all terminals are connected to the server
-    bool isSolution();
-    
-    // updates the connections of the cells
-    void updateConnections();
 };
 
 #endif // ABSTRACT_GRID

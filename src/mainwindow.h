@@ -25,7 +25,9 @@
 
 #include <QList>
 
-class Cell;
+#include "abstractgrid.h"
+#include "cell.h"
+
 class QAction;
 class QSound;
 class QLCDNumber;
@@ -34,7 +36,7 @@ class QResizeEvent;
 class QPixmap;
 class QGridLayout;
 
-class MainWindow : public KXmlGuiWindow
+class MainWindow : public KXmlGuiWindow, public AbstractGrid
 {
 Q_OBJECT
 public:
@@ -49,6 +51,12 @@ protected:
     virtual void closeEvent(QCloseEvent*);
     virtual void paintEvent(QPaintEvent*);
     virtual void resizeEvent(QResizeEvent*);
+    
+    virtual Cell *newCell(int index) {return new Cell(this, index);}
+    
+protected slots:
+    // must not be virtual!!
+    void updateConnections();
     
 private:
     enum BoardSize {
@@ -73,25 +81,22 @@ private slots:
 
     void  showHighscores();
     void  configureNotifications();
-    void  updateConnections();
 
 private:
-    Cell* uCell(Cell* cell) const;
+    Cell *cellAt(int index);
+    /*Cell* uCell(Cell* cell) const;
     Cell* dCell(Cell* cell) const;
     Cell* lCell(Cell* cell) const;
-    Cell* rCell(Cell* cell) const;
+    Cell* rCell(Cell* cell) const;*/
     void  checkIfGameEnded();
-    bool  startBrowser(const QString& url);
-    void  blink(int index);
-    void  rotate(int index, bool clockWise);
-    void  dialog(const QString& caption, const QString& text);
-    void  setBoardSize(int size);
+    bool startBrowser(const QString& url); //TODO: ???
+    void dialog(const QString& caption, const QString& text); // TODO ???
+    //void  blink(int index);
+    void rotate(int index, bool clockWise);
+    //void  setBoardSize(int size);
     
 private:
-    bool        wrapped;
     bool        gameEnded;
-    Cell*       root;
-    Cell*       board[MasterBoardSize * MasterBoardSize];
     QGridLayout* gridLayout;
 
     QSound*     clicksound;
@@ -104,12 +109,12 @@ private:
     QString     soundpath;
     QAction*    soundaction;
     QStringList highscores;
-    QLCDNumber* lcd;
+    QLCDNumber* lcd; // TODO: non used I'm quite sure...
 
-    int m_clickcount;
+    int m_clickcount; // TODO -> clickCount
 
     QPixmap *pixmapCache;
-    bool m_invalidCache;
+    bool m_invalidCache; // TODO: m_ is stupid here
 };
 
 #endif // MAINWINDOW_H
