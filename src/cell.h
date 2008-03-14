@@ -42,10 +42,6 @@ public:
     
     void rotate(int a);
     void animateRotation(bool toLeft);
-    /*void setDirs(Directions d);
-    void setRoot(bool b);
-    void setLight(int l);
-    void setConnected(bool b);*/
     void setLocked(bool newlocked=true);
     virtual void setConnected(bool isConnected);
     bool isRotated() const;

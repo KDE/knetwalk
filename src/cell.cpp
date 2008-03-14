@@ -108,39 +108,6 @@ void Cell::setConnected(bool isConnected)
     forgroundChanged = true;
 }
 
-/*void Cell::setDirs(Directions d)
-{
-    if(cables() == d) return;
-    cables() = d;
-    forgroundChanged = true;
-    update();
-}
-
-void Cell::setConnected(bool b)
-{
-    if(connected == b) return;
-    connected = b;
-    forgroundChanged = true;
-    update();
-}
-
-void Cell::setRoot(bool b)
-{
-    if(isServer() == b) return;
-    isServer() = b;
-    cableChanged = true;
-    if (!(cables() & None)) 
-       forgroundChanged = true;
-    update();
-}
-
-void Cell::setLight(int l)
-{
-    light = l;
-    forgroundChanged = true;
-    update();
-}*/
-
 void Cell::paintEvent(QPaintEvent*)
 {
     if (width() == 0 || height() == 0) {
@@ -216,9 +183,6 @@ void Cell::paintOnCache()
 
 void Cell::mousePressEvent(QMouseEvent* e)
 {
-    // do nothing if there is an animation running
-    //if (timeLine->state() == QTimeLine::Running) return;
-    
     if (e->button() == Qt::LeftButton) {
         emit lClicked(index());
     } else if (e->button() == Qt::RightButton) {
@@ -277,24 +241,12 @@ void Cell::rotate(int a)
         angle -= 90;
         rotationStart -= 90;
         rotateClockwise();
-        /*int newdirs = None;
-        if (cables() & Up) newdirs |= Right;
-        if (cables() & Right) newdirs |= Down;
-        if (cables() & Down) newdirs |= Left;
-        if (cables() & Left) newdirs |= Up;
-        setDirs(Directions(newdirs));*/
     }
     
     while (angle < -45) {
         angle += 90;
         rotationStart += 90;
         rotateCounterclockwise();
-        /*int newdirs = None;
-        if (cables() & Up) newdirs |= Left;
-        if (cables() & Right) newdirs |= Up;
-        if (cables() & Down) newdirs |= Right;
-        if (cables() & Left) newdirs |= Down;
-        setDirs(Directions(newdirs));*/
     }
     
     cableChanged = true;

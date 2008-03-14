@@ -64,11 +64,6 @@ MainWindow::MainWindow(QWidget *parent)
     kDebug() << Settings::skill();
     m_clickcount = 0;
 
-    /*contrdirs[Up] = Down;
-    contrdirs[Right] = Left;
-    contrdirs[Down] = Up;
-    contrdirs[Left] = Right;*/
-
     setupActions();
     
     statusBar()->insertPermanentItem("abcdefghijklmnopqrst: 0  ", 1, 1);
@@ -101,8 +96,6 @@ MainWindow::MainWindow(QWidget *parent)
     kDebug() << KGameDifficulty::levelString() << Settings::skill();
 
     setupGUI();
-
-    //startNewGame();
 }
 
 MainWindow::~MainWindow()
@@ -121,28 +114,6 @@ void MainWindow::createBoard()
 
     Cell::initPixmaps();
 }
-
-/*void MainWindow::setBoardSize(int size)
-{
-    if (!(size%2) || size > MasterBoardSize) {
-        kDebug() << "Wrong size!!\n";
-        return;
-    }
-    //TODO: boardSize = size
-    int start = (MasterBoardSize - size)/2;
-    for (int i = 0; i < start; ++i) {
-        // TODO: set only the last rows and columns to zero not half at the beginning and half at the end
-        gridLayout->setRowStretch(i, 0);
-        gridLayout->setRowStretch(MasterBoardSize - 1 - i, 0);
-        gridLayout->setColumnStretch(i, 0);
-        gridLayout->setColumnStretch(MasterBoardSize - 1 - i, 0);
-    }
-    
-    for (int i = start; i < start + size; ++i) {
-        gridLayout->setRowStretch(i, 1);
-        gridLayout->setColumnStretch(i, 1);
-    }
-}*/
 
 void MainWindow::setupActions()
 {
@@ -169,22 +140,13 @@ void MainWindow::showHighscores()
 
 void MainWindow::startNewGame()
 {
-    kDebug() << "new game$$$$$$$$$$$$$$$$$$$$$$";
-    gameEnded = false;
-    
+    gameEnded = false;   
 
     m_clickcount = 0;
     QString clicks = i18nc("Number of mouse clicks", "Moves: %1", m_clickcount);
     statusBar()->changeItem(clicks, 1);
 
     KNotification::event( "startsound", i18n("New Game") );
-
-    /*for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
-        board[i]->setDirs(None);
-        board[i]->setConnected(false);
-        board[i]->setRoot(false);
-        board[i]->setLocked(false);
-    }*/
   
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
     Settings::setSkill((int) l);
@@ -225,176 +187,11 @@ void MainWindow::startNewGame()
           "mouse's button for turning the cable in a counter-clockwise "
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
-
-    /*const int start = (MasterBoardSize - size) / 2;
     
-    int i = 0; // index of grid
-    for (int r = start; r < start+size; ++r)
-    for (int c = start; c < start+size; ++c) {
-        int index = r * MasterBoardSize + c; // index of board
-        board[index]->setDirs(grid.cells()[i]->cables());
-        board[index]->setConnected(false);
-        board[index]->setRoot(false);
-        board[index]->setLocked(false);
-        
-        if (grid.cells()[i]->isServer()) {
-            board[index]->setConnected(true); // TODO: put in Cell::setRoot()
-            board[index]->setRoot(true);
-            root = board[index];
-        }
-        ++i;
-    } // for for
-    */
-    
-    /*
-    const int start = (MasterBoardSize - size) / 2;
-    const int rootrow = rand() % size;
-    const int rootcol = rand() % size;
-
-    root = board[(start + rootrow) * MasterBoardSize + start + rootcol];
-    root->setConnected(true);
-    root->setRoot(true);
-
-    while (true)
-    {
-        for (int row = start; row < start + size; row++)
-            for(int col = start; col < start + size; col++)
-                board[row * MasterBoardSize + col]->setDirs(None);
-
-        CellList list;
-        list.append(root);
-        if (rand() % 2) addRandomDir(list);
-
-        while (!list.isEmpty())
-        {
-            if(rand() % 2)
-            {
-                addRandomDir(list);
-                if (rand() % 2) addRandomDir(list);
-                list.erase(list.begin());
-            }
-            else
-            {
-                list.append(list.first());
-                list.erase(list.begin());
-            }
-        }
-
-        int cells = 0;
-        for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
-        {
-            Directions d = board[i]->dirs();
-            if ((d != None) && (d != Cell::None)) cells++;
-        }
-        if (cells >= MinimumNumCells) break;
-    }
-
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++)
-        board[i]->rotate((rand() % 4) * 90);
-    */
     updateConnections();
-    // TODO: change the following
-    KGameDifficulty::setRunning(false); // setRunning(true) on the first click
+    // TODO: setRunning(true) on the first click
+    KGameDifficulty::setRunning(false);
 }
-
-/*
-void MainWindow::updateConnections()
-{
-    bool newconnection[MasterBoardSize * MasterBoardSize];
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
-        newconnection[i] = false;
-    }
-
-    CellList list;
-    if (!root->isRotated()) {
-        newconnection[root->index()] = true;
-        list.append(root);
-    }
-    
-    while (!list.isEmpty()) {
-        Cell* cell = list.first();
-        Cell* ucell = uCell(cell);
-        Cell* rcell = rCell(cell);
-        Cell* dcell = dCell(cell);
-        Cell* lcell = lCell(cell);
-        
-        if ((cell->dirs() & Up) && ucell && (ucell->dirs() & Down) &&
-                !newconnection[ucell->index()] && !ucell->isRotated()) {
-            newconnection[ucell->index()] = true;
-            list.append(ucell);
-        }
-        if ((cell->dirs() & Right) && rcell && (rcell->dirs() & Left) &&
-                !newconnection[rcell->index()] && !rcell->isRotated()) {
-            newconnection[rcell->index()] = true;
-            list.append(rcell);
-        }
-        if ((cell->dirs() & Down) && dcell && (dcell->dirs() & Up) &&
-                !newconnection[dcell->index()] && !dcell->isRotated()) {
-            newconnection[dcell->index()] = true;
-            list.append(dcell);
-        }
-        if ((cell->dirs() & Left) && lcell && (lcell->dirs() & Right) &&
-                !newconnection[lcell->index()] && !lcell->isRotated()) {
-            newconnection[lcell->index()] = true;
-            list.append(lcell);
-        }
-        list.erase(list.begin());
-    }
-
-    bool newConnections = false;
-    for (int i = 0; i < MasterBoardSize * MasterBoardSize; i++) {
-        if (!board[i]->isConnected() && newconnection[i]) {
-            newConnections = true;
-        }
-        board[i]->setConnected(newconnection[i]);
-    }
-    
-    if (newConnections) checkIfGameEnded();
-}
-
-Cell* MainWindow::uCell(Cell* cell) const
-{
-    if (cell->index() >= MasterBoardSize) {
-        return board[cell->index() - MasterBoardSize];
-    } else if (wrapped) {
-        return board[MasterBoardSize * (MasterBoardSize - 1) + cell->index()];
-    } else {
-        return 0;
-    }
-}
-
-Cell* MainWindow::dCell(Cell* cell) const
-{
-    if (cell->index() < MasterBoardSize * (MasterBoardSize - 1)) {
-        return board[cell->index() + MasterBoardSize];
-    } else if (wrapped) {
-        return board[cell->index() - MasterBoardSize * (MasterBoardSize - 1)];
-    } else {
-        return 0;
-    }
-}
-
-Cell* MainWindow::lCell(Cell* cell) const
-{
-    if (cell->index() % MasterBoardSize > 0) {
-        return board[cell->index() - 1];
-    } else if (wrapped) {
-        return board[cell->index() - 1 + MasterBoardSize];
-    } else {
-        return 0;
-    }
-}
-
-Cell* MainWindow::rCell(Cell* cell) const
-{
-    if (cell->index() % MasterBoardSize < MasterBoardSize - 1) {
-        return board[cell->index() + 1];
-    } else if (wrapped) {
-        return board[cell->index() + 1 - MasterBoardSize];
-    } else {
-        return 0;
-    }
-}*/
 
 void MainWindow::lClicked(int index)
 {
@@ -450,7 +247,7 @@ void MainWindow::updateConnections()
     for (int i = 0; i < cellCount(); ++i) {
         cellAt(i)->update();
     }    
-    //if (newConnections) 
+    //if (newConnections) // TODO
     
     checkIfGameEnded();
 }
@@ -471,9 +268,7 @@ void MainWindow::updateConnections()
 
 void MainWindow::checkIfGameEnded()
 {
-    kDebug() << "GameWon?????????????????????????????????????????????????????????";
     if (!isSolution()) return;
-    kDebug() << "Yes!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
     sleep(3);
     
     KNotification::event( "winsound" );

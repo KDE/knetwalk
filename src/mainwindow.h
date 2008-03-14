@@ -55,7 +55,7 @@ protected:
     virtual Cell *newCell(int index) {return new Cell(this, index);}
     
 protected slots:
-    // must not be virtual!!
+    // must not be virtual
     void updateConnections();
     
 private:
@@ -84,16 +84,8 @@ private slots:
 
 private:
     Cell *cellAt(int index);
-    /*Cell* uCell(Cell* cell) const;
-    Cell* dCell(Cell* cell) const;
-    Cell* lCell(Cell* cell) const;
-    Cell* rCell(Cell* cell) const;*/
     void  checkIfGameEnded();
-    bool startBrowser(const QString& url); //TODO: ???
-    void dialog(const QString& caption, const QString& text); // TODO ???
-    //void  blink(int index);
     void rotate(int index, bool clockWise);
-    //void  setBoardSize(int size);
     
 private:
     bool        gameEnded;
@@ -108,13 +100,11 @@ private:
     QString     username;
     QString     soundpath;
     QAction*    soundaction;
-    QStringList highscores;
-    QLCDNumber* lcd; // TODO: non used I'm quite sure...
 
     int m_clickcount; // TODO -> clickCount
 
     QPixmap *pixmapCache;
-    bool m_invalidCache; // TODO: m_ is stupid here
+    bool m_invalidCache; // TODO: m_ is not needed here...
 };
 
 #endif // MAINWINDOW_H
