@@ -107,7 +107,8 @@ protected:
     virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
     
     // updates the connections of the cells
-    void updateConnections();
+    // returns the indexes of the changed cells
+    QList<int> updateConnections();
     
     // returns true if all terminals are connected to the server
     bool isSolution();

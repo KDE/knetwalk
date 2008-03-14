@@ -19,7 +19,6 @@
 #include "abstractgrid.h"
 
 #include <cstdlib> // rand()
-#include <unistd.h> // sleep()
 #include <QMap>
 #include <QString>
 #include <KDebug>
@@ -489,7 +488,7 @@ bool AbstractGrid::isSolution()
     return true;
 }
 
-void AbstractGrid::updateConnections()
+QList<int> AbstractGrid::updateConnections()
 {
     // TODO: add int AbstractGrid::cellsCount()
     QVector<bool> newConnections(m_width * m_height);
@@ -539,8 +538,15 @@ void AbstractGrid::updateConnections()
         changedCells.erase(changedCells.begin());
     }
 
+    // changedCells is empty here
     for (uint i = 0; i < m_width * m_height; i++){
-        m_cells[i]->setConnected(newConnections[i]);
+        AbstractCell *cell = m_cells[i];
+        if (cell->isConnected() != newConnections[i]) {
+            changedCells.append(i);
+            cell->setConnected(newConnections[i]);
+        }
     }
+    
+    return changedCells;
 }
 

@@ -19,8 +19,6 @@
 
 #include "mainwindow.h"
 
-#include <unistd.h> // sleep()
-
 #include <QEventLoop>
 #include <QPushButton>
 #include <QTimer>
@@ -242,12 +240,15 @@ void MainWindow::rotate(int index, bool clockWise)
 
 void MainWindow::updateConnections() 
 {
-    AbstractGrid::updateConnections();
+    QList<int> changedCells = AbstractGrid::updateConnections();
     
-    for (int i = 0; i < cellCount(); ++i) {
+    foreach (int index, changedCells) {
+        cellAt(index)->update();
+    }
+    
+    /*for (int i = 0; i < cellCount(); ++i) {
         cellAt(i)->update();
-    }    
-    //if (newConnections) // TODO
+    }*/   
     
     checkIfGameEnded();
 }
@@ -269,10 +270,8 @@ void MainWindow::updateConnections()
 void MainWindow::checkIfGameEnded()
 {
     if (!isSolution()) return;
-    sleep(3);
     
     KNotification::event( "winsound" );
-    //blink(index);
     
     KScoreDialog ksdialog(KScoreDialog::Name, this);
     ksdialog.setConfigGroup(KGameDifficulty::levelString());
