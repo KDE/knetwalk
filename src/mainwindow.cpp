@@ -176,7 +176,7 @@ void MainWindow::startNewGame()
         
         // called when a rotation ends
         connect(cellAt(i), SIGNAL(connectionsChanged()), 
-                SLOT(updateConnections()));
+                            SLOT(updateConnections()));
         
         cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
           "system administrator and your goal is to connect each terminal and "
@@ -186,7 +186,10 @@ void MainWindow::startNewGame()
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
     
-    updateConnections();
+    for (int i = 0; i < cellCount(); ++i) {
+        cellAt(i)->update();
+    }
+    
     // TODO: setRunning(true) on the first click
     KGameDifficulty::setRunning(false);
 }

@@ -158,6 +158,8 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
             m_cells[i]->rotateClockwise();
         }
     }
+    
+    updateConnections();
 }
 
 void AbstractGrid::print() {
@@ -499,7 +501,7 @@ QList<int> AbstractGrid::updateConnections()
     // indexes of the changed cells
     QList<int> changedCells;
     changedCells.append(server_index);
-    m_cells[server_index]->setConnected(true);
+    newConnections[server_index] = true;
     
     while (!changedCells.isEmpty())
     {

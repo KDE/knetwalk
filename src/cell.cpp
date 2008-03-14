@@ -229,6 +229,7 @@ void Cell::rotateStep(int a)
     rotate(newAngle - angle);
     
     if (a == totalRotation) {
+        repaint();
         emit connectionsChanged();
     }
 }
