@@ -398,20 +398,26 @@ Cell* MainWindow::rCell(Cell* cell) const
 
 void MainWindow::lClicked(int index)
 {
-    KGameDifficulty::setRunning(true);
-    rotate(index, false);
+    if (!gameEnded) {
+        KGameDifficulty::setRunning(true);
+        rotate(index, false);
+    }
 }
 
 void MainWindow::rClicked(int index)
 {
-    KGameDifficulty::setRunning(true);
-    rotate(index, true);
+    if (!gameEnded) {
+        KGameDifficulty::setRunning(true);
+        rotate(index, true);
+    }
 }
 
 void MainWindow::mClicked(int index)
 {
-    KGameDifficulty::setRunning(true);
-    cellAt(index)->setLocked(!cellAt(index)->isLocked());
+    if (!gameEnded) {
+        KGameDifficulty::setRunning(true);
+        cellAt(index)->setLocked(!cellAt(index)->isLocked());
+    }
 }
 
 void MainWindow::rotate(int index, bool clockWise)
