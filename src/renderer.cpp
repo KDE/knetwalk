@@ -101,7 +101,8 @@ bool Renderer::loadTheme(const QString& themeName)
 QPixmap Renderer::backgroundPixmap(const QSize& size) const
 {
     QPixmap pixmap;
-    QString cacheName = QString("background%1x%2").arg(size.width()).arg(size.height());
+    QString cacheName = 
+            QString("background%1x%2").arg(size.width()).arg(size.height());
     if(!m_cache->find(cacheName, pixmap)) {
         
         // calculate the background bounding rect

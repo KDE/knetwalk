@@ -23,7 +23,6 @@
 #include <QString>
 #include <KDebug>
 
-
 AbstractCell::AbstractCell(int index) 
     : m_index(index)
 {
@@ -150,12 +149,21 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
         createGrid();
     }
     
+    minimumMoves = 0;
     // shuffle all cells
     for (uint i = 0; i < width*height; ++i) {
+        AbstractCell *cell = m_cells[i];
+        Directions oldCables = cell->cables();
+        
         int rotation = rand() % 4; // 0..3
         for (int j = 0; j < rotation; ++j) {
             // ratate every cable clockwise
-            m_cells[i]->rotateClockwise();
+            cell->rotateClockwise();
+        }
+        
+        // excludes None and straight lines
+        if (oldCables != cell->cables()) {
+            minimumMoves += (rotation == 3) ? 1 : rotation;
         }
     }
     

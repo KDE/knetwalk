@@ -35,6 +35,8 @@ class QCloseEvent;
 class QResizeEvent;
 class QPixmap;
 class QGridLayout;
+class KGameClock;
+class KScoreDialog;
 
 class MainWindow : public KXmlGuiWindow, public AbstractGrid
 {
@@ -59,6 +61,11 @@ protected slots:
     void updateConnections();
     
 private:
+    enum StatusBarIndex {
+        StatusBarIndexMoves = 0,
+        StatusBarIndexTime = 1
+    };
+
     enum BoardSize {
       NoviceBoardSize = 5,
       NormalBoardSize = 7,
@@ -73,11 +80,12 @@ private:
     typedef QList<Cell*> CellList;
     
 private slots:
-    void  startNewGame();
+    void startNewGame();
+    void updateStatusBar();
 
-    void  lClicked(int index);
-    void  rClicked(int index);
-    void  mClicked(int index);
+    void lClicked(int index);
+    void rClicked(int index);
+    void mClicked(int index);
 
     void  showHighscores();
     void  configureNotifications();
@@ -85,10 +93,14 @@ private slots:
 private:
     Cell *cellAt(int index);
     void  checkIfGameEnded();
-    void rotate(int index, bool clockWise);
+    void  rotate(int index, bool clockWise);
     
 private:
-    bool        gameEnded;
+    bool          gameEnded;
+    int           clickCount;
+    KGameClock   *gameClock;
+    KScoreDialog *scoreDialog;
+    
     QGridLayout* gridLayout;
 
     QSound*     clicksound;
@@ -101,10 +113,8 @@ private:
     QString     soundpath;
     QAction*    soundaction;
 
-    int m_clickcount; // TODO -> clickCount
-
     QPixmap *pixmapCache;
-    bool m_invalidCache; // TODO: m_ is not needed here...
+    bool invalidCache;
 };
 
 #endif // MAINWINDOW_H

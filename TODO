@@ -13,3 +13,6 @@
 5. whatsthis isn't show easily add an help icon or questionmark or something... (in the game field maybe..)
 6. initial window size depending one the screen size (possible with kde? also usefull in other games!)
 7. show the solution
+
+BUGS:
+    sometimes it seems to go in infinite loop when starting a new game... check it!!

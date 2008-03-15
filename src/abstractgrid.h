@@ -94,6 +94,7 @@ public:
     virtual ~AbstractGrid();
     
 protected:
+
     void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
     
     // ownership remains to the AbstractGrid
@@ -102,7 +103,9 @@ protected:
     
     int width() {return m_width;}
     int height() {return m_height;}
-    //bool isWrapped() {return m_isWrapped;}
+    
+    // the minimum number of moves required to solve the game
+    int minimumMoves;
     
     virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
     

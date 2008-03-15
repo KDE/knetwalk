@@ -43,8 +43,10 @@
 #include <KStandardDirs>
 #include <KSelectAction>
 #include <KGameDifficulty>
+#include <KGameClock>
 
-#include <time.h>
+#include <ctime>
+#include <cmath>
 
 #include "consts.h"
 #include "settings.h"
@@ -60,20 +62,29 @@ MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
 {
     kDebug() << Settings::skill();
-    m_clickcount = 0;
+    clickCount = 0;
 
     setupActions();
     
-    statusBar()->insertPermanentItem("abcdefghijklmnopqrst: 0  ", 1, 1);
-    statusBar()->setItemAlignment(1, Qt::AlignLeft & Qt::AlignVCenter);
+    statusBar()->insertItem("", StatusBarIndexMoves);
+    statusBar()->insertItem("", StatusBarIndexTime);
+    
     setAutoSaveSettings();
 
     createBoard();
     
     srand(time(0));
 
+    gameClock = new KGameClock(this, KGameClock::MinSecOnly);
+    connect(gameClock, SIGNAL(timeChanged(const QString&)), SLOT(updateStatusBar()));
+    
+    scoreDialog = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Time,
+                                    this);
+    
+    scoreDialog->addField(KScoreDialog::Custom1,i18n("Moves Penalty"), "moves");
+
     pixmapCache = new QPixmap(centralWidget()->size());
-    m_invalidCache = true;
+    invalidCache = true;
 
     // default values of KConfig XT don't seem to work
     // this works around it. TODO: see why
@@ -132,18 +143,12 @@ void MainWindow::setupActions()
 
 void MainWindow::showHighscores()
 {
-    KScoreDialog ksdialog(KScoreDialog::Name, this);
-    ksdialog.exec();
+    scoreDialog->exec();
 }
 
 void MainWindow::startNewGame()
 {
     gameEnded = false;   
-
-    m_clickcount = 0;
-    QString clicks = i18nc("Number of mouse clicks", "Moves: %1", m_clickcount);
-    statusBar()->changeItem(clicks, 1);
-
     KNotification::event( "startsound", i18n("New Game") );
   
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
@@ -154,8 +159,6 @@ void MainWindow::startNewGame()
     const bool isWrapped = (l == KGameDifficulty::VeryHard);
     const int size = boardSize();    
     
-    //setBoardSize(size); TODO: remove this function
-    
     QGridLayout *gridLayout = 
             static_cast<QGridLayout *>(centralWidget()->layout());
     
@@ -164,6 +167,10 @@ void MainWindow::startNewGame()
     }
     
     initializeGrid(size, size, (Wrapping)isWrapped);
+    clickCount = -minimumMoves;
+    gameClock->restart();
+    
+    updateStatusBar();
     
     for (int i = 0; i < cellCount(); i++) {
         gridLayout->addWidget(cellAt(i), 
@@ -186,12 +193,18 @@ void MainWindow::startNewGame()
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
     
-    for (int i = 0; i < cellCount(); ++i) {
-        cellAt(i)->update();
-    }
+    centralWidget()->update();
     
     // TODO: setRunning(true) on the first click
     KGameDifficulty::setRunning(false);
+}
+
+void MainWindow::updateStatusBar()
+{
+    QString moves = i18nc("Number of mouse clicks", "Moves: %1", clickCount);
+    QString time = i18nc("Time elapsed", "Time: %1", gameClock->timeString());
+    statusBar()->changeItem(moves, StatusBarIndexMoves);
+    statusBar()->changeItem(time, StatusBarIndexTime);
 }
 
 void MainWindow::lClicked(int index)
@@ -234,9 +247,9 @@ void MainWindow::rotate(int index, bool clockWise)
         //if (updateConnections())
         //    KNotification::event( "connectsound" );
         
-        ++m_clickcount;
-        QString clicks = i18n("Moves: %1", m_clickcount);
-        statusBar()->changeItem(clicks,1);
+        ++clickCount;
+        
+        updateStatusBar();
     }
 }
 
@@ -247,45 +260,39 @@ void MainWindow::updateConnections()
     
     foreach (int index, changedCells) {
         cellAt(index)->update();
-    }
-    
-    /*for (int i = 0; i < cellCount(); ++i) {
-        cellAt(i)->update();
-    }*/   
+    }  
     
     checkIfGameEnded();
 }
 
-/*void MainWindow::blink(int index)
-{
-    for (int i = 0; i < board[index]->width() * 2; i += 2) {
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
-        QTimer::singleShot(30, board[index], SLOT(update()));
-        qApp->processEvents(QEventLoop::ExcludeUserInputEvents |
-        QEventLoop::WaitForMoreEvents);
-        board[index]->setLight(i);
-    }
-    
-    board[index]->setLight(0);
-}*/
-
 
 void MainWindow::checkIfGameEnded()
 {
-    if (!isSolution()) return;
+    foreach (AbstractCell* cell, cells()) {
+        if (cell->cables() != None && !cell->isConnected()){
+            // there is a not empty cell that isn't connected
+            return;
+        }
+    }
     
     KNotification::event( "winsound" );
     
-    KScoreDialog ksdialog(KScoreDialog::Name, this);
-    ksdialog.setConfigGroup(KGameDifficulty::levelString());
+    scoreDialog->setConfigGroup(KGameDifficulty::levelString());
     
-    //ksdialog.addField(KScoreDialog::Custom1, "Num of Moves", "moves");
-    //KScoreDialog::FieldInfo scoreInfo;
-    //scoreInfo[KScoreDialog::Score].setNum(1000 * boardSize() * boardSize() / m_clickcount);
-    //scoreInfo[KScoreDialog::Score].setNum(m_clickcount);
+    double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
     
-    ksdialog.addScore(m_clickcount, KScoreDialog::LessIsMore);
-    ksdialog.exec();
+    // normalize the penalty
+    penalty = sqrt(penalty/cellCount());
+    
+    int score = static_cast<int>(100.0 / penalty);
+    
+    KScoreDialog::FieldInfo scoreInfo;
+    scoreInfo[KScoreDialog::Score].setNum(score);
+    scoreInfo[KScoreDialog::Custom1].setNum(clickCount/2);
+    scoreInfo[KScoreDialog::Time] = gameClock->timeString();
+    
+    scoreDialog->addScore(scoreInfo);
+    scoreDialog->exec();
     
     KGameDifficulty::setRunning(false);
     gameEnded = true;
@@ -322,8 +329,8 @@ void MainWindow::paintEvent(QPaintEvent* e)
         QPainter painter;
         QRect updateRect = e->rect().intersect(centralWidget()->geometry());
         
-        if (m_invalidCache) {
-            m_invalidCache = false;
+        if (invalidCache) {
+            invalidCache = false;
             
             // keep aspect ratio
             int width = centralWidget()->width();
@@ -348,7 +355,7 @@ void MainWindow::paintEvent(QPaintEvent* e)
             painter.drawPixmap(borderLeft, borderTop, overlay);
             painter.end();
         }
-
+        
         QPoint p = centralWidget()->mapFromParent(QPoint(updateRect.x(),
                                                   updateRect.y()));
         QRect pixmapRect(p.x(), p.y(), updateRect.width(), updateRect.height());
@@ -361,7 +368,7 @@ void MainWindow::paintEvent(QPaintEvent* e)
 
 void MainWindow::resizeEvent(QResizeEvent*)
 {
-    m_invalidCache = true;
+    invalidCache = true;
 }
 
 #include "mainwindow.moc"

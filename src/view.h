@@ -31,7 +31,8 @@ public:
     }
 
 protected:
-    void resizeEvent(QResizeEvent *) {
+    void paintEvent (QPaintEvent *e) {
+    //void resizeEvent(QResizeEvent *) {
         int size = qMin(width(), height());
         size = qRound(size * (1.0 - 2*BoardBorder)); // add a border
         
@@ -42,7 +43,10 @@ protected:
         
         int borderLeft = (width() - size)/2;
         int borderTop = (height() - size)/2;
+        
         setFrameRect(QRect(borderLeft, borderTop, size, size));
+        
+        QFrame::paintEvent(e);
     }
 };
 
