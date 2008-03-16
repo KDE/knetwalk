@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-<!ENTITY kappname "&knetwalk;">
+<!ENTITY kappname "&kdiamond;">
 <!ENTITY package "kdegames">
 <!ENTITY % English "INCLUDE"> 
 <!ENTITY % addindex "IGNORE">
@@ -8,43 +8,38 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>The &knetwalk; Handbook</title>
+<title>The &kdiamond; Handbook</title>
 
 <authorgroup>
 <author>
-<firstname>Fela</firstname>
-<surname>Winkelmolen</surname>
-<affiliation>
-<address><email>fela.kde@gmail.com</email></address></affiliation>
-</author>
-<author>
-<firstname>Eugene</firstname><surname>Trounev</surname>
-<affiliation><address><email>eugene.trounev@gmail.com</email></address></affiliation>
+<firstname>Stefan</firstname>
+<surname>Majewsky</surname>
+<affiliation><address><email>majewsky@gmx.net</email></address></affiliation>
 </author>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <copyright>
-<year>2007</year>
-<holder>Fela Winkelmolen</holder>
+<year>2008</year>
+<holder>Stefan Majewsky</holder>
 </copyright>
     
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2007-11-13</date>
-<releaseinfo>2.0.0</releaseinfo>
+<date>2008-03-17</date>
+<releaseinfo>0.3.0</releaseinfo>
 
 <abstract>
 <para>
-&knetwalk;, a game for system administrators.</para>
+&kdiamond;, a three-in-a-row game.</para>
 </abstract>
 
 <keywordset>
 <keyword>KDE</keyword>
 <keyword>kdegames</keyword>
 <keyword>game</keyword>
-<keyword>logic game</keyword>
-<keyword>knetwalk</keyword>
+<keyword>puzzle game</keyword>
+<keyword>kdiamond</keyword>
 </keywordset>
 </bookinfo>
 
@@ -52,11 +47,11 @@
 <title>Introduction</title>
 
 <para>
-&knetwalk; is a single player logic game.
+&kdiamond; is a single player puzzle game.
 </para>
 
 <para>
-The object of the game is to start the LAN, connecting all the terminals to the server, in as few turns as possible.
+The object of the game is to build lines of three similar diamonds.
 </para>
 </chapter>
 
@@ -64,11 +59,11 @@ The object of the game is to start the LAN, connecting all the terminals to the 
 <title>How to Play</title>
 
 <para>
-The player is presented with a rectangular grid containing a server, several terminals, and pieces of wire.  The object of the game is to rotate these elements until every client is connected  to  the server, and no wires are left unconnected.  Optionally, you can try to get a high score by minimizing the number of rotations needed.
+The player is presented with a rectangular grid containing several types of diamonds. The object of the game is to swap neighbored diamonds to assemble a line of three similar diamonds. These lines will vanish and the board will be refilled with new diamonds. The game time is limited, try to build as much lines as possible to earn a high score.
 </para>
 
 <para>
-Left clicking on a square rotates it counterclockwise, while right clicking  rotates  it  clockwise. Middle clicking on a square marks it as blocked and prevents it from being rotated unless it gets unblocked by another middle click; this can be very useful for  marking  squares  which are known to be in the correct orientation. The status bar displays the number of clicks so far.
+Click on one diamond, then on one of its neighbors. The diamonds will then be swapped. If no line of at least three diamonds is formed by the swap, it will be reverted. The status bar displays the game time left, and the number of points you have earned.
 </para>
 
 </chapter>
@@ -79,22 +74,8 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <sect1 id="rules">
 <title>Rules</title>
 <itemizedlist>
-<listitem><para>There is only one possible correct solution for every game.</para></listitem>
-<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level connections can wrap from left to right and from top to bottom.</para></listitem>
-<listitem><para>The game ends when every terminal and every wire is connected to the server.</para></listitem>
-<listitem><para>The score represents the number of clicks it took to complete the game. The lower the score the better.</para></listitem>
-</itemizedlist>
-</sect1>
-
-<sect1 id="stategies-and-tips">
-<title>Strategies and Tips</title>
-<itemizedlist>
-<listitem><para>Start seeking for squares which orientation can be easily determined.</para></listitem>
-<listitem><para>Once you are sure of the orientation of a square you can mark it using the &MMB;. This is particularly usefull in harder games.</para></listitem>
-<listitem><para>Look for I-shaped and T-shaped wires near the borders, and L-shaped wires near the edges. The position of these squares can be easily determined, unless you are playing the <guilabel>Very hard</guilabel> difficulty level.</para></listitem>
-<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level a good place to start looking is near empty squares, if present, and near regions containing many terminals grouped together.</para></listitem>
-<listitem><para>Even when playing with the same difficulty level some games are easier than others, restart the game if you want to get a different board.</para></listitem>
-<listitem><para>If you want to get a good score, only do a move when you are sure.</para></listitem>
+<listitem><para>When a line was removed and the diamonds fall down to fill gaps, it may be that then new lines are composed. Try to achieve such cascades when selecting a diamond pair as you will earn extra points: You get 1 point for the line you build, 2 points for the first cascade, 3 points for a possible next cascade, and so on.</para></listitem>
+<listitem><para>The number of diamond types increases when choosing <guilabel>Hard</guilabel> difficulty levels, thus making it harder to build lines. In contrast, the board size will grow on the <guilabel>Easy</guilabel> difficulty levels to make it easier to find a move.</para></listitem>
 </itemizedlist>
 </sect1>
 
@@ -104,7 +85,7 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <title>Interface Overview</title>
 
 <sect1 id="game-menu">
-<title><guimenu>Game</guimenu> Menu</title>
+ <title><guimenu>Game</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -118,6 +99,20 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <listitem>
 <para>
 Starts a new game. It creates a random board using the current difficulty level.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keysym>P</keysym></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Pause</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Pauses the game time. Click on the menu item again to make the game resume. Note that the board disappears when the game is paused as it would be unfair if you could search for good moves without the time pressure.
 </para>
 </listitem>
 </varlistentry>
@@ -162,6 +157,17 @@ Quits the program.
 
 <variablelist>
 
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show minutes on timer</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>
+Toggles whether minutes should be shown separately on the timer (e.g. "3 minutes, 10 seconds" compared to "170 seconds").
+</para>
+</listitem>
+</varlistentry>
 
 <varlistentry>
 <term><menuchoice>
@@ -187,18 +193,6 @@ Toggles on and off the display of the statusbar.
 </listitem>
 </varlistentry>
 
-<!--
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Themes</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
-</para></listitem>
-</varlistentry>
--->
-
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
@@ -208,10 +202,11 @@ Toggles on and off the display of the statusbar.
 <para>Lets you set the difficulty level from a sub-menu.</para>
 <para>There are four levels of difficulty:
 <itemizedlist>
-<listitem><para><guimenuitem>Easy</guimenuitem>: 5 rows, 5 columns, without wrapping.</para></listitem>
-<listitem><para><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</para></listitem>
-<listitem><para><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</para></listitem>
-<listitem><para><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</para></listitem>
+<listitem><para><guimenuitem>Very easy</guimenuitem>: 12 rows, 12 columns, 5 types of diamonds.</para></listitem>
+<listitem><para><guimenuitem>Easy</guimenuitem>: 10 rows, 10 columns, 5 types of diamonds.</para></listitem>
+<listitem><para><guimenuitem>Medium</guimenuitem>: 8 rows, 8 columns, 5 types of diamonds.</para></listitem>
+<listitem><para><guimenuitem>Hard</guimenuitem>: 8 rows, 8 columns, 6 types of diamonds.</para></listitem>
+<listitem><para><guimenuitem>Very hard</guimenuitem>: 8 rows, 8 columns, 7 types of diamonds.</para></listitem>
 </itemizedlist>
 </para></listitem>
 </varlistentry>
@@ -239,7 +234,15 @@ Toggles on and off the display of the statusbar.
 Notifications...</guimenuitem></menuchoice></term>
 <listitem><para>This item displays a standard &kde; notifications configuration
 dialog, where you can change the notifications (sounds, visible messages,
-&etc;) used by &knetwalk;.</para></listitem>
+&etc;) used by &kdiamond;.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure KDiamond...</guimenuitem>
+</menuchoice></term>
+<listitem><para>Choose a graphical theme for the game. Which themes are available depends on the current installation.</para></listitem>
 </varlistentry>
 
 </variablelist>
@@ -265,6 +268,12 @@ dialog, where you can change the notifications (sounds, visible messages,
 <entry>Start a new game</entry>
 <entry>
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Pause</entry>
+<entry>
+<keycombo action="simul"><keysym>P</keysym></keycombo>
 </entry>
 </row>
 <row>
@@ -301,13 +310,13 @@ dialog, where you can change the notifications (sounds, visible messages,
 <title>Credits and License</title>
 
 <para>
-&knetwalk;
+&kdiamond;
 </para>
 <para>
-Program copyright 2004 - 2007 by Andi Peredri, Thomas Nagy and Fela Winkelmolen <email>fela.kde@gmail.com</email>
+Program copyright 2008 by Stefan Majewsky <email>majewsky@gmx.net</email>
 </para>
 <para>
-Documentation copyright 2007 by Fela Winkelmolen <email>fela.kde@gmail.com</email>
+Documentation copyright 2008 by Stefan Majewsky <email>majewsky@gmx.net</email>
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
@@ -320,8 +329,8 @@ Documentation copyright 2007 by Fela Winkelmolen <email>fela.kde@gmail.com</emai
 <appendix id="installation">
 <title>Installation</title>
 
-<sect1 id="getting-knetwalk">
-<title>How to obtain &knetwalk;</title>
+<sect1 id="getting-kdiamond">
+<title>How to obtain &kdiamond;</title>
 
 &install.intro.documentation;
 
