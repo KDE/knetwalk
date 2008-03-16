@@ -77,11 +77,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(gameClock, SIGNAL(timeChanged(const QString&)), SLOT(updateStatusBar()));
-    
-    scoreDialog = new KScoreDialog(KScoreDialog::Name | KScoreDialog::Time,
-                                    this);
-    
-    scoreDialog->addField(KScoreDialog::Custom1,i18n("Moves Penalty"), "moves");
 
     pixmapCache = new QPixmap(centralWidget()->size());
     invalidCache = true;
@@ -142,8 +137,12 @@ void MainWindow::setupActions()
 
 
 void MainWindow::showHighscores()
-{
-    scoreDialog->exec();
+{   
+
+    KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
+    scoreDialog.setConfigGroup(KGameDifficulty::levelString());
+    scoreDialog.exec();
 }
 
 void MainWindow::startNewGame()
@@ -277,8 +276,6 @@ void MainWindow::checkIfGameEnded()
     
     KNotification::event( "winsound" );
     
-    scoreDialog->setConfigGroup(KGameDifficulty::levelString());
-    
     double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
     
     // normalize the penalty
@@ -286,13 +283,18 @@ void MainWindow::checkIfGameEnded()
     
     int score = static_cast<int>(100.0 / penalty);
     
+    // create the new scoreInfo
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Custom1].setNum(clickCount/2);
     scoreInfo[KScoreDialog::Time] = gameClock->timeString();
     
-    scoreDialog->addScore(scoreInfo);
-    scoreDialog->exec();
+    // show the new dialog and add the new score to it
+    KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
+    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
+    scoreDialog.setConfigGroup(KGameDifficulty::levelString());
+    scoreDialog.addScore(scoreInfo);
+    scoreDialog.exec();
     
     KGameDifficulty::setRunning(false);
     gameEnded = true;

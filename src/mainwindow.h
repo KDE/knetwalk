@@ -73,10 +73,6 @@ private:
       MasterBoardSize = 9
     };
     
-    enum {
-      NumHighscores   = 10,
-      MinimumNumCells = 20
-    };
     typedef QList<Cell*> CellList;
     
 private slots:
@@ -99,7 +95,6 @@ private:
     bool          gameEnded;
     int           clickCount;
     KGameClock   *gameClock;
-    KScoreDialog *scoreDialog;
     
     QGridLayout* gridLayout;
 
