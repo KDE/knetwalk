@@ -83,8 +83,10 @@ private slots:
     void rClicked(int index);
     void mClicked(int index);
 
-    void  showHighscores();
-    void  configureNotifications();
+    void showHighscores();
+    void configureSettings();
+    void configureNotifications();
+    void loadSettings();
 
 private:
     Cell *cellAt(int index);

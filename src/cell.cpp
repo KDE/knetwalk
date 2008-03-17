@@ -75,6 +75,11 @@ Cell::~Cell()
     delete timeLine;
 }
 
+void Cell::setInvalidCache()
+{
+    forgroundChanged = true;
+}
+
 void Cell::makeEmpty()
 {
     AbstractCell::makeEmpty();

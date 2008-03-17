@@ -31,7 +31,7 @@ public:
     }
 
 protected:
-    void paintEvent (QPaintEvent *e) {
+    void paintEvent(QPaintEvent *e) {
     //void resizeEvent(QResizeEvent *) {
         int size = qMin(width(), height());
         size = qRound(size * (1.0 - 2*BoardBorder)); // add a border

@@ -47,6 +47,9 @@ public:
     bool isRotated() const;
     bool isLocked() const;
     static void initPixmaps();
+    
+    // marks the cache as invalid
+    void setInvalidCache();
 
 private slots:
     // used by the animation

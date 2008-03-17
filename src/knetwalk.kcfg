@@ -7,6 +7,7 @@
   <group name="General">
     <entry name="Theme" type="String" key="Theme">
       <label>The graphical theme to be used.</label>
+      <default>Default</default>
     </entry>
   </group>
   <group name="Preferences">

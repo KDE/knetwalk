@@ -30,9 +30,9 @@
 #include <QApplication>
 
 #include <KGlobal>
+#include <KConfigDialog>
 #include <KIconLoader>
 #include <KLocale>
-#include <KScoreDialog>
 #include <KStandardAction>
 #include <KAction>
 #include <KActionCollection>
@@ -42,7 +42,11 @@
 #include <KNotifyConfigWidget>
 #include <KStandardDirs>
 #include <KSelectAction>
+#include <KMessageBox>
+
 #include <KGameDifficulty>
+#include <KGameThemeSelector>
+#include <KScoreDialog>
 #include <KGameClock>
 
 #include <ctime>
@@ -133,12 +137,49 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::configureNotifications(this, 
                 SLOT(configureNotifications()), actionCollection());
+    
+    KStandardAction::preferences(this, SLOT(configureSettings()), 
+                                 actionCollection());
 }
 
+void MainWindow::configureSettings()
+{
+    if (KConfigDialog::showDialog( "settings")) {
+        return;
+    }
+    
+    KConfigDialog *dialog = new KConfigDialog(this, "settings", 
+                                              Settings::self());
+                                              
+    dialog->addPage(new KGameThemeSelector( dialog, Settings::self(), 
+                    KGameThemeSelector::NewStuffDisableDownload ), 
+                    i18n("Theme"), "games-config-theme" );
 
-void MainWindow::showHighscores()
-{   
+    connect(dialog, SIGNAL( settingsChanged(const QString&)), this, 
+            SLOT(loadSettings()));
+    dialog->setHelp(QString(), "knetwalk");
+    dialog->show();
+}
 
+void MainWindow::loadSettings() 
+{
+    if (!Renderer::self()->loadTheme(Settings::theme())) {
+        KMessageBox::error(this,  
+           i18n( "Failed to load \"%1\" theme. Please check your installation.",
+           Settings::theme()));
+        return;
+    }
+    
+    // redraw
+    invalidCache = true;
+    for (int i = 0; i < cellCount(); ++i) {
+        cellAt(i)->setInvalidCache();
+    }
+    repaint();
+}
+
+void MainWindow::showHighscores() 
+{
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
     scoreDialog.setConfigGroup(KGameDifficulty::levelString());
@@ -194,7 +235,7 @@ void MainWindow::startNewGame()
     
     centralWidget()->update();
     
-    // TODO: setRunning(true) on the first click
+    // setRunning(true) on the first click
     KGameDifficulty::setRunning(false);
 }
 
