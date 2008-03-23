@@ -1,1 +1,1 @@
-install( FILES default.svgz default.desktop DESTINATION  ${DATA_INSTALL_DIR}/knetwalk/themes )
+install( FILES default.svgz default.desktop electronic.svgz electronic.desktop DESTINATION  ${DATA_INSTALL_DIR}/knetwalk/themes )

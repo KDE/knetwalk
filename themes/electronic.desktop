@@ -1,0 +1,9 @@
+[KGameTheme]
+Name=Electronic
+Description=KNetWalk Electronic theme for KDE 4
+VersionFormat=1
+#Author=Michał Bartecki
+#AuthorEmail=mkbart@gmail.com
+Type=SVG
+FileName=electronic.svgz
+#Preview=electronic_preview.png
