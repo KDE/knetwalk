@@ -3,6 +3,7 @@ Type=Application
 Exec=knetwalk -caption "%c"
 X-DocPath=knetwalk/index.html
 Name=KNetWalk
+Name[x-test]=xxKNetWalkxx
 GenericName=Network Construction Game
 GenericName[ca]=Joc de construcció de xarxes
 GenericName[da]=Spil om netværksopbygning

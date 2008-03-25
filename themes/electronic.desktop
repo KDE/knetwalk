@@ -1,6 +1,16 @@
 [KGameTheme]
 Name=Electronic
+Name[ga]=Leictreonach
+Name[pt]=Electrónico
+Name[pt_BR]=Electrónico
+Name[x-test]=xxElectronicxx
+Name[zh_TW]=電子
 Description=KNetWalk Electronic theme for KDE 4
+Description[ga]=Téama Leictreonach KNetWalk le haghaidh KDE 4
+Description[pt]=Tema Electrónico para o KNetWalk do KDE 4
+Description[pt_BR]=Tema Electrónico para o KNetWalk do KDE 4
+Description[x-test]=xxKNetWalk Electronic theme for KDE 4xx
+Description[zh_TW]=KNetWalk KDE4 電子主題
 VersionFormat=1
 #Author=Michał Bartecki
 #AuthorEmail=mkbart@gmail.com
