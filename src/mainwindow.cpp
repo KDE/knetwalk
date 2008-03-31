@@ -316,7 +316,8 @@ void MainWindow::checkIfGameEnded()
     }
     
     KNotification::event( "winsound" );
-    
+    gameClock->pause();   
+ 
     double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
     
     // normalize the penalty
