@@ -33,27 +33,6 @@
 #include "consts.h"
 #include "renderer.h"
 
-Cell::NamesMap Cell::directionNames;
-KSvgRenderer Cell::allSvg;
-
-void Cell::initPixmaps()
-{
-    directionNames[Left]            = "0001";
-    directionNames[Down]            = "0010";
-    directionNames[Down|Left]       = "0011";
-    directionNames[Right]           = "0100";
-    directionNames[Right|Left]      = "0101";
-    directionNames[Right|Down]      = "0110";
-    directionNames[Right|Down|Left] = "0111";
-    directionNames[Up]              = "1000";
-    directionNames[Up|Left]         = "1001";
-    directionNames[Up|Down]         = "1010";
-    directionNames[Up|Down|Left]    = "1011";
-    directionNames[Up|Right]        = "1100";
-    directionNames[Up|Right|Left]   = "1101";
-    directionNames[Up|Right|Down]   = "1110";
-}
-
 Cell::Cell(QWidget* parent, int index) 
     : QWidget(parent), AbstractCell(index)
 {

@@ -119,8 +119,6 @@ void MainWindow::createBoard()
     gridLayout->setMargin(0);
     gridLayout->setSpacing(0);
     setCentralWidget(view);
-
-    Cell::initPixmaps();
 }
 
 void MainWindow::setupActions()
@@ -248,7 +246,7 @@ void MainWindow::updateStatusBar()
 }
 
 void MainWindow::lClicked(int index)
-{
+{    
     if (!gameEnded) {
         KGameDifficulty::setRunning(true);
         rotate(index, false);
@@ -311,12 +309,22 @@ void MainWindow::checkIfGameEnded()
     foreach (AbstractCell* cell, cells()) {
         if (cell->cables() != None && !cell->isConnected()){
             // there is a not empty cell that isn't connected
+            if (allTerminalsConnected()) {
+                QString text = i18n("Note: to win the game all terminals "
+                                    "<strong>and all <em>cables</em></strong> " 
+                                    "need to be connected to the server!");
+                QString caption = i18n("The game is not won yet!");
+                QString dontShowAgainName("dontShowGameNotWonYet"); // TODO i18n???
+                KMessageBox::information(this, text, caption, dontShowAgainName);
+            }
             return;
         }
     }
     
-    KNotification::event( "winsound" );
-    gameClock->pause();   
+    KNotification::event("winsound");
+    gameClock->pause();
+ 
+    //=== calculate the score ====//
  
     double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
     
@@ -335,7 +343,12 @@ void MainWindow::checkIfGameEnded()
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
     scoreDialog.setConfigGroup(KGameDifficulty::levelString());
-    scoreDialog.addScore(scoreInfo);
+    bool madeIt = scoreDialog.addScore(scoreInfo);
+    if (!madeIt) {
+        QString comment = i18n("Your score was %1, you didn't make it "
+                               "to the highScore list", score);
+        scoreDialog.setComment(comment);
+    }
     scoreDialog.exec();
     
     KGameDifficulty::setRunning(false);

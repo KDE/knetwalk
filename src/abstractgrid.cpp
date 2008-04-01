@@ -375,7 +375,7 @@ int AbstractGrid::solutionCount()
     
     // all cells have been moved
     if (possibleNextMoves.isEmpty()) {
-        return isSolution() ? 1 : 0;
+        return isPossibleSolution() ? 1 : 0;
     }
     // else
     
@@ -470,7 +470,7 @@ bool AbstractGrid::hasUnneededCables()
         Directions oldCables = cell->cables();
         cell->setCables(None);
         
-        bool solution = isSolution();
+        bool solution = isPossibleSolution();
         cell->setCables(oldCables);
         
         if (solution) {
@@ -482,12 +482,17 @@ bool AbstractGrid::hasUnneededCables()
     return false;
 }
 
-bool AbstractGrid::isSolution() 
+bool AbstractGrid::isPossibleSolution() 
 {
     foreach (AbstractCell *cell, m_cells) {
         cell->setConnected(false);
     }
     updateConnections();
+    
+    return allTerminalsConnected();
+}
+
+bool AbstractGrid::allTerminalsConnected() {
     // return false if there is a terminal that isn't connected
     foreach (AbstractCell *cell, m_cells) {
         if (cell->isTerminal() && !cell->isConnected()) {

@@ -46,7 +46,6 @@ public:
     virtual void setConnected(bool isConnected);
     bool isRotated() const;
     bool isLocked() const;
-    static void initPixmaps();
     
     // marks the cache as invalid
     void setInvalidCache();
@@ -73,8 +72,6 @@ private:
     void paintOnCache();
     
     typedef QMap<int, QString> NamesMap;
-    static NamesMap directionNames;
-    static KSvgRenderer allSvg;
     int     angle;
     int     light;
     bool    cableChanged;

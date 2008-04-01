@@ -114,7 +114,9 @@ protected:
     QList<int> updateConnections();
     
     // returns true if all terminals are connected to the server
-    bool isSolution();
+    bool isPossibleSolution();
+    
+    bool allTerminalsConnected();
     
 private:
     // used for debugging only

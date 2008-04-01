@@ -38,8 +38,8 @@ protected:
         
         // assure all the squares being of the same size
         // by making the size a multiple of the boardSize
-        int bsize = MainWindow::boardSize();
-        size = size / bsize * bsize;
+        int boardSize = MainWindow::boardSize();
+        size = (size / boardSize) * boardSize;
         
         int borderLeft = (width() - size)/2;
         int borderTop = (height() - size)/2;

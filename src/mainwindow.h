@@ -79,6 +79,8 @@ private slots:
     void startNewGame();
     void updateStatusBar();
 
+    // called respectively when the 
+    // left, right or middle mouse buttons are pressed
     void lClicked(int index);
     void rClicked(int index);
     void mClicked(int index);
