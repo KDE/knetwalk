@@ -27,7 +27,7 @@ class View : public QFrame
 public:
     View(QWidget *parent=0) : QFrame(parent) {
         setFrameStyle(QFrame::NoFrame);
-        setMinimumSize(MinimumWidth, MinimumHeight); // TODO change
+        setMinimumSize(MinimumWidth, MinimumHeight);
     }
 
 protected:

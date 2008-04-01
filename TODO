@@ -3,6 +3,7 @@ BUGS:
 
 * sometimes it seems to go in infinite loop when starting a new game... check it!! 
   (maybe it's fixed: didn't happen for a long time)
+* when a new game starts there are unneeded repaints
 
 
 TODO:

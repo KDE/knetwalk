@@ -25,7 +25,7 @@
 #include <kpixmapcache.h>
 
 #include "settings.h"
-#include "consts.h"
+#include "globals.h"
 
 Renderer* Renderer::self()
 {

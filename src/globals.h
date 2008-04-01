@@ -1,6 +1,7 @@
 /*
+    Copyright 2005 Thomas Nagy  <tnagyemail-mail@yahoo.fr>
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
-  
+    
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
@@ -17,6 +18,34 @@
 
 #ifndef GLOBALS_H
 #define GLOBALS_H
+
+#include <QColor>
+
+/*const char *levels[4] = {
+  I18N_NOOP("Novice"),
+  I18N_NOOP("Normal"),
+  I18N_NOOP("Expert"),
+  I18N_NOOP("Master")
+};*/
+
+int const MinimumWidth = 400;
+int const MinimumHeight = 400;
+
+// used for the rotation of cables
+int const AnimationTime = 400;
+
+// relative numbers
+const qreal BoardBorder = 0.04;
+const qreal OverlayBorder = 0.02;
+// negative borders to get around the wrong bounding rect
+// calculation of the svg renderer
+const qreal CellBorder = -0.0;
+const qreal BackgroundBorder = -0.0;
+// border of the computer and server sprites inside the cells
+const qreal CellForgroundBorder = 0.1;
+
+const QColor HoveredCellColor(255, 255, 255, 30);
+const QColor LockedCellColor(0, 0, 0, 100);
 
 enum Directions { // bitwise ORed
   Up    = 1,

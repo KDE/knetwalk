@@ -52,7 +52,7 @@
 #include <ctime>
 #include <cmath>
 
-#include "consts.h"
+#include "globals.h"
 #include "settings.h"
 #include "cell.h"
 #include "view.h"
@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
     invalidCache = true;
 
     // default values of KConfig XT don't seem to work
-    // this works around it. TODO: see why
+    // this works around it. TODO: see why (and wether it still is true)
     
     // Difficulty
     KGameDifficulty::init(this, this, SLOT(startNewGame()));

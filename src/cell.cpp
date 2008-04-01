@@ -30,7 +30,7 @@
 #include <KSvgRenderer>
 #include <KDebug>
 
-#include "consts.h"
+#include "globals.h"
 #include "renderer.h"
 
 Cell::Cell(QWidget* parent, int index) 
