@@ -96,7 +96,10 @@ private:
     void  rotate(int index, bool clockWise);
     
 private:
-    bool          gameEnded;
+    bool gameEnded;
+    // true when the user is shown the message box telling him that
+    // all terminals are connected, but all cables need to be connected too
+    bool msgToWinGameShown;
     int           clickCount;
     KGameClock   *gameClock;
     

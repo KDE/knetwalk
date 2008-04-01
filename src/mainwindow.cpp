@@ -186,7 +186,8 @@ void MainWindow::showHighscores()
 
 void MainWindow::startNewGame()
 {
-    gameEnded = false;   
+    gameEnded = false;
+    msgToWinGameShown = false;
     KNotification::event( "startsound", i18n("New Game") );
   
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
@@ -309,13 +310,15 @@ void MainWindow::checkIfGameEnded()
     foreach (AbstractCell* cell, cells()) {
         if (cell->cables() != None && !cell->isConnected()){
             // there is a not empty cell that isn't connected
-            if (allTerminalsConnected()) {
+            if (!msgToWinGameShown && allTerminalsConnected()) {
+                // don't show more that twice in one game
                 QString text = i18n("Note: to win the game all terminals "
                                     "<strong>and all <em>cables</em></strong> " 
                                     "need to be connected to the server!");
                 QString caption = i18n("The game is not won yet!");
                 QString dontShowAgainName("dontShowGameNotWonYet"); // TODO i18n???
                 KMessageBox::information(this, text, caption, dontShowAgainName);
+                msgToWinGameShown = true;
             }
             return;
         }
