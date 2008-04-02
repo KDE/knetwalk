@@ -108,9 +108,7 @@ QPixmap Renderer::backgroundPixmap(const QSize& size) const
         // calculate the background bounding rect
         int const w = size.width();
         int const h = size.height();
-        qreal ratio = 1.0 - BackgroundBorder*2;
-        QRectF bgRect(BackgroundBorder * w, BackgroundBorder * h, 
-                                ratio * w, ratio * h);
+        QRectF bgRect(0, 0, w, h);
         
         kDebug() << "re-rendering pixmap";
         pixmap = QPixmap(size);
@@ -157,9 +155,7 @@ QPixmap Renderer::cablesPixmap(int size, int dirs, bool isConnected) const
     pixmap = QPixmap(size, size);
     pixmap.fill(Qt::transparent);
     
-    const qreal ratio = 1.0 - CellBorder*2;
-    QRectF boundingRect(CellBorder * size, CellBorder * size, 
-                        ratio * size, ratio * size);
+    QRectF boundingRect(0, 0, size, size);
     
     QPainter painter(&pixmap);
     m_renderer->render(&painter, elementId, boundingRect);

@@ -37,10 +37,7 @@ int const AnimationTime = 400;
 // relative numbers
 const qreal BoardBorder = 0.04;
 const qreal OverlayBorder = 0.02;
-// negative borders to get around the wrong bounding rect
-// calculation of the svg renderer
-const qreal CellBorder = -0.0;
-const qreal BackgroundBorder = -0.0;
+
 // border of the computer and server sprites inside the cells
 const qreal CellForgroundBorder = 0.1;
 

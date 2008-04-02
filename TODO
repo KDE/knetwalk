@@ -10,6 +10,7 @@ TODO:
 =====
 
 == short term ==
+* add preview to themes
 * check if forground and background cache makes sense in cell.cpp
 * if it isn't to hard use a menu to change the theme
 * add shortcuts
