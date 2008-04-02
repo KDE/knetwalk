@@ -332,7 +332,7 @@ void MainWindow::checkIfGameEnded()
     double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
     
     // normalize the penalty
-    penalty = sqrt(penalty/cellCount());
+    penalty = std::sqrt(penalty/cellCount());
     
     int score = static_cast<int>(100.0 / penalty);
     
