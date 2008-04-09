@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Electronic
 Name[es]=Electrónico
+Name[fi]=Sähkö
 Name[ga]=Leictreonach
 Name[km]=អេឡិចត្រូនិក
 Name[pt]=Electrónico
@@ -11,6 +12,7 @@ Name[zh_CN]=电子艺术
 Name[zh_TW]=電子
 Description=KNetWalk Electronic theme for KDE 4
 Description[es]=Tema electrónico de KNetWalk para KDE 4
+Description[fi]=Sähköteema KNetWalk-pelille
 Description[ga]=Téama Leictreonach KNetWalk le haghaidh KDE 4
 Description[km]=ស្បែក​​អេឡិចត្រូនិក​របស់ KNetWalk សម្រាប់ KDE 4
 Description[pt]=Tema Electrónico para o KNetWalk do KDE 4
