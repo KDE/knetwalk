@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
     invalidCache = true;
 
     // default values of KConfig XT don't seem to work
-    // this works around it. TODO: see why (and wether it still is true)
+    // this works around it. TODO: see why (and whether it still is true)
     
     // Difficulty
     KGameDifficulty::init(this, this, SLOT(startNewGame()));
@@ -348,7 +348,7 @@ void MainWindow::checkIfGameEnded()
     scoreDialog.setConfigGroup(KGameDifficulty::levelString());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
-        QString comment = i18n("Your score was %1, you didn't make it "
+        QString comment = i18n("Your score was %1, you did not make it "
                                "to the highScore list", score);
         scoreDialog.setComment(comment);
     }
