@@ -37,7 +37,7 @@ int main(int argc, char ** argv)
     KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version,
         ki18n(description), KAboutData::License_GPL, 
         ki18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-        "(C) 2007-2008 Fela Winkelmolen"));
+        "(C) 2007-2008 Fela Winkelmolen"), KLocalizedString(), "http://games.kde.org/knetwalk" );
     
     about.addAuthor(ki18n("Fela Winkelmolen"), 
                     ki18n("current maintainer"),    
