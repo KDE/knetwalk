@@ -50,6 +50,10 @@ int main(int argc, char ** argv)
     about.addAuthor(ki18n("Thomas Nagy"), 
                     ki18n("KDE port"), 
                     "tnagy2^8@yahoo.fr");
+                    
+    about.addCredit(ki18n("Eugene Trounev"),
+                    ki18n("icon design"),
+                    "eugene.trounev@gmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
 
