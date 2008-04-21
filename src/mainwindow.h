@@ -90,6 +90,15 @@ private slots:
     void configureNotifications();
     void loadSettings();
 
+    // slots for keyboard mode
+    void toggleKeyboardMode(bool useKeyboard);
+    void kbGoRight();
+    void kbGoLeft();
+    void kbGoUp();
+    void kbGoDown();
+    void kbTurnClockwise();
+    void kbTurnCounterclockwise();
+    void kbLock();
 private:
     Cell *cellAt(int index);
     void  checkIfGameEnded();
@@ -117,6 +126,10 @@ private:
 
     QPixmap *pixmapCache;
     bool invalidCache;
+
+    // keyboard mode
+    bool m_useKeyboard;
+    int m_currentCellIndex;
 };
 
 #endif // MAINWINDOW_H

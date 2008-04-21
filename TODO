@@ -12,7 +12,6 @@ TODO:
 == short term ==
 * check if forground and background cache makes sense in cell.cpp
 * if it isn't to hard use a menu to change the theme
-* add shortcuts
 * show the solution
 * fix globals.h, include.h, etc. (use one unified header for that stuff)
 * better default size

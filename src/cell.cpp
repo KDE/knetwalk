@@ -35,6 +35,7 @@
 
 Cell::Cell(QWidget* parent, int index) 
     : QWidget(parent), AbstractCell(index)
+    , m_useKeyboard(false), m_cellIsActivated(false)
 {
     pixmapCache = new QPixmap(width(), height());
     forgroundCache = new QPixmap(width(), height());
@@ -57,6 +58,26 @@ Cell::~Cell()
 void Cell::setInvalidCache()
 {
     forgroundChanged = true;
+}
+
+void Cell::toggleKeyboardMode(bool useKeyboard)
+{
+    m_useKeyboard = useKeyboard;
+    // we update once as mouse might highlighted a cell
+    update();
+    // must be activated explicitly after switching to keyboard mode
+    activateForHover(false);
+}
+
+void Cell::activateForHover(bool activate)
+{
+    bool stateChanges;
+    stateChanges = m_cellIsActivated != activate;
+    m_cellIsActivated = activate;
+    // only update if something changed. 
+    if (stateChanges) {
+        update();
+    }
 }
 
 void Cell::makeEmpty()
@@ -116,7 +137,8 @@ void Cell::paintEvent(QPaintEvent*)
     painter.begin(this);
     
     // light on hover
-    if (underMouse() && !locked) {
+    // we highlight the active cell in keyboard mode too
+    if (m_cellIsActivated || (underMouse() && !locked && !m_useKeyboard)) {
         painter.setBrush(HoveredCellColor);
         painter.setPen(Qt::NoPen);
         painter.drawRect(0, 0, pixmapCache->width(), pixmapCache->height());
@@ -167,6 +189,9 @@ void Cell::paintOnCache()
 
 void Cell::mousePressEvent(QMouseEvent* e)
 {
+    if (m_useKeyboard) {
+        return;
+    }
     if (e->button() == Qt::LeftButton) {
         emit lClicked(index());
     } else if (e->button() == Qt::RightButton) {

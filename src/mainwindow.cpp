@@ -35,6 +35,7 @@
 #include <KLocale>
 #include <KStandardAction>
 #include <KAction>
+#include <KToggleAction>
 #include <KActionCollection>
 #include <KStandardGameAction>
 #include <KStatusBar>
@@ -64,6 +65,7 @@ static QMap<Directions, Directions> contrdirs;
 
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent)
+    , m_useKeyboard(false), m_currentCellIndex(0)
 {
     kDebug() << Settings::skill();
     clickCount = 0;
@@ -138,6 +140,47 @@ void MainWindow::setupActions()
     
     KStandardAction::preferences(this, SLOT(configureSettings()), 
                                  actionCollection());
+
+    // Toggle keyboard mode
+    KAction* action = new KToggleAction(i18n("Use &Keyboard"), this);
+    action->setShortcut(Qt::CTRL + Qt::Key_K);
+    connect(action, SIGNAL(triggered(bool)), this, SLOT(toggleKeyboardMode(bool)));
+    actionCollection()->addAction("option_keyboard", action);
+
+    action = new KAction(i18n("Keyboard: Field right"), this);
+    action->setShortcut(Qt::Key_Right);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbGoRight()));
+    actionCollection()->addAction("kb_go_right", action);
+
+    action = new KAction(i18n("Keyboard: Field left"),this);
+    action->setShortcut(Qt::Key_Left);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbGoLeft()));
+    actionCollection()->addAction("kb_go_left", action);
+
+    action = new KAction(i18n("Keyboard: Field up"),this);
+    action->setShortcut(Qt::Key_Up);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbGoUp()));
+    actionCollection()->addAction("kb_go_up", action);
+
+    action = new KAction(i18n("Keyboard: Field down"),this);
+    action->setShortcut(Qt::Key_Down);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbGoDown()));
+    actionCollection()->addAction("kb_go_down", action);
+
+    action = new KAction(i18n("Keyboard: Turn clockwise"),this);
+    action->setShortcut(Qt::Key_Return);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbTurnClockwise()));
+    actionCollection()->addAction("kb_turn_clockwise", action);
+
+    action = new KAction(i18n("Keyboard: Turn counterclockwise"),this);
+    action->setShortcut(Qt::CTRL + Qt::Key_Return);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbTurnCounterclockwise()));
+    actionCollection()->addAction("kb_turn_counterclockwise", action);
+
+    action = new KAction(i18n("Keyboard: Toggle lock"),this);
+    action->setShortcut(Qt::Key_Space);
+    connect(action, SIGNAL(triggered()), this, SLOT(kbLock()));
+    actionCollection()->addAction("kb_lock", action);
 }
 
 void MainWindow::configureSettings()
@@ -174,6 +217,89 @@ void MainWindow::loadSettings()
         cellAt(i)->setInvalidCache();
     }
     repaint();
+}
+
+void MainWindow::toggleKeyboardMode(bool useKeyboard)
+{
+    m_useKeyboard = useKeyboard;
+    for (int i = 0; i < cellCount(); i++) {
+        cellAt(i)->toggleKeyboardMode(m_useKeyboard);
+        cellAt(i)->activateForHover(false);
+    }
+    m_currentCellIndex = 0;
+    cellAt(m_currentCellIndex)->activateForHover(m_useKeyboard);
+}
+
+void MainWindow::kbGoRight()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    cellAt(m_currentCellIndex)->activateForHover(false);
+    int size = boardSize();
+    int row = m_currentCellIndex / size;
+    int next_col = (m_currentCellIndex + 1) % size;
+    m_currentCellIndex = row * size + next_col;
+    cellAt(m_currentCellIndex)->activateForHover(true);
+}
+
+void MainWindow::kbGoLeft()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    cellAt(m_currentCellIndex)->activateForHover(false);
+    int size = boardSize();
+    int row = m_currentCellIndex / size;
+    int prev_col = (m_currentCellIndex + size - 1) % size;
+    m_currentCellIndex = row * size + prev_col;
+    cellAt(m_currentCellIndex)->activateForHover(true);
+}
+
+void MainWindow::kbGoUp()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    cellAt(m_currentCellIndex)->activateForHover(false);
+    int size = boardSize();
+    m_currentCellIndex = (m_currentCellIndex + (size-1) * size) % (size * size);
+    cellAt(m_currentCellIndex)->activateForHover(true);
+}
+
+void MainWindow::kbGoDown()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    cellAt(m_currentCellIndex)->activateForHover(false);
+    int size = boardSize();
+    m_currentCellIndex = (m_currentCellIndex + size) % (size * size);
+    cellAt(m_currentCellIndex)->activateForHover(true);
+}
+
+void MainWindow::kbTurnClockwise()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    lClicked(m_currentCellIndex);
+}
+
+void MainWindow::kbTurnCounterclockwise()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    rClicked(m_currentCellIndex);
+}
+
+void MainWindow::kbLock()
+{
+    if (!m_useKeyboard) {
+        return;
+    }
+    mClicked(m_currentCellIndex);
 }
 
 void MainWindow::showHighscores() 
@@ -223,6 +349,9 @@ void MainWindow::startNewGame()
         // called when a rotation ends
         connect(cellAt(i), SIGNAL(connectionsChanged()), 
                             SLOT(updateConnections()));
+
+        // toggle keyboard mode
+        cellAt(i)->toggleKeyboardMode(m_useKeyboard);
         
         cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
           "system administrator and your goal is to connect each terminal and "
@@ -231,6 +360,9 @@ void MainWindow::startNewGame()
           "mouse's button for turning the cable in a counter-clockwise "
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
+
+    // highlight current cell in keyboard mode
+    cellAt(m_currentCellIndex)->activateForHover(m_useKeyboard);
     
     centralWidget()->update();
     

@@ -50,6 +50,10 @@ public:
     // marks the cache as invalid
     void setInvalidCache();
 
+    // keyboard mode
+    void toggleKeyboardMode(bool useKeyboard);
+    void activateForHover(bool activate);
+
 private slots:
     // used by the animation
     // angle is relative to angleStart
@@ -84,6 +88,10 @@ private:
     int rotationStart;
     int totalRotation;
     QTimeLine *timeLine;
+    
+    // used in keyboard mode
+    bool m_useKeyboard;
+    bool m_cellIsActivated;  // highlighted like hover effect
 };
 
 #endif
