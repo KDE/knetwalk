@@ -74,8 +74,8 @@ public:
         m_move = move;
     }
     
-    int index() {return m_index;}
-    MoveDirection move() {return m_move;}
+    int index() const {return m_index;}
+    MoveDirection move() const {return m_move;}
 
 private:
     int m_index;

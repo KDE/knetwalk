@@ -380,7 +380,7 @@ int AbstractGrid::solutionCount()
     // else
     
     int solutionsFound = 0;
-    foreach (Move nextMove, possibleNextMoves) {
+    foreach (const Move &nextMove, possibleNextMoves) {
         int index = nextMove.index();
         
         switch (nextMove.move()) {
