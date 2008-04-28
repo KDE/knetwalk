@@ -49,7 +49,7 @@
 #include <KGameThemeSelector>
 #include <KScoreDialog>
 #include <KGameClock>
-#include <KUser>
+
 #include <ctime>
 #include <cmath>
 
@@ -469,13 +469,7 @@ void MainWindow::checkIfGameEnded()
     int score = static_cast<int>(100.0 / penalty);
     
     // create the new scoreInfo
-    KUser user;
-    QString userName = user.property(KUser::FullName).toString();
-    if(userName.isEmpty()) {
-        userName = user.loginName();
-    }
     KScoreDialog::FieldInfo scoreInfo;
-    scoreInfo[KScoreDialog::Name] = userName;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Custom1].setNum(clickCount/2);
     scoreInfo[KScoreDialog::Time] = gameClock->timeString();
@@ -484,7 +478,7 @@ void MainWindow::checkIfGameEnded()
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
     scoreDialog.setConfigGroup(KGameDifficulty::levelString());
-    bool madeIt = scoreDialog.addScore(scoreInfo, KScoreDialog::AskName);
+    bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
         QString comment = i18n("Your score was %1, you did not make it "
                                "to the highScore list", score);
