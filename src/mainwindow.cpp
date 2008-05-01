@@ -306,7 +306,8 @@ void MainWindow::showHighscores()
 {
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
-    scoreDialog.setConfigGroup(KGameDifficulty::levelString());
+    scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
+    scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     scoreDialog.exec();
 }
 
@@ -477,7 +478,8 @@ void MainWindow::checkIfGameEnded()
     // show the new dialog and add the new score to it
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
-    scoreDialog.setConfigGroup(KGameDifficulty::levelString());
+    scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
+    scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
         QString comment = i18n("Your score was %1, you did not make it "
