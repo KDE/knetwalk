@@ -36,7 +36,6 @@ class QResizeEvent;
 class QPixmap;
 class QGridLayout;
 class KGameClock;
-class KScoreDialog;
 
 class MainWindow : public KXmlGuiWindow, public AbstractGrid
 {
