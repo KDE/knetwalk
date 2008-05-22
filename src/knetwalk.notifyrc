@@ -460,6 +460,6 @@ Comment[tr]=Dön
 Comment[uk]=Хід
 Comment[x-test]=xxTurnxx
 Comment[zh_CN]=旋转
-Sound=KDE-Window-Move-ogg
+Sound=KDE-Window-Move.ogg
 Action=None
 
