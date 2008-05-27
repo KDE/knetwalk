@@ -19,7 +19,7 @@ kde4_add_executable(knetwalk ${knetwalk_SRCS})
 
 target_link_libraries(knetwalk  ${KDE4_KDEUI_LIBS} kdegames ${KDE4_KNOTIFYCONFIG_LIBS} )
 
-install(TARGETS knetwalk  DESTINATION ${BIN_INSTALL_DIR} )
+install(TARGETS knetwalk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 
 ########### install files ###############
