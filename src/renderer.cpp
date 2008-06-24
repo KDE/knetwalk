@@ -39,8 +39,9 @@ Renderer::Renderer()
     m_cache = new KPixmapCache("knetwalk-cache");
     m_cache->setCacheLimit(3*1024);
 
-    if(!loadTheme(Settings::theme()))
+    if(!loadTheme(Settings::theme())) {
         kDebug() << "Failed to load any game theme!";
+    }
     
     directionNames[L]     = "0001";
     directionNames[D]     = "0010";

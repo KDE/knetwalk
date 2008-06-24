@@ -171,7 +171,7 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
 }
 
 void AbstractGrid::print() {
-    system("clear");
+    //system("clear");
     QString str1;
     QString str2;
     int index = 0;

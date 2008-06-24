@@ -20,6 +20,7 @@ TODO:
 * fix highscores (lot of problems)
 * allow games with different aspect ratios
 * allow customized game (perhaps giving it a custom name)
+* make the difficulty change less when playing the same difficulty level
 
 == long term ==
 * change Directions (not sure)
