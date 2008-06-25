@@ -1,9 +1,11 @@
 [KGameTheme]
 Name=Electronic
+Name[ca]=Electrònica
 Name[el]=Ηλεκτρονικό
 Name[es]=Electrónico
 Name[fa]=الکترونیک
 Name[fi]=Sähkö
+Name[fr]=Électronique
 Name[ga]=Leictreonach
 Name[gl]=Electrónico
 Name[ja]=エレクトロニック
@@ -20,11 +22,13 @@ Name[x-test]=xxElectronicxx
 Name[zh_CN]=电子艺术
 Name[zh_TW]=電子
 Description=KNetWalk Electronic theme for KDE 4
+Description[ca]=Tema d'electrònica de KNetWalk per KDE 4
 Description[el]=Ηλεκτρονικό θέμα KNetWalk για το KDE4
 Description[es]=Tema electrónico de KNetWalk para KDE 4
 Description[et]=KNetWalki KDE4 Electronicu teema
 Description[fa]=چهره الکترونیک برای گشت شبکه
 Description[fi]=Sähköteema KNetWalk-pelille
+Description[fr]=Thème électronique pour KNetWalk de KDE 4
 Description[ga]=Téama Leictreonach KNetWalk le haghaidh KDE 4
 Description[gl]=Tema electrónico de KNetWalk para KDE 4
 Description[ja]=KDE4 用の KNetWalk エレクトロニックテーマ
