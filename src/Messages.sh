@@ -1,2 +1,2 @@
 #! /bin/sh
-$XGETTEXT rc.cpp *.cpp -o $podir/knetwalk.pot
+$XGETTEXT *.cpp -o $podir/knetwalk.pot
