@@ -4,6 +4,7 @@ Exec=knetwalk -caption "%c"
 X-DocPath=knetwalk/index.html
 Name=KNetWalk
 Name[fa]=گشت شبکه‌
+Name[nn]=KNettvandrar
 Name[pt_BR]=KConstrutor de Rede
 Name[sv]=Knetwalk
 Name[te]=కెనెట్ వాక్
