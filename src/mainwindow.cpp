@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     setupActions();
     
+    setupGUI();
+
     statusBar()->insertItem("", StatusBarIndexMoves);
     statusBar()->insertItem("", StatusBarIndexTime);
     
@@ -104,8 +106,6 @@ MainWindow::MainWindow(QWidget *parent)
                 (KGameDifficulty::standardLevel) (Settings::skill()) );
     }
     kDebug() << KGameDifficulty::levelString() << Settings::skill();
-
-    setupGUI();
 }
 
 MainWindow::~MainWindow()
