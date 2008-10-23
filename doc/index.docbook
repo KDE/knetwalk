@@ -128,7 +128,7 @@ Starts a new game. It creates a random board using the current difficulty level.
 <keycombo action="simul">&Ctrl;<keycap>H</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Show High Scores...</guimenuitem></menuchoice></term>
+<guimenuitem>Show High Scores</guimenuitem></menuchoice></term>
 <listitem>
 <para>
 Shows a dialog containing the High Scores for the various difficulty levels.
