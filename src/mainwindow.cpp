@@ -482,8 +482,8 @@ void MainWindow::checkIfGameEnded()
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
-        QString comment = i18n("Your score was %1, you did not make it "
-                               "to the highScore list", score);
+        QString comment = i18np("Your score was %1, you did not make it to the highScore list",
+				"Your score was %1, you did not make it to the highScore list", score);
         scoreDialog.setComment(comment);
     }
     scoreDialog.exec();
