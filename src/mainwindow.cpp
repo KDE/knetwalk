@@ -307,6 +307,7 @@ void MainWindow::showHighscores()
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
     scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
+    scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     scoreDialog.exec();
 }
@@ -479,6 +480,7 @@ void MainWindow::checkIfGameEnded()
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
     scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
+    scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
