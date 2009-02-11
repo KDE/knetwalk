@@ -357,9 +357,9 @@ void MainWindow::startNewGame()
         
         cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
           "system administrator and your goal is to connect each terminal and "
-          "each cable to the central server.</p><p>Click the right mouse's "
+          "each cable to the central server.</p><p>Click the right mouse "
           "button for turning the cable in a clockwise direction, and left "
-          "mouse's button for turning the cable in a counter-clockwise "
+          "mouse button for turning the cable in a counter-clockwise "
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
 
