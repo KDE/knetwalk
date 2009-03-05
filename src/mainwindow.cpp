@@ -358,8 +358,8 @@ void MainWindow::startNewGame()
         cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
           "system administrator and your goal is to connect each terminal and "
           "each cable to the central server.</p><p>Click the right mouse "
-          "button for turning the cable in a clockwise direction, and left "
-          "mouse button for turning the cable in a counter-clockwise "
+          "button to turn the cable in a clockwise direction, and the left "
+          "mouse button to turn the cable in a counterclockwise "
           "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
     }
 
@@ -484,8 +484,8 @@ void MainWindow::checkIfGameEnded()
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
-        QString comment = i18np("Your score was %1, you did not make it to the highScore list",
-				"Your score was %1, you did not make it to the highScore list", score);
+        QString comment = i18np("Your score was %1, you did not make it to the high score list.",
+				"Your score was %1, you did not make it to the high score list.", score);
         scoreDialog.setComment(comment);
     }
     scoreDialog.exec();
