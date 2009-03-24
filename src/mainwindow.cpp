@@ -121,6 +121,7 @@ void MainWindow::createBoard()
     gridLayout->setMargin(0);
     gridLayout->setSpacing(0);
     setCentralWidget(view);
+    view->setLayoutDirection(Qt::LeftToRight);
 }
 
 void MainWindow::setupActions()
