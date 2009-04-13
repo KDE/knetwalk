@@ -21,7 +21,6 @@
 #include <KCmdLineArgs>
 #include <KLocale>
 #include <KDebug>
-#include <KHighscore>
 #include <KGlobal>
 
 #include "settings.h"
