@@ -461,6 +461,9 @@ void MainWindow::checkIfGameEnded()
     
     KNotification::event("winsound");
     gameClock->pause();
+    
+    KGameDifficulty::setRunning(false);
+    gameEnded = true;
  
     //=== calculate the score ====//
  
@@ -486,13 +489,10 @@ void MainWindow::checkIfGameEnded()
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
         QString comment = i18np("Your score was %1, you did not make it to the high score list.",
-				"Your score was %1, you did not make it to the high score list.", score);
+                                "Your score was %1, you did not make it to the high score list.", score);
         scoreDialog.setComment(comment);
     }
     scoreDialog.exec();
-    
-    KGameDifficulty::setRunning(false);
-    gameEnded = true;
 }
 
 int MainWindow::boardSize()
