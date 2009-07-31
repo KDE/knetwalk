@@ -30,7 +30,6 @@
 
 class QAction;
 class QSound;
-class QLCDNumber;
 class QCloseEvent;
 class QResizeEvent;
 class QPixmap;
