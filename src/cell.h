@@ -21,7 +21,6 @@
 
 #include <QWidget>
 
-#include <KSvgRenderer>
 
 #include "abstractgrid.h"
 

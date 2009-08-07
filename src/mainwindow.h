@@ -21,7 +21,6 @@
 #define MAINWINDOW_H
 
 #include <KXmlGuiWindow>
-#include <KSvgRenderer>
 
 #include <QList>
 

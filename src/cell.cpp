@@ -24,10 +24,6 @@
 #include <QPaintEvent>
 #include <QTimeLine>
 
-#include <KGlobal>
-#include <KIconLoader>
-#include <KStandardDirs>
-#include <KSvgRenderer>
 #include <KDebug>
 
 #include "globals.h"

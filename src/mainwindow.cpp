@@ -19,31 +19,24 @@
 
 #include "mainwindow.h"
 
-#include <QEventLoop>
 #include <QPushButton>
-#include <QTimer>
 #include <QPainter>
 #include <QPixmap>
 #include <QPaintEvent>
 #include <QGridLayout>
 #include <QCloseEvent>
-#include <QApplication>
 
-#include <KGlobal>
 #include <KConfigDialog>
-#include <KIconLoader>
 #include <KLocale>
 #include <KStandardAction>
 #include <KAction>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KStandardGameAction>
-#include <KStatusBar>
 #include <KNotification>
 #include <KNotifyConfigWidget>
-#include <KStandardDirs>
-#include <KSelectAction>
 #include <KMessageBox>
+#include <KStatusBar>
 
 #include <KGameDifficulty>
 #include <KGameThemeSelector>
