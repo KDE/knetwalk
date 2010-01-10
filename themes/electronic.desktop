@@ -1,6 +1,7 @@
 [KGameTheme]
 Name=Electronic
 Name[ca]=Electrònica
+Name[ca@valencia]=Electrònica
 Name[da]=Electronic
 Name[de]=Elektronik
 Name[el]=Ηλεκτρονικό
@@ -42,6 +43,7 @@ Name[zh_CN]=电子艺术
 Name[zh_TW]=電子
 Description=KNetWalk Electronic theme for KDE 4
 Description[ca]=Tema d'electrònica de KNetWalk per KDE 4
+Description[ca@valencia]=Tema d'electrònica de KNetWalk per KDE 4
 Description[da]=KNetWalks Electronic-tema til KDE 4
 Description[de]=Ein Elektronik-Design für KNetWalk in KDE4.
 Description[el]=Ηλεκτρονικό θέμα KNetWalk για το KDE4
