@@ -1,6 +1,10 @@
 [Global]
 IconName=knetwalk
 Comment=KNetWalk Game
+Comment[pt]=Jogo KNetWalk
+Comment[pt_BR]=Jogo KNetWalk
+Comment[uk]=Гра KNetWalk
+Comment[x-test]=xxKNetWalk Gamexx
 
 [Event/clicksound]
 Name=Click
