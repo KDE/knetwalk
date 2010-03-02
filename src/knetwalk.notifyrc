@@ -1,6 +1,8 @@
 [Global]
 IconName=knetwalk
 Comment=KNetWalk Game
+Comment[ca]=Joc KNetWalk
+Comment[nds]=KNetWalk-Speel
 Comment[pt]=Jogo KNetWalk
 Comment[pt_BR]=Jogo KNetWalk
 Comment[uk]=Гра KNetWalk
@@ -47,7 +49,7 @@ Name[oc]=Clic
 Name[pa]=ਦਬਾਓ
 Name[pl]=Dobierz
 Name[pt]=Carregar
-Name[pt_BR]=Clicar
+Name[pt_BR]=Clique
 Name[ro]=Clic
 Name[ru]=Щелчок
 Name[sk]=Kliknutie
@@ -105,7 +107,7 @@ Comment[oc]=Clic
 Comment[pa]=ਦਬਾਓ
 Comment[pl]=Kliknięcie
 Comment[pt]=Carregar
-Comment[pt_BR]=Clicar
+Comment[pt_BR]=Clique
 Comment[ro]=Clic
 Comment[ru]=Щелчок
 Comment[sk]=Kliknutie
