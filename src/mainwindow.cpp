@@ -277,7 +277,7 @@ void MainWindow::kbTurnClockwise()
     if (!m_useKeyboard) {
         return;
     }
-    lClicked(m_currentCellIndex);
+    rClicked(m_currentCellIndex);
 }
 
 void MainWindow::kbTurnCounterclockwise()
@@ -285,7 +285,7 @@ void MainWindow::kbTurnCounterclockwise()
     if (!m_useKeyboard) {
         return;
     }
-    rClicked(m_currentCellIndex);
+    lClicked(m_currentCellIndex);
 }
 
 void MainWindow::kbLock()
