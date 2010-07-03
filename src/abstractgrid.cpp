@@ -125,13 +125,14 @@ void AbstractCell::reset()
 
 AbstractGrid::~AbstractGrid()
 {
-    while (!m_cells.isEmpty()) delete m_cells.takeFirst();
+    qDeleteAll(m_cells);
 }
 
 void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
 {
     if ((width * height) != (m_width * m_height)) {
-        while (!m_cells.isEmpty()) delete m_cells.takeFirst();
+        qDeleteAll(m_cells);
+        m_cells.clear();
         
         for (uint index = 0; index < width*height; ++index) {
             m_cells.append(newCell(index));
