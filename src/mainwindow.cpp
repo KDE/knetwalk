@@ -63,13 +63,20 @@ MainWindow::MainWindow(QWidget *parent)
     kDebug() << Settings::skill();
     clickCount = 0;
 
+    statusBar()->insertItem("", StatusBarIndexMoves, 1);
+    statusBar()->insertItem("", StatusBarIndexTime, 1);
+
+    // Difficulty
+    KGameDifficulty::init(this, this, SLOT(startNewGame()));
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
+    KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
+
     setupActions();
     
     setupGUI();
 
-    statusBar()->insertItem("", StatusBarIndexMoves);
-    statusBar()->insertItem("", StatusBarIndexTime);
-    
     setAutoSaveSettings();
 
     createBoard();
@@ -84,14 +91,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // default values of KConfig XT don't seem to work
     // this works around it. TODO: see why (and whether it still is true)
-    
-    // Difficulty
-    KGameDifficulty::init(this, this, SLOT(startNewGame()));
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
-    
     if (Settings::skill() == 0) {
         KGameDifficulty::setLevel(KGameDifficulty::Easy);
     } else { 
