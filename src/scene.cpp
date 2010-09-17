@@ -26,7 +26,11 @@
 #include <KMessageBox>
 #include <KLocale>
 
-Renderer::Renderer() : KGameRenderer(Settings::theme()) {}
+Renderer::Renderer()
+    : KGameRenderer(Settings::defaultThemeValue())
+{
+    setTheme(Settings::theme());
+}
 
 Renderer* Renderer::self()
 {
