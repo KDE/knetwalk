@@ -121,7 +121,10 @@ void AbstractCell::reset()
 
 
 
-
+AbstractGrid::AbstractGrid()
+    : m_width(0), m_height(0)
+{
+}
 
 AbstractGrid::~AbstractGrid()
 {
@@ -150,7 +153,7 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
         createGrid();
     }
     
-    minimumMoves = 0;
+    m_minimumMoves = 0;
     // shuffle all cells
     for (uint i = 0; i < width*height; ++i) {
         AbstractCell *cell = m_cells[i];
@@ -164,7 +167,7 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
         
         // excludes None and straight lines
         if (oldCables != cell->cables()) {
-            minimumMoves += (rotation == 3) ? 1 : rotation;
+            m_minimumMoves += (rotation == 3) ? 1 : rotation;
         }
     }
     

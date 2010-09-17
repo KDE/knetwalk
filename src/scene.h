@@ -15,22 +15,43 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
  
-#ifndef VIEW_H
-#define VIEW_H
+#ifndef SCENE_H
+#define SCENE_H
 
-#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <KGameRenderer>
 
-class KNetWalkScene;
+#include "globals.h"
 
-class KNetWalkView : public QGraphicsView
+class KGameRenderedItem;
+class FieldItem;
+class KGamePopupItem;
+
+class Renderer : public KGameRenderer
+{
+public:
+    Renderer();
+    static Renderer* self();
+};
+
+class KNetWalkScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    KNetWalkView(KNetWalkScene* scene, QWidget* parent=0);
-private:
-    void resizeEvent(QResizeEvent* event);
+    KNetWalkScene(QObject* parent=0);
 
-    KNetWalkScene* m_scene;
+    FieldItem* fieldItem() const {return m_fieldItem;}
+
+    void resizeScene(const QSizeF& size);
+    void startNewGame(uint width, uint height, Wrapping w=NotWrapped);
+    void setGamePaused(bool paused);
+private slots:
+    void terminalsConnected();
+private:
+    void resizeItems();
+
+    FieldItem* m_fieldItem;
+    KGamePopupItem* m_gamePausedMessage;
 };
 
-#endif //VIEW_H
+#endif

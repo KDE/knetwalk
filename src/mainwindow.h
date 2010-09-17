@@ -2,6 +2,7 @@
     Copyright 2004-2005 Andi Peredri <andi@ukr.net>   
     Copyright 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch> 
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
+    Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
   
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -27,36 +28,16 @@
 #include "abstractgrid.h"
 #include "cell.h"
 
-class QAction;
-class QSound;
-class QCloseEvent;
-class QResizeEvent;
-class QPixmap;
-class QGridLayout;
 class KGameClock;
+class KNetWalkScene;
+class KNetWalkView;
+class KToggleAction;
 
-class MainWindow : public KXmlGuiWindow, public AbstractGrid
+class MainWindow : public KXmlGuiWindow
 {
 Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent=0);
-    virtual ~MainWindow();
-    
-    static int boardSize();
-    
-protected:
-    void setupActions();
-    void createBoard();
-    virtual void closeEvent(QCloseEvent*);
-    virtual void paintEvent(QPaintEvent*);
-    virtual void resizeEvent(QResizeEvent*);
-    
-    virtual Cell *newCell(int index) {return new Cell(this, index);}
-    
-protected slots:
-    // must not be virtual
-    void updateConnections();
-    
 private:
     enum StatusBarIndex {
         StatusBarIndexMoves = 0,
@@ -69,64 +50,29 @@ private:
       ExpertBoardSize = 9,
       MasterBoardSize = 9
     };
-    
-    typedef QList<Cell*> CellList;
-    
+    static int boardSize();
+
 private slots:
     void startNewGame();
+    void gameOver();
+    void rotationPerformed();
+    void pauseGame(bool paused);
     void updateStatusBar();
-
-    // called respectively when the 
-    // left, right or middle mouse buttons are pressed
-    void lClicked(int index);
-    void rClicked(int index);
-    void mClicked(int index);
 
     void showHighscores();
     void configureSettings();
     void configureNotifications();
-    void loadSettings();
-
-    // slots for keyboard mode
-    void toggleKeyboardMode(bool useKeyboard);
-    void kbGoRight();
-    void kbGoLeft();
-    void kbGoUp();
-    void kbGoDown();
-    void kbTurnClockwise();
-    void kbTurnCounterclockwise();
-    void kbLock();
+    void loadSettings();    
 private:
-    Cell *cellAt(int index);
-    void  checkIfGameEnded();
-    void  rotate(int index, bool clockWise);
-    
-private:
-    bool gameEnded;
-    // true when the user is shown the message box telling him that
-    // all terminals are connected, but all cables need to be connected too
-    bool msgToWinGameShown;
-    int           clickCount;
-    KGameClock   *gameClock;
-    
-    QGridLayout* gridLayout;
+    void setupActions();
 
-    QSound*     clicksound;
-    QSound*     connectsound;
-    QSound*     startsound;
-    QSound*     turnsound;
-    QSound*     winsound;
+    int           m_clickCount;
+    KGameClock   *m_gameClock;
 
-    QString     username;
-    QString     soundpath;
-    QAction*    soundaction;
+    KToggleAction* m_pauseAction;
 
-    QPixmap *pixmapCache;
-    bool invalidCache;
-
-    // keyboard mode
-    bool m_useKeyboard;
-    int m_currentCellIndex;
+    KNetWalkScene* m_scene;
+    KNetWalkView* m_view;
 };
 
 #endif // MAINWINDOW_H

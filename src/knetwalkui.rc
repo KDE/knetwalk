@@ -5,13 +5,10 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
-<MenuBar>
-  <Menu name="settings">
-    <Action name="option_keyboard" />
-  </Menu>
-</MenuBar>
+<MenuBar></MenuBar>
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
     <Action name="game_new"/>
+    <Action name="game_pause"/>
     <Action name="game_highscores"/>
 </ToolBar>
 </gui>

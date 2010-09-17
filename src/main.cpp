@@ -54,6 +54,10 @@ int main(int argc, char ** argv)
                     ki18n("icon design"),
                     "eugene.trounev@gmail.com");
 
+    about.addCredit(ki18n("Brian Croom"),
+                    ki18n("Port to use the QGraphicsView framework"),
+                    "brian.s.croom@gmail.com");
+
     KCmdLineArgs::init(argc, argv, &about);
 
     KCmdLineOptions options;

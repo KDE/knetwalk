@@ -1,6 +1,7 @@
 /*
     Copyright 2004-2005 Andi Peredri <andi@ukr.net> 
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
+    Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
   
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,78 +20,60 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include <QWidget>
+#include <QGraphicsRectItem>
 
 
 #include "abstractgrid.h"
 
-class QPixmap;
 class QTimeLine;
-class QPaintEvent;
 class QMouseEvent;
 class QResizeEvent;
+class KGameRenderedItem;
 
-class Cell : public QWidget, public AbstractCell
+class Cell : public QObject, public QGraphicsRectItem, public AbstractCell
 {
 Q_OBJECT
 public:
-    Cell(QWidget* parent, int index);
-    ~Cell();
+    Cell(QGraphicsItem* parent, int index);
     
     virtual void makeEmpty();
-    
-    void rotate(int a);
-    void animateRotation(bool toLeft);
-    void setLocked(bool newlocked=true);
+
+    // called after the AbstractCell properties have been set
+    void setupSprites();
+
+    void animateRotation(bool clockWise);
     virtual void setConnected(bool isConnected);
-    bool isRotated() const;
-    bool isLocked() const;
-    
-    // marks the cache as invalid
-    void setInvalidCache();
 
-    // keyboard mode
-    void toggleKeyboardMode(bool useKeyboard);
-    void activateForHover(bool activate);
+    void setCablesHidden(bool hidden);
+    void setLocked(bool locked=true);
+    bool isLocked() const {return m_locked;}
+    void setActivated(bool activate);
 
+    void setSize(const QSizeF& size);
 private slots:
     // used by the animation
     // angle is relative to angleStart
     void rotateStep(int angle);
 
 signals:
-    void lClicked(int);
-    void rClicked(int);
-    void mClicked(int);
     void connectionsChanged();
     
-protected:
-    virtual void paintEvent(QPaintEvent*);
-    virtual void mousePressEvent(QMouseEvent*);
-    virtual void resizeEvent(QResizeEvent*);
-    
 private:
-    void paintForground();
-    // paints the forground, the cables and the background on the pixmap
-    void paintOnCache();
-    
-    typedef QMap<int, QString> NamesMap;
-    int     angle;
-    int     light;
-    bool    cableChanged;
-    bool    forgroundChanged;
-    bool    locked;
-    QPixmap *pixmapCache;
-    QPixmap *forgroundCache;
+    void updateColor();
+    void updateSprites();
+
+    static const QHash<int, QByteArray> s_directionNames;
+    static QHash<int, QByteArray> fillNameHash();
+
+    KGameRenderedItem* m_cablesItem;
+    KGameRenderedItem* m_hostItem;
+
+    bool m_hidden;
+    bool m_locked;
+    bool m_activated;  // highlighted like hover effect
     
     // used by the animation of the rotation
-    int rotationStart;
-    int totalRotation;
     QTimeLine *timeLine;
-    
-    // used in keyboard mode
-    bool m_useKeyboard;
-    bool m_cellIsActivated;  // highlighted like hover effect
 };
 
 #endif

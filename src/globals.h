@@ -21,13 +21,6 @@
 
 #include <QColor>
 
-/*const char *levels[4] = {
-  I18N_NOOP("Novice"),
-  I18N_NOOP("Normal"),
-  I18N_NOOP("Expert"),
-  I18N_NOOP("Master")
-};*/
-
 int const MinimumWidth = 400;
 int const MinimumHeight = 400;
 
@@ -39,7 +32,7 @@ const qreal BoardBorder = 0.04;
 const qreal OverlayBorder = 0.02;
 
 // border of the computer and server sprites inside the cells
-const qreal CellForgroundBorder = 0.1;
+const qreal CellForegroundBorder = 0.1;
 
 const QColor HoveredCellColor(255, 255, 255, 30);
 const QColor LockedCellColor(0, 0, 0, 100);

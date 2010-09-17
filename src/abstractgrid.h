@@ -1,5 +1,6 @@
 /*
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
+    Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
   
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -90,22 +91,22 @@ class AbstractGrid
 public:
     // creates a grid made of AbstractCells, which will be a valid game
     // this is the main purpose of the class
-    AbstractGrid() {} 
+    AbstractGrid();
     virtual ~AbstractGrid();
-    
+
+    int width() const {return m_width;}
+    int height() const {return m_height;}
+    int cellCount() const {return m_cells.size();} // TODO: use in the cpp file
+    int minimumMoves() const {return m_minimumMoves;}
 protected:
 
     void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
     
     // ownership remains to the AbstractGrid
     QList<AbstractCell *> cells() const {return m_cells;}
-    int cellCount() {return m_cells.size();} // TODO: use in the cpp file
-    
-    int width() {return m_width;}
-    int height() {return m_height;}
     
     // the minimum number of moves required to solve the game
-    int minimumMoves;
+    int m_minimumMoves;
     
     virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
     

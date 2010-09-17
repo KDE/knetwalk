@@ -19,13 +19,6 @@
 
 #include "mainwindow.h"
 
-#include <QPushButton>
-#include <QPainter>
-#include <QPixmap>
-#include <QPaintEvent>
-#include <QGridLayout>
-#include <QCloseEvent>
-
 #include <KConfigDialog>
 #include <KLocale>
 #include <KStandardAction>
@@ -49,19 +42,27 @@
 #include "globals.h"
 #include "settings.h"
 #include "cell.h"
-#include "view.h"
-
-#include "renderer.h"
 #include "abstractgrid.h"
-
-static QMap<Directions, Directions> contrdirs;
+#include "scene.h"
+#include "view.h"
+#include "fielditem.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : KXmlGuiWindow(parent)
-    , m_useKeyboard(false), m_currentCellIndex(0)
+    : KXmlGuiWindow(parent), m_clickCount(0)
 {
-    kDebug() << Settings::skill();
-    clickCount = 0;
+    m_scene = new KNetWalkScene(this);
+    connect(m_scene->fieldItem(), SIGNAL(gameWon()), this, SLOT(gameOver()));
+    connect(m_scene->fieldItem(), SIGNAL(rotationPerformed()), this, SLOT(rotationPerformed()));
+
+    m_view = new KNetWalkView(m_scene, this);
+    m_view->setCacheMode(QGraphicsView::CacheBackground);
+    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setFrameStyle(QFrame::NoFrame);
+    m_view->setOptimizationFlags(QGraphicsView::DontClipPainter |
+                                 QGraphicsView::DontSavePainterState);
+    m_view->setCacheMode(QGraphicsView::CacheBackground);
+    setCentralWidget(m_view);
 
     statusBar()->insertItem("", StatusBarIndexMoves, 1);
     statusBar()->insertItem("", StatusBarIndexTime, 1);
@@ -79,15 +80,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     setAutoSaveSettings();
 
-    createBoard();
-    
     srand(time(0));
 
-    gameClock = new KGameClock(this, KGameClock::MinSecOnly);
-    connect(gameClock, SIGNAL(timeChanged(const QString&)), SLOT(updateStatusBar()));
-
-    pixmapCache = new QPixmap(centralWidget()->size());
-    invalidCache = true;
+    m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
+    connect(m_gameClock, SIGNAL(timeChanged(const QString&)), SLOT(updateStatusBar()));
 
     // default values of KConfig XT don't seem to work
     // this works around it. TODO: see why (and whether it still is true)
@@ -98,22 +94,8 @@ MainWindow::MainWindow(QWidget *parent)
                 (KGameDifficulty::standardLevel) (Settings::skill()) );
     }
     kDebug() << KGameDifficulty::levelString() << Settings::skill();
-}
 
-MainWindow::~MainWindow()
-{
-    delete pixmapCache;
-}
-
-void MainWindow::createBoard()
-{
-    View* view = new View(this);
-
-    gridLayout = new QGridLayout(view);
-    gridLayout->setMargin(0);
-    gridLayout->setSpacing(0);
-    setCentralWidget(view);
-    view->setLayoutDirection(Qt::LeftToRight);
+    startNewGame();
 }
 
 void MainWindow::setupActions()
@@ -121,6 +103,9 @@ void MainWindow::setupActions()
     // Game
     KStandardGameAction::gameNew(this, SLOT(startNewGame()), 
                                  actionCollection());
+
+    m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)),
+                                               actionCollection());
     
     KStandardGameAction::highscores(this, SLOT(showHighscores()), 
                                     actionCollection());
@@ -134,45 +119,39 @@ void MainWindow::setupActions()
     KStandardAction::preferences(this, SLOT(configureSettings()), 
                                  actionCollection());
 
-    // Toggle keyboard mode
-    KAction* action = new KToggleAction(i18n("Use &Keyboard"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_K);
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(toggleKeyboardMode(bool)));
-    actionCollection()->addAction("option_keyboard", action);
-
-    action = new KAction(i18n("Keyboard: Field right"), this);
+    KAction* action = new KAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbGoRight()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoRight()));
     actionCollection()->addAction("kb_go_right", action);
 
     action = new KAction(i18n("Keyboard: Field left"),this);
     action->setShortcut(Qt::Key_Left);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbGoLeft()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoLeft()));
     actionCollection()->addAction("kb_go_left", action);
 
     action = new KAction(i18n("Keyboard: Field up"),this);
     action->setShortcut(Qt::Key_Up);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbGoUp()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoUp()));
     actionCollection()->addAction("kb_go_up", action);
 
     action = new KAction(i18n("Keyboard: Field down"),this);
     action->setShortcut(Qt::Key_Down);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbGoDown()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoDown()));
     actionCollection()->addAction("kb_go_down", action);
 
     action = new KAction(i18n("Keyboard: Turn clockwise"),this);
     action->setShortcut(Qt::Key_Return);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbTurnClockwise()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnClockwise()));
     actionCollection()->addAction("kb_turn_clockwise", action);
 
     action = new KAction(i18n("Keyboard: Turn counterclockwise"),this);
     action->setShortcut(Qt::CTRL + Qt::Key_Return);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbTurnCounterclockwise()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnCounterclockwise()));
     actionCollection()->addAction("kb_turn_counterclockwise", action);
 
     action = new KAction(i18n("Keyboard: Toggle lock"),this);
     action->setShortcut(Qt::Key_Space);
-    connect(action, SIGNAL(triggered()), this, SLOT(kbLock()));
+    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbLock()));
     actionCollection()->addAction("kb_lock", action);
 }
 
@@ -197,102 +176,9 @@ void MainWindow::configureSettings()
 
 void MainWindow::loadSettings() 
 {
-    if (!Renderer::self()->loadTheme(Settings::theme())) {
-        KMessageBox::error(this,  
-           i18n( "Failed to load \"%1\" theme. Please check your installation.",
-           Settings::theme()));
-        return;
-    }
-    
-    // redraw
-    invalidCache = true;
-    for (int i = 0; i < cellCount(); ++i) {
-        cellAt(i)->setInvalidCache();
-    }
-    repaint();
-}
-
-void MainWindow::toggleKeyboardMode(bool useKeyboard)
-{
-    m_useKeyboard = useKeyboard;
-    for (int i = 0; i < cellCount(); i++) {
-        cellAt(i)->toggleKeyboardMode(m_useKeyboard);
-        cellAt(i)->activateForHover(false);
-    }
-    m_currentCellIndex = 0;
-    cellAt(m_currentCellIndex)->activateForHover(m_useKeyboard);
-}
-
-void MainWindow::kbGoRight()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    cellAt(m_currentCellIndex)->activateForHover(false);
-    int size = boardSize();
-    int row = m_currentCellIndex / size;
-    int next_col = (m_currentCellIndex + 1) % size;
-    m_currentCellIndex = row * size + next_col;
-    cellAt(m_currentCellIndex)->activateForHover(true);
-}
-
-void MainWindow::kbGoLeft()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    cellAt(m_currentCellIndex)->activateForHover(false);
-    int size = boardSize();
-    int row = m_currentCellIndex / size;
-    int prev_col = (m_currentCellIndex + size - 1) % size;
-    m_currentCellIndex = row * size + prev_col;
-    cellAt(m_currentCellIndex)->activateForHover(true);
-}
-
-void MainWindow::kbGoUp()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    cellAt(m_currentCellIndex)->activateForHover(false);
-    int size = boardSize();
-    m_currentCellIndex = (m_currentCellIndex + (size-1) * size) % (size * size);
-    cellAt(m_currentCellIndex)->activateForHover(true);
-}
-
-void MainWindow::kbGoDown()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    cellAt(m_currentCellIndex)->activateForHover(false);
-    int size = boardSize();
-    m_currentCellIndex = (m_currentCellIndex + size) % (size * size);
-    cellAt(m_currentCellIndex)->activateForHover(true);
-}
-
-void MainWindow::kbTurnClockwise()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    rClicked(m_currentCellIndex);
-}
-
-void MainWindow::kbTurnCounterclockwise()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    lClicked(m_currentCellIndex);
-}
-
-void MainWindow::kbLock()
-{
-    if (!m_useKeyboard) {
-        return;
-    }
-    mClicked(m_currentCellIndex);
+    Renderer::self()->setTheme(Settings::theme());
+    m_view->resetCachedContent();
+    m_scene->resizeScene(m_scene->sceneRect().size());
 }
 
 void MainWindow::showHighscores() 
@@ -307,170 +193,51 @@ void MainWindow::showHighscores()
 
 void MainWindow::startNewGame()
 {
-    gameEnded = false;
-    msgToWinGameShown = false;
     KNotification::event( "startsound", i18n("New Game") );
-  
+
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
     Settings::setSkill((int) l);
     
     Settings::self()->writeConfig();
     
     const bool isWrapped = (l == KGameDifficulty::VeryHard);
-    const int size = boardSize();    
-    
-    QGridLayout *gridLayout = 
-            static_cast<QGridLayout *>(centralWidget()->layout());
-    
-    for (int i = 0; i < cellCount(); ++i) {
-        gridLayout->removeWidget(cellAt(i));
+    const int size = boardSize();
+    m_scene->startNewGame(size, size, (Wrapping)isWrapped);
+    m_clickCount = -m_scene->fieldItem()->minimumMoves();
+    m_gameClock->restart();
+
+    if(m_pauseAction->isChecked())
+    {
+        m_scene->setGamePaused(false);
+        m_pauseAction->setChecked(false);
     }
-    
-    initializeGrid(size, size, (Wrapping)isWrapped);
-    clickCount = -minimumMoves;
-    gameClock->restart();
-    
+    m_pauseAction->setEnabled(true);
+    KGameDifficulty::setRunning(false);
+
     updateStatusBar();
-    
-    for (int i = 0; i < cellCount(); i++) {
-        gridLayout->addWidget(cellAt(i), 
-                i / AbstractGrid::width(), i % AbstractGrid::width());
-        
-        cellAt(i)->disconnect();
-        connect(cellAt(i), SIGNAL(lClicked(int)), SLOT(lClicked(int)));
-        connect(cellAt(i), SIGNAL(rClicked(int)), SLOT(rClicked(int)));
-        connect(cellAt(i), SIGNAL(mClicked(int)), SLOT(mClicked(int)));
-        
-        // called when a rotation ends
-        connect(cellAt(i), SIGNAL(connectionsChanged()), 
-                            SLOT(updateConnections()));
-
-        // toggle keyboard mode
-        cellAt(i)->toggleKeyboardMode(m_useKeyboard);
-        
-        cellAt(i)->setWhatsThis(i18n("<h3>Rules of Game</h3><p>You are the " 
-          "system administrator and your goal is to connect each terminal and "
-          "each cable to the central server.</p><p>Click the right mouse "
-          "button to turn the cable in a clockwise direction, and the left "
-          "mouse button to turn the cable in a counterclockwise "
-          "direction.</p><p>Start the LAN with as few turns as possible!</p>"));
-    }
-
-    // highlight current cell in keyboard mode
-    cellAt(m_currentCellIndex)->activateForHover(m_useKeyboard);
-    
-    centralWidget()->update();
-    
-    // setRunning(true) on the first click
-    KGameDifficulty::setRunning(false);
 }
 
-void MainWindow::updateStatusBar()
+void MainWindow::gameOver()
 {
-    QString moves = i18nc("Number of mouse clicks", "Moves: %1", clickCount);
-    QString time = i18nc("Time elapsed", "Time: %1", gameClock->timeString());
-    statusBar()->changeItem(moves, StatusBarIndexMoves);
-    statusBar()->changeItem(time, StatusBarIndexTime);
-}
-
-void MainWindow::lClicked(int index)
-{    
-    if (!gameEnded) {
-        KGameDifficulty::setRunning(true);
-        rotate(index, false);
-    }
-}
-
-void MainWindow::rClicked(int index)
-{
-    if (!gameEnded) {
-        KGameDifficulty::setRunning(true);
-        rotate(index, true);
-    }
-}
-
-void MainWindow::mClicked(int index)
-{
-    if (!gameEnded) {
-        KGameDifficulty::setRunning(true);
-        cellAt(index)->setLocked(!cellAt(index)->isLocked());
-    }
-}
-
-void MainWindow::rotate(int index, bool clockWise)
-{
-    const Directions d = cellAt(index)->cables();
-    
-    if ((d == None) || gameEnded || cellAt(index)->isLocked()) {
-        KNotification::event( "clicksound" );
-        //blink(index);
-    } else {
-        KNotification::event( "turnsound" );
-        
-        cellAt(index)->animateRotation(clockWise);
-        
-        // FIXME: won't work!!!
-        //if (updateConnections())
-        //    KNotification::event( "connectsound" );
-        
-        ++clickCount;
-        
-        updateStatusBar();
-    }
-}
-
-
-void MainWindow::updateConnections() 
-{
-    QList<int> changedCells = AbstractGrid::updateConnections();
-    
-    foreach (int index, changedCells) {
-        cellAt(index)->update();
-    }  
-    
-    checkIfGameEnded();
-}
-
-
-void MainWindow::checkIfGameEnded()
-{
-    foreach (AbstractCell* cell, cells()) {
-        if (cell->cables() != None && !cell->isConnected()){
-            // there is a not empty cell that isn't connected
-            if (!msgToWinGameShown && allTerminalsConnected()) {
-                // don't show more that twice in one game
-                QString text = i18n("Note: to win the game all terminals "
-                                    "<strong>and all <em>cables</em></strong> " 
-                                    "need to be connected to the server!");
-                QString caption = i18n("The game is not won yet!");
-                QString dontShowAgainName("dontShowGameNotWonYet"); // TODO i18n???
-                KMessageBox::information(this, text, caption, dontShowAgainName);
-                msgToWinGameShown = true;
-            }
-            return;
-        }
-    }
-    
     KNotification::event("winsound");
-    gameClock->pause();
-    
+    m_gameClock->pause();
+    m_pauseAction->setEnabled(false);
     KGameDifficulty::setRunning(false);
-    gameEnded = true;
- 
+
     //=== calculate the score ====//
- 
-    double penalty = gameClock->seconds() / 2.0 * (clickCount/2 + 1);
+
+    double penalty = m_gameClock->seconds() / 2.0 * (m_clickCount/2 + 1);
     
     // normalize the penalty
-    penalty = std::sqrt(penalty/cellCount());
+    penalty = std::sqrt(penalty/m_scene->fieldItem()->cellCount());
     
     int score = static_cast<int>(100.0 / penalty);
     
     // create the new scoreInfo
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
-    scoreInfo[KScoreDialog::Custom1].setNum(clickCount/2);
-    scoreInfo[KScoreDialog::Time] = gameClock->timeString();
+    scoreInfo[KScoreDialog::Custom1].setNum(m_clickCount/2);
+    scoreInfo[KScoreDialog::Time] = m_gameClock->timeString();
     
     // show the new dialog and add the new score to it
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
@@ -487,6 +254,36 @@ void MainWindow::checkIfGameEnded()
     scoreDialog.exec();
 }
 
+void MainWindow::rotationPerformed()
+{
+    KGameDifficulty::setRunning(true);
+    m_clickCount++;
+    updateStatusBar();
+}
+
+void MainWindow::pauseGame(bool paused)
+{
+    m_scene->setGamePaused(paused);
+    if(paused) {
+        m_gameClock->pause();
+    } else {
+        m_gameClock->resume();
+    }
+}
+
+void MainWindow::updateStatusBar()
+{
+    QString moves = i18nc("Number of mouse clicks", "Moves: %1", m_clickCount);
+    QString time = i18nc("Time elapsed", "Time: %1", m_gameClock->timeString());
+    statusBar()->changeItem(moves, StatusBarIndexMoves);
+    statusBar()->changeItem(time, StatusBarIndexTime);
+}
+
+void MainWindow::configureNotifications()
+{
+    KNotifyConfigWidget::configure(this);
+}
+
 int MainWindow::boardSize()
 {
     switch (KGameDifficulty::level()) {
@@ -495,69 +292,6 @@ int MainWindow::boardSize()
     case KGameDifficulty::Hard: return ExpertBoardSize;
     default: return MasterBoardSize;
     }
-}
-
-Cell *MainWindow::cellAt(int index)
-{
-    return static_cast<Cell *>(cells()[index]);
-}
-
-void MainWindow::closeEvent(QCloseEvent* event)
-{
-    event->accept();
-}
-
-void MainWindow::configureNotifications()
-{
-    KNotifyConfigWidget::configure(this);
-}
-
-void MainWindow::paintEvent(QPaintEvent* e)
-{
-    if (e->rect().intersects(centralWidget()->geometry())) {
-        QPainter painter;
-        QRect updateRect = e->rect().intersect(centralWidget()->geometry());
-        
-        if (invalidCache) {
-            invalidCache = false;
-            
-            // keep aspect ratio
-            int width = centralWidget()->width();
-            int height = centralWidget()->height();
-            
-            delete pixmapCache;
-            pixmapCache = new QPixmap(width, height);
-            *pixmapCache =
-                    Renderer::self()->backgroundPixmap(centralWidget()->size());
-            
-            // calculate background overlay bounding rect
-            int size = qMin(width, height);
-            
-            // add a border
-            size = static_cast<int>(size * (1.0 - 2*OverlayBorder));
-            int borderLeft = (width - size)/2;
-            int borderTop = (height - size)/2;
-            
-            QPixmap overlay = Renderer::self()->backgroundOverlayPixmap(size);
-            
-            painter.begin(pixmapCache);
-            painter.drawPixmap(borderLeft, borderTop, overlay);
-            painter.end();
-        }
-        
-        QPoint p = centralWidget()->mapFromParent(QPoint(updateRect.x(),
-                                                  updateRect.y()));
-        QRect pixmapRect(p.x(), p.y(), updateRect.width(), updateRect.height());
-        painter.begin(this);
-        
-        painter.drawPixmap(updateRect, *pixmapCache, pixmapRect);
-        painter.end();
-    }
-}
-
-void MainWindow::resizeEvent(QResizeEvent*)
-{
-    invalidCache = true;
 }
 
 #include "mainwindow.moc"
