@@ -122,37 +122,37 @@ void MainWindow::setupActions()
     KAction* action = new KAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoRight()));
-    actionCollection()->addAction("kb_go_right", action);
+    actionCollection()->addAction( QLatin1String( "kb_go_right" ), action);
 
     action = new KAction(i18n("Keyboard: Field left"),this);
     action->setShortcut(Qt::Key_Left);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoLeft()));
-    actionCollection()->addAction("kb_go_left", action);
+    actionCollection()->addAction( QLatin1String( "kb_go_left" ), action);
 
     action = new KAction(i18n("Keyboard: Field up"),this);
     action->setShortcut(Qt::Key_Up);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoUp()));
-    actionCollection()->addAction("kb_go_up", action);
+    actionCollection()->addAction( QLatin1String( "kb_go_up" ), action);
 
     action = new KAction(i18n("Keyboard: Field down"),this);
     action->setShortcut(Qt::Key_Down);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoDown()));
-    actionCollection()->addAction("kb_go_down", action);
+    actionCollection()->addAction( QLatin1String( "kb_go_down" ), action);
 
     action = new KAction(i18n("Keyboard: Turn clockwise"),this);
     action->setShortcut(Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnClockwise()));
-    actionCollection()->addAction("kb_turn_clockwise", action);
+    actionCollection()->addAction( QLatin1String( "kb_turn_clockwise" ), action);
 
     action = new KAction(i18n("Keyboard: Turn counterclockwise"),this);
     action->setShortcut(Qt::CTRL + Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnCounterclockwise()));
-    actionCollection()->addAction("kb_turn_counterclockwise", action);
+    actionCollection()->addAction( QLatin1String( "kb_turn_counterclockwise" ), action);
 
     action = new KAction(i18n("Keyboard: Toggle lock"),this);
     action->setShortcut(Qt::Key_Space);
     connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbLock()));
-    actionCollection()->addAction("kb_lock", action);
+    actionCollection()->addAction( QLatin1String( "kb_lock" ), action);
 }
 
 void MainWindow::configureSettings()

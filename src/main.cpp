@@ -68,7 +68,7 @@ int main(int argc, char ** argv)
     KCmdLineArgs::addCmdLineOptions(options);
 
     KApplication application;
-    KGlobal::locale()->insertCatalog("libkdegames");
+    KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
     if (args->isSet("Easy")) {
