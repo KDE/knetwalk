@@ -1,18 +1,18 @@
 /*
-    Copyright 2004-2005 Andi Peredri <andi@ukr.net> 
-    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
+    Copyright 2004-2005 Andi Peredri <andi@ukr.net>
+    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com>
     Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
-  
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
-   
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-   
+
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -29,7 +29,7 @@
 
 const QHash<int, QByteArray> Cell::s_directionNames = Cell::fillNameHash();
 
-Cell::Cell(QGraphicsItem* parent, int index) 
+Cell::Cell(QGraphicsItem* parent, int index)
     : QGraphicsRectItem(parent), AbstractCell(index), m_cablesItem(NULL), m_hostItem(NULL),
       m_hidden(false), m_locked(false), m_activated(false)
 {
@@ -58,12 +58,12 @@ void Cell::makeEmpty()
 void Cell::setupSprites()
 {
     if (cables() != None) {
-        m_cablesItem = new KGameRenderedItem(Renderer::self(), "", this);
+        m_cablesItem = new KGameRenderedItem(Renderer::self(), QLatin1String( "" ), this);
         m_cablesItem->setTransformationMode(Qt::SmoothTransformation);
     }
 
     if (isServer() || isTerminal()) {
-        m_hostItem = new KGameRenderedItem(Renderer::self(), "", this);
+        m_hostItem = new KGameRenderedItem(Renderer::self(), QLatin1String( "" ), this);
     }
 
     updateSprites();
@@ -74,7 +74,7 @@ void Cell::updateSprites()
     if (m_cablesItem != NULL) {
         QByteArray spriteKey = isConnected() ? "cablecon" : "cable";
         spriteKey += s_directionNames[cables()];
-        m_cablesItem->setSpriteKey(spriteKey);
+        m_cablesItem->setSpriteKey(QLatin1String( spriteKey ));
     }
 
     if (m_hostItem != NULL) {
@@ -84,7 +84,7 @@ void Cell::updateSprites()
         } else if (isTerminal()) {
             spriteKey = isConnected() ? "computer2" : "computer1";
         }
-        m_hostItem->setSpriteKey(spriteKey);
+        m_hostItem->setSpriteKey(QLatin1String( spriteKey ));
     }
 }
 
@@ -135,7 +135,7 @@ void Cell::setActivated(bool activate)
     updateColor();
 }
 
-void Cell::animateRotation(bool clockWise) 
+void Cell::animateRotation(bool clockWise)
 {
     if(clockWise) {
         rotateClockwise();

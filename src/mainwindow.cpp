@@ -1,18 +1,18 @@
 /*
-    Copyright 2004-2005 Andi Peredri <andi@ukr.net>   
-    Copyright 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch> 
-    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
-  
+    Copyright 2004-2005 Andi Peredri <andi@ukr.net>
+    Copyright 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch>
+    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com>
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
-   
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-   
+
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -64,8 +64,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_view->setCacheMode(QGraphicsView::CacheBackground);
     setCentralWidget(m_view);
 
-    statusBar()->insertItem("", StatusBarIndexMoves, 1);
-    statusBar()->insertItem("", StatusBarIndexTime, 1);
+    statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexMoves, 1);
+    statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexTime, 1);
 
     // Difficulty
     KGameDifficulty::init(this, this, SLOT(startNewGame()));
@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
 
     setupActions();
-    
+
     setupGUI();
 
     setAutoSaveSettings();
@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
     // this works around it. TODO: see why (and whether it still is true)
     if (Settings::skill() == 0) {
         KGameDifficulty::setLevel(KGameDifficulty::Easy);
-    } else { 
+    } else {
         KGameDifficulty::setLevel(
                 (KGameDifficulty::standardLevel) (Settings::skill()) );
     }
@@ -101,22 +101,22 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::setupActions()
 {
     // Game
-    KStandardGameAction::gameNew(this, SLOT(startNewGame()), 
+    KStandardGameAction::gameNew(this, SLOT(startNewGame()),
                                  actionCollection());
 
     m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)),
                                                actionCollection());
-    
-    KStandardGameAction::highscores(this, SLOT(showHighscores()), 
+
+    KStandardGameAction::highscores(this, SLOT(showHighscores()),
                                     actionCollection());
-    
+
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
-    
+
     // Settings
-    KStandardAction::configureNotifications(this, 
+    KStandardAction::configureNotifications(this,
                 SLOT(configureNotifications()), actionCollection());
-    
-    KStandardAction::preferences(this, SLOT(configureSettings()), 
+
+    KStandardAction::preferences(this, SLOT(configureSettings()),
                                  actionCollection());
 
     KAction* action = new KAction(i18n("Keyboard: Field right"), this);
@@ -157,34 +157,34 @@ void MainWindow::setupActions()
 
 void MainWindow::configureSettings()
 {
-    if (KConfigDialog::showDialog( "settings")) {
+    if (KConfigDialog::showDialog( QLatin1String(  "settings" ))) {
         return;
     }
-    
-    KConfigDialog *dialog = new KConfigDialog(this, "settings", 
-                                              Settings::self());
-                                              
-    dialog->addPage(new KGameThemeSelector( dialog, Settings::self(), 
-                    KGameThemeSelector::NewStuffDisableDownload ), 
-                    i18n("Theme"), "games-config-theme" );
 
-    connect(dialog, SIGNAL( settingsChanged(const QString&)), this, 
+    KConfigDialog *dialog = new KConfigDialog(this, QLatin1String( "settings" ),
+                                              Settings::self());
+
+    dialog->addPage(new KGameThemeSelector( dialog, Settings::self(),
+                    KGameThemeSelector::NewStuffDisableDownload ),
+                    i18n("Theme"), QLatin1String( "games-config-theme" ));
+
+    connect(dialog, SIGNAL( settingsChanged(const QString&)), this,
             SLOT(loadSettings()));
-    dialog->setHelp(QString(), "knetwalk");
+    dialog->setHelp(QString(), QLatin1String( "knetwalk" ));
     dialog->show();
 }
 
-void MainWindow::loadSettings() 
+void MainWindow::loadSettings()
 {
     Renderer::self()->setTheme(Settings::theme());
     m_view->resetCachedContent();
     m_scene->resizeScene(m_scene->sceneRect().size());
 }
 
-void MainWindow::showHighscores() 
+void MainWindow::showHighscores()
 {
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
+    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QLatin1String( "moves" ));
     scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
     scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
@@ -193,13 +193,13 @@ void MainWindow::showHighscores()
 
 void MainWindow::startNewGame()
 {
-    KNotification::event( "startsound", i18n("New Game") );
+    KNotification::event( QLatin1String( "startsound" ), i18n("New Game") );
 
     KGameDifficulty::standardLevel l = KGameDifficulty::level();
     Settings::setSkill((int) l);
-    
+
     Settings::self()->writeConfig();
-    
+
     const bool isWrapped = (l == KGameDifficulty::VeryHard);
     const int size = boardSize();
     m_scene->startNewGame(size, size, (Wrapping)isWrapped);
@@ -219,7 +219,7 @@ void MainWindow::startNewGame()
 
 void MainWindow::gameOver()
 {
-    KNotification::event("winsound");
+    KNotification::event(QLatin1String( "winsound" ));
     m_gameClock->pause();
     m_pauseAction->setEnabled(false);
     KGameDifficulty::setRunning(false);
@@ -227,21 +227,21 @@ void MainWindow::gameOver()
     //=== calculate the score ====//
 
     double penalty = m_gameClock->seconds() / 2.0 * (m_clickCount/2 + 1);
-    
+
     // normalize the penalty
     penalty = std::sqrt(penalty/m_scene->fieldItem()->cellCount());
-    
+
     int score = static_cast<int>(100.0 / penalty);
-    
+
     // create the new scoreInfo
     KScoreDialog::FieldInfo scoreInfo;
     scoreInfo[KScoreDialog::Score].setNum(score);
     scoreInfo[KScoreDialog::Custom1].setNum(m_clickCount/2);
     scoreInfo[KScoreDialog::Time] = m_gameClock->timeString();
-    
+
     // show the new dialog and add the new score to it
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), "moves");
+    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QLatin1String( "moves" ));
     scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
     scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
     scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());

@@ -56,13 +56,13 @@ KNetWalkScene::KNetWalkScene(QObject* parent)
 
 void KNetWalkScene::resizeItems()
 {
-    QPixmap bg = Renderer::self()->spritePixmap("background", sceneRect().size().toSize());
+    QPixmap bg = Renderer::self()->spritePixmap(QLatin1String( "background" ), sceneRect().size().toSize());
 
     qreal size = qMin(sceneRect().width(), sceneRect().height());
     QPainter p(&bg);
     p.drawPixmap(QPointF(sceneRect().width()/2  - size/2,
-                         sceneRect().height()/2 - size/2), 
-                 Renderer::self()->spritePixmap("overlay", QSize(size, size)));
+                         sceneRect().height()/2 - size/2),
+                 Renderer::self()->spritePixmap(QLatin1String( "overlay" ), QSize(size, size)));
     setBackgroundBrush(bg);
 
     size *= (1.0 - 2*OverlayBorder);
@@ -99,8 +99,8 @@ void KNetWalkScene::terminalsConnected()
 {
     KMessageBox::information(views().first(),
                              i18n("Note: to win the game all terminals "
-                                   "<strong>and all <em>cables</em></strong> " 
+                                   "<strong>and all <em>cables</em></strong> "
                                    "need to be connected to the server!"),
                              i18n("The game is not won yet!"),
-                             "dontShowGameNotWonYet");
+                             QLatin1String( "dontShowGameNotWonYet" ));
 }

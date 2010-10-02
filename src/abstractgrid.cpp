@@ -1,17 +1,17 @@
 /*
-    Copyright 2004-2005 Andi Peredri <andi@ukr.net>   
-    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
-  
+    Copyright 2004-2005 Andi Peredri <andi@ukr.net>
+    Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com>
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
-   
+
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-   
+
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
@@ -23,7 +23,7 @@
 #include <QString>
 #include <KDebug>
 
-AbstractCell::AbstractCell(int index) 
+AbstractCell::AbstractCell(int index)
     : m_index(index)
 {
     makeEmpty();
@@ -31,8 +31,8 @@ AbstractCell::AbstractCell(int index)
 
 char *AbstractCell::toString() {
     char *str = new char[4];
-    str[0] = (m_cables & Left) ? '-' : ' ';
-    str[2] = (m_cables & Right) ? '-' : ' ';
+    str[0] = (m_cables & Left) ? '-'  : ' ' ;
+    str[2] = (m_cables & Right) ? '-'  :  ' ' ;
     if ((m_cables & Up) && (m_cables & Down)) {
         str[1] = '|';
     } else if (m_cables & Up) {
@@ -45,29 +45,29 @@ char *AbstractCell::toString() {
         str[1] = ' ';
     }
     str[3] = '\0';
-    
+
     return str;
 }
 
-bool AbstractCell::isTerminal() const 
+bool AbstractCell::isTerminal() const
 {
-    return (m_cables == Up || m_cables == Right 
+    return (m_cables == Up || m_cables == Right
             || m_cables == Down || m_cables == Left);
 }
-    
+
 // only used to change the cables (not to rotate the cell!)
-void AbstractCell::setCables(Directions newCables) 
+void AbstractCell::setCables(Directions newCables)
 {
     m_cables = originalCables = newCables;
     m_hasBeenMoved = false;
 }
 
-void AbstractCell::setServer(bool isServer) 
+void AbstractCell::setServer(bool isServer)
 {
     m_isServer = isServer;
 }
 
-void AbstractCell::setConnected(bool isConnected) 
+void AbstractCell::setConnected(bool isConnected)
 {
     m_isConnected = isConnected;
 }
@@ -85,7 +85,7 @@ void AbstractCell::emptyMove()
     m_hasBeenMoved = true;
 }
 
-void AbstractCell::rotateClockwise() 
+void AbstractCell::rotateClockwise()
 {
     Directions newdirs = None;
     if (m_cables & Up) newdirs = Directions(newdirs | Right);
@@ -96,7 +96,7 @@ void AbstractCell::rotateClockwise()
     m_hasBeenMoved = true;
 }
 
-void AbstractCell::rotateCounterclockwise() 
+void AbstractCell::rotateCounterclockwise()
 {
     Directions newdirs = None;
     if (m_cables & Up) newdirs = Directions(newdirs | Left);
@@ -107,13 +107,13 @@ void AbstractCell::rotateCounterclockwise()
     m_hasBeenMoved = true;
 }
 
-void AbstractCell::invert() 
+void AbstractCell::invert()
 {
     rotateClockwise();
     rotateClockwise();
 }
 
-void AbstractCell::reset() 
+void AbstractCell::reset()
 {
     m_cables = originalCables;
     m_hasBeenMoved = false;
@@ -136,41 +136,41 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
     if ((width * height) != (m_width * m_height)) {
         qDeleteAll(m_cells);
         m_cells.clear();
-        
+
         for (uint index = 0; index < width*height; ++index) {
             m_cells.append(newCell(index));
         }
     }
-    
+
     m_width = width;
     m_height = height;
     m_isWrapped = wrapping;
-    
+
     createGrid();
-    
+
     while(hasUnneededCables() || solutionCount() != 1) {
         // the grid is invalid: create a new one
         createGrid();
     }
-    
+
     m_minimumMoves = 0;
     // shuffle all cells
     for (uint i = 0; i < width*height; ++i) {
         AbstractCell *cell = m_cells[i];
         Directions oldCables = cell->cables();
-        
+
         int rotation = rand() % 4; // 0..3
         for (int j = 0; j < rotation; ++j) {
             // ratate every cable clockwise
             cell->rotateClockwise();
         }
-        
+
         // excludes None and straight lines
         if (oldCables != cell->cables()) {
             m_minimumMoves += (rotation == 3) ? 1 : rotation;
         }
     }
-    
+
     updateConnections();
 }
 
@@ -181,18 +181,18 @@ void AbstractGrid::print() {
     int index = 0;
     for (uint r = 0; r < m_height; ++r) {
         for (uint c = 0; c < m_width; ++c) {
-            str1 += m_cells[index]->toString();
-            str1 += "  ";
+            str1 +=QLatin1String( m_cells[index]->toString() );
+            str1 += QLatin1String( "  " );
             if (m_cells[index]->hasBeenMoved()) {
-                str2 += "M ";
+                str2 += QLatin1String( "M " );
             } else {
-                str2 += "  ";
+                str2 += QLatin1String( "  " );
             }
             ++index;
         }
         kDebug() << str1 << "     " << str2;
-        kDebug() << " ";
-        str1 = str2 = "";
+        kDebug() << QLatin1String( " " );
+        str1 = str2 = QLatin1String( "" );
     }
 }
 
@@ -207,7 +207,7 @@ void AbstractGrid::createGrid()
     // add a random server
     server_index = rand() % (cellCount());
     m_cells[server_index]->setServer(true);
-    
+
     // number of cells that aren't free
     int notFreeCells = 0;
     // TODO:use a global constant instead of 10 / 8
@@ -217,7 +217,7 @@ void AbstractGrid::createGrid()
         QList<uint> list;
         list.append(server_index);
         if (rand() % 2) addRandomCable(list);
-        
+
         // add some random cables...
         // the list empties if there aren't many free cells left
         // (because of addRandomCable() not doing anything)
@@ -226,13 +226,13 @@ void AbstractGrid::createGrid()
                 addRandomCable(list);
                 if (rand() % 2) addRandomCable(list);
                 list.erase(list.begin());
-            } 
+            }
             else {
                 list.append(list.first());
                 list.erase(list.begin());
             }
         }
-        
+
         // count not empty cells
         notFreeCells = 0;
         for (int i = 0; i < cellCount(); ++i) {
@@ -245,7 +245,7 @@ void AbstractGrid::createGrid()
 void AbstractGrid::addRandomCable(QList<uint>& list)
 {
     int cell = list.first();
-    // find all the cells surrounding list.first() 
+    // find all the cells surrounding list.first()
     // (0 when cells don't exist)
     int ucell = uCell(cell); // up
     int rcell = rCell(cell); // right
@@ -267,13 +267,13 @@ void AbstractGrid::addRandomCable(QList<uint>& list)
     if (lcell != NO_CELL && m_cells[lcell]->cables() == None) {
         freeCells[Left] = lcell;
     }
-    
+
     if (freeCells.isEmpty()) return; // no free cells left
 
     QMap<Directions, int>::ConstIterator it = freeCells.constBegin();
     // move the iterator to a random direction connecting to a free cell
     for (int i = rand() % freeCells.count(); i > 0; --i) ++it;
-    
+
     // add the cable in the direction of cell
     Directions newCables = Directions(m_cells[cell]->cables() | it.key());
     m_cells[cell]->setCables(newCables);
@@ -335,7 +335,7 @@ Directions AbstractGrid::invertDirection(Directions givenDirection)
     invDirs[Right] = Left;
     invDirs[Down]  = Up;
     invDirs[Left]  = Right;
-    
+
     return invDirs[givenDirection];
 }
 
@@ -356,37 +356,37 @@ int AbstractGrid::solutionCount()
                 // cables forming a line
                 move = Move(cell->index(), Move::None);
                 possibleNextMoves.append(move);
-                
+
                 move = Move(cell->index(), Move::Left);
                 possibleNextMoves.append(move);
             } else {
                 // other kind of cables
                 move = Move(cell->index(), Move::None);
                 possibleNextMoves.append(move);
-                
+
                 move = Move(cell->index(), Move::Left);
                 possibleNextMoves.append(move);
-                
+
                 move = Move(cell->index(), Move::Right);
                 possibleNextMoves.append(move);
-                
+
                 move = Move(cell->index(), Move::Inverted);
                 possibleNextMoves.append(move);
             }
             break;
         }
     }
-    
+
     // all cells have been moved
     if (possibleNextMoves.isEmpty()) {
         return isPossibleSolution() ? 1 : 0;
     }
     // else
-    
+
     int solutionsFound = 0;
     foreach (const Move &nextMove, possibleNextMoves) {
         int index = nextMove.index();
-        
+
         switch (nextMove.move()) {
         case Move::None:
             m_cells[index]->emptyMove();
@@ -401,26 +401,26 @@ int AbstractGrid::solutionCount()
             m_cells[index]->invert();
             break;
         }
-        
+
         if (movesDoneArePossible()) {
             solutionsFound += solutionCount(); // recursive call
         }
-        
+
         m_cells[index]->reset(); // undo move
     }
     return solutionsFound;
 }
 
-bool AbstractGrid::movesDoneArePossible() 
+bool AbstractGrid::movesDoneArePossible()
 {
-    
+
     foreach (AbstractCell *cell, m_cells) {
         if (!cell->hasBeenMoved()) continue;
-        
+
         uint x = cell->index() % m_width;
         uint y = cell->index() / m_width;
         Directions cables = cell->cables();
-        
+
         // check if there are moved cells near the borders that are wrong
         if (!m_isWrapped) {
             if (x == 0          && cables & Left)  return false;
@@ -428,14 +428,14 @@ bool AbstractGrid::movesDoneArePossible()
             if (y == 0          && cables & Up)    return false;
             if (y == m_height-1 && cables & Down)  return false;
         }
-        
+
         // check if there are contiguous moved cells that are wrong
-        
+
         if (cables & Left) {
             int lcell = lCell(cell->index());
             if (lcell != NO_CELL && m_cells[lcell]->hasBeenMoved()) {
                 // also the cell to the left of the current has been moved
-                
+
                 // if it doesn't connect return false
                 if (!(m_cells[lcell]->cables() & Right)) return false;
             }
@@ -459,7 +459,7 @@ bool AbstractGrid::movesDoneArePossible()
             }
         }
     }
-    
+
     // nothing was wrong
     return true;
 }
@@ -470,29 +470,29 @@ bool AbstractGrid::hasUnneededCables()
         if (cell->isTerminal() || cell->isServer() || cell->cables() == None) {
             continue;
         }
-        
+
         Directions oldCables = cell->cables();
         cell->setCables(None);
-        
+
         bool solution = isPossibleSolution();
         cell->setCables(oldCables);
-        
+
         if (solution) {
             // it has a solution also when the cables of cell are removed
             return true;
         }
     }
-    
+
     return false;
 }
 
-bool AbstractGrid::isPossibleSolution() 
+bool AbstractGrid::isPossibleSolution()
 {
     foreach (AbstractCell *cell, m_cells) {
         cell->setConnected(false);
     }
     updateConnections();
-    
+
     return allTerminalsConnected();
 }
 
@@ -514,12 +514,12 @@ QList<int> AbstractGrid::updateConnections()
     for (uint i = 0; i < m_width * m_height; ++i) {
         newConnections[i] = false;
     }
-    
+
     // indexes of the changed cells
     QList<int> changedCells;
     changedCells.append(server_index);
     newConnections[server_index] = true;
-    
+
     while (!changedCells.isEmpty())
     {
         int cell_index = changedCells.first();
@@ -527,29 +527,29 @@ QList<int> AbstractGrid::updateConnections()
         int rindex = rCell(cell_index);
         int dindex = dCell(cell_index);
         int lindex = lCell(cell_index);
-        
+
         AbstractCell *cell = m_cells[cell_index];
         AbstractCell *ucell = (uindex != NO_CELL) ? m_cells[uindex] : 0;
         AbstractCell *rcell = (rindex != NO_CELL) ? m_cells[rindex] : 0;
         AbstractCell *dcell = (dindex != NO_CELL) ? m_cells[dindex] : 0;
         AbstractCell *lcell = (lindex != NO_CELL) ? m_cells[lindex] : 0;
 
-        if ((cell->cables() & Up) && ucell != 0 && 
+        if ((cell->cables() & Up) && ucell != 0 &&
                 (ucell->cables() & Down) && !newConnections[uindex]) {
             newConnections[uindex] = true;
             changedCells.append(ucell->index());
         }
-        if ((cell->cables() & Right) && rcell != 0 && 
+        if ((cell->cables() & Right) && rcell != 0 &&
                 (rcell->cables() & Left) && !newConnections[rindex]) {
             newConnections[rindex] = true;
             changedCells.append(rcell->index());
         }
-        if ((cell->cables() & Down) && dcell != 0 && 
+        if ((cell->cables() & Down) && dcell != 0 &&
                 (dcell->cables() & Up) && !newConnections[dindex]) {
             newConnections[dindex] = true;
             changedCells.append(dcell->index());
         }
-        if ((cell->cables() & Left) && lcell != 0 && 
+        if ((cell->cables() & Left) && lcell != 0 &&
                 (lcell->cables() & Right) && !newConnections[lindex]) {
             newConnections[lindex] = true;
             changedCells.append(lcell->index());
@@ -565,7 +565,7 @@ QList<int> AbstractGrid::updateConnections()
             cell->setConnected(newConnections[i]);
         }
     }
-    
+
     return changedCells;
 }
 

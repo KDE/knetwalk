@@ -45,7 +45,7 @@ void FieldItem::initField(uint width, uint height, Wrapping w)
 
         cell->disconnect();
         // called when a rotation ends
-        connect(cellAt(i), SIGNAL(connectionsChanged()), 
+        connect(cellAt(i), SIGNAL(connectionsChanged()),
                             SLOT(updateConnections()));
     }
     // highlight current cell in keyboard mode
@@ -173,22 +173,22 @@ void FieldItem::rotate(int index, bool clockWise)
     const Directions d = cellAt(index)->cables();
 
     if ((d == None) || m_gameEnded || cellAt(index)->isLocked()) {
-        KNotification::event( "clicksound" );
+        KNotification::event( QLatin1String( "clicksound" ) );
     } else {
-        KNotification::event( "turnsound" );
-        
+        KNotification::event( QLatin1String( "turnsound" ) );
+
         cellAt(index)->animateRotation(clockWise);
-        
+
         // FIXME: won't work!!!
         //if (updateConnections())
         //    KNotification::event( "connectsound" );
-        
+
         emit rotationPerformed();
     }
 }
 
 
-void FieldItem::updateConnections() 
+void FieldItem::updateConnections()
 {
     QList<int> changedCells = AbstractGrid::updateConnections();
     checkIfGameEnded();
