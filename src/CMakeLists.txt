@@ -28,7 +28,7 @@ install(TARGETS knetwalk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( FILES knetwalk.notifyrc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
 install( FILES knetwalkui.rc  DESTINATION  ${DATA_INSTALL_DIR}/knetwalk )
-install( FILES knetwalk.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS knetwalk.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 
 
 
