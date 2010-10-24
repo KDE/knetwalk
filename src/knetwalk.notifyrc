@@ -29,6 +29,7 @@ Comment[zh_TW]=KNetWalk 遊戲
 
 [Event/clicksound]
 Name=Click
+Name[ast]=Calcar
 Name[be]=Пстрычка
 Name[bn]=ক্লিক
 Name[br]=Klik
@@ -89,6 +90,7 @@ Name[x-test]=xxClickxx
 Name[zh_CN]=单击
 Name[zh_TW]=點擊
 Comment=Click
+Comment[ast]=Calcar
 Comment[be]=Пстрычка
 Comment[bn]=ক্লিক
 Comment[br]=Klik
@@ -152,6 +154,7 @@ Action=None
 
 [Event/connectsound]
 Name=Connect
+Name[ast]=Coneutar
 Name[be]=Злучэнне
 Name[bn]=সংযোগ স্থাপন করো
 Name[br]=Kevreañ
@@ -209,6 +212,7 @@ Name[x-test]=xxConnectxx
 Name[zh_CN]=连接
 Name[zh_TW]=連線
 Comment=Connect
+Comment[ast]=Coneutar
 Comment[ca]=Connexió
 Comment[ca@valencia]=Connexió
 Comment[cs]=Propojení
@@ -263,6 +267,7 @@ Action=None
 
 [Event/winsound]
 Name=Game won
+Name[ast]=Partida ganada
 Name[be]=Перамога
 Name[bn]=খেলা জিতেছেন
 Name[br]=Gounezet eo ar c'hoari
@@ -321,6 +326,7 @@ Name[x-test]=xxGame wonxx
 Name[zh_CN]=赢了游戏
 Name[zh_TW]=您贏了
 Comment=Game won
+Comment[ast]=Partida ganada
 Comment[be]=Перамога
 Comment[bn]=খেল খতম
 Comment[br]=Gounezet eo ar c'hoari
@@ -382,6 +388,7 @@ Action=Sound
 
 [Event/startsound]
 Name=Connect
+Name[ast]=Coneutar
 Name[be]=Злучэнне
 Name[bn]=সংযোগ স্থাপন করো
 Name[br]=Kevreañ
@@ -439,6 +446,7 @@ Name[x-test]=xxConnectxx
 Name[zh_CN]=连接
 Name[zh_TW]=連線
 Comment=Connect
+Comment[ast]=Coneutar
 Comment[ca]=Connexió
 Comment[ca@valencia]=Connexió
 Comment[cs]=Propojení
@@ -493,6 +501,7 @@ Action=Sound
 
 [Event/turnsound]
 Name=Turn
+Name[ast]=Turnu
 Name[be]=Ход
 Name[bn]=ঘোরো
 Name[ca]=Gir
@@ -547,6 +556,7 @@ Name[x-test]=xxTurnxx
 Name[zh_CN]=旋转
 Name[zh_TW]=Turn
 Comment=Turn
+Comment[ast]=Turnu
 Comment[ca]=Gir
 Comment[ca@valencia]=Gir
 Comment[cs]=Tah
