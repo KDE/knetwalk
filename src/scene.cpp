@@ -72,7 +72,7 @@ void KNetWalkScene::resizeItems()
 
     m_gamePausedMessage->setPos(sceneRect().width()/2  - m_gamePausedMessage->boundingRect().width()/2,
                                 sceneRect().height()/2 - m_gamePausedMessage->boundingRect().height()/2);
-};
+}
 
 void KNetWalkScene::resizeScene(const QSizeF& size)
 {
