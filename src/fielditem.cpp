@@ -196,6 +196,9 @@ void FieldItem::updateConnections()
 
 void FieldItem::checkIfGameEnded()
 {
+	if (m_gameEnded)
+		return;
+
     foreach (AbstractCell* cell, cells()) {
         if (cell->cables() != None && !cell->isConnected()) {
             if (!m_terminalsConnectedEmitted && allTerminalsConnected()) {
