@@ -167,6 +167,7 @@ void MainWindow::configureSettings()
     dialog->addPage(new KGameThemeSelector( dialog, Settings::self(),
                     KGameThemeSelector::NewStuffDisableDownload ),
                     i18n("Theme"), QLatin1String( "games-config-theme" ));
+	dialog->setFaceType(KConfigDialog::Plain); //only one page -> no page selection necessary
 
     connect(dialog, SIGNAL( settingsChanged(const QString&)), this,
             SLOT(loadSettings()));
