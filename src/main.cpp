@@ -29,7 +29,7 @@
 static const char description[] =
 I18N_NOOP("KNetWalk, a game for system administrators.");
 
-static const char version[] = "3.0.0";
+static const char version[] = "3.0.1";
 
 int main(int argc, char ** argv)
 {
