@@ -220,12 +220,6 @@ void MainWindow::startNewGame()
 
 void MainWindow::gameOver()
 {
-    // This is a poor workaround for a bug where two high score dialogs
-    // are shown if the last move is made while another tile is still
-    // spinning. (icwiener)
-    if(!m_pauseAction->isEnabled()) {
-        return;
-    }
     KNotification::event(QLatin1String( "winsound" ));
     m_gameClock->pause();
     m_pauseAction->setEnabled(false);
