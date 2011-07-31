@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
     srand(time(0));
 
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
-    connect(m_gameClock, SIGNAL(timeChanged(const QString&)), SLOT(updateStatusBar()));
+    connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
 
     // default values of KConfig XT don't seem to work
     // this works around it. TODO: see why (and whether it still is true)
@@ -169,7 +169,7 @@ void MainWindow::configureSettings()
                     i18n("Theme"), QLatin1String( "games-config-theme" ));
 	dialog->setFaceType(KConfigDialog::Plain); //only one page -> no page selection necessary
 
-    connect(dialog, SIGNAL( settingsChanged(const QString&)), this,
+    connect(dialog, SIGNAL(settingsChanged(QString)), this,
             SLOT(loadSettings()));
     dialog->setHelp(QString(), QLatin1String( "knetwalk" ));
     dialog->show();
