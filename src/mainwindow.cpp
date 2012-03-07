@@ -31,7 +31,7 @@
 #include <KMessageBox>
 #include <KStatusBar>
 
-#include <KGameDifficulty>
+#include <KgDifficulty>
 #include <KGameThemeSelector>
 #include <KScoreDialog>
 #include <KGameClock>
@@ -68,11 +68,11 @@ MainWindow::MainWindow(QWidget *parent)
     statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexTime, 1);
 
     // Difficulty
-    KGameDifficulty::init(this, this, SLOT(startNewGame()));
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Easy);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Medium);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::Hard);
-    KGameDifficulty::addStandardLevel(KGameDifficulty::VeryHard);
+    Kg::difficulty()->addStandardLevelRange(
+        KgDifficultyLevel::Easy, KgDifficultyLevel::VeryHard
+    );
+    KgDifficultyGUI::init(this);
+    connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), SLOT(startNewGame()));
 
     setupActions();
 
@@ -84,16 +84,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
-
-    // default values of KConfig XT don't seem to work
-    // this works around it. TODO: see why (and whether it still is true)
-    if (Settings::skill() == 0) {
-        KGameDifficulty::setLevel(KGameDifficulty::Easy);
-    } else {
-        KGameDifficulty::setLevel(
-                (KGameDifficulty::standardLevel) (Settings::skill()) );
-    }
-    kDebug() << KGameDifficulty::levelString() << Settings::skill();
 
     startNewGame();
 }
@@ -186,9 +176,7 @@ void MainWindow::showHighscores()
 {
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QLatin1String( "moves" ));
-    scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
-    scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
-    scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
+    scoreDialog.initFromDifficulty(Kg::difficulty());
     scoreDialog.exec();
 }
 
@@ -196,12 +184,9 @@ void MainWindow::startNewGame()
 {
     KNotification::event( QLatin1String( "startsound" ), i18n("New Game") );
 
-    KGameDifficulty::standardLevel l = KGameDifficulty::level();
-    Settings::setSkill((int) l);
+    const KgDifficultyLevel::StandardLevel l = Kg::difficultyLevel();
 
-    Settings::self()->writeConfig();
-
-    const bool isWrapped = (l == KGameDifficulty::VeryHard);
+    const bool isWrapped = (l == KgDifficultyLevel::VeryHard);
     const int size = boardSize();
     m_scene->startNewGame(size, size, (Wrapping)isWrapped);
     m_clickCount = -m_scene->fieldItem()->minimumMoves();
@@ -213,7 +198,7 @@ void MainWindow::startNewGame()
         m_pauseAction->setChecked(false);
     }
     m_pauseAction->setEnabled(true);
-    KGameDifficulty::setRunning(false);
+    Kg::difficulty()->setGameRunning(false);
 
     updateStatusBar();
 }
@@ -223,7 +208,7 @@ void MainWindow::gameOver()
     KNotification::event(QLatin1String( "winsound" ));
     m_gameClock->pause();
     m_pauseAction->setEnabled(false);
-    KGameDifficulty::setRunning(false);
+    Kg::difficulty()->setGameRunning(false);
 
     //=== calculate the score ====//
 
@@ -243,9 +228,7 @@ void MainWindow::gameOver()
     // show the new dialog and add the new score to it
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QLatin1String( "moves" ));
-    scoreDialog.addLocalizedConfigGroupNames(KGameDifficulty::localizedLevelStrings()); //Add all the translations of the group names
-    scoreDialog.setConfigGroupWeights(KGameDifficulty::levelWeights());
-    scoreDialog.setConfigGroup(KGameDifficulty::localizedLevelString());
+    scoreDialog.initFromDifficulty(Kg::difficulty());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
         QString comment = i18np("Your score was %1, you did not make it to the high score list.",
@@ -257,7 +240,7 @@ void MainWindow::gameOver()
 
 void MainWindow::rotationPerformed()
 {
-    KGameDifficulty::setRunning(true);
+    Kg::difficulty()->setGameRunning(true);
     m_clickCount++;
     updateStatusBar();
 }
@@ -287,10 +270,10 @@ void MainWindow::configureNotifications()
 
 int MainWindow::boardSize()
 {
-    switch (KGameDifficulty::level()) {
-    case KGameDifficulty::Easy: return NoviceBoardSize;
-    case KGameDifficulty::Medium: return NormalBoardSize;
-    case KGameDifficulty::Hard: return ExpertBoardSize;
+    switch (Kg::difficultyLevel()) {
+    case KgDifficultyLevel::Easy: return NoviceBoardSize;
+    case KgDifficultyLevel::Medium: return NormalBoardSize;
+    case KgDifficultyLevel::Hard: return ExpertBoardSize;
     default: return MasterBoardSize;
     }
 }

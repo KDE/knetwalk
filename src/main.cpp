@@ -23,7 +23,6 @@
 #include <KDebug>
 #include <KGlobal>
 
-#include "settings.h"
 #include "mainwindow.h"
 
 static const char description[] =
@@ -60,31 +59,8 @@ int main(int argc, char ** argv)
 
     KCmdLineArgs::init(argc, argv, &about);
 
-    KCmdLineOptions options;
-    options.add("Easy", ki18n("Start with Easy difficulty level"));
-    options.add("Medium", ki18n("Start with Medium difficulty level"));
-    options.add("Hard", ki18n("Start with Hard difficulty level"));
-    options.add("VeryHard", ki18n("Start with Very Hard difficulty level"));
-    KCmdLineArgs::addCmdLineOptions(options);
-
     KApplication application;
     KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
-
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    if (args->isSet("Easy")) {
-        Settings::setSkill(Settings::EnumSkill::Easy);
-    }
-    if (args->isSet("Medium")) {
-        Settings::setSkill(Settings::EnumSkill::Medium);
-    }
-    if (args->isSet("Hard")) {
-        Settings::setSkill(Settings::EnumSkill::Hard);
-    }
-    if (args->isSet("VeryHard")) {
-        Settings::setSkill(Settings::EnumSkill::VeryHard);
-    }
-    args->clear();
-
 
     MainWindow* window = new MainWindow;
     window->show();

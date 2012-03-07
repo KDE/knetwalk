@@ -14,15 +14,5 @@
     <entry name="username" type="String">
       <label>Default user name</label>
     </entry>
-    <entry name="skill" type="Enum">
-      <label>The difficulty level.</label>
-      <default>Easy</default>
-      <choices>
-        <choice name="Easy"/>
-        <choice name="Medium"/>
-        <choice name="Hard"/>
-        <choice name="VeryHard"/>
-      </choices>
-    </entry>
   </group>
 </kcfg>
