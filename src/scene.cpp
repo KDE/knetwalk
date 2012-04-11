@@ -23,13 +23,20 @@
 #include <QGraphicsView>
 #include <KGameRenderedItem>
 #include <KGamePopupItem>
+#include <KgThemeProvider>
 #include <KMessageBox>
 #include <KLocale>
 
-Renderer::Renderer()
-    : KGameRenderer(Settings::defaultThemeValue())
+static KgThemeProvider* provider()
 {
-    setTheme(Settings::theme());
+    KgThemeProvider* prov = new KgThemeProvider;
+    prov->discoverThemes("appdata", QLatin1String("themes"));
+    return prov;
+}
+
+Renderer::Renderer()
+    : KGameRenderer(provider())
+{
 }
 
 Renderer* Renderer::self()

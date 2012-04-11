@@ -29,6 +29,7 @@
 #include "cell.h"
 
 class KGameClock;
+class KgThemeSelector;
 class KNetWalkScene;
 class KNetWalkView;
 class KToggleAction;
@@ -60,7 +61,6 @@ private slots:
     void updateStatusBar();
 
     void showHighscores();
-    void configureSettings();
     void configureNotifications();
     void loadSettings();    
 private:
@@ -73,6 +73,7 @@ private:
 
     KNetWalkScene* m_scene;
     KNetWalkView* m_view;
+    KgThemeSelector* m_selector;
 };
 
 #endif // MAINWINDOW_H

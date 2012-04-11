@@ -32,7 +32,8 @@
 #include <KStatusBar>
 
 #include <KgDifficulty>
-#include <KGameThemeSelector>
+#include <KgThemeSelector>
+#include <KGameRenderer>
 #include <KScoreDialog>
 #include <KGameClock>
 
@@ -74,6 +75,10 @@ MainWindow::MainWindow(QWidget *parent)
     KgDifficultyGUI::init(this);
     connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), SLOT(startNewGame()));
 
+    KgThemeProvider* provider = Renderer::self()->themeProvider();
+    m_selector = new KgThemeSelector(provider);
+    connect(provider, SIGNAL(currentThemeChanged(const KgTheme*)), SLOT(loadSettings()));
+
     setupActions();
 
     setupGUI();
@@ -106,7 +111,7 @@ void MainWindow::setupActions()
     KStandardAction::configureNotifications(this,
                 SLOT(configureNotifications()), actionCollection());
 
-    KStandardAction::preferences(this, SLOT(configureSettings()),
+    KStandardAction::preferences(m_selector, SLOT(showAsDialog()),
                                  actionCollection());
 
     KAction* action = new KAction(i18n("Keyboard: Field right"), this);
@@ -145,29 +150,8 @@ void MainWindow::setupActions()
     actionCollection()->addAction( QLatin1String( "kb_lock" ), action);
 }
 
-void MainWindow::configureSettings()
-{
-    if (KConfigDialog::showDialog( QLatin1String(  "settings" ))) {
-        return;
-    }
-
-    KConfigDialog *dialog = new KConfigDialog(this, QLatin1String( "settings" ),
-                                              Settings::self());
-
-    dialog->addPage(new KGameThemeSelector( dialog, Settings::self(),
-                    KGameThemeSelector::NewStuffDisableDownload ),
-                    i18n("Theme"), QLatin1String( "games-config-theme" ));
-	dialog->setFaceType(KConfigDialog::Plain); //only one page -> no page selection necessary
-
-    connect(dialog, SIGNAL(settingsChanged(QString)), this,
-            SLOT(loadSettings()));
-    dialog->setHelp(QString(), QLatin1String( "knetwalk" ));
-    dialog->show();
-}
-
 void MainWindow::loadSettings()
 {
-    Renderer::self()->setTheme(Settings::theme());
     m_view->resetCachedContent();
     m_scene->resizeScene(m_scene->sceneRect().size());
 }

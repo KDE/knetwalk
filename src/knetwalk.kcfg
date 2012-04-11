@@ -4,12 +4,6 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
       http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
   <kcfgfile name="knetwalkrc"/>
-  <group name="General">
-    <entry name="Theme" type="String" key="Theme">
-      <label>The graphical theme to be used.</label>
-      <default>themes/default.desktop</default>
-    </entry>
-  </group>
   <group name="Preferences">
     <entry name="username" type="String">
       <label>Default user name</label>
