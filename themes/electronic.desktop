@@ -1,6 +1,10 @@
 [KGameTheme]
 Name=Electronic
+Name[uk]=Електроніка
+Name[x-test]=xxElectronicxx
 Description=KNetWalk Electronic theme for KDE 4
+Description[uk]=Тема KNetWalk «Електроніка» для KDE 4
+Description[x-test]=xxKNetWalk Electronic theme for KDE 4xx
 VersionFormat=1
 Author=Michał Bartecki
 AuthorEmail=mkbart@gmail.com

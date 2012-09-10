@@ -1,6 +1,10 @@
 [KGameTheme]
 Name=Default
+Name[uk]=Типова
+Name[x-test]=xxDefaultxx
 Description=KNetWalk Default theme for KDE 4
+Description[uk]=Типова тема KNetWalk для KDE 4
+Description[x-test]=xxKNetWalk Default theme for KDE 4xx
 VersionFormat=1
 Author=Johann Ollivier Lapeyre
 AuthorEmail=johann.ollivierlapeyre@gmail.com

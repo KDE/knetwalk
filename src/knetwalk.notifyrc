@@ -1,34 +1,56 @@
 [Global]
 IconName=knetwalk
 Comment=KNetWalk Game
+Comment[uk]=Гра KNetWalk
+Comment[x-test]=xxKNetWalk Gamexx
 
 [Event/clicksound]
 Name=Click
+Name[uk]=Клац
+Name[x-test]=xxClickxx
 Comment=Click
+Comment[uk]=Клац
+Comment[x-test]=xxClickxx
 Sound=
 Action=None
 
 [Event/connectsound]
 Name=Connect
+Name[uk]=З'єднати
+Name[x-test]=xxConnectxx
 Comment=Connect
+Comment[uk]=З'єднати
+Comment[x-test]=xxConnectxx
 Sound=KDE-Window-Move-Stop.ogg
 Action=None
 
 [Event/winsound]
 Name=Game won
+Name[uk]=Гру виграно
+Name[x-test]=xxGame wonxx
 Comment=Game won
+Comment[uk]=Гру виграно
+Comment[x-test]=xxGame wonxx
 Sound=KDE-K3B-Insert-Medium.ogg
 Action=Sound
 
 [Event/startsound]
 Name=Connect
+Name[uk]=З'єднати
+Name[x-test]=xxConnectxx
 Comment=Connect
+Comment[uk]=З'єднати
+Comment[x-test]=xxConnectxx
 Sound=KDE-Im-User-Auth.ogg
 Action=Sound
 
 [Event/turnsound]
 Name=Turn
+Name[uk]=Хід
+Name[x-test]=xxTurnxx
 Comment=Turn
+Comment[uk]=Хід
+Comment[x-test]=xxTurnxx
 Sound=KDE-Window-Move.ogg
 Action=None
 
