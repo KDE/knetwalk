@@ -2,5 +2,5 @@
 File=knetwalk.kcfg
 ClassName=Settings
 Singleton=true
-Mutators=username,skill
+Mutators=true
 DefaultValueGetters=Theme

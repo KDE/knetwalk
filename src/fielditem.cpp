@@ -19,12 +19,20 @@
 #include "fielditem.h"
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsSceneHoverEvent>
-#include <KNotification>
+
+#include <KgSound>
+#include <KStandardDirs>
+
+#include "settings.h"
 
 FieldItem::FieldItem()
     : m_terminalsConnectedEmitted(false), m_activeCell(-1)
 {
     setAcceptHoverEvents(true);
+
+    m_soundTurn = new KgSound(KStandardDirs::locate("appdata", "sounds/turn.wav"));
+    m_soundClick = new KgSound(KStandardDirs::locate("appdata", "sounds/click.wav"));
+    m_soundConnect = new KgSound(KStandardDirs::locate("appdata", "sounds/connect.wav"));
 }
 
 void FieldItem::resize(const QSizeF& size)
@@ -173,15 +181,17 @@ void FieldItem::rotate(int index, bool clockWise)
     const Directions d = cellAt(index)->cables();
 
     if ((d == None) || m_gameEnded || cellAt(index)->isLocked()) {
-        KNotification::event( QLatin1String( "clicksound" ) );
+        if(Settings::playSounds())
+            m_soundClick->start();
     } else {
-        KNotification::event( QLatin1String( "turnsound" ) );
+        if(Settings::playSounds())
+            m_soundTurn->start();
 
         cellAt(index)->animateRotation(clockWise);
 
         // FIXME: won't work!!!
         //if (updateConnections())
-        //    KNotification::event( "connectsound" );
+        //    m_soundConnect->start();
 
         emit rotationPerformed();
     }

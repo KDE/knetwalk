@@ -9,4 +9,10 @@
       <label>Default user name</label>
     </entry>
   </group>
+  <group name="Sound">
+    <entry name="PlaySounds" type="Bool" key="PlaySounds">
+      <label>Whether game sounds are played.</label>
+      <default>false</default>
+    </entry>
+  </group>
 </kcfg>

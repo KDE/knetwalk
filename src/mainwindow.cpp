@@ -26,8 +26,7 @@
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KStandardGameAction>
-#include <KNotification>
-#include <KNotifyConfigWidget>
+#include <KStandardDirs>
 #include <KMessageBox>
 #include <KStatusBar>
 
@@ -36,6 +35,7 @@
 #include <KGameRenderer>
 #include <KScoreDialog>
 #include <KGameClock>
+#include <KgSound>
 
 #include <ctime>
 #include <cmath>
@@ -90,6 +90,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
 
+    m_soundStart = new KgSound(KStandardDirs::locate("appdata", "sounds/start.wav"));
+    m_soundWin = new KgSound(KStandardDirs::locate("appdata", "sounds/win.wav"));
+
     startNewGame();
 }
 
@@ -108,11 +111,13 @@ void MainWindow::setupActions()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
 
     // Settings
-    KStandardAction::configureNotifications(this,
-                SLOT(configureNotifications()), actionCollection());
-
     KStandardAction::preferences(m_selector, SLOT(showAsDialog()),
                                  actionCollection());
+
+    m_soundAction = new KToggleAction(i18n("&Play Sounds"), this);
+    connect(m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)));
+    actionCollection()->addAction( QLatin1String( "toggle_sound" ), m_soundAction);
+    m_soundAction->setChecked(Settings::playSounds());
 
     KAction* action = new KAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
@@ -164,9 +169,16 @@ void MainWindow::showHighscores()
     scoreDialog.exec();
 }
 
+void MainWindow::setSounds(bool val)
+{
+    Settings::setPlaySounds(val);
+    Settings::self()->writeConfig();
+}
+
 void MainWindow::startNewGame()
 {
-    KNotification::event( QLatin1String( "startsound" ), i18n("New Game") );
+    if(Settings::playSounds())
+        m_soundStart->start();
 
     const KgDifficultyLevel::StandardLevel l = Kg::difficultyLevel();
 
@@ -189,7 +201,9 @@ void MainWindow::startNewGame()
 
 void MainWindow::gameOver()
 {
-    KNotification::event(QLatin1String( "winsound" ));
+    if(Settings::playSounds())
+        m_soundWin->start();
+
     m_gameClock->pause();
     m_pauseAction->setEnabled(false);
     Kg::difficulty()->setGameRunning(false);
@@ -245,11 +259,6 @@ void MainWindow::updateStatusBar()
     QString time = i18nc("Time elapsed", "Time: %1", m_gameClock->timeString());
     statusBar()->changeItem(moves, StatusBarIndexMoves);
     statusBar()->changeItem(time, StatusBarIndexTime);
-}
-
-void MainWindow::configureNotifications()
-{
-    KNotifyConfigWidget::configure(this);
 }
 
 int MainWindow::boardSize()

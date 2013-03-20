@@ -20,6 +20,8 @@
 
 #include "cell.h"
 
+class KgSound;
+
 class FieldItem : public QGraphicsObject, public AbstractGrid
 {
     Q_OBJECT
@@ -84,6 +86,10 @@ private:
 
     // highlighted cell, from mouse or keyboard input
     int m_activeCell;
+
+    KgSound *m_soundTurn;
+    KgSound *m_soundClick;
+    KgSound *m_soundConnect;
 };
 
 #endif

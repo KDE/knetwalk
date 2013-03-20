@@ -28,6 +28,7 @@
 #include "abstractgrid.h"
 #include "cell.h"
 
+class KgSound;
 class KGameClock;
 class KgThemeSelector;
 class KNetWalkScene;
@@ -61,8 +62,8 @@ private slots:
     void updateStatusBar();
 
     void showHighscores();
-    void configureNotifications();
-    void loadSettings();    
+    void loadSettings();
+    void setSounds(bool val);
 private:
     void setupActions();
 
@@ -70,10 +71,13 @@ private:
     KGameClock   *m_gameClock;
 
     KToggleAction* m_pauseAction;
+    KToggleAction* m_soundAction;
 
     KNetWalkScene* m_scene;
     KNetWalkView* m_view;
     KgThemeSelector* m_selector;
+    KgSound *m_soundStart;
+    KgSound *m_soundWin;
 };
 
 #endif // MAINWINDOW_H
