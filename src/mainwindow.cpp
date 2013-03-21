@@ -90,8 +90,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
 
-    m_soundStart = new KgSound(KStandardDirs::locate("appdata", "sounds/start.wav"));
-    m_soundWin = new KgSound(KStandardDirs::locate("appdata", "sounds/win.wav"));
+    m_soundStart = new KgSound(KStandardDirs::locate("appdata", "sounds/start.wav"), this);
+    m_soundWin = new KgSound(KStandardDirs::locate("appdata", "sounds/win.wav"), this);
 
     startNewGame();
 }

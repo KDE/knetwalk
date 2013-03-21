@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 <date>2007-11-13</date>
-<releaseinfo>3.0.0</releaseinfo>
+<releaseinfo>3.0.1</releaseinfo>
 
 <abstract>
 <para>
@@ -219,6 +219,16 @@ Toggles on and off the display of the statusbar.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
+<guimenuitem>Play Sounds...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+  <action>If checked, &knetwalk; game sounds are played.</action>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
 <guimenuitem>Configure Shortcuts...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
@@ -232,14 +242,6 @@ Toggles on and off the display of the statusbar.
 <guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem><para>Displays a &kde; standard dialog where you can configure the toolbar icons.</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guimenuitem>Configure
-Notifications...</guimenuitem></menuchoice></term>
-<listitem><para>This item displays a standard &kde; notifications configuration
-dialog, where you can change the notifications (sounds, visible messages,
-&etc;) used by &knetwalk;.</para></listitem>
 </varlistentry>
 
 </variablelist>

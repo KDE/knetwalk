@@ -30,9 +30,9 @@ FieldItem::FieldItem()
 {
     setAcceptHoverEvents(true);
 
-    m_soundTurn = new KgSound(KStandardDirs::locate("appdata", "sounds/turn.wav"));
-    m_soundClick = new KgSound(KStandardDirs::locate("appdata", "sounds/click.wav"));
-    m_soundConnect = new KgSound(KStandardDirs::locate("appdata", "sounds/connect.wav"));
+    m_soundTurn = new KgSound(KStandardDirs::locate("appdata", "sounds/turn.wav"), this);
+    m_soundClick = new KgSound(KStandardDirs::locate("appdata", "sounds/click.wav"), this);
+    m_soundConnect = new KgSound(KStandardDirs::locate("appdata", "sounds/connect.wav"), this);
 }
 
 void FieldItem::resize(const QSizeF& size)
