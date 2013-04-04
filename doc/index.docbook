@@ -32,7 +32,7 @@
 <legalnotice>&FDLNotice;</legalnotice>
 
 <date>2007-11-13</date>
-<releaseinfo>3.0.1</releaseinfo>
+<releaseinfo>3.1.0</releaseinfo>
 
 <abstract>
 <para>
@@ -206,12 +206,13 @@ Toggles on and off the display of the statusbar.
 </menuchoice></term>
 <listitem>
 <para>Lets you set the difficulty level from a sub-menu.</para>
-<para>There are four levels of difficulty:
+<para>There are five levels of difficulty:
 <itemizedlist>
 <listitem><para><guimenuitem>Easy</guimenuitem>: 5 rows, 5 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</para></listitem>
+<listitem><para><guimenuitem>Custom</guimenuitem>: The settings you have configured in the Configure KNetWalk dialog will be used.</para></listitem>
 </itemizedlist>
 </para></listitem>
 </varlistentry>

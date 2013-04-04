@@ -14,6 +14,8 @@ set(knetwalk_SRCS
    mainwindow.cpp
    abstractgrid.cpp)
 
+kde4_add_ui_files( knetwalk_SRCS customgame.ui )
+
 kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 kde4_add_app_icon(knetwalk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-knetwalk.png")

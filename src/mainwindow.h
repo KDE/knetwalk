@@ -63,6 +63,7 @@ private slots:
 
     void showHighscores();
     void loadSettings();
+    void configureSettings();
     void setSounds(bool val);
 private:
     void setupActions();

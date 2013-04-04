@@ -40,6 +40,8 @@
 #include <ctime>
 #include <cmath>
 
+#include "ui_customgame.h"
+
 #include "globals.h"
 #include "settings.h"
 #include "cell.h"
@@ -47,6 +49,18 @@
 #include "scene.h"
 #include "view.h"
 #include "fielditem.h"
+
+class CustomGameConfig : public QWidget
+{
+public:
+    CustomGameConfig(QWidget *parent)
+        : QWidget(parent)
+    {
+        ui.setupUi(this);
+    }
+private:
+    Ui::CustomGameConfig ui;
+};
 
 MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent), m_clickCount(0)
@@ -71,6 +85,9 @@ MainWindow::MainWindow(QWidget *parent)
     // Difficulty
     Kg::difficulty()->addStandardLevelRange(
         KgDifficultyLevel::Easy, KgDifficultyLevel::VeryHard
+    );
+    Kg::difficulty()->addLevel(
+                new KgDifficultyLevel(100, QByteArray("Custom"), i18n("Custom"))
     );
     KgDifficultyGUI::init(this);
     connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), SLOT(startNewGame()));
@@ -111,8 +128,7 @@ void MainWindow::setupActions()
     KStandardGameAction::quit(this, SLOT(close()), actionCollection());
 
     // Settings
-    KStandardAction::preferences(m_selector, SLOT(showAsDialog()),
-                                 actionCollection());
+    KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
 
     m_soundAction = new KToggleAction(i18n("&Play Sounds"), this);
     connect(m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)));
@@ -161,6 +177,16 @@ void MainWindow::loadSettings()
     m_scene->resizeScene(m_scene->sceneRect().size());
 }
 
+void MainWindow::configureSettings()
+{
+    if (KConfigDialog::showDialog(QLatin1String("settings")))
+        return;
+    KConfigDialog *dialog = new KConfigDialog(this, QLatin1String("settings"), Settings::self());
+    dialog->addPage(m_selector, i18n("Theme"), QLatin1String("games-config-theme"));
+    dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QLatin1String("games-config-custom"));
+    dialog->show();
+}
+
 void MainWindow::showHighscores()
 {
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
@@ -182,7 +208,9 @@ void MainWindow::startNewGame()
 
     const KgDifficultyLevel::StandardLevel l = Kg::difficultyLevel();
 
-    const bool isWrapped = (l == KgDifficultyLevel::VeryHard);
+    bool isWrapped = (l == KgDifficultyLevel::VeryHard);
+    if (Kg::difficultyLevel() == KgDifficultyLevel::Custom)
+        isWrapped = Settings::wrapping();
     const int size = boardSize();
     m_scene->startNewGame(size, size, (Wrapping)isWrapped);
     m_clickCount = -m_scene->fieldItem()->minimumMoves();
@@ -267,6 +295,7 @@ int MainWindow::boardSize()
     case KgDifficultyLevel::Easy: return NoviceBoardSize;
     case KgDifficultyLevel::Medium: return NormalBoardSize;
     case KgDifficultyLevel::Hard: return ExpertBoardSize;
+    case KgDifficultyLevel::Custom: return Settings::size();
     default: return MasterBoardSize;
     }
 }
