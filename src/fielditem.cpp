@@ -189,10 +189,6 @@ void FieldItem::rotate(int index, bool clockWise)
 
         cellAt(index)->animateRotation(clockWise);
 
-        // FIXME: won't work!!!
-        //if (updateConnections())
-        //    m_soundConnect->start();
-
         emit rotationPerformed();
     }
 }
@@ -201,6 +197,18 @@ void FieldItem::rotate(int index, bool clockWise)
 void FieldItem::updateConnections()
 {
     QList<int> changedCells = AbstractGrid::updateConnections();
+
+    //When a new terminal is connected/disconnected connect.wav is played
+    if (Settings::playSounds())
+    {
+        foreach (int index, changedCells){
+            if (cellAt(index)->isTerminal()){
+                m_soundConnect->start();
+                break;
+            }
+        }
+    }
+
     checkIfGameEnded();
 }
 
