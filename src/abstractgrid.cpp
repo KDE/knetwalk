@@ -154,20 +154,45 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
     }
 
     m_minimumMoves = 0;
-    // shuffle all cells
-    for (uint i = 0; i < width*height; ++i) {
-        AbstractCell *cell = m_cells[i];
-        Directions oldCables = cell->cables();
+    const int shuffleLimit = cellCount() * minCellRatio;
+    QList<int> notShuffledCells;
+    for (int i = 0; i < cellCount(); ++i)
+        notShuffledCells.append(i);
 
-        int rotation = rand() % 4; // 0..3
-        for (int j = 0; j < rotation; ++j) {
-            // ratate every cable clockwise
+    // select a random cell that is not yet shuffled
+    // rotate such that initial and final states are not same
+    // repeat above two steps until minimum moves equal to shuffle limit
+    while(m_minimumMoves < shuffleLimit)
+    {
+        // selecting a random index
+        int index = rand() % notShuffledCells.count();
+        int cellNo = notShuffledCells[index];
+        // removing the selected index so that it must not be used again
+        notShuffledCells.removeAt(index);
+        AbstractCell *cell = m_cells[cellNo];
+        Directions dir = cell->cables();
+
+        // excludes None(Empty cell)
+        if (dir == None) {
+            continue;
+        }
+        // if straight line rotate once
+        // cant rotate twice(it will be back on its initial state)
+        else if ((dir == (Up | Down)) || (dir == (Left | Right))) {
+            m_minimumMoves += 1;
             cell->rotateClockwise();
         }
-
-        // excludes None and straight lines
-        if (oldCables != cell->cables()) {
+        // for every other case rotate 1..3 times
+        else {
+            int rotation = rand() % 3 + 1; // 1..3
+            // cant rotate twice when m_minimumMoves == shuffleLimit - 1
+            if (m_minimumMoves == shuffleLimit - 1 && rotation == 2){
+                rotation = (rand() % 2)? 1 : 3; // 1 or 3
+            }
             m_minimumMoves += (rotation == 3) ? 1 : rotation;
+            while(rotation--) {
+                cell->rotateClockwise();
+            }
         }
     }
 
@@ -210,10 +235,9 @@ void AbstractGrid::createGrid()
 
     // number of cells that aren't free
     int notFreeCells = 0;
-    // TODO:use a global constant instead of 10 / 8
-    const int MinimumNumCells = cellCount() * 8 / 10;
+    const int minimumNumCells = cellCount() * minCellRatio;
     // retries until the minimum number of cells is big enough
-    while (notFreeCells < MinimumNumCells) {
+    while (notFreeCells < minimumNumCells) {
         QList<uint> list;
         list.append(server_index);
         if (rand() % 2) addRandomCable(list);
