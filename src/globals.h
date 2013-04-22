@@ -31,6 +31,9 @@ int const AnimationTime = 400;
 const qreal BoardBorder = 0.04;
 const qreal OverlayBorder = 0.02;
 
+// ratio of minimum filled cells to total cells
+const qreal minCellRatio = 0.8;
+
 // border of the computer and server sprites inside the cells
 const qreal CellForegroundBorder = 0.1;
 
