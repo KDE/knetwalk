@@ -31,8 +31,8 @@
     
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2007-11-13</date>
-<releaseinfo>3.1.0</releaseinfo>
+<date>2013-05-05</date>
+<releaseinfo>3.1.0 (&kde; 4.11)</releaseinfo>
 
 <abstract>
 <para>
@@ -103,8 +103,8 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <chapter id="interface-overview">
 <title>Interface Overview</title>
 
-<sect1 id="game-menu">
-<title><guimenu>Game</guimenu> Menu</title>
+<sect1 id="menu">
+<title>Menu Items</title>
 
 <variablelist>
 <varlistentry>
@@ -118,6 +118,18 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <listitem>
 <para>
 Starts a new game. It creates a random board using the current difficulty level.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycap>P</keycap></shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>Pause</guimenuitem></menuchoice></term>
+<listitem>
+<para>
+Pauses the game time. Click on the menu item again to make the game resume. Note that the board disappears when the game is paused as it would be unfair if you could search for good moves without the time pressure.
 </para>
 </listitem>
 </varlistentry>
@@ -147,42 +159,6 @@ Shows a dialog containing the High Scores for the various difficulty levels.
 <listitem>
 <para>
 Quits the program.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
-
-</sect1>
-
-
-
-
-<sect1 id="settings-menu">
-<title><guimenu>Settings</guimenu> Menu</title>
-
-<variablelist>
-
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para>
-Toggles on and off the display of the toolbar.
-</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
-</menuchoice></term>
-<listitem>
-<para>
-Toggles on and off the display of the statusbar.
 </para>
 </listitem>
 </varlistentry>
@@ -226,32 +202,14 @@ Toggles on and off the display of the statusbar.
   <action>If checked, &knetwalk; game sounds are played.</action>
 </para></listitem>
 </varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Opens a dialog which lets you redefine all the keyboard shortcuts.</action>
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
-</menuchoice></term>
-<listitem><para>Displays a &kde; standard dialog where you can configure the toolbar icons.</para></listitem>
-</varlistentry>
-
 </variablelist>
-</sect1>
 
-<sect1 id="help">
-<title><guimenu>Help</guimenu> Menu</title>
-
-&help.menu.documentation;
+<para>
+Additionally &kbreakout; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Settings Menu</ulink> and <ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink>
+of the &kde; Fundamentals.
+</para>
 
 </sect1>
 
@@ -268,6 +226,12 @@ Toggles on and off the display of the statusbar.
 <entry>Start a new game</entry>
 <entry>
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Pause</entry>
+<entry>
+<keycap>P</keycap>
 </entry>
 </row>
 <row>
