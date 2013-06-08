@@ -29,7 +29,7 @@ class AbstractGridTest : public QObject
     private slots:
         void testCreateGrid();
 };
-#include <time.h>
+
 void AbstractGridTest::testCreateGrid()
 {
     srand(1370714025);
