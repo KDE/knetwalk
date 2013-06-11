@@ -225,19 +225,20 @@ void AbstractGrid::print() {
 
 void AbstractGrid::createGrid()
 {
-    for (int i = 0; i < cellCount(); ++i) {
-        m_cells[i]->makeEmpty();
-    }
-
     // add a random server
     server_index = rand() % (cellCount());
-    m_cells[server_index]->setServer(true);
 
     // number of cells that aren't free
     int notFreeCells = 0;
     const int minimumNumCells = cellCount() * minCellRatio;
     // retries until the minimum number of cells is big enough
     while (notFreeCells < minimumNumCells) {
+
+        for (int i = 0; i < cellCount(); ++i) {
+            m_cells[i]->makeEmpty();
+        }
+        m_cells[server_index]->setServer(true);
+
         QList<uint> list;
         list.append(server_index);
         if (rand() % 2) addRandomCable(list);
