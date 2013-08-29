@@ -3,6 +3,7 @@
     Copyright 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch> 
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com> 
     Copyright 2010 Brian Croom <brian.s.croom@gmail.com>
+    Copyright 2013 Ashwin Rajeev<ashwin_rajeev@hotmail.com>
   
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,15 +26,11 @@
 
 #include <QList>
 
-#include "abstractgrid.h"
-#include "cell.h"
-
 class KgSound;
 class KGameClock;
-class KgThemeSelector;
-class KNetWalkScene;
-class KNetWalkView;
+class KgThemeProvider;
 class KToggleAction;
+class GameView;
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -53,7 +50,8 @@ private:
       MasterBoardSize = 9
     };
     static int boardSize();
-
+signals:
+    void pause(QVariant paused);
 private slots:
     void startNewGame();
     void gameOver();
@@ -62,7 +60,6 @@ private slots:
     void updateStatusBar();
 
     void showHighscores();
-    void loadSettings();
     void configureSettings();
     void setSounds(bool val);
 private:
@@ -74,9 +71,7 @@ private:
     KToggleAction* m_pauseAction;
     KToggleAction* m_soundAction;
 
-    KNetWalkScene* m_scene;
-    KNetWalkView* m_view;
-    KgThemeSelector* m_selector;
+    GameView *m_view;
     KgSound *m_soundStart;
     KgSound *m_soundWin;
 };

@@ -98,25 +98,14 @@ public:
     int height() const {return m_height;}
     int cellCount() const {return m_cells.size();} // TODO: use in the cpp file
     int minimumMoves() const {return m_minimumMoves;}
-protected:
 
-    void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
-    
     // ownership remains to the AbstractGrid
-    QList<AbstractCell *> cells() const {return m_cells;}
-    
-    // the minimum number of moves required to solve the game
-    int m_minimumMoves;
-    
-    virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
-    
+    AbstractCell *cellAt(int index) const {return m_cells[index];}
+    void initializeGrid(uint width, uint height, Wrapping w=NotWrapped);
     // updates the connections of the cells
     // returns the indexes of the changed cells
     QList<int> updateConnections();
-    
     // returns true if all terminals are connected to the server
-    bool isPossibleSolution();
-    
     bool allTerminalsConnected();
     
 private:
@@ -132,6 +121,7 @@ private:
     bool m_isWrapped;
     
     int server_index;
+    int m_minimumMoves;
     
     //======== auxiliary functions ========//
     void createGrid(); // only used for modularization
@@ -158,6 +148,11 @@ private:
     
     // return false if some of the moves done are clearly wrong
     bool movesDoneArePossible();
+    // the minimum number of moves required to solve the game
+
+    virtual AbstractCell *newCell(int index) {return new AbstractCell(index);}
+
+    bool isPossibleSolution();
 };
 
 #endif // ABSTRACT_GRID

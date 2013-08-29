@@ -2,6 +2,7 @@
     Copyright 2004-2005 Andi Peredri <andi@ukr.net>
     Copyright 2007 Simon Hürlimann <simon.huerlimann@huerlisi.ch>
     Copyright 2007-2008 Fela Winkelmolen <fela.kde@gmail.com>
+    Copyright 2013 Ashwin Rajeev<ashwin_rajeev@hotmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -43,12 +44,9 @@
 #include "ui_customgame.h"
 
 #include "globals.h"
+#include "gameview.h"
 #include "settings.h"
-#include "cell.h"
 #include "abstractgrid.h"
-#include "scene.h"
-#include "view.h"
-#include "fielditem.h"
 
 class CustomGameConfig : public QWidget
 {
@@ -63,21 +61,12 @@ private:
 };
 
 MainWindow::MainWindow(QWidget *parent)
-    : KXmlGuiWindow(parent), m_clickCount(0)
+    : KXmlGuiWindow(parent), m_clickCount(0),
+      m_view(new GameView(this))
 {
-    m_scene = new KNetWalkScene(this);
-    connect(m_scene->fieldItem(), SIGNAL(gameWon()), this, SLOT(gameOver()));
-    connect(m_scene->fieldItem(), SIGNAL(rotationPerformed()), this, SLOT(rotationPerformed()));
-
-    m_view = new KNetWalkView(m_scene, this);
-    m_view->setCacheMode(QGraphicsView::CacheBackground);
-    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_view->setFrameStyle(QFrame::NoFrame);
-    m_view->setOptimizationFlags(QGraphicsView::DontClipPainter |
-                                 QGraphicsView::DontSavePainterState);
-    m_view->setCacheMode(QGraphicsView::CacheBackground);
-    setCentralWidget(m_view);
+    connect(m_view, SIGNAL(gameWon()), this, SLOT(gameOver()));
+    connect(m_view, SIGNAL(rotationPerformed()), this, SLOT(rotationPerformed()));
+    connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
     statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexMoves, 1);
     statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexTime, 1);
@@ -92,9 +81,8 @@ MainWindow::MainWindow(QWidget *parent)
     KgDifficultyGUI::init(this);
     connect(Kg::difficulty(), SIGNAL(currentLevelChanged(const KgDifficultyLevel*)), SLOT(startNewGame()));
 
-    KgThemeProvider* provider = Renderer::self()->themeProvider();
-    m_selector = new KgThemeSelector(provider);
-    connect(provider, SIGNAL(currentThemeChanged(const KgTheme*)), SLOT(loadSettings()));
+
+    setCentralWidget(m_view);
 
     setupActions();
 
@@ -137,44 +125,38 @@ void MainWindow::setupActions()
 
     KAction* action = new KAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoRight()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoRight()));
     actionCollection()->addAction( QLatin1String( "kb_go_right" ), action);
 
     action = new KAction(i18n("Keyboard: Field left"),this);
     action->setShortcut(Qt::Key_Left);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoLeft()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoLeft()));
     actionCollection()->addAction( QLatin1String( "kb_go_left" ), action);
 
     action = new KAction(i18n("Keyboard: Field up"),this);
     action->setShortcut(Qt::Key_Up);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoUp()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoUp()));
     actionCollection()->addAction( QLatin1String( "kb_go_up" ), action);
 
     action = new KAction(i18n("Keyboard: Field down"),this);
     action->setShortcut(Qt::Key_Down);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbGoDown()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoDown()));
     actionCollection()->addAction( QLatin1String( "kb_go_down" ), action);
 
     action = new KAction(i18n("Keyboard: Turn clockwise"),this);
     action->setShortcut(Qt::Key_Return);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnClockwise()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateClockwise()));
     actionCollection()->addAction( QLatin1String( "kb_turn_clockwise" ), action);
 
     action = new KAction(i18n("Keyboard: Turn counterclockwise"),this);
     action->setShortcut(Qt::CTRL + Qt::Key_Return);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbTurnCounterclockwise()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateCounterclockwise()));
     actionCollection()->addAction( QLatin1String( "kb_turn_counterclockwise" ), action);
 
     action = new KAction(i18n("Keyboard: Toggle lock"),this);
     action->setShortcut(Qt::Key_Space);
-    connect(action, SIGNAL(triggered()), m_scene->fieldItem(), SLOT(kbLock()));
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(toggleLock()));
     actionCollection()->addAction( QLatin1String( "kb_lock" ), action);
-}
-
-void MainWindow::loadSettings()
-{
-    m_view->resetCachedContent();
-    m_scene->resizeScene(m_scene->sceneRect().size());
 }
 
 void MainWindow::configureSettings()
@@ -182,7 +164,7 @@ void MainWindow::configureSettings()
     if (KConfigDialog::showDialog(QLatin1String("settings")))
         return;
     KConfigDialog *dialog = new KConfigDialog(this, QLatin1String("settings"), Settings::self());
-    dialog->addPage(m_selector, i18n("Theme"), QLatin1String("games-config-theme"));
+    dialog->addPage(new KgThemeSelector(m_view->getProvider()), i18n("Theme"), QLatin1String("games-config-theme"));
     dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QLatin1String("games-config-custom"));
     dialog->show();
 }
@@ -212,13 +194,12 @@ void MainWindow::startNewGame()
     if (Kg::difficultyLevel() == KgDifficultyLevel::Custom)
         isWrapped = Settings::wrapping();
     const int size = boardSize();
-    m_scene->startNewGame(size, size, (Wrapping)isWrapped);
-    m_clickCount = -m_scene->fieldItem()->minimumMoves();
+    m_view->startNewGame(size, size, (Wrapping)isWrapped);
+    m_clickCount = -m_view->minimumMoves();
     m_gameClock->restart();
 
     if(m_pauseAction->isChecked())
     {
-        m_scene->setGamePaused(false);
         m_pauseAction->setChecked(false);
     }
     m_pauseAction->setEnabled(true);
@@ -241,7 +222,7 @@ void MainWindow::gameOver()
     double penalty = m_gameClock->seconds() / 2.0 * (m_clickCount/2 + 1);
 
     // normalize the penalty
-    penalty = std::sqrt(penalty/m_scene->fieldItem()->cellCount());
+    penalty = std::sqrt(penalty/m_view->cellCount());
 
     int score = static_cast<int>(100.0 / penalty);
 
@@ -273,7 +254,7 @@ void MainWindow::rotationPerformed()
 
 void MainWindow::pauseGame(bool paused)
 {
-    m_scene->setGamePaused(paused);
+    pause(paused);
     if(paused) {
         m_gameClock->pause();
     } else {

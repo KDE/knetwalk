@@ -48,6 +48,7 @@ int main(int argc, char ** argv)
     about.addAuthor(ki18n("Thomas Nagy"), 
                     ki18n("KDE port"), 
                     "tnagy2^8@yahoo.fr");
+
                     
     about.addCredit(ki18n("Eugene Trounev"),
                     ki18n("icon design"),
@@ -56,6 +57,10 @@ int main(int argc, char ** argv)
     about.addCredit(ki18n("Brian Croom"),
                     ki18n("Port to use the QGraphicsView framework"),
                     "brian.s.croom@gmail.com");
+
+    about.addCredit(ki18n("Ashwin Rajeev"),
+                    ki18n("Port to QtQuick"),
+                    "ashwin_rajeev@hotmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
 

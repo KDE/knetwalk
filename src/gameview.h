@@ -1,0 +1,61 @@
+/*
+    Copyright (C) 2013 by Ashwin Rajeev<ashwin_rajeev@hotmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef GAMEVIEW_H
+#define GAMEVIEW_H
+
+#include <KgDeclarativeView>
+#include <QVariant>
+
+#include "abstractgrid.h"
+
+class KgSound;
+
+class GameView : public KgDeclarativeView
+{
+    Q_OBJECT
+public:
+    GameView(QWidget *parent=0);
+    void startNewGame(uint width, uint height, Wrapping w);
+    int minimumMoves() {return grid->minimumMoves();}
+    int cellCount() {return grid->cellCount();}
+    KgThemeProvider* getProvider() {return m_provider;}
+
+signals:
+    void newCell(QVariant pos, QVariant cable, QVariant type);
+    void setSprite(QVariant pos, QVariant cable, QVariant type);
+    void levelChanged(QVariant size);
+    void rotationPerformed();
+    void gameWon();
+
+private slots:
+    void playClick();
+    void rotationStarted(int index, QString dir);
+    void rotated(int index);
+
+private:
+    QString getCableCode(int cables);
+    void checkCompleted();
+
+    AbstractGrid *grid;
+    KgThemeProvider* m_provider;
+    KgSound *m_soundTurn;
+    KgSound *m_soundClick;
+    KgSound *m_soundConnect;
+};
+
+#endif //GAMEVIEW_H

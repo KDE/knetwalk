@@ -1,0 +1,56 @@
+/*
+    Copyright 2013 Ashwin Rajeev <ashwin_rajeev@hotmail.com>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+import QtQuick 1.1
+
+Item{
+    property string sprite
+    property string type
+    property int index
+    property int angle
+    property bool locked: false
+
+    width: (grid.width > 0)? grid.width / main.cellCount : 0;
+    height: (grid.height > 0)? grid.height / main.cellCount : 0;
+
+    Rectangle {
+        anchors.fill: parent
+        color: "black"
+        opacity: (locked && main.state == "running")? 0.5 : 0
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        enabled: main.state == "running"
+        acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
+        hoverEnabled: true
+        onClicked: {
+            main.selectedCell = index
+            if (mouse.button == Qt.LeftButton) {
+                main.rotateCounterclockwise();
+            }
+            else if (mouse.button == Qt.RightButton) {
+                main.rotateClockwise();
+            }
+            else if (mouse.button == Qt.MiddleButton) {
+                locked = !locked
+            }
+        }
+        onEntered: main.selectedCell = index
+        onMousePositionChanged: main.selectedCell = index
+    }
+}
