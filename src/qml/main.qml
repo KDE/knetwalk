@@ -86,8 +86,8 @@ Item {
         }
     }
 
-    function addCell(index, cable, type) {
-        Logic.addCell(index, cable, type);
+    function addCell(cable, type) {
+        Logic.addCell(cable, type);
     }
 
     function setBoardSize(size) {
@@ -133,7 +133,7 @@ Item {
 
     function toggleLock() {
         if(state == "running") {
-            Logic.cellAt(selectedCell).locked = !Logic.cellAt(selectedCell).locked;
+            Logic.cells[selectedCell].locked = !Logic.cells[selectedCell].locked;
         }
     }
 
@@ -141,7 +141,7 @@ Item {
         Logic.setSprite(index, cable, type);
     }
 
-    function won() {
-        state = "over";
+    function gameOver(msg) {
+        state = msg;
     }
 }

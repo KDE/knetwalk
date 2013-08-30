@@ -64,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent), m_clickCount(0),
       m_view(new GameView(this))
 {
-    connect(m_view, SIGNAL(gameWon()), this, SLOT(gameOver()));
+    connect(m_view, SIGNAL(gameOver(QVariant)), this, SLOT(gameOver(QVariant)));
     connect(m_view, SIGNAL(rotationPerformed()), this, SLOT(rotationPerformed()));
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
@@ -108,6 +108,9 @@ void MainWindow::setupActions()
                                  actionCollection());
 
     m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)),
+                                               actionCollection());
+
+    m_solveAction = KStandardGameAction::solve(m_view, SLOT(solve()),
                                                actionCollection());
 
     KStandardGameAction::highscores(this, SLOT(showHighscores()),
@@ -203,19 +206,24 @@ void MainWindow::startNewGame()
         m_pauseAction->setChecked(false);
     }
     m_pauseAction->setEnabled(true);
+    m_solveAction->setEnabled(true);
     Kg::difficulty()->setGameRunning(false);
 
     updateStatusBar();
 }
 
-void MainWindow::gameOver()
+void MainWindow::gameOver(QVariant msg)
 {
-    if(Settings::playSounds())
-        m_soundWin->start();
-
     m_gameClock->pause();
     m_pauseAction->setEnabled(false);
+    m_solveAction->setEnabled(false);
     Kg::difficulty()->setGameRunning(false);
+
+    if (msg.toString() != "won")
+        return;
+
+    if(Settings::playSounds())
+        m_soundWin->start();
 
     //=== calculate the score ====//
 

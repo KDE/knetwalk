@@ -18,20 +18,22 @@
 var cellComponent = Qt.createComponent("Cell.qml");
 var cableComponent = Qt.createComponent("Cable.qml");
 var canvasComponent = Qt.createComponent("CanvasItem.qml");
+var cells = []
 
-function addCell(index, cable, type) {
+function addCell(cable, type) {
     var cell = cellComponent.createObject(grid);
     cell.sprite = cable;
-    cell.index = index;
+    cell.index = cells.length;
     cell.type = type
     if(cable != "") {
         cableComponent.createObject(cell);
         createNode(type, cell)
     }
+    cells.push(cell);
 }
 
 function createNode(type, cell) {
-    if(type != "") {
+    if(type != "none") {
         var node = canvasComponent.createObject(cell);
         node.spriteKey = function() { return cell.type };
         node.anchors.fill = cell;
@@ -39,33 +41,29 @@ function createNode(type, cell) {
     }
 }
 
-function cellAt(index) {
-    return grid.children[index];
-}
-
 function reset() {
     selectedCell = 0
     state = "running"
-    for(var i = grid.children.length; i > 0 ; i--) {
-        cellAt(i-1).destroy();
+    while(cells.length > 0) {
+        cells.pop().destroy();
     }
 }
 
 function setSprite(index, cable, type) {
-    if(cellAt(index).angle == 0) {
-        cellAt(index).sprite = cable;
+    if(cells[index].angle == 0) {
+        cells[index].sprite = cable;
         if (type != "none"){
-            cellAt(index).type = type;
+            cells[index].type = type;
         }
     }
 }
 
 function rotate(direction) {
-    if(cellAt(selectedCell).locked || cellAt(selectedCell).sprite == "") {
+    if(cells[selectedCell].locked || cells[selectedCell].sprite == "") {
         empty();
     }
     else if(state == "running") {
-        cellAt(selectedCell).angle += (direction == "clockwise")? 90 : -90;
+        cells[selectedCell].angle += (direction == "clockwise")? 90 : -90;
         clicked(selectedCell, direction);
     }
 }

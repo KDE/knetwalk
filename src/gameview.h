@@ -36,14 +36,15 @@ public:
     KgThemeProvider* getProvider() {return m_provider;}
 
 signals:
-    void newCell(QVariant pos, QVariant cable, QVariant type);
+    void newCell(QVariant cable, QVariant type);
     void setSprite(QVariant pos, QVariant cable, QVariant type);
     void levelChanged(QVariant size);
     void rotationPerformed();
-    void gameWon();
+    void gameOver(QVariant msg);
 
 private slots:
     void playClick();
+    void solve();
     void rotationStarted(int index, QString dir);
     void rotated(int index);
 

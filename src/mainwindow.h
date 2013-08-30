@@ -30,6 +30,7 @@ class KgSound;
 class KGameClock;
 class KgThemeProvider;
 class KToggleAction;
+class KAction;
 class GameView;
 
 class MainWindow : public KXmlGuiWindow
@@ -54,7 +55,7 @@ signals:
     void pause(QVariant paused);
 private slots:
     void startNewGame();
-    void gameOver();
+    void gameOver(QVariant msg);
     void rotationPerformed();
     void pauseGame(bool paused);
     void updateStatusBar();
@@ -68,6 +69,7 @@ private:
     int           m_clickCount;
     KGameClock   *m_gameClock;
 
+    KAction* m_solveAction;
     KToggleAction* m_pauseAction;
     KToggleAction* m_soundAction;
 

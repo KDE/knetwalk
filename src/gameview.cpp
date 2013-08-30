@@ -45,11 +45,11 @@ GameView::GameView(QWidget *parent) :
     connect(rootObject(), SIGNAL(empty()), this, SLOT(playClick()));
     connect(this, SIGNAL(levelChanged(QVariant)),
             rootObject(), SLOT(setBoardSize(QVariant)));
-    connect(this, SIGNAL(newCell(QVariant,QVariant,QVariant)),
-            rootObject(), SLOT(addCell(QVariant,QVariant,QVariant)));
+    connect(this, SIGNAL(newCell(QVariant,QVariant)),
+            rootObject(), SLOT(addCell(QVariant,QVariant)));
     connect(this, SIGNAL(setSprite(QVariant,QVariant,QVariant)),
             rootObject(), SLOT(setSprite(QVariant,QVariant,QVariant)));
-    connect(this, SIGNAL(gameWon()), rootObject(), SLOT(won()));
+    connect(this, SIGNAL(gameOver(QVariant)), rootObject(), SLOT(gameOver(QVariant)));
 }
 
 void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
@@ -60,17 +60,17 @@ void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
     for(int i = 0; i < grid->cellCount(); i++)
     {
         QString code = getCableCode(grid->cellAt(i)->cables());
-        QString type = "";
-        if(grid->cellAt(i)->isConnected())
+        QString type = "none";
+        if(grid->cellAt(i)->isConnected()){
             code = QString("con") + code;
-
+        }
         if(grid->cellAt(i)->isServer()){
             type = "server";
         }
         else if(grid->cellAt(i)->isTerminal()) {
             type = (grid->cellAt(i)->isConnected())? "computer2": "computer1";
         }
-        newCell(i, code, type);
+        newCell(code, type);
     }
 }
 
@@ -135,7 +135,22 @@ void GameView::checkCompleted()
             return;
         }
     }
-    emit gameWon();
+    emit gameOver("won");
+}
+
+void GameView::solve()
+{
+    for(int i = 0; i < grid->cellCount(); i++) {
+        grid->cellAt(i)->reset();
+        QString code = "con" + getCableCode(grid->cellAt(i)->cables());
+        if (grid->cellAt(i)->isTerminal() && !grid->cellAt(i)->isServer()){
+            setSprite(i, code, "computer2");
+        }
+        else {
+            setSprite(i, code, "none");
+        }
+    }
+    emit gameOver("solved");
 }
 
 void GameView::playClick()
