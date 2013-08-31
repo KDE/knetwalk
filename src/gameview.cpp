@@ -52,6 +52,12 @@ GameView::GameView(QWidget *parent) :
     connect(this, SIGNAL(gameOver(QVariant)), rootObject(), SLOT(gameOver(QVariant)));
 }
 
+GameView::~GameView()
+{
+    delete m_provider;
+    delete grid;
+}
+
 void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
 {
     levelChanged(width);
