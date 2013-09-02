@@ -128,16 +128,17 @@ void GameView::rotated(int index)
 
 void GameView::checkCompleted()
 {
+    if (!grid->allTerminalsConnected()) {
+        return;
+    }
     for(int i = 0; i < grid->cellCount(); i++) {
-        if(grid->cellAt(i)->cables() != None && !grid->cellAt(i)->isConnected()) {
-            if(grid->allTerminalsConnected()){
-                KMessageBox::information(this,
-                    i18n("Note: to win the game all terminals "
-                    "<strong>and all <em>cables</em></strong> "
-                    "need to be connected to the server!"),
-                    i18n("The game is not won yet!"),
-                    QLatin1String( "dontShowGameNotWonYet" ));
-            }
+        if (grid->cellAt(i)->cables() != None && !grid->cellAt(i)->isConnected()) {
+            KMessageBox::information(this,
+                i18n("Note: to win the game all terminals "
+                "<strong>and all <em>cables</em></strong> "
+                "need to be connected to the server!"),
+                i18n("The game is not won yet!"),
+                QLatin1String( "dontShowGameNotWonYet" ));
             return;
         }
     }
@@ -149,7 +150,7 @@ void GameView::solve()
     for(int i = 0; i < grid->cellCount(); i++) {
         grid->cellAt(i)->reset();
         QString code = "con" + getCableCode(grid->cellAt(i)->cables());
-        if (grid->cellAt(i)->isTerminal() && !grid->cellAt(i)->isServer()){
+        if (grid->cellAt(i)->isTerminal()){
             setSprite(i, code, "computer2");
         }
         else {

@@ -51,6 +51,9 @@ char *AbstractCell::toString() {
 
 bool AbstractCell::isTerminal() const
 {
+    if (m_isServer){
+        return false;
+    }
     return (m_cables == Up || m_cables == Right
             || m_cables == Down || m_cables == Left);
 }
