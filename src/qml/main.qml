@@ -20,9 +20,7 @@ import "logic.js" as Logic
 
 Item {
     id: main
-    property int cellCount
     property int selectedCell: 0
-    property real border: 40
     property string state
 
     signal empty()
@@ -37,19 +35,19 @@ Item {
 
     Grid {
         id: grid
-        width:  (main.width > main.height)? main.height - border : main.width - border
-        height: width; z: 1
+        width:  Logic.gridWidth()
+        height: Logic.gridHeight()
+        z: 1
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        rows: cellCount; columns: cellCount;
     }
 
     CanvasItem {
         spriteKey: "overlay"
-        x: grid.x
-        y: grid.y
-        width: (grid.width > 0)? grid.width : 0;
-        height: (grid.height > 0)? grid.height : 0;
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        width: Logic.overlaySize();
+        height: width;
     }
 
     Rectangle {
@@ -57,8 +55,8 @@ Item {
         color: "white"
         x: grid.x + ((grid.children.length > 0)? grid.children[selectedCell].x : 0)
         y: grid.y + ((grid.children.length > 0)? grid.children[selectedCell].y : 0)
-        width: grid.width / cellCount
-        height: grid.height / cellCount
+        width: (grid.children.length > 0)? grid.children[selectedCell].width : 0
+        height: (grid.children.length > 0)? grid.children[selectedCell].height : 0
         opacity: (main.state == "running")? 0.2 : 0
         Behavior on x {
             NumberAnimation { easing.type: Easing.InOutQuad; duration: 100 }
@@ -90,9 +88,10 @@ Item {
         Logic.addCell(cable, type);
     }
 
-    function setBoardSize(size) {
+    function setBoardSize(width, height) {
         Logic.reset();
-        cellCount = size;
+        grid.rows = height;
+        grid.columns = width;
     }
 
     function rotateClockwise() {
@@ -109,25 +108,28 @@ Item {
 
     function kbGoUp() {
         if(state == "running") {
-            selectedCell += (selectedCell < cellCount)? cellCount * (cellCount - 1): -cellCount;
+            selectedCell += (selectedCell < grid.columns)?
+                            grid.columns * (grid.rows - 1) : -grid.columns;
         }
     }
 
     function kbGoDown() {
         if(state == "running") {
-            selectedCell += (selectedCell < cellCount * (cellCount - 1))? cellCount: -cellCount * (cellCount - 1);
+            selectedCell += (selectedCell < grid.columns * (grid.rows - 1))?
+                            grid.columns : -grid.columns * (grid.rows - 1);
         }
     }
 
     function kbGoLeft() {
         if(state == "running") {
-            selectedCell += (selectedCell % cellCount == 0)? cellCount - 1 : - 1;
+            selectedCell += (selectedCell % grid.columns == 0)? grid.columns - 1 : - 1;
         }
     }
 
     function kbGoRight() {
         if (state == "running") {
-            selectedCell += (selectedCell % cellCount == cellCount - 1)? -cellCount + 1 : 1;
+            selectedCell += (selectedCell % grid.columns == grid.columns - 1)?
+                            -grid.columns + 1 : 1;
         }
     }
 

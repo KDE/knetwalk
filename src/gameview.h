@@ -39,7 +39,7 @@ public:
 signals:
     void newCell(QVariant cable, QVariant type);
     void setSprite(QVariant pos, QVariant cable, QVariant type);
-    void levelChanged(QVariant size);
+    void setSize(QVariant width, QVariant height);
     void rotationPerformed();
     void gameOver(QVariant msg);
 

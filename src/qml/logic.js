@@ -15,10 +15,30 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+var border = 40
 var cellComponent = Qt.createComponent("Cell.qml");
 var cableComponent = Qt.createComponent("Cable.qml");
 var canvasComponent = Qt.createComponent("CanvasItem.qml");
 var cells = []
+
+function overlaySize() {
+    size = (width > height)? height - border : width - border;
+    return (size > 0)? size : 0;
+}
+
+function gridWidth() {
+    var widthRatio = (width - border) / grid.columns;
+    var heightRatio = (height - border) / grid.rows;
+    var gWidth = grid.columns * Math.min(widthRatio, heightRatio);
+    return (gWidth > 0)? gWidth : 0;
+}
+
+function gridHeight() {
+    var widthRatio = (width - border) / grid.columns;
+    var heightRatio = (height - border) / grid.rows;
+    var gHeight = grid.rows * Math.min(widthRatio, heightRatio);
+    return (gHeight > 0)? gHeight : 0;
+}
 
 function addCell(cable, type) {
     var cell = cellComponent.createObject(grid);

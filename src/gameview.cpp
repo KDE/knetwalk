@@ -43,8 +43,8 @@ GameView::GameView(QWidget *parent) :
             this, SLOT(rotationStarted(int, QString)));
     connect(rootObject(), SIGNAL(rotated(int)), this, SLOT(rotated(int)));
     connect(rootObject(), SIGNAL(empty()), this, SLOT(playClick()));
-    connect(this, SIGNAL(levelChanged(QVariant)),
-            rootObject(), SLOT(setBoardSize(QVariant)));
+    connect(this, SIGNAL(setSize(QVariant,QVariant)),
+            rootObject(), SLOT(setBoardSize(QVariant,QVariant)));
     connect(this, SIGNAL(newCell(QVariant,QVariant)),
             rootObject(), SLOT(addCell(QVariant,QVariant)));
     connect(this, SIGNAL(setSprite(QVariant,QVariant,QVariant)),
@@ -60,7 +60,7 @@ GameView::~GameView()
 
 void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
 {
-    levelChanged(width);
+    setSize(width, height);
     grid->initializeGrid(width, height, w);
 
     for(int i = 0; i < grid->cellCount(); i++)

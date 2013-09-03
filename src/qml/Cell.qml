@@ -24,8 +24,8 @@ Item{
     property int angle
     property bool locked: false
 
-    width: (grid.width > 0)? grid.width / main.cellCount : 0;
-    height: (grid.height > 0)? grid.height / main.cellCount : 0;
+    width: grid.width / grid.columns;
+    height: width;
 
     Rectangle {
         anchors.fill: parent
