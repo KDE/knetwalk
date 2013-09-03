@@ -45,7 +45,9 @@ function reset() {
     selectedCell = 0
     state = "running"
     while(cells.length > 0) {
-        cells.pop().destroy();
+        var cell = cells.pop();
+        cell.visible = false;
+        cell.destroy();
     }
 }
 
