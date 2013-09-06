@@ -61,14 +61,16 @@ function createNode(type, cell) {
     }
 }
 
-function reset() {
-    selectedCell = 0
+function reset(width, height) {
+    selected = 0
     state = "running"
     while(cells.length > 0) {
         var cell = cells.pop();
         cell.visible = false;
         cell.destroy();
     }
+    rows = height;
+    columns = width;
 }
 
 function setSprite(index, cable, type) {
@@ -81,11 +83,11 @@ function setSprite(index, cable, type) {
 }
 
 function rotate(direction) {
-    if(cells[selectedCell].locked || cells[selectedCell].sprite == "") {
+    if(cells[selected].locked || cells[selected].sprite == "") {
         empty();
     }
     else if(state == "running") {
-        cells[selectedCell].angle += (direction == "clockwise")? 90 : -90;
-        clicked(selectedCell, direction);
+        cells[selected].angle += (direction == "clockwise")? 90 : -90;
+        clicked(selected, direction);
     }
 }

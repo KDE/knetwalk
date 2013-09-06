@@ -39,7 +39,7 @@ Item{
         acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
         hoverEnabled: true
         onClicked: {
-            main.selectedCell = index
+            main.selected = index
             if (mouse.button == Qt.LeftButton) {
                 main.rotateCounterclockwise();
             }
@@ -50,7 +50,7 @@ Item{
                 locked = !locked
             }
         }
-        onEntered: main.selectedCell = index
-        onMousePositionChanged: main.selectedCell = index
+        onEntered: main.selected = index
+        onMousePositionChanged: main.selected = index
     }
 }
