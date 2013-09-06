@@ -11,6 +11,26 @@
    </rect>
   </property>
   <layout class="QGridLayout">
+   <item row="3" column="1">
+    <spacer>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="width">
+     <property name="text">
+      <string>Width:</string>
+     </property>
+    </widget>
+   </item>
    <item row="0" column="2">
     <spacer>
      <property name="orientation">
@@ -24,30 +44,10 @@
      </property>
     </spacer>
    </item>
-   <item row="2" column="1">
-    <spacer>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item row="0" column="1">
-    <widget class="KIntSpinBox" name="kcfg_Size"/>
+    <widget class="KIntSpinBox" name="kcfg_Width"/>
    </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Size:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="2">
+   <item row="2" column="0" colspan="2">
     <widget class="QCheckBox" name="kcfg_Wrapping">
      <property name="toolTip">
       <string>Wrap from left to right and from top to bottom</string>
@@ -56,6 +56,16 @@
       <string>Wrapping</string>
      </property>
     </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="height">
+     <property name="text">
+      <string>Height:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="KIntSpinBox" name="kcfg_Height"/>
    </item>
   </layout>
  </widget>

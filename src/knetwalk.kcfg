@@ -16,8 +16,14 @@
     </entry>
   </group>
   <group name="Custom">
-    <entry name="Size" type="Int" key="Size">
-      <label>The size of the board.</label>
+    <entry name="Width" type="Int" key="width">
+        <label>The width of the board.</label>
+        <min>3</min>
+        <max>11</max>
+        <default>6</default>
+    </entry>
+    <entry name="Height" type="Int" key="height">
+      <label>The height of the board.</label>
       <min>3</min>
       <max>11</max>
       <default>6</default>

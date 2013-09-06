@@ -43,14 +43,7 @@ private:
         StatusBarIndexMoves = 0,
         StatusBarIndexTime = 1
     };
-
-    enum BoardSize {
-      NoviceBoardSize = 5,
-      NormalBoardSize = 7,
-      ExpertBoardSize = 9,
-      MasterBoardSize = 9
-    };
-    static int boardSize();
+    QSize boardSize();
 signals:
     void pause(QVariant paused);
 private slots:
