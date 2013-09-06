@@ -91,3 +91,9 @@ function rotate(direction) {
         clicked(selected, direction);
     }
 }
+
+function unlockAll() {
+    for(var i = 0; i < cells.length; i++) {
+        cells[i].locked = false;
+    }
+}
