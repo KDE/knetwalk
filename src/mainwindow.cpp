@@ -121,12 +121,16 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
 
-    m_soundAction = new KToggleAction(i18n("&Play Sounds"), this);
-    connect(m_soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)));
-    actionCollection()->addAction( QLatin1String( "toggle_sound" ), m_soundAction);
-    m_soundAction->setChecked(Settings::playSounds());
+    KToggleAction *soundAction = new KToggleAction(i18n("&Play Sounds"), this);
+    connect(soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)));
+    actionCollection()->addAction( QLatin1String( "toggle_sound" ), soundAction);
+    soundAction->setChecked(Settings::playSounds());
 
-    KAction* action = new KAction(i18n("Keyboard: Field right"), this);
+    KAction *action = new KAction(i18n("&Unlock All"), this);
+    connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
+    actionCollection()->addAction( QLatin1String( "unlock_all" ), action);
+
+    action = new KAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoRight()));
     actionCollection()->addAction( QLatin1String( "kb_go_right" ), action);

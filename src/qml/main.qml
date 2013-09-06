@@ -130,6 +130,10 @@ Item {
         }
     }
 
+    function unlockAll() {
+        Logic.unlockAll();
+    }
+
     function setSprite(index, cable, type) {
         Logic.setSprite(index, cable, type);
     }

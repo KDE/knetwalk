@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="knetwalk"
-     version="2"
+     version="3"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd">
 <MenuBar>
+    <Menu name="move">
+        <Action name="unlock_all" append="save_merge"/>
+    </Menu>
     <Menu name="settings">
-	<Action name="toggle_sound" append="save_merge"/>
+        <Action name="toggle_sound" append="save_merge"/>
     </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>
     <Action name="game_new"/>
     <Action name="game_pause"/>
+    <Action name="move_solve"/>
     <Action name="game_highscores"/>
 </ToolBar>
 </gui>

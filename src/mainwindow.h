@@ -71,7 +71,6 @@ private:
 
     KAction* m_solveAction;
     KToggleAction* m_pauseAction;
-    KToggleAction* m_soundAction;
 
     GameView *m_view;
     KgSound *m_soundStart;
