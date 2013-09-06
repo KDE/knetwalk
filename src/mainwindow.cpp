@@ -41,12 +41,25 @@
 #include <ctime>
 #include <cmath>
 
+#include "ui_general.h"
 #include "ui_customgame.h"
 
 #include "globals.h"
 #include "gameview.h"
 #include "settings.h"
 #include "abstractgrid.h"
+
+class GeneralConfig : public QWidget
+{
+public:
+    GeneralConfig(QWidget *parent)
+        : QWidget(parent)
+    {
+        ui.setupUi(this);
+    }
+private:
+    Ui::GeneralConfig ui;
+};
 
 class CustomGameConfig : public QWidget
 {
@@ -121,11 +134,6 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
 
-    KToggleAction *soundAction = new KToggleAction(i18n("&Play Sounds"), this);
-    connect(soundAction, SIGNAL(triggered(bool)), this, SLOT(setSounds(bool)));
-    actionCollection()->addAction( QLatin1String( "toggle_sound" ), soundAction);
-    soundAction->setChecked(Settings::playSounds());
-
     KAction *action = new KAction(i18n("&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
     actionCollection()->addAction( QLatin1String( "unlock_all" ), action);
@@ -171,8 +179,11 @@ void MainWindow::configureSettings()
     if (KConfigDialog::showDialog(QLatin1String("settings")))
         return;
     KConfigDialog *dialog = new KConfigDialog(this, QLatin1String("settings"), Settings::self());
+    dialog->addPage(new GeneralConfig(dialog), i18n("General"), QLatin1String("games-config-options"));
     dialog->addPage(new KgThemeSelector(m_view->getProvider()), i18n("Theme"), QLatin1String("games-config-theme"));
     dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QLatin1String("games-config-custom"));
+    connect(dialog, SIGNAL(settingsChanged(QString)), m_view, SLOT(setRotateDuration()));
+    dialog->setHelp(QString(),QLatin1String("knetwalk"));
     dialog->show();
 }
 
@@ -182,12 +193,6 @@ void MainWindow::showHighscores()
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QLatin1String( "moves" ));
     scoreDialog.initFromDifficulty(Kg::difficulty());
     scoreDialog.exec();
-}
-
-void MainWindow::setSounds(bool val)
-{
-    Settings::setPlaySounds(val);
-    Settings::self()->writeConfig();
 }
 
 void MainWindow::startNewGame()

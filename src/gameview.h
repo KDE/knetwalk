@@ -41,6 +41,7 @@ signals:
     void setSprite(QVariant pos, QVariant cable, QVariant type);
     void setSize(QVariant width, QVariant height);
     void rotationPerformed();
+    void lock(QVariant);
     void gameOver(QVariant msg);
 
 private slots:
@@ -48,6 +49,7 @@ private slots:
     void solve();
     void rotationStarted(int index, QString dir);
     void rotated(int index);
+    void setRotateDuration();
 
 private:
     QString getCableCode(int cables);

@@ -11,7 +11,7 @@ set(knetwalk_SRCS
    mainwindow.cpp
    abstractgrid.cpp)
 
-kde4_add_ui_files( knetwalk_SRCS customgame.ui )
+kde4_add_ui_files( knetwalk_SRCS general.ui customgame.ui )
 
 kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 

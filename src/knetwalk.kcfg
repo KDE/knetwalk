@@ -9,10 +9,20 @@
       <label>Default user name</label>
     </entry>
   </group>
-  <group name="Sound">
+  <group name="General">
     <entry name="PlaySounds" type="Bool" key="PlaySounds">
       <label>Whether game sounds are played.</label>
-      <default>false</default>
+      <default>true</default>
+    </entry>
+    <entry name="Autolock" type="Bool" key="Autolock">
+        <label>Whether lock cell after rotation.</label>
+        <default>false</default>
+    </entry>
+    <entry name="RotateDuration" type="Int" key="RotateDuration">
+        <label>Duration for cell to complete one rotation.</label>
+        <min>100</min>
+        <max>500</max>
+        <default>300</default>
     </entry>
   </group>
   <group name="Custom">

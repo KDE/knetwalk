@@ -25,7 +25,7 @@ CanvasItem {
     Behavior on rotation {
         id: animate
         NumberAnimation {
-            duration: 300
+            duration: main.rotateDuration
             easing.type: Easing.OutQuad
             onRunningChanged: {
                 if(!running && parent.angle != 0) {

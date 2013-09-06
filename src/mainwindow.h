@@ -55,7 +55,6 @@ private slots:
 
     void showHighscores();
     void configureSettings();
-    void setSounds(bool val);
 private:
     void setupActions();
 
