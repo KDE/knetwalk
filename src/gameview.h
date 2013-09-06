@@ -53,6 +53,7 @@ private slots:
 
 private:
     QString getCableCode(int cables);
+    void updateSprite(int index);
     void checkCompleted();
 
     AbstractGrid *grid;
@@ -60,6 +61,7 @@ private:
     KgSound *m_soundTurn;
     KgSound *m_soundClick;
     KgSound *m_soundConnect;
+    QSet<int> rotatingCells;
 };
 
 #endif //GAMEVIEW_H

@@ -74,11 +74,10 @@ function reset(width, height) {
 }
 
 function setSprite(index, cable, type) {
-    if(cells[index].angle == 0) {
-        cells[index].sprite = cable;
-        if (type != "none"){
-            cells[index].type = type;
-        }
+    cells[index].angle = 0;
+    cells[index].sprite = cable;
+    if (type != "none"){
+        cells[index].type = type;
     }
 }
 

@@ -84,6 +84,7 @@ void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
 
 void GameView::rotationStarted(int index, QString dir)
 {
+    rotatingCells.insert(index);
     if(dir == "clockwise") {
         grid->cellAt(index)->rotateClockwise();
     }
@@ -99,37 +100,45 @@ void GameView::rotated(int index)
 {
     QList<int> changedCells = grid->updateConnections();
     bool newTerminalConnected = false;
+    rotatingCells.remove(index);
 
     foreach (int i, changedCells) {
-        QString type = "none";
         if(grid->cellAt(i)->isTerminal()){
-            type = (grid->cellAt(i)->isConnected())? "computer2": "computer1";
-            if(grid->cellAt(i)->isConnected())
-                newTerminalConnected = true;
+            newTerminalConnected = true;
         }
-
-        QString code = getCableCode(grid->cellAt(i)->cables());
-        if(grid->cellAt(i)->isConnected())
-            code = QString("con") + code;
-
-        setSprite(i, code, type);
+        updateSprite(i);
     }
 
     if(newTerminalConnected && Settings::playSounds())
         m_soundConnect->start();
 
     if(!changedCells.contains(index)) {
-        QString code = getCableCode(grid->cellAt(index)->cables());
-        if(grid->cellAt(index)->isConnected())
-            code = QString("con") + code;
-        setSprite(index, code, "none");
+        updateSprite(index);
     }
 
     if (Settings::autolock()) {
         emit lock(index);
     }
+    if (rotatingCells.count() == 0) {
+        checkCompleted();
+    }
+}
 
-    checkCompleted();
+void GameView::updateSprite(int index)
+{
+    QString type = "none";
+    if(grid->cellAt(index)->isTerminal()){
+        type = (grid->cellAt(index)->isConnected())? "computer2": "computer1";
+    }
+
+    QString code = getCableCode(grid->cellAt(index)->cables());
+    if(grid->cellAt(index)->isConnected()) {
+        code.insert(0, "con");
+    }
+
+    if (!rotatingCells.contains(index)) {
+        setSprite(index, code, type);
+    }
 }
 
 void GameView::checkCompleted()
@@ -153,6 +162,9 @@ void GameView::checkCompleted()
 
 void GameView::solve()
 {
+    if (rotatingCells.count() > 0) {
+        return;
+    }
     for(int i = 0; i < grid->cellCount(); i++) {
         grid->cellAt(i)->reset();
         QString code = "con" + getCableCode(grid->cellAt(i)->cables());
