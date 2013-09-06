@@ -20,8 +20,10 @@ import "logic.js" as Logic
 
 Item {
     id: main
-    property int selectedCell: 0
+    property int selected: 0
     property string state
+    property alias rows: grid.rows
+    property alias columns: grid.columns
 
     signal empty()
     signal clicked(int index, string direction)
@@ -46,24 +48,18 @@ Item {
         spriteKey: "overlay"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-        width: Logic.overlaySize();
-        height: width;
+        width: Logic.overlaySize()
+        height: width
     }
 
     Rectangle {
         id: highlight
         color: "white"
-        x: grid.x + ((grid.children.length > 0)? grid.children[selectedCell].x : 0)
-        y: grid.y + ((grid.children.length > 0)? grid.children[selectedCell].y : 0)
-        width: (grid.children.length > 0)? grid.children[selectedCell].width : 0
-        height: (grid.children.length > 0)? grid.children[selectedCell].height : 0
+        x: grid.x + ((Logic.cells.length > selected)? Logic.cells[selected].x : 0)
+        y: grid.y + ((Logic.cells.length > selected)? Logic.cells[selected].y : 0)
+        width: grid.width / grid.columns
+        height: width
         opacity: (main.state == "running")? 0.2 : 0
-        Behavior on x {
-            NumberAnimation { easing.type: Easing.InOutQuad; duration: 100 }
-        }
-        Behavior on y {
-            NumberAnimation { easing.type: Easing.InOutQuad; duration: 100 }
-        }
     }
 
     Rectangle {
@@ -89,9 +85,7 @@ Item {
     }
 
     function setBoardSize(width, height) {
-        Logic.reset();
-        grid.rows = height;
-        grid.columns = width;
+        Logic.reset(width, height);
     }
 
     function rotateClockwise() {
@@ -108,34 +102,31 @@ Item {
 
     function kbGoUp() {
         if(state == "running") {
-            selectedCell += (selectedCell < grid.columns)?
-                            grid.columns * (grid.rows - 1) : -grid.columns;
+            selected += (selected < columns)? columns * (rows - 1) : -columns;
         }
     }
 
     function kbGoDown() {
         if(state == "running") {
-            selectedCell += (selectedCell < grid.columns * (grid.rows - 1))?
-                            grid.columns : -grid.columns * (grid.rows - 1);
+            selected += (selected < columns * (rows - 1))? columns : -columns * (rows - 1);
         }
     }
 
     function kbGoLeft() {
         if(state == "running") {
-            selectedCell += (selectedCell % grid.columns == 0)? grid.columns - 1 : - 1;
+            selected += (selected % columns == 0)? columns - 1 : - 1;
         }
     }
 
     function kbGoRight() {
         if (state == "running") {
-            selectedCell += (selectedCell % grid.columns == grid.columns - 1)?
-                            -grid.columns + 1 : 1;
+            selected += (selected % columns == columns - 1)? -columns + 1 : 1;
         }
     }
 
     function toggleLock() {
         if(state == "running") {
-            Logic.cells[selectedCell].locked = !Logic.cells[selectedCell].locked;
+            Logic.cells[selected].locked = !Logic.cells[selected].locked;
         }
     }
 
