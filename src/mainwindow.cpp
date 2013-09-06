@@ -200,8 +200,8 @@ void MainWindow::startNewGame()
     bool isWrapped = (l == KgDifficultyLevel::VeryHard);
     if (Kg::difficultyLevel() == KgDifficultyLevel::Custom)
         isWrapped = Settings::wrapping();
-    const int size = boardSize();
-    m_view->startNewGame(size, size, (Wrapping)isWrapped);
+    const QSize size = boardSize();
+    m_view->startNewGame(size.width(), size.height(), (Wrapping)isWrapped);
     m_clickCount = -m_view->minimumMoves();
     m_gameClock->restart();
 
@@ -282,14 +282,14 @@ void MainWindow::updateStatusBar()
     statusBar()->changeItem(time, StatusBarIndexTime);
 }
 
-int MainWindow::boardSize()
+QSize MainWindow::boardSize()
 {
     switch (Kg::difficultyLevel()) {
-    case KgDifficultyLevel::Easy: return NoviceBoardSize;
-    case KgDifficultyLevel::Medium: return NormalBoardSize;
-    case KgDifficultyLevel::Hard: return ExpertBoardSize;
-    case KgDifficultyLevel::Custom: return Settings::size();
-    default: return MasterBoardSize;
+    case KgDifficultyLevel::Easy: return QSize(5, 5);
+    case KgDifficultyLevel::Medium: return QSize(7, 7);
+    case KgDifficultyLevel::Hard: return QSize(9, 9);
+    case KgDifficultyLevel::Custom: return QSize(Settings::width(), Settings::height());
+    default: return QSize(9, 9);
     }
 }
 
