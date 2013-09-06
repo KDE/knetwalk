@@ -38,6 +38,7 @@ GameView::GameView(QWidget *parent) :
     m_soundConnect = new KgSound(KStandardDirs::locate("appdata", "sounds/connect.wav"), this);
     QString path = KStandardDirs::locate("appdata", "qml/main.qml");
     setSource(QUrl::fromLocalFile(path));
+    setRotateDuration();
 
     connect(rootObject(), SIGNAL(clicked(int, QString)),
             this, SLOT(rotationStarted(int, QString)));
@@ -49,6 +50,7 @@ GameView::GameView(QWidget *parent) :
             rootObject(), SLOT(addCell(QVariant,QVariant)));
     connect(this, SIGNAL(setSprite(QVariant,QVariant,QVariant)),
             rootObject(), SLOT(setSprite(QVariant,QVariant,QVariant)));
+    connect(this, SIGNAL(lock(QVariant)), rootObject(), SLOT(lock(QVariant)));
     connect(this, SIGNAL(gameOver(QVariant)), rootObject(), SLOT(gameOver(QVariant)));
 }
 
@@ -123,6 +125,10 @@ void GameView::rotated(int index)
         setSprite(index, code, "none");
     }
 
+    if (Settings::autolock()) {
+        emit lock(index);
+    }
+
     checkCompleted();
 }
 
@@ -158,6 +164,11 @@ void GameView::solve()
         }
     }
     emit gameOver("solved");
+}
+
+void GameView::setRotateDuration()
+{
+    rootObject()->setProperty("rotateDuration", Settings::rotateDuration());
 }
 
 void GameView::playClick()

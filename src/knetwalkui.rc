@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gui name="knetwalk"
-     version="3"
+     version="4"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
@@ -8,9 +8,6 @@
 <MenuBar>
     <Menu name="move">
         <Action name="unlock_all" append="save_merge"/>
-    </Menu>
-    <Menu name="settings">
-        <Action name="toggle_sound" append="save_merge"/>
     </Menu>
 </MenuBar>
 <ToolBar name="mainToolBar"><text>Main Toolbar</text>

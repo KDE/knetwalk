@@ -21,6 +21,7 @@ import "logic.js" as Logic
 Item {
     id: main
     property int selected: 0
+    property int rotateDuration: 300
     property string state
     property alias rows: grid.rows
     property alias columns: grid.columns
@@ -128,6 +129,10 @@ Item {
         if(state == "running") {
             Logic.cells[selected].locked = !Logic.cells[selected].locked;
         }
+    }
+
+    function lock(index) {
+        Logic.cells[index].locked = true;
     }
 
     function unlockAll() {
