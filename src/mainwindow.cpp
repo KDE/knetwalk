@@ -122,9 +122,11 @@ void MainWindow::setupActions()
 
     m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)),
                                                actionCollection());
+    connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), m_pauseAction,
+            SLOT(setEnabled(bool)));
 
-    m_solveAction = KStandardGameAction::solve(m_view, SLOT(solve()),
-                                               actionCollection());
+    KAction *action = KStandardGameAction::solve(m_view, SLOT(solve()), actionCollection());
+    connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), action, SLOT(setEnabled(bool)));
 
     KStandardGameAction::highscores(this, SLOT(showHighscores()),
                                     actionCollection());
@@ -134,8 +136,9 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
 
-    KAction *action = new KAction(i18n("&Unlock All"), this);
+    action = new KAction(i18n("&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
+    connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), action, SLOT(setEnabled(bool)));
     actionCollection()->addAction( QLatin1String( "unlock_all" ), action);
 
     action = new KAction(i18n("Keyboard: Field right"), this);
@@ -214,9 +217,7 @@ void MainWindow::startNewGame()
     {
         m_pauseAction->setChecked(false);
     }
-    m_pauseAction->setEnabled(true);
-    m_solveAction->setEnabled(true);
-    Kg::difficulty()->setGameRunning(false);
+    Kg::difficulty()->setGameRunning(true);
 
     updateStatusBar();
 }
@@ -224,8 +225,6 @@ void MainWindow::startNewGame()
 void MainWindow::gameOver(QVariant msg)
 {
     m_gameClock->pause();
-    m_pauseAction->setEnabled(false);
-    m_solveAction->setEnabled(false);
     Kg::difficulty()->setGameRunning(false);
 
     if (msg.toString() != "won")
@@ -264,7 +263,6 @@ void MainWindow::gameOver(QVariant msg)
 
 void MainWindow::rotationPerformed()
 {
-    Kg::difficulty()->setGameRunning(true);
     m_clickCount++;
     updateStatusBar();
 }
