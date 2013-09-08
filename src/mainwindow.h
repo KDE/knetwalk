@@ -61,7 +61,6 @@ private:
     int           m_clickCount;
     KGameClock   *m_gameClock;
 
-    KAction* m_solveAction;
     KToggleAction* m_pauseAction;
 
     GameView *m_view;
