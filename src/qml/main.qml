@@ -26,9 +26,8 @@ Item {
     property alias rows: grid.rows
     property alias columns: grid.columns
 
-    signal empty()
-    signal clicked(int index, string direction)
-    signal rotated(int index)
+    signal clicked(int index)
+    signal rotated(int index, int angle)
 
     CanvasItem {
         id: background

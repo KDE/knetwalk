@@ -83,11 +83,11 @@ function setSprite(index, cable, type) {
 
 function rotate(direction) {
     if(cells[selected].locked || cells[selected].sprite == "") {
-        empty();
+        clicked(-1); //invalid click
     }
     else if(state == "running") {
         cells[selected].angle += (direction == "clockwise")? 90 : -90;
-        clicked(selected, direction);
+        clicked(selected);
     }
 }
 
