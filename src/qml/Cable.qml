@@ -30,7 +30,7 @@ CanvasItem {
             onRunningChanged: {
                 if(!running && parent.angle != 0) {
                     animate.enabled = false
-                    main.rotated(parent.index);
+                    main.rotated(parent.index, parent.angle % 360);
                     animate.enabled = true
                 }
             }

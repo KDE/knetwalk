@@ -40,15 +40,14 @@ signals:
     void newCell(QVariant cable, QVariant type);
     void setSprite(QVariant pos, QVariant cable, QVariant type);
     void setSize(QVariant width, QVariant height);
-    void rotationPerformed();
+    void rotationStarted();
     void lock(QVariant);
     void gameOver(QVariant msg);
 
 private slots:
-    void playClick();
     void solve();
-    void rotationStarted(int index, QString dir);
-    void rotated(int index);
+    void clicked(int index);
+    void rotated(int index, int angle);
     void setRotateDuration();
 
 private:

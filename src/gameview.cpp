@@ -40,10 +40,8 @@ GameView::GameView(QWidget *parent) :
     setSource(QUrl::fromLocalFile(path));
     setRotateDuration();
 
-    connect(rootObject(), SIGNAL(clicked(int, QString)),
-            this, SLOT(rotationStarted(int, QString)));
-    connect(rootObject(), SIGNAL(rotated(int)), this, SLOT(rotated(int)));
-    connect(rootObject(), SIGNAL(empty()), this, SLOT(playClick()));
+    connect(rootObject(), SIGNAL(clicked(int)),this, SLOT(clicked(int)));
+    connect(rootObject(), SIGNAL(rotated(int,int)), this, SLOT(rotated(int,int)));
     connect(this, SIGNAL(setSize(QVariant,QVariant)),
             rootObject(), SLOT(setBoardSize(QVariant,QVariant)));
     connect(this, SIGNAL(newCell(QVariant,QVariant)),
@@ -82,22 +80,32 @@ void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
     }
 }
 
-void GameView::rotationStarted(int index, QString dir)
+void GameView::clicked(int index)
 {
-    rotatingCells.insert(index);
-    if(dir == "clockwise") {
-        grid->cellAt(index)->rotateClockwise();
+    if (index >= 0) {
+        rotatingCells.insert(index);
+        emit rotationStarted();
+        if (Settings::playSounds()) {
+            m_soundTurn->start();
+        }
     }
-    else if(dir == "counterclockwise"){
-        grid->cellAt(index)->rotateCounterclockwise();
+    else if (Settings::playSounds()) { //invalid click
+        m_soundClick->start();
     }
-    if(Settings::playSounds())
-        m_soundTurn->start();
-    emit rotationPerformed();
 }
 
-void GameView::rotated(int index)
+void GameView::rotated(int index, int angle)
 {
+    switch (angle) {
+    case 90: case -270:
+        grid->cellAt(index)->rotateClockwise();
+        break;
+    case -90: case 270:
+        grid->cellAt(index)->rotateCounterclockwise();
+        break;
+    case 180: case -180:
+        grid->cellAt(index)->invert();
+    }
     QList<int> changedCells = grid->updateConnections();
     bool newTerminalConnected = false;
     rotatingCells.remove(index);
@@ -181,12 +189,6 @@ void GameView::solve()
 void GameView::setRotateDuration()
 {
     rootObject()->setProperty("rotateDuration", Settings::rotateDuration());
-}
-
-void GameView::playClick()
-{
-    if(Settings::playSounds())
-        m_soundClick->start();
 }
 
 QString GameView::getCableCode(int cables)

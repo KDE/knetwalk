@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
       m_view(new GameView(this))
 {
     connect(m_view, SIGNAL(gameOver(QVariant)), this, SLOT(gameOver(QVariant)));
-    connect(m_view, SIGNAL(rotationPerformed()), this, SLOT(rotationPerformed()));
+    connect(m_view, SIGNAL(rotationStarted()), this, SLOT(rotationStarted()));
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
     statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexMoves, 1);
@@ -261,7 +261,7 @@ void MainWindow::gameOver(QVariant msg)
     scoreDialog.exec();
 }
 
-void MainWindow::rotationPerformed()
+void MainWindow::rotationStarted()
 {
     m_clickCount++;
     updateStatusBar();

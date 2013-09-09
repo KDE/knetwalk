@@ -49,7 +49,7 @@ signals:
 private slots:
     void startNewGame();
     void gameOver(QVariant msg);
-    void rotationPerformed();
+    void rotationStarted();
     void pauseGame(bool paused);
     void updateStatusBar();
 
