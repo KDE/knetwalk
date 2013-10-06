@@ -31,8 +31,8 @@
     
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2013-05-05</date>
-<releaseinfo>3.1.0 (&kde; 4.11)</releaseinfo>
+<date>2013-10-06</date>
+<releaseinfo>3.1.0 (&kde; 4.12)</releaseinfo>
 
 <abstract>
 <para>
@@ -163,6 +163,18 @@ Quits the program.
 </listitem>
 </varlistentry>
 
+<varlistentry>
+<term><menuchoice>
+<guimenu>Move</guimenu>
+<guimenuitem>Unlock All</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para>
+  Unlock all cells which were previously locked by the player using <keycap>Space</keycap> or automatically after checking <guilabel>Auto Lock</guilabel> item on <link linkend="config_general">General page</link> of Configure &knetwalk; dialog.
+</para>
+</listitem>
+</varlistentry>
+
 <!--
 <varlistentry>
 <term><menuchoice>
@@ -188,7 +200,7 @@ Quits the program.
 <listitem><para><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</para></listitem>
-<listitem><para><guimenuitem>Custom</guimenuitem>: The settings you have configured in the Configure KNetWalk dialog will be used.</para></listitem>
+<listitem><para><guimenuitem>Custom</guimenuitem>: The settings you have configured in the <link linkend="config_custom_game">Configure &knetwalk; dialog</link> will be used.</para></listitem>
 </itemizedlist>
 </para></listitem>
 </varlistentry>
@@ -196,10 +208,10 @@ Quits the program.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Play Sounds...</guimenuitem>
+<guimenuitem>Configure &knetwalk;...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
-  <action>If checked, &knetwalk; game sounds are played.</action>
+  <action>Open Configure &knetwalk; dialog.</action> Please see <link linkend="configuration">Game Configuration</link> for more information.
 </para></listitem>
 </varlistentry>
 </variablelist>
@@ -212,6 +224,73 @@ of the &kde; Fundamentals.
 </para>
 
 </sect1>
+
+<sect1 id="configuration">
+   <title>Game Configuration</title>
+   <para>
+     To open the Configure &knetwalk; dialog, select <menuchoice>
+       <guimenu>Settings</guimenu>
+       <guimenuitem>Configure &knetwalk;...</guimenuitem>
+     </menuchoice>
+   </para>
+   <sect2 id="config_general">
+     <title>General</title>
+     <para>
+       Using this page you can change the following game settings.
+     </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel>
+	     Play Sounds
+	   </guilabel>
+	 </term>
+	 <listitem>
+	   <para>
+	     If checked, &knetwalk; game sounds are played.
+	   </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel>
+	     Auto Lock
+	   </guilabel>
+	 </term>
+	 <listitem>
+	   <para>
+	     If checked, &knetwalk; will automatically lock cell after rotation.
+	   </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel>
+	     Rotate Duration
+	   </guilabel>
+	 </term>
+	 <listitem>
+	   <para>
+	     Here you can determine the time needed to animate a single cell rotation.
+	   </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title>Theme</title>
+     <para>
+       To select the theme you want to play, go to the <guilabel>Theme</guilabel> section. The theme is loaded by clicking on <guibutton>OK</guibutton> or <guibutton>Apply</guibutton>. The current game will be ended and a new one started. You can click on the <guibutton>Defaults</guibutton> button to restore the default theme.
+     </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title>Custom Game</title>
+     <para>
+       This page can be used to configure custom game settings. You can choose <guilabel>Width</guilabel> and <guilabel>Height</guilabel> of the board and check the <guilabel>Wrapping</guilabel> if the board should be wrapped from left to right and from top to bottom.
+     </para>
+   </sect2>
+</sect1>
+ 
 
 <sect1 id="keybindings">
 <title id="keybindings-title">Shortcuts</title>
@@ -254,6 +333,48 @@ of the &kde; Fundamentals.
 <entry>What's this?</entry>
 <entry>
 <keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Move left</entry>
+<entry>
+<keycap>Left arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Move right</entry>
+<entry>
+<keycap>Right arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Move up</entry>
+<entry>
+<keycap>Up arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Move down</entry>
+<entry>
+<keycap>Down arrow</keycap>
+</entry>
+</row>
+<row>
+<entry>Turn clockwise</entry>
+<entry>
+<keycap>Return</keycap>
+</entry>
+</row>
+<row>
+<entry>Turn counterclockwise</entry>
+<entry>
+<keycombo>&Ctrl;<keycap>Return</keycap></keycombo>
+</entry>
+</row>
+<row>
+<entry>Toggle lock</entry>
+<entry>
+<keycap>Space</keycap>
 </entry>
 </row>
 </tbody>
