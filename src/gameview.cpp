@@ -15,6 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "gameview.h"
+
 #include <KgSound>
 #include <KStandardDirs>
 #include <QGraphicsObject>
@@ -22,7 +24,6 @@
 #include <KgThemeProvider>
 #include <KLocale>
 
-#include "gameview.h"
 #include "globals.h"
 #include "settings.h"
 

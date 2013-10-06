@@ -25,7 +25,7 @@
 class AbstractCell
 {
 public:
-    AbstractCell(int index);
+    explicit AbstractCell(int index);
     
     virtual ~AbstractCell() {}
     

@@ -29,7 +29,7 @@ class GameView : public KgDeclarativeView
 {
     Q_OBJECT
 public:
-    GameView(QWidget *parent=0);
+    explicit GameView(QWidget *parent=0);
     virtual ~GameView();
     void startNewGame(uint width, uint height, Wrapping w);
     int minimumMoves() {return grid->minimumMoves();}
