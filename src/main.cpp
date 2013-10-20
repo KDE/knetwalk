@@ -28,18 +28,16 @@
 static const char description[] =
 I18N_NOOP("KNetWalk, a game for system administrators.");
 
-static const char version[] = "3.1.0";
+static const char version[] = "3.2.0";
 
 int main(int argc, char ** argv)
 {
     KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version,
         ki18n(description), KAboutData::License_GPL, 
         ki18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-        "(C) 2007-2008 Fela Winkelmolen"), KLocalizedString(), "http://games.kde.org/knetwalk" );
+        "(C) 2007-2008 Fela Winkelmolen\n"
+        "(C) 2013 Ashwin Rajeev"), KLocalizedString(), "http://games.kde.org/knetwalk" );
     
-    about.addAuthor(ki18n("Fela Winkelmolen"), 
-                    ki18n("current maintainer"),    
-                    "fela.kde@gmail.com");
     
     about.addAuthor(ki18n("Andi Peredri"), 
                     ki18n("original author"), 
@@ -49,6 +47,9 @@ int main(int argc, char ** argv)
                     ki18n("KDE port"), 
                     "tnagy2^8@yahoo.fr");
 
+    about.addAuthor(ki18n("Ashwin Rajeev"),
+                    ki18n("Port to QtQuick"),
+                    "ashwin_rajeev@hotmail.com");
                     
     about.addCredit(ki18n("Eugene Trounev"),
                     ki18n("icon design"),
@@ -58,9 +59,6 @@ int main(int argc, char ** argv)
                     ki18n("Port to use the QGraphicsView framework"),
                     "brian.s.croom@gmail.com");
 
-    about.addCredit(ki18n("Ashwin Rajeev"),
-                    ki18n("Port to QtQuick"),
-                    "ashwin_rajeev@hotmail.com");
 
     KCmdLineArgs::init(argc, argv, &about);
 

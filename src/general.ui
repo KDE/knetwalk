@@ -69,6 +69,12 @@
    </item>
    <item row="2" column="2">
     <widget class="KIntSpinBox" name="kcfg_RotateDuration">
+     <property name="specialValueText">
+      <string/>
+     </property>
+     <property name="suffix">
+      <string> ms</string>
+     </property>
      <property name="singleStep">
       <number>100</number>
      </property>
