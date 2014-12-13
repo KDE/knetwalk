@@ -11,12 +11,12 @@ set(knetwalk_SRCS
    mainwindow.cpp
    abstractgrid.cpp)
 
-kde4_add_ui_files( knetwalk_SRCS general.ui customgame.ui )
+qt5_wrap_ui( knetwalk_SRCS general.ui customgame.ui )
 
-kde4_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
+kconfig_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
-kde4_add_app_icon(knetwalk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-knetwalk.png")
-kde4_add_executable(knetwalk ${knetwalk_SRCS})
+#kde4_add_app_icon(knetwalk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-knetwalk.png")
+add_executable(knetwalk ${knetwalk_SRCS})
 
 target_link_libraries(knetwalk  ${KDE4_KDEUI_LIBS} ${QT_QTDECLARATIVE_LIBRARY} ${KDECLARATIVE_LIBRARIES} kdegames)
 
