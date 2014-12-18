@@ -16,58 +16,66 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <KApplication>
 #include <KAboutData>
-#include <KCmdLineArgs>
-#include <KLocale>
 #include <KDebug>
-#include <KGlobal>
+#include <QApplication>
+#include <KLocalizedString>
 
 #include "mainwindow.h"
 
 static const char description[] =
 I18N_NOOP("KNetWalk, a game for system administrators.");
 
+static const char copyleft[] =
+I18N_NOOP("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+          "(C) 2007-2008 Fela Winkelmolen\n"
+          "(C) 2013 Ashwin Rajeev");
+
 static const char version[] = "3.2.0";
 
 int main(int argc, char ** argv)
 {
-    KAboutData about("knetwalk", 0, ki18n("KNetWalk"), version,
-        ki18n(description), KAboutData::License_GPL, 
-        ki18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-        "(C) 2007-2008 Fela Winkelmolen\n"
-        "(C) 2013 Ashwin Rajeev"), KLocalizedString(), "http://games.kde.org/knetwalk" );
+    QApplication app(argc, argv);
     
+    KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
+                         version, i18n(description),
+                         KAboutLicense::GPL, i18n(copyleft), QString(),
+                         QStringLiteral("http://games.kde.org/knetwalk"));
     
-    about.addAuthor(ki18n("Andi Peredri"), 
-                    ki18n("original author"), 
+    about.addAuthor(i18n("Andi Peredri"),
+                    i18n("original author"),
                     "andi@ukr.net");
     
-    about.addAuthor(ki18n("Thomas Nagy"), 
-                    ki18n("KDE port"), 
+    about.addAuthor(i18n("Thomas Nagy"),
+                    i18n("KDE port"),
                     "tnagy2^8@yahoo.fr");
 
-    about.addAuthor(ki18n("Ashwin Rajeev"),
-                    ki18n("Port to QtQuick"),
+    about.addAuthor(i18n("Ashwin Rajeev"),
+                    i18n("Port to QtQuick"),
                     "ashwin_rajeev@hotmail.com");
                     
-    about.addCredit(ki18n("Eugene Trounev"),
-                    ki18n("icon design"),
+    about.addCredit(i18n("Eugene Trounev"),
+                    i18n("icon design"),
                     "eugene.trounev@gmail.com");
 
-    about.addCredit(ki18n("Brian Croom"),
-                    ki18n("Port to use the QGraphicsView framework"),
+    about.addCredit(i18n("Brian Croom"),
+                    i18n("Port to use the QGraphicsView framework"),
                     "brian.s.croom@gmail.com");
 
-
-    KCmdLineArgs::init(argc, argv, &about);
-
-    KApplication application;
-    KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
+    about.setOrganizationDomain(QByteArray("kde.org"));
+    
+    about.setProductName(QByteArray("knetwalk"));
+    
+    KAboutData::setApplicationData(about);
+    
+    app.setApplicationDisplayName(about.displayName());
+    app.setOrganizationDomain(about.organizationDomain());
+    app.setApplicationVersion(about.version());
+    app.setWindowIcon(QIcon::fromTheme("knetwalk"));
 
     MainWindow* window = new MainWindow;
     window->show();
 
-    return application.exec();
+    return app.exec();
 }
 
