@@ -17,7 +17,6 @@
 */
 
 #include <KAboutData>
-#include <KDebug>
 #include <QApplication>
 #include <KLocalizedString>
 

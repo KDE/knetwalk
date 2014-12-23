@@ -23,13 +23,12 @@
 #include <KConfigDialog>
 #include <KLocale>
 #include <KStandardAction>
-#include <KAction>
+#include <QAction>
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KStandardGameAction>
-#include <KStandardDirs>
 #include <KMessageBox>
-#include <KStatusBar>
+#include <QStatusBar>
 
 #include <KgDifficulty>
 #include <KgThemeSelector>
@@ -81,8 +80,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_view, SIGNAL(rotationStarted()), this, SLOT(rotationStarted()));
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
-    statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexMoves, 1);
-    statusBar()->insertItem(QLatin1String( "" ), StatusBarIndexTime, 1);
+    label->setText(i18n(""));
+    statusBar()->insertPermanentWidget(0, label, 1);
+    statusBar()->insertPermanentWidget(1, label, 1);
 
     // Difficulty
     Kg::difficulty()->addStandardLevelRange(
@@ -108,8 +108,9 @@ MainWindow::MainWindow(QWidget *parent)
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
 
-    m_soundStart = new KgSound(KStandardDirs::locate("appdata", "sounds/start.wav"), this);
-    m_soundWin = new KgSound(KStandardDirs::locate("appdata", "sounds/win.wav"), this);
+    m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/start.wav"), this);
+    m_soundWin = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/win.wav"), this);
+
 
     startNewGame();
 }
@@ -125,7 +126,7 @@ void MainWindow::setupActions()
     connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), m_pauseAction,
             SLOT(setEnabled(bool)));
 
-    KAction *action = KStandardGameAction::solve(m_view, SLOT(solve()), actionCollection());
+    QAction *action = KStandardGameAction::solve(m_view, SLOT(solve()), actionCollection());
     connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), action, SLOT(setEnabled(bool)));
 
     KStandardGameAction::highscores(this, SLOT(showHighscores()),
@@ -136,42 +137,42 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
 
-    action = new KAction(i18n("&Unlock All"), this);
+    action = new QAction(i18n("&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
     connect(Kg::difficulty(), SIGNAL(gameRunningChanged(bool)), action, SLOT(setEnabled(bool)));
     actionCollection()->addAction( QLatin1String( "unlock_all" ), action);
 
-    action = new KAction(i18n("Keyboard: Field right"), this);
+    action = new QAction(i18n("Keyboard: Field right"), this);
     action->setShortcut(Qt::Key_Right);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoRight()));
     actionCollection()->addAction( QLatin1String( "kb_go_right" ), action);
 
-    action = new KAction(i18n("Keyboard: Field left"),this);
+    action = new QAction(i18n("Keyboard: Field left"),this);
     action->setShortcut(Qt::Key_Left);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoLeft()));
     actionCollection()->addAction( QLatin1String( "kb_go_left" ), action);
 
-    action = new KAction(i18n("Keyboard: Field up"),this);
+    action = new QAction(i18n("Keyboard: Field up"),this);
     action->setShortcut(Qt::Key_Up);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoUp()));
     actionCollection()->addAction( QLatin1String( "kb_go_up" ), action);
 
-    action = new KAction(i18n("Keyboard: Field down"),this);
+    action = new QAction(i18n("Keyboard: Field down"),this);
     action->setShortcut(Qt::Key_Down);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoDown()));
     actionCollection()->addAction( QLatin1String( "kb_go_down" ), action);
 
-    action = new KAction(i18n("Keyboard: Turn clockwise"),this);
+    action = new QAction(i18n("Keyboard: Turn clockwise"),this);
     action->setShortcut(Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateClockwise()));
     actionCollection()->addAction( QLatin1String( "kb_turn_clockwise" ), action);
 
-    action = new KAction(i18n("Keyboard: Turn counterclockwise"),this);
+    action = new QAction(i18n("Keyboard: Turn counterclockwise"),this);
     action->setShortcut(Qt::CTRL + Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateCounterclockwise()));
     actionCollection()->addAction( QLatin1String( "kb_turn_counterclockwise" ), action);
 
-    action = new KAction(i18n("Keyboard: Toggle lock"),this);
+    action = new QAction(i18n("Keyboard: Toggle lock"),this);
     action->setShortcut(Qt::Key_Space);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(toggleLock()));
     actionCollection()->addAction( QLatin1String( "kb_lock" ), action);
@@ -186,7 +187,7 @@ void MainWindow::configureSettings()
     dialog->addPage(new KgThemeSelector(m_view->getProvider()), i18n("Theme"), QLatin1String("games-config-theme"));
     dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QLatin1String("games-config-custom"));
     connect(dialog, SIGNAL(settingsChanged(QString)), m_view, SLOT(setRotateDuration()));
-    dialog->setHelp(QString(),QLatin1String("knetwalk"));
+//    dialog->setHelp(QString(),QLatin1String("knetwalk"));
     dialog->show();
 }
 
@@ -281,8 +282,8 @@ void MainWindow::updateStatusBar()
 {
     QString moves = i18nc("Number of mouse clicks", "Moves: %1", m_clickCount);
     QString time = i18nc("Time elapsed", "Time: %1", m_gameClock->timeString());
-    statusBar()->changeItem(moves, StatusBarIndexMoves);
-    statusBar()->changeItem(time, StatusBarIndexTime);
+    label->setText(moves);
+    label->setText(time);
 }
 
 QSize MainWindow::boardSize()

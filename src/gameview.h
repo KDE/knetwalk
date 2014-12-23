@@ -20,6 +20,8 @@
 
 #include <KgDeclarativeView>
 #include <QVariant>
+#include <KgThemeProvider>
+#include <QQuickItem>
 
 #include "abstractgrid.h"
 

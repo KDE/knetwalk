@@ -18,11 +18,11 @@
 #include "gameview.h"
 
 #include <KgSound>
-#include <KStandardDirs>
 #include <QGraphicsObject>
 #include <KMessageBox>
 #include <KgThemeProvider>
-#include <KLocale>
+#include <QQuickItem>
+#include <KLocalizedString>
 
 #include "globals.h"
 #include "settings.h"
@@ -34,10 +34,11 @@ GameView::GameView(QWidget *parent) :
 {
     m_provider->discoverThemes("appdata", QLatin1String("themes"));
     m_provider->setDeclarativeEngine("themeProvider", engine());
-    m_soundTurn = new KgSound(KStandardDirs::locate("appdata", "sounds/turn.wav"), this);
-    m_soundClick = new KgSound(KStandardDirs::locate("appdata", "sounds/click.wav"), this);
-    m_soundConnect = new KgSound(KStandardDirs::locate("appdata", "sounds/connect.wav"), this);
-    QString path = KStandardDirs::locate("appdata", "qml/main.qml");
+    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/turn.wav"), this);
+    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/click.wav"), this);
+    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/connect.wav"), this);
+    QString path = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
+
     setSource(QUrl::fromLocalFile(path));
     setRotateDuration();
 

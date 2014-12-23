@@ -25,6 +25,8 @@
 #include <KXmlGuiWindow>
 
 #include <QList>
+#include <QPointer>
+#include <QLabel>
 
 class KgSound;
 class KGameClock;
@@ -66,6 +68,7 @@ private:
     GameView *m_view;
     KgSound *m_soundStart;
     KgSound *m_soundWin;
+    QPointer<QLabel> label = new QLabel;
 };
 
 #endif // MAINWINDOW_H

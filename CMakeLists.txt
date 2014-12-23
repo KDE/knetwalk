@@ -34,7 +34,7 @@ find_package(KF5 REQUIRED COMPONENTS
   NotifyConfig
   NewStuff
   KDELibs4Support)
-find_package(KF5KDEGames REQUIRED COMPONENTS)
+find_package(KF5KDEGames 4.9.0 REQUIRED)
 
 include(FeatureSummary)
 include(ECMInstallIcons)
