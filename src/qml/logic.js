@@ -22,7 +22,7 @@ var canvasComponent = Qt.createComponent("CanvasItem.qml");
 var cells = []
 
 function overlaySize() {
-    size = (width > height)? height - border : width - border;
+    var size = (width > height)? height - border : width - border;
     return (size > 0)? size : 0;
 }
 
@@ -55,9 +55,9 @@ function addCell(cable, type) {
 function createNode(type, cell) {
     if(type != "none") {
         var node = canvasComponent.createObject(cell);
-        node.spriteKey = function() { return cell.type };
+        node.spriteKey = cell.type;
         node.anchors.fill = cell;
-        node.anchors.margins = function() { return cell.width / 10 };
+        node.anchors.margins = cell.width / 10;
     }
 }
 
