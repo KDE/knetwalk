@@ -21,7 +21,7 @@
 #include <cstdlib> // rand()
 #include <QMap>
 #include <QString>
-#include <KDebug>
+#include <QDebug>
 
 AbstractCell::AbstractCell(int index)
     : m_index(index)
@@ -218,8 +218,8 @@ void AbstractGrid::print() {
             }
             ++index;
         }
-        kDebug() << str1 << "     " << str2;
-        kDebug() << QLatin1String( " " );
+        qDebug() << str1 << "     " << str2;
+        qDebug() << QLatin1String( " " );
         str1 = str2 = QLatin1String( "" );
     }
 }
