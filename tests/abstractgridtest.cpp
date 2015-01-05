@@ -7,7 +7,7 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#include <qtest_kde.h>
+#include <qtest.h>
 #include <qdir.h>
 
 #include "../src/abstractgrid.h"
@@ -50,6 +50,6 @@ void AbstractGridTest::testCreateGrid()
     }
 }
 
-QTEST_KDEMAIN_CORE( AbstractGridTest )
+QTEST_MAIN( AbstractGridTest )
 
 #include "abstractgridtest.moc"

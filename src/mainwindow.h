@@ -32,7 +32,6 @@ class KgSound;
 class KGameClock;
 class KgThemeProvider;
 class KToggleAction;
-class KAction;
 class GameView;
 
 class MainWindow : public KXmlGuiWindow
