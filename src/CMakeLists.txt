@@ -10,14 +10,14 @@ set(knetwalk_SRCS
    mainwindow.cpp
    abstractgrid.cpp)
 
-qt5_wrap_ui( knetwalk_SRCS general.ui customgame.ui )
+ki18n_wrap_ui( knetwalk_SRCS general.ui customgame.ui )
 
 kconfig_add_kcfg_files(knetwalk_SRCS settings.kcfgc )
 
 #kde4_add_app_icon(knetwalk_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/hi*-app-knetwalk.png")
 add_executable(knetwalk ${knetwalk_SRCS})
 
-target_link_libraries(knetwalk   Qt5::Declarative KF5::Declarative KF5::XmlGui KF5::TextWidgets KF5KDEGames)
+target_link_libraries(knetwalk   Qt5::Declarative KF5::Declarative KF5::XmlGui KF5::TextWidgets KF5KDEGames KF5::DBusAddons)
 
 install(TARGETS knetwalk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

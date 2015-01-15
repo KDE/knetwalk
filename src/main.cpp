@@ -21,7 +21,7 @@
 #include <KLocalizedString>
 
 #include "mainwindow.h"
-
+#include <KDBusService>
 static const char description[] =
 I18N_NOOP("KNetWalk, a game for system administrators.");
 
@@ -66,7 +66,8 @@ int main(int argc, char ** argv)
     about.setProductName(QByteArray("knetwalk"));
     
     KAboutData::setApplicationData(about);
-    
+    KDBusService service;
+ 
     app.setApplicationDisplayName(about.displayName());
     app.setOrganizationDomain(about.organizationDomain());
     app.setApplicationVersion(about.version());
