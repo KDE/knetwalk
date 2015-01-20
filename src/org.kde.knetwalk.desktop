@@ -112,3 +112,4 @@ Terminal=false
 Icon=knetwalk
 X-KDE-StartupNotify=true
 Categories=Qt;KDE;Game;StrategyGame;
+X-DBUS-ServiceName=org.kde.knetwalk

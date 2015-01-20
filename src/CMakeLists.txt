@@ -26,7 +26,7 @@ install(TARGETS knetwalk  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 install( FILES knetwalkui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/knetwalk )
 install( DIRECTORY qml DESTINATION ${DATA_INSTALL_DIR}/knetwalk)
-install( PROGRAMS knetwalk.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.knetwalk.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 
 
 
