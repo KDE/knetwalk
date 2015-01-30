@@ -76,8 +76,8 @@ MainWindow::MainWindow(QWidget *parent)
     : KXmlGuiWindow(parent), m_clickCount(0),
       m_view(new GameView(this))
 {
-    connect(m_view, SIGNAL(gameOver(QVariant)), this, SLOT(gameOver(QVariant)));
-    connect(m_view, SIGNAL(rotationStarted()), this, SLOT(rotationStarted()));
+    connect(m_view, &GameView::gameOver, this, &MainWindow::gameOver);
+    connect(m_view, &GameView::rotationStarted, this, &MainWindow::rotationStarted);
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
     label->setText(i18n(""));
@@ -106,7 +106,7 @@ MainWindow::MainWindow(QWidget *parent)
     srand(time(0));
 
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
-    connect(m_gameClock, SIGNAL(timeChanged(QString)), SLOT(updateStatusBar()));
+    connect(m_gameClock, &KGameClock::timeChanged, this, &MainWindow::updateStatusBar);
 
     m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/start.wav"), this);
     m_soundWin = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/win.wav"), this);
@@ -186,7 +186,7 @@ void MainWindow::configureSettings()
     dialog->addPage(new GeneralConfig(dialog), i18n("General"), QLatin1String("games-config-options"));
     dialog->addPage(new KgThemeSelector(m_view->getProvider()), i18n("Theme"), QLatin1String("games-config-theme"));
     dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QLatin1String("games-config-custom"));
-    connect(dialog, SIGNAL(settingsChanged(QString)), m_view, SLOT(setRotateDuration()));
+    connect(dialog, &KConfigDialog::settingsChanged, m_view, &GameView::setRotateDuration);
 //    dialog->setHelp(QString(),QLatin1String("knetwalk"));
     dialog->show();
 }

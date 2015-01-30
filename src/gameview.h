@@ -37,6 +37,11 @@ public:
     int minimumMoves() {return grid->minimumMoves();}
     int cellCount() {return grid->cellCount();}
     KgThemeProvider* getProvider() {return m_provider;}
+    
+
+
+public slots:
+    void setRotateDuration();
 
 signals:
     void newCell(QVariant cable, QVariant type);
@@ -50,7 +55,6 @@ private slots:
     void solve();
     void clicked(int index);
     void rotated(int index, int angle);
-    void setRotateDuration();
 
 private:
     QString getCableCode(int cables);
