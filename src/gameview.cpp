@@ -33,11 +33,11 @@ GameView::GameView(QWidget *parent) :
     m_provider(new KgThemeProvider)
 {
     m_provider->discoverThemes("appdata", QLatin1String("themes"));
-    m_provider->setDeclarativeEngine("themeProvider", engine());
-    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/turn.wav"), this);
-    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/click.wav"), this);
-    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, "sounds/connect.wav"), this);
-    QString path = QStandardPaths::locate(QStandardPaths::DataLocation, "qml/main.qml");
+    m_provider->setDeclarativeEngine(QLatin1Literal("themeProvider"), engine());
+    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QLatin1Literal("sounds/turn.wav")), this);
+    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QLatin1Literal("sounds/click.wav")), this);
+    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QLatin1Literal("sounds/connect.wav")), this);
+    QString path = QStandardPaths::locate(QStandardPaths::DataLocation, QLatin1Literal("qml/main.qml"));
 
     setSource(QUrl::fromLocalFile(path));
     setRotateDuration();
@@ -68,15 +68,15 @@ void GameView::startNewGame(uint width, uint height, Wrapping w=NotWrapped)
     for(int i = 0; i < grid->cellCount(); i++)
     {
         QString code = getCableCode(grid->cellAt(i)->cables());
-        QString type = "none";
+        QString type = QLatin1Literal("none");
         if(grid->cellAt(i)->isConnected()){
-            code = QString("con") + code;
+            code = QLatin1String("con") + code;
         }
         if(grid->cellAt(i)->isServer()){
-            type = "server";
+            type = QLatin1Literal("server");
         }
         else if(grid->cellAt(i)->isTerminal()) {
-            type = (grid->cellAt(i)->isConnected())? "computer2": "computer1";
+            type = (grid->cellAt(i)->isConnected())? QLatin1Literal("computer2"): QLatin1Literal("computer1");
         }
         newCell(code, type);
     }
@@ -136,14 +136,14 @@ void GameView::rotated(int index, int angle)
 
 void GameView::updateSprite(int index)
 {
-    QString type = "none";
+    QString type = QLatin1Literal("none");
     if(grid->cellAt(index)->isTerminal()){
-        type = (grid->cellAt(index)->isConnected())? "computer2": "computer1";
+        type = (grid->cellAt(index)->isConnected())? QLatin1Literal("computer2"): QLatin1Literal("computer1");
     }
 
     QString code = getCableCode(grid->cellAt(index)->cables());
     if(grid->cellAt(index)->isConnected()) {
-        code.insert(0, "con");
+        code.insert(0, QLatin1Literal("con"));
     }
 
     if (!rotatingCells.contains(index)) {
@@ -156,7 +156,7 @@ void GameView::checkCompleted()
     if (!grid->allTerminalsConnected()) {
         return;
     }
-    for(int i = 0; i < grid->cellCount(); i++) {
+    for(int i = 0; i < grid->cellCount(); ++i) {
         if (grid->cellAt(i)->cables() != None && !grid->cellAt(i)->isConnected()) {
             KMessageBox::information(this,
                 i18n("Note: to win the game all terminals "
@@ -167,7 +167,7 @@ void GameView::checkCompleted()
             return;
         }
     }
-    emit gameOver("won");
+    emit gameOver(QLatin1Literal("won"));
 }
 
 void GameView::solve()
@@ -177,15 +177,15 @@ void GameView::solve()
     }
     for(int i = 0; i < grid->cellCount(); i++) {
         grid->cellAt(i)->reset();
-        QString code = "con" + getCableCode(grid->cellAt(i)->cables());
+        QString code = QLatin1String("con") + getCableCode(grid->cellAt(i)->cables());
         if (grid->cellAt(i)->isTerminal()){
-            setSprite(i, code, "computer2");
+            setSprite(i, code, QLatin1Literal("computer2"));
         }
         else {
-            setSprite(i, code, "none");
+            setSprite(i, code, QLatin1Literal("none"));
         }
     }
-    emit gameOver("solved");
+    emit gameOver(QLatin1Literal("solved"));
 }
 
 void GameView::setRotateDuration()
@@ -196,19 +196,19 @@ void GameView::setRotateDuration()
 QString GameView::getCableCode(int cables)
 {
     QHash<int, QString> directionNames;
-    directionNames[Left]            = "0001";
-    directionNames[Down]            = "0010";
-    directionNames[Down|Left]       = "0011";
-    directionNames[Right]           = "0100";
-    directionNames[Right|Left]      = "0101";
-    directionNames[Right|Down]      = "0110";
-    directionNames[Right|Down|Left] = "0111";
-    directionNames[Up]              = "1000";
-    directionNames[Up|Left]         = "1001";
-    directionNames[Up|Down]         = "1010";
-    directionNames[Up|Down|Left]    = "1011";
-    directionNames[Up|Right]        = "1100";
-    directionNames[Up|Right|Left]   = "1101";
-    directionNames[Up|Right|Down]   = "1110";
+    directionNames[Left]            = QLatin1Literal("0001");
+    directionNames[Down]            = QLatin1Literal("0010");
+    directionNames[Down|Left]       = QLatin1Literal("0011");
+    directionNames[Right]           = QLatin1Literal("0100");
+    directionNames[Right|Left]      = QLatin1Literal("0101");
+    directionNames[Right|Down]      = QLatin1Literal("0110");
+    directionNames[Right|Down|Left] = QLatin1Literal("0111");
+    directionNames[Up]              = QLatin1Literal("1000");
+    directionNames[Up|Left]         = QLatin1Literal("1001");
+    directionNames[Up|Down]         = QLatin1Literal("1010");
+    directionNames[Up|Down|Left]    = QLatin1Literal("1011");
+    directionNames[Up|Right]        = QLatin1Literal("1100");
+    directionNames[Up|Right|Left]   = QLatin1Literal("1101");
+    directionNames[Up|Right|Down]   = QLatin1Literal("1110");
     return directionNames[cables];
 }

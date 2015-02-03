@@ -37,29 +37,29 @@ int main(int argc, char ** argv)
     QApplication app(argc, argv);
     
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
-                         version, i18n(description),
+                         QLatin1Literal(version), i18n(description),
                          KAboutLicense::GPL, i18n(copyleft), QString(),
                          QStringLiteral("http://games.kde.org/knetwalk"));
     
     about.addAuthor(i18n("Andi Peredri"),
                     i18n("original author"),
-                    "andi@ukr.net");
+                    QLatin1Literal("andi@ukr.net"));
     
     about.addAuthor(i18n("Thomas Nagy"),
                     i18n("KDE port"),
-                    "tnagy2^8@yahoo.fr");
+                    QLatin1Literal("tnagy2^8@yahoo.fr"));
 
     about.addAuthor(i18n("Ashwin Rajeev"),
                     i18n("Port to QtQuick"),
-                    "ashwin_rajeev@hotmail.com");
+                    QLatin1Literal("ashwin_rajeev@hotmail.com"));
                     
     about.addCredit(i18n("Eugene Trounev"),
                     i18n("icon design"),
-                    "eugene.trounev@gmail.com");
+                    QLatin1Literal("eugene.trounev@gmail.com"));
 
     about.addCredit(i18n("Brian Croom"),
                     i18n("Port to use the QGraphicsView framework"),
-                    "brian.s.croom@gmail.com");
+                    QLatin1Literal("brian.s.croom@gmail.com"));
 
     about.setOrganizationDomain(QByteArray("kde.org"));
     
@@ -71,7 +71,7 @@ int main(int argc, char ** argv)
     app.setApplicationDisplayName(about.displayName());
     app.setOrganizationDomain(about.organizationDomain());
     app.setApplicationVersion(about.version());
-    app.setWindowIcon(QIcon::fromTheme("knetwalk"));
+    app.setWindowIcon(QIcon::fromTheme(QLatin1Literal("knetwalk")));
 
     MainWindow* window = new MainWindow;
     window->show();
