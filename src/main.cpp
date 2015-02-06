@@ -19,6 +19,7 @@
 #include <KAboutData>
 #include <QApplication>
 #include <KLocalizedString>
+#include <kdelibs4configmigrator.h>
 
 #include "mainwindow.h"
 #include <KDBusService>
@@ -35,7 +36,11 @@ static const char version[] = "3.2.0";
 int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
-    
+    Kdelibs4ConfigMigrator migrate(QStringLiteral("knetwalk"));
+    migrate.setConfigFiles(QStringList() << QStringLiteral("knetwalkrc"));
+    migrate.setUiFiles(QStringList() << QStringLiteral("knetwalkui.rc"));
+    migrate.migrate();
+
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QLatin1Literal(version), i18n(description),
                          KAboutLicense::GPL, i18n(copyleft), QString(),
