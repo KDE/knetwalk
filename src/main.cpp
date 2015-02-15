@@ -31,7 +31,7 @@ I18N_NOOP("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
           "(C) 2007-2008 Fela Winkelmolen\n"
           "(C) 2013 Ashwin Rajeev");
 
-static const char version[] = "3.2.0";
+static const char version[] = "3.3.0";
 
 int main(int argc, char ** argv)
 {
