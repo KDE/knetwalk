@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 2.8.12)
 find_package(ECM 1.7.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg Test)
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick QuickWidgets Svg)
 find_package(KF5 REQUIRED COMPONENTS
   CoreAddons 
   Config 
@@ -20,6 +20,15 @@ find_package(KF5 REQUIRED COMPONENTS
   NotifyConfig
   )
 find_package(KF5KDEGames 4.9.0 REQUIRED)
+
+find_package(Qt5Test ${QT_MIN_VERSION} QUIET)
+set_package_properties(Qt5Test PROPERTIES
+    PURPOSE "Required for tests"
+    TYPE OPTIONAL)
+add_feature_info("Qt5Test" Qt5Test_FOUND "Required for building tests")
+if (NOT Qt5Test_FOUND)
+    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
+endif()
 
 include(FeatureSummary)
 include(ECMAddAppIcon)
