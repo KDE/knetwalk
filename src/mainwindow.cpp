@@ -80,7 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_view, &GameView::rotationStarted, this, &MainWindow::rotationStarted);
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
-    label->setText(i18n(""));
+    label->setText(QString());
     statusBar()->insertPermanentWidget(0, label, 1);
     statusBar()->insertPermanentWidget(1, label, 1);
 
