@@ -50,6 +50,6 @@ void AbstractGridTest::testCreateGrid()
     }
 }
 
-QTEST_MAIN( AbstractGridTest )
+QTEST_GUILESS_MAIN( AbstractGridTest )
 
 #include "abstractgridtest.moc"
