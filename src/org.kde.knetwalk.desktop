@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=knetwalk -caption %c
+Exec=knetwalk -qwindowtitle %c
 X-DocPath=knetwalk/index.html
 Name=KNetWalk
 Name[ast]=KNetWalk
