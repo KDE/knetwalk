@@ -35,11 +35,11 @@ static const char version[] = "3.3.0";
 
 int main(int argc, char ** argv)
 {
-    QApplication app(argc, argv);
     Kdelibs4ConfigMigrator migrate(QStringLiteral("knetwalk"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("knetwalkrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("knetwalkui.rc"));
     migrate.migrate();
+    QApplication app(argc, argv);
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QLatin1Literal(version), i18n(description),
