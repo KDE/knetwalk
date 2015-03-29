@@ -110,6 +110,6 @@ GenericName[zh_CN]=网络建设游戏
 GenericName[zh_TW]=網路建構遊戲
 Terminal=false
 Icon=knetwalk
-X-KDE-StartupNotify=true
+StartupNotify=true
 Categories=Qt;KDE;Game;StrategyGame;
 X-DBUS-ServiceName=org.kde.knetwalk
