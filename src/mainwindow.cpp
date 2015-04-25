@@ -80,9 +80,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_view, &GameView::rotationStarted, this, &MainWindow::rotationStarted);
     connect(this, SIGNAL(pause(QVariant)), m_view->rootObject(), SLOT(pause(QVariant)));
 
-    label->setText(QString());
-    statusBar()->insertPermanentWidget(0, label, 1);
-    statusBar()->insertPermanentWidget(1, label, 1);
+    m_movesLabel = new QLabel(this);
+    m_movesLabel->setAlignment(Qt::AlignCenter);
+    m_timeLabel = new QLabel(this);
+    m_timeLabel->setAlignment(Qt::AlignCenter);
+
+    statusBar()->insertPermanentWidget(0, m_movesLabel, 1);
+    statusBar()->insertPermanentWidget(1, m_timeLabel, 1);
 
     // Difficulty
     Kg::difficulty()->addStandardLevelRange(
@@ -282,8 +286,8 @@ void MainWindow::updateStatusBar()
 {
     QString moves = i18nc("Number of mouse clicks", "Moves: %1", m_clickCount);
     QString time = i18nc("Time elapsed", "Time: %1", m_gameClock->timeString());
-    label->setText(moves);
-    label->setText(time);
+    m_movesLabel->setText(moves);
+    m_timeLabel->setText(time);
 }
 
 QSize MainWindow::boardSize()
