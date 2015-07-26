@@ -19,6 +19,7 @@ find_package(KF5 REQUIRED COMPONENTS
   KIO
   NotifyConfig
   DocTools
+  TextWidgets
   )
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
