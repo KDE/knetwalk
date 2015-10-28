@@ -49,23 +49,23 @@ int main(int argc, char ** argv)
     
     about.addAuthor(i18n("Andi Peredri"),
                     i18n("original author"),
-                    QLatin1Literal("andi@ukr.net"));
+                    QStringLiteral("andi@ukr.net"));
     
     about.addAuthor(i18n("Thomas Nagy"),
                     i18n("KDE port"),
-                    QLatin1Literal("tnagy2^8@yahoo.fr"));
+                    QStringLiteral("tnagy2^8@yahoo.fr"));
 
     about.addAuthor(i18n("Ashwin Rajeev"),
                     i18n("Port to QtQuick"),
-                    QLatin1Literal("ashwin_rajeev@hotmail.com"));
+                    QStringLiteral("ashwin_rajeev@hotmail.com"));
                     
     about.addCredit(i18n("Eugene Trounev"),
                     i18n("icon design"),
-                    QLatin1Literal("eugene.trounev@gmail.com"));
+                    QStringLiteral("eugene.trounev@gmail.com"));
 
     about.addCredit(i18n("Brian Croom"),
                     i18n("Port to use the QGraphicsView framework"),
-                    QLatin1Literal("brian.s.croom@gmail.com"));
+                    QStringLiteral("brian.s.croom@gmail.com"));
 
     about.setOrganizationDomain(QByteArray("kde.org"));
     
@@ -77,7 +77,7 @@ int main(int argc, char ** argv)
     app.setApplicationDisplayName(about.displayName());
     app.setOrganizationDomain(about.organizationDomain());
     app.setApplicationVersion(about.version());
-    app.setWindowIcon(QIcon::fromTheme(QLatin1Literal("knetwalk")));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knetwalk")));
 
     MainWindow* window = new MainWindow;
     window->show();
