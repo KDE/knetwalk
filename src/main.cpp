@@ -37,6 +37,8 @@ int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
 
+    KLocalizedString::setApplicationDomain("knetwalk");
+
     Kdelibs4ConfigMigrator migrate(QStringLiteral("knetwalk"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("knetwalkrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("knetwalkui.rc"));
