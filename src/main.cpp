@@ -17,6 +17,7 @@
 */
 
 #include <KAboutData>
+#include <KCrash>
 #include <QApplication>
 #include <KLocalizedString>
 #include <kdelibs4configmigrator.h>
@@ -74,6 +75,7 @@ int main(int argc, char ** argv)
     about.setProductName(QByteArray("knetwalk"));
     
     KAboutData::setApplicationData(about);
+    KCrash::initialize();
     KDBusService service;
  
     app.setApplicationDisplayName(about.displayName());
