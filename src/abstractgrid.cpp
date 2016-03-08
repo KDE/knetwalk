@@ -18,7 +18,6 @@
 
 #include "abstractgrid.h"
 
-#include <cstdlib> // rand()
 #include <QMap>
 #include <QString>
 #include <QDebug>
@@ -168,7 +167,7 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
     while(m_minimumMoves < shuffleLimit)
     {
         // selecting a random index
-        int index = rand() % notShuffledCells.count();
+        int index = qrand() % notShuffledCells.count();
         int cellNo = notShuffledCells[index];
         // removing the selected index so that it must not be used again
         notShuffledCells.removeAt(index);
@@ -187,10 +186,10 @@ void AbstractGrid::initializeGrid(uint width, uint height, Wrapping wrapping)
         }
         // for every other case rotate 1..3 times
         else {
-            int rotation = rand() % 3 + 1; // 1..3
+            int rotation = qrand() % 3 + 1; // 1..3
             // cant rotate twice when m_minimumMoves == shuffleLimit - 1
             if (m_minimumMoves == shuffleLimit - 1 && rotation == 2){
-                rotation = (rand() % 2)? 1 : 3; // 1 or 3
+                rotation = (qrand() % 2)? 1 : 3; // 1 or 3
             }
             m_minimumMoves += (rotation == 3) ? 1 : rotation;
             while(rotation--) {
@@ -229,7 +228,7 @@ void AbstractGrid::print() {
 void AbstractGrid::createGrid()
 {
     // add a random server
-    server_index = rand() % (cellCount());
+    server_index = qrand() % (cellCount());
 
     // number of cells that aren't free
     int notFreeCells = 0;
@@ -244,15 +243,15 @@ void AbstractGrid::createGrid()
 
         QList<uint> list;
         list.append(server_index);
-        if (rand() % 2) addRandomCable(list);
+        if (qrand() % 2) addRandomCable(list);
 
         // add some random cables...
         // the list empties if there aren't many free cells left
         // (because of addRandomCable() not doing anything)
         while (!list.isEmpty()) {
-            if (rand() % 2) {
+            if (qrand() % 2) {
                 addRandomCable(list);
-                if (rand() % 2) addRandomCable(list);
+                if (qrand() % 2) addRandomCable(list);
                 list.erase(list.begin());
             }
             else {
@@ -300,7 +299,7 @@ void AbstractGrid::addRandomCable(QList<uint>& list)
 
     QMap<Directions, int>::ConstIterator it = freeCells.constBegin();
     // move the iterator to a random direction connecting to a free cell
-    for (int i = rand() % freeCells.count(); i > 0; --i) ++it;
+    for (int i = qrand() % freeCells.count(); i > 0; --i) ++it;
 
     // add the cable in the direction of cell
     Directions newCables = Directions(m_cells[cell]->cables() | it.key());

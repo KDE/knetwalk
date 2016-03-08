@@ -107,7 +107,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setAutoSaveSettings();
 
-    srand(time(0));
+    qsrand(time(0));
 
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, &KGameClock::timeChanged, this, &MainWindow::updateStatusBar);
