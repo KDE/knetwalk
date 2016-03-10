@@ -32,7 +32,7 @@ class AbstractGridTest : public QObject
 
 void AbstractGridTest::testCreateGrid()
 {
-    srand(1370714025);
+    qsrand(1370714025);
     for (int i = 0; i < 25; ++i) {
         qDebug() << "Iteration" << i;
         AbstractGridTester t;
