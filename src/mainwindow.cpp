@@ -112,8 +112,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
     connect(m_gameClock, &KGameClock::timeChanged, this, &MainWindow::updateStatusBar);
 
-    m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("sounds/start.wav")), this);
-    m_soundWin = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("sounds/win.wav")), this);
+    m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/start.wav")), this);
+    m_soundWin = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/win.wav")), this);
 
 
     startNewGame();

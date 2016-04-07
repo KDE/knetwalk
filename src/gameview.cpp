@@ -34,10 +34,10 @@ GameView::GameView(QWidget *parent) :
 {
     m_provider->discoverThemes("appdata", QStringLiteral("themes"));
     m_provider->setDeclarativeEngine(QStringLiteral("themeProvider"), engine());
-    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("sounds/turn.wav")), this);
-    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("sounds/click.wav")), this);
-    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("sounds/connect.wav")), this);
-    QString path = QStandardPaths::locate(QStandardPaths::DataLocation, QStringLiteral("qml/main.qml"));
+    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/turn.wav")), this);
+    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/click.wav")), this);
+    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/connect.wav")), this);
+    QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("qml/main.qml"));
 
     setSource(QUrl::fromLocalFile(path));
     setRotateDuration();
