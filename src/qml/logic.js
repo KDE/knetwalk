@@ -20,6 +20,7 @@ var cellComponent = Qt.createComponent("Cell.qml");
 var cableComponent = Qt.createComponent("Cable.qml");
 var canvasComponent = Qt.createComponent("CanvasItem.qml");
 var cells = []
+var nodes = []
 
 function overlaySize() {
     var size = (width > height)? height - border : width - border;
@@ -58,6 +59,7 @@ function createNode(type, cell) {
         node.spriteKey = cell.type;
         node.anchors.fill = cell;
         node.anchors.margins = cell.width / 10;
+        nodes[cell]=node;
     }
 }
 
@@ -78,6 +80,7 @@ function setSprite(index, cable, type) {
     cells[index].sprite = cable;
     if (type != "none"){
         cells[index].type = type;
+        nodes[cells[index]].spriteKey = type;
     }
 }
 
