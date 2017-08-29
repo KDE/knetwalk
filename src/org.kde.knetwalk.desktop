@@ -109,6 +109,7 @@ GenericName[wa]=Djeu d' costrujhaedje del rantoele
 GenericName[x-test]=xxNetwork Construction Gamexx
 GenericName[zh_CN]=网络建设游戏
 GenericName[zh_TW]=網路建構遊戲
+Comment=Strategy game
 Terminal=false
 Icon=knetwalk
 StartupNotify=true
