@@ -11,6 +11,7 @@ set(knetwalk_SRCS
     abstractgrid.cpp
 )
 
+qt5_add_resources(knetwalk_SRCS knetwalk.qrc)
 ki18n_wrap_ui( knetwalk_SRCS general.ui customgame.ui)
 
 kconfig_add_kcfg_files(knetwalk_SRCS settings.kcfgc)
@@ -32,7 +33,6 @@ install(TARGETS knetwalk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(FILES knetwalkui.rc  DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/knetwalk)
 install(DIRECTORY qml DESTINATION ${KDE_INSTALL_DATADIR}/knetwalk)
 install(PROGRAMS org.kde.knetwalk.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 
