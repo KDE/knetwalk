@@ -134,6 +134,7 @@ Comment[sv]=Strategispel
 Comment[tr]=Strateji oyunu
 Comment[uk]=Гра-стратегія
 Comment[x-test]=xxStrategy gamexx
+Comment[zh_CN]=策略游戏
 Terminal=false
 Icon=knetwalk
 StartupNotify=true
