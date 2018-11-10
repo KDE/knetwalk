@@ -35,4 +35,4 @@ install(TARGETS knetwalk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(DIRECTORY qml DESTINATION ${KDE_INSTALL_DATADIR}/knetwalk)
 install(PROGRAMS org.kde.knetwalk.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
-
+install(FILES org.kde.knetwalk.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
