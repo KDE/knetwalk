@@ -4,11 +4,26 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KNetWalk</name>
+  <name xml:lang="ca">KNetWalk</name>
+  <name xml:lang="nl">KNetWalk</name>
+  <name xml:lang="pt">KNetWalk</name>
+  <name xml:lang="uk">KNetWalk</name>
+  <name xml:lang="x-test">xxKNetWalkxx</name>
   <summary>KNetWalk is a game for system administrators</summary>
+  <summary xml:lang="ca">El KNetWalk és un joc per a administradors de sistemes</summary>
+  <summary xml:lang="nl">KNetWalk is een spel voor systeembeheerders</summary>
+  <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
+  <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
+  <summary xml:lang="x-test">xxKNetWalk is a game for system administratorsxx</summary>
   <description>
     <p>
       KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.
     </p>
+    <p xml:lang="ca">El KNetWalk és un joc de lògica per a un únic jugador. Construeix la xarxa, connectant tots els terminals al servidor amb els mínims girs possibles.</p>
+    <p xml:lang="nl">KNetWalk is een logica spel voor een enkele speler. Construeer het netwerk, verbind alle terminals naar de server in de minst mogelijke beurten.</p>
+    <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
+    <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
+    <p xml:lang="x-test">xxKNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.xx</p>
   </description>
   <url type="homepage">http://games.kde.org/game.php?game=knetwalk</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=knetwalk</url>
@@ -17,6 +32,11 @@
   <screenshots>
     <screenshot type="default">
       <caption>Playing KNetWalk</caption>
+      <caption xml:lang="ca">Jugant al KNetWalk</caption>
+      <caption xml:lang="nl">KNetWalk spelen</caption>
+      <caption xml:lang="pt">Jogar ao KNetWalk</caption>
+      <caption xml:lang="uk">Гра у KNetWalk</caption>
+      <caption xml:lang="x-test">xxPlaying KNetWalkxx</caption>
       <image>http://kde.org/images/screenshots/knetwalk.png</image>
     </screenshot>
   </screenshots>
