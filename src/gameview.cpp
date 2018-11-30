@@ -172,7 +172,7 @@ void GameView::checkCompleted()
 
 void GameView::solve()
 {
-    if (rotatingCells.count() > 0) {
+    if (!rotatingCells.isEmpty()) {
         return;
     }
     for(int i = 0; i < grid->cellCount(); i++) {
