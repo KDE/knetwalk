@@ -24,6 +24,7 @@
   <summary xml:lang="de">KNetWalk, ein Spiel für Systemadministratoren</summary>
   <summary xml:lang="en-GB">KNetWalk is a game for system administrators</summary>
   <summary xml:lang="es">KNetWalk es un juego para administradores de sistemas</summary>
+  <summary xml:lang="fr">KNetWalk est un jeu pour les administrateurs système</summary>
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="nl">KNetWalk is een spel voor systeembeheerders</summary>
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
@@ -40,6 +41,7 @@
     <p xml:lang="de">KNetWalk ist ein Logikspiel für einen Spieler. Ziel des Spiels ist es, mit möglichst wenig Zügen alle Terminals mit dem Server zu verbinden und damit das Netzwerk fertig aufzubauen.</p>
     <p xml:lang="en-GB">KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.</p>
     <p xml:lang="es">KNetWalk es un juego lógico para un único jugador. Construya la red conectando todos los terminales al servidor en el menor número posible de giros.</p>
+    <p xml:lang="fr">KNetWalk est un jeu de logique à un seul joueur. Construisez un réseau et reliez tous les terminaux au serveur en jouant le moins de coups possible.</p>
     <p xml:lang="gl">KNetWalk é un xogo de lóxica para un xogador. Constrúe unha rede conectando todos os terminais ao servidor no menor número de quendas posíbel.</p>
     <p xml:lang="nl">KNetWalk is een logica spel voor een enkele speler. Construeer het netwerk, verbind alle terminals naar de server in de minst mogelijke beurten.</p>
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
@@ -60,6 +62,7 @@
       <caption xml:lang="de">KNetWalk spielen</caption>
       <caption xml:lang="en-GB">Playing KNetWalk</caption>
       <caption xml:lang="es">Jugando a KNetWalk</caption>
+      <caption xml:lang="fr">Partie de KNetWalk en cours</caption>
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="nl">KNetWalk spelen</caption>
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
