@@ -45,10 +45,10 @@ private:
     };
     QSize boardSize();
 signals:
-    void pause(QVariant paused);
+    void pause(const QVariant &paused);
 private slots:
     void startNewGame();
-    void gameOver(QVariant msg);
+    void gameOver(const QVariant &msg);
     void rotationStarted();
     void pauseGame(bool paused);
     void updateStatusBar();

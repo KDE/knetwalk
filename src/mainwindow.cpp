@@ -227,7 +227,7 @@ void MainWindow::startNewGame()
     updateStatusBar();
 }
 
-void MainWindow::gameOver(QVariant msg)
+void MainWindow::gameOver(const QVariant &msg)
 {
     m_gameClock->pause();
     Kg::difficulty()->setGameRunning(false);

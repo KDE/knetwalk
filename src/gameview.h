@@ -44,12 +44,12 @@ public slots:
     void setRotateDuration();
 
 signals:
-    void newCell(QVariant cable, QVariant type);
-    void setSprite(QVariant pos, QVariant cable, QVariant type);
-    void setSize(QVariant width, QVariant height);
+    void newCell(const QVariant &cable, const QVariant &type);
+    void setSprite(const QVariant &pos, const QVariant &cable, const QVariant &type);
+    void setSize(const QVariant &width, const QVariant &height);
     void rotationStarted();
-    void lock(QVariant);
-    void gameOver(QVariant msg);
+    void lock(const QVariant&);
+    void gameOver(const QVariant &msg);
 
 private slots:
     void solve();
