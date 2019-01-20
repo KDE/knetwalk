@@ -20,6 +20,7 @@
   <name xml:lang="uk">KNetWalk</name>
   <name xml:lang="x-test">xxKNetWalkxx</name>
   <name xml:lang="zh-CN">KNetWalk</name>
+  <name xml:lang="zh-TW">KNetWalk</name>
   <summary>KNetWalk is a game for system administrators</summary>
   <summary xml:lang="ca">El KNetWalk és un joc per a administradors de sistemes</summary>
   <summary xml:lang="ca-valencia">El KNetWalk és un joc per a administradors de sistemes</summary>
@@ -35,6 +36,7 @@
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
   <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
   <summary xml:lang="x-test">xxKNetWalk is a game for system administratorsxx</summary>
+  <summary xml:lang="zh-TW">KNetWalk 是款為系統管理員製作的遊戲</summary>
   <description>
     <p>
       KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.
@@ -76,6 +78,7 @@
       <caption xml:lang="sv">Spela Knetwalk</caption>
       <caption xml:lang="uk">Гра у KNetWalk</caption>
       <caption xml:lang="x-test">xxPlaying KNetWalkxx</caption>
+      <caption xml:lang="zh-TW">KNetWalk 遊玩畫面</caption>
       <image>https://www.kde.org/images/screenshots/knetwalk.png</image>
     </screenshot>
   </screenshots>
