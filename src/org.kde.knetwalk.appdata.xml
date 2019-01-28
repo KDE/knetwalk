@@ -14,6 +14,7 @@
   <name xml:lang="gl">KNetWalk</name>
   <name xml:lang="id">KNetWalk</name>
   <name xml:lang="nl">KNetWalk</name>
+  <name xml:lang="pl">KNetWalk</name>
   <name xml:lang="pt">KNetWalk</name>
   <name xml:lang="pt-BR">KNetWalk</name>
   <name xml:lang="sk">KNetWalk</name>
@@ -32,6 +33,7 @@
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="id">KNetWalk adalah sebuah permainan untuk administrator sistem</summary>
   <summary xml:lang="nl">KNetWalk is een spel voor systeembeheerders</summary>
+  <summary xml:lang="pl">KNetWalk jest grą dla administratorów systemów</summary>
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
   <summary xml:lang="pt-BR">O KNetWalk é um jogo para administradores de sistema</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
@@ -51,6 +53,7 @@
     <p xml:lang="gl">KNetWalk é un xogo de lóxica para un xogador. Constrúe unha rede conectando todos os terminais ao servidor no menor número de quendas posíbel.</p>
     <p xml:lang="id">KNetWalk adalah sebuah permainan logika pemain tunggal. Kontruksi jaringan, mengkonekkan semua terminal ke server sedikit menikung-nikung.</p>
     <p xml:lang="nl">KNetWalk is een logica spel voor een enkele speler. Construeer het netwerk, verbind alle terminals naar de server in de minst mogelijke beurten.</p>
+    <p xml:lang="pl">KNetWalk jest logiczną grą dla pojedynczego gracza. Stwórz sieć łącząc wszystkie terminale do serwera w najmniejszej możliwej do osiągnięcia liczbie tur.</p>
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
     <p xml:lang="pt-BR">O KNetWalk é um jogo de um jogar simples de lógica. Construa a rede, conectando todos os terminais ao servidor com o menor número de giros possíveis.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
@@ -73,6 +76,7 @@
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="id">Memainkan KNetWalk</caption>
       <caption xml:lang="nl">KNetWalk spelen</caption>
+      <caption xml:lang="pl">Granie w KNetWalk</caption>
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
       <caption xml:lang="pt-BR">Jogando KNetWalk</caption>
       <caption xml:lang="sk">Hranie KNetWalk</caption>
