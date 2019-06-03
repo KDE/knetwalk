@@ -28,7 +28,6 @@
 
 class KgSound;
 class KGameClock;
-class KgThemeProvider;
 class KToggleAction;
 class GameView;
 class QLabel;
