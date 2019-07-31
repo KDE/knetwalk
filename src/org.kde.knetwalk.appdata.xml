@@ -16,6 +16,7 @@
   <name xml:lang="it">KNetWalk</name>
   <name xml:lang="ko">KNetWalk</name>
   <name xml:lang="nl">KNetWalk</name>
+  <name xml:lang="nn">KNettvandrar</name>
   <name xml:lang="pl">KNetWalk</name>
   <name xml:lang="pt">KNetWalk</name>
   <name xml:lang="pt-BR">KNetWalk</name>
@@ -38,6 +39,7 @@
   <summary xml:lang="it">KNetWalk è un gioco per amministratori di sistema</summary>
   <summary xml:lang="ko">KNetWalk는 시스템 관리자를 위한 게임입니다</summary>
   <summary xml:lang="nl">KNetWalk is een spel voor systeembeheerders</summary>
+  <summary xml:lang="nn">KNettvandrar er eit spel for systemadministratorar</summary>
   <summary xml:lang="pl">KNetWalk jest grą dla administratorów systemów</summary>
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
   <summary xml:lang="pt-BR">O KNetWalk é um jogo para administradores de sistema</summary>
@@ -60,6 +62,7 @@
     <p xml:lang="it">KNetWalk è un gioco di logica per singolo giocatore. Costruisci la rete e connetti tutti i terminali al server in meno turni possibili.</p>
     <p xml:lang="ko">KNetWalk는 1인용 논리 게임입니다. 최소한의 턴 수로 모든 터미널을 서버와 연결시켜서 네트워크를 구축하십시오.</p>
     <p xml:lang="nl">KNetWalk is een logica spel voor een enkele speler. Construeer het netwerk, verbind alle terminals naar de server in de minst mogelijke beurten.</p>
+    <p xml:lang="nn">KNettvandrar er eit tenkjespel for éin spelar. Bygg opp nettverket ved å kopla alle terminalane til tenaren på færrast moglege trekk.</p>
     <p xml:lang="pl">KNetWalk jest logiczną grą dla pojedynczego gracza. Stwórz sieć łącząc wszystkie terminale do serwera w najmniejszej możliwej do osiągnięcia liczbie tur.</p>
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
     <p xml:lang="pt-BR">O KNetWalk é um jogo de um jogar simples de lógica. Construa a rede, conectando todos os terminais ao servidor com o menor número de giros possíveis.</p>
@@ -85,6 +88,7 @@
       <caption xml:lang="it">Giocare a KNetWalk</caption>
       <caption xml:lang="ko">KNetWalk 플레이</caption>
       <caption xml:lang="nl">KNetWalk spelen</caption>
+      <caption xml:lang="nn">Spelar KNettvandrar</caption>
       <caption xml:lang="pl">Granie w KNetWalk</caption>
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
       <caption xml:lang="pt-BR">Jogando KNetWalk</caption>
