@@ -46,7 +46,7 @@ int main(int argc, char ** argv)
     migrate.migrate();
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
-                         QLatin1Literal(version), i18n(description),
+                         QLatin1String(version), i18n(description),
                          KAboutLicense::GPL, i18n(copyleft), QString(),
                          QStringLiteral("http://games.kde.org/knetwalk"));
     

@@ -143,7 +143,7 @@ void GameView::updateSprite(int index)
 
     QString code = getCableCode(grid->cellAt(index)->cables());
     if(grid->cellAt(index)->isConnected()) {
-        code.insert(0, QLatin1Literal("con"));
+        code.insert(0, QLatin1String("con"));
     }
 
     if (!rotatingCells.contains(index)) {
@@ -167,7 +167,7 @@ void GameView::checkCompleted()
             return;
         }
     }
-    emit gameOver(QLatin1Literal("won"));
+    emit gameOver(QLatin1String("won"));
 }
 
 void GameView::solve()
@@ -179,13 +179,13 @@ void GameView::solve()
         grid->cellAt(i)->reset();
         QString code = QLatin1String("con") + getCableCode(grid->cellAt(i)->cables());
         if (grid->cellAt(i)->isTerminal()){
-            setSprite(i, code, QLatin1Literal("computer2"));
+            setSprite(i, code, QLatin1String("computer2"));
         }
         else {
-            setSprite(i, code, QLatin1Literal("none"));
+            setSprite(i, code, QLatin1String("none"));
         }
     }
-    emit gameOver(QLatin1Literal("solved"));
+    emit gameOver(QLatin1String("solved"));
 }
 
 void GameView::setRotateDuration()
