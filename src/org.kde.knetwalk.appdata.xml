@@ -10,6 +10,7 @@
   <name xml:lang="de">KNetWalk</name>
   <name xml:lang="en-GB">KNetWalk</name>
   <name xml:lang="es">KNetWalk</name>
+  <name xml:lang="et">KNetWalk</name>
   <name xml:lang="fr">KNetWalk</name>
   <name xml:lang="gl">KNetWalk</name>
   <name xml:lang="id">KNetWalk</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="de">KNetWalk, ein Spiel für Systemadministratoren</summary>
   <summary xml:lang="en-GB">KNetWalk is a game for system administrators</summary>
   <summary xml:lang="es">KNetWalk es un juego para administradores de sistemas</summary>
+  <summary xml:lang="et">KNetWalk on süsteemiadministraatorite mäng</summary>
   <summary xml:lang="fr">KNetWalk est un jeu pour les administrateurs système</summary>
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="id">KNetWalk adalah sebuah permainan untuk administrator sistem</summary>
@@ -57,6 +59,7 @@
     <p xml:lang="de">KNetWalk ist ein Logikspiel für einen Spieler. Ziel des Spiels ist es, mit möglichst wenig Zügen alle Terminals mit dem Server zu verbinden und damit das Netzwerk fertig aufzubauen.</p>
     <p xml:lang="en-GB">KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.</p>
     <p xml:lang="es">KNetWalk es un juego lógico para un único jugador. Construya la red conectando todos los terminales al servidor en el menor número posible de giros.</p>
+    <p xml:lang="et">KNetWalk on ühe mängijaga loogikamäng. Selles tuleb luua võrk, ühendades kõik terminalid serveri külge võimalikult väheste käikudega.</p>
     <p xml:lang="fr">KNetWalk est un jeu de logique à un seul joueur. Construisez un réseau et reliez tous les terminaux au serveur en jouant le moins de coups possible.</p>
     <p xml:lang="gl">KNetWalk é un xogo de lóxica para un xogador. Constrúe unha rede conectando todos os terminais ao servidor no menor número de quendas posíbel.</p>
     <p xml:lang="id">KNetWalk adalah sebuah permainan logika pemain tunggal. Kontruksi jaringan, mengkoneksikan semua terminal ke server sedikit menikung-nikung.</p>
@@ -84,6 +87,7 @@
       <caption xml:lang="de">KNetWalk spielen</caption>
       <caption xml:lang="en-GB">Playing KNetWalk</caption>
       <caption xml:lang="es">Jugando a KNetWalk</caption>
+      <caption xml:lang="et">KNetWalki mängimine</caption>
       <caption xml:lang="fr">Partie de KNetWalk en cours</caption>
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="id">Memainkan KNetWalk</caption>
