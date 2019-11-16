@@ -48,7 +48,7 @@ int main(int argc, char ** argv)
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QLatin1String(version), i18n(description),
                          KAboutLicense::GPL, i18n(copyleft), QString(),
-                         QStringLiteral("http://games.kde.org/knetwalk"));
+                         QStringLiteral("https://kde.org/applications/games/org.kde.knetwalk"));
     
     about.addAuthor(i18n("Andi Peredri"),
                     i18n("original author"),
