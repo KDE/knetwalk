@@ -20,7 +20,7 @@
 #include <KCrash>
 #include <QApplication>
 #include <KLocalizedString>
-#include <kdelibs4configmigrator.h>
+#include <Kdelibs4ConfigMigrator>
 
 #include "mainwindow.h"
 #include <KDBusService>

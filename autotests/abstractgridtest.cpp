@@ -7,8 +7,8 @@
  *   (at your option) any later version.                                   *
  ***************************************************************************/
 
-#include <qtest.h>
-#include <qdir.h>
+#include <QTest>
+#include <QDir>
 
 #include "../src/abstractgrid.h"
 #include "../src/mainwindow.h"
