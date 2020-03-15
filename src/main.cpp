@@ -23,6 +23,7 @@
 #include <Kdelibs4ConfigMigrator>
 
 #include "mainwindow.h"
+#include "knetwalk_version.h"
 #include <KDBusService>
 
 #include <QCommandLineParser>
@@ -34,8 +35,6 @@ static const char copyleft[] =
 I18N_NOOP("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
           "(C) 2007-2008 Fela Winkelmolen\n"
           "(C) 2013 Ashwin Rajeev");
-
-static const char version[] = "3.3.0";
 
 int main(int argc, char ** argv)
 {
@@ -49,7 +48,7 @@ int main(int argc, char ** argv)
     migrate.migrate();
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
-                         QLatin1String(version), i18n(description),
+                         QStringLiteral(KNETWALK_VERSION_STRING), i18n(description),
                          KAboutLicense::GPL, i18n(copyleft), QString(),
                          QStringLiteral("https://kde.org/applications/games/org.kde.knetwalk"));
     
