@@ -38,6 +38,8 @@ I18N_NOOP("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
 
 int main(int argc, char ** argv)
 {
+    // Fixes blurry icons with fractional scaling
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain("knetwalk");
