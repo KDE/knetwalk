@@ -113,6 +113,7 @@
   <project_group>KDE</project_group>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="3.3.20042" date="2020-06-11"/>
     <release version="3.3.20041" date="2020-05-14"/>
     <release version="3.3.20040" date="2020-04-23"/>
   </releases>
