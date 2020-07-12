@@ -24,6 +24,7 @@
   <name xml:lang="pt-BR">KNetWalk</name>
   <name xml:lang="ru">KNetWalk</name>
   <name xml:lang="sk">KNetWalk</name>
+  <name xml:lang="sl">KNetWalk</name>
   <name xml:lang="sv">Knetwalk</name>
   <name xml:lang="uk">KNetWalk</name>
   <name xml:lang="x-test">xxKNetWalkxx</name>
@@ -48,6 +49,7 @@
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
   <summary xml:lang="pt-BR">O KNetWalk é um jogo para administradores de sistema</summary>
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
+  <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
   <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
   <summary xml:lang="x-test">xxKNetWalk is a game for system administratorsxx</summary>
@@ -74,6 +76,7 @@
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
     <p xml:lang="pt-BR">O KNetWalk é um jogo de um jogar simples de lógica. Construa a rede, conectando todos os terminais ao servidor com o menor número de giros possíveis.</p>
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
+    <p xml:lang="sl">KNetWalk je logična igra za enega igralca. Načrtovanje omrežja tako, da so terminali povezani na strežnik z najmanj potezami.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
     <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
     <p xml:lang="x-test">xxKNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.xx</p>
@@ -103,6 +106,7 @@
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
       <caption xml:lang="pt-BR">Jogando KNetWalk</caption>
       <caption xml:lang="sk">Hranie KNetWalk</caption>
+      <caption xml:lang="sl">Igra KNetWalk</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
       <caption xml:lang="uk">Гра у KNetWalk</caption>
       <caption xml:lang="x-test">xxPlaying KNetWalkxx</caption>
