@@ -20,8 +20,6 @@
 #include <KgSound>
 #include <QGraphicsObject>
 #include <KMessageBox>
-#include <KgThemeProvider>
-#include <QQuickItem>
 #include <KLocalizedString>
 
 #include "globals.h"
