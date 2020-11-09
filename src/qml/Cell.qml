@@ -30,24 +30,36 @@ Item{
     Rectangle {
         anchors.fill: parent
         color: "black"
-        opacity: (locked && main.state == "running")? 0.5 : 0
+        opacity: (locked && main.state === "running")? 0.5 : 0
     }
 
     MouseArea {
         anchors.fill: parent
-        enabled: main.state == "running"
+        enabled: main.state === "running"
         acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
         hoverEnabled: true
         onClicked: {
             main.selected = index
-            if (mouse.button == Qt.LeftButton) {
-                main.rotateCounterclockwise();
-            }
-            else if (mouse.button == Qt.RightButton) {
-                main.rotateClockwise();
-            }
-            else if (mouse.button == Qt.MiddleButton) {
-                locked = !locked
+            switch (mouse.button) {
+                case Qt.LeftButton:
+                    if (main.reverseButtons) {
+                        main.rotateClockwise();
+                    }
+                    else {
+                        main.rotateCounterclockwise();
+                    }
+                    break;
+                case Qt.RightButton:
+                    if (main.reverseButtons) {
+                        main.rotateCounterclockwise();
+                    }
+                    else {
+                        main.rotateClockwise();
+                    }
+                    break;
+                case Qt.MiddleButton:
+                    locked = !locked;
+                    break;
             }
         }
         onEntered: main.selected = index

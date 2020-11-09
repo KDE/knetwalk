@@ -22,6 +22,7 @@ Item {
     id: main
     property int selected: 0
     property int rotateDuration: 300
+    property bool reverseButtons: false
     property string state
     property alias rows: grid.rows
     property alias columns: grid.columns
@@ -59,7 +60,7 @@ Item {
         y: grid.y + ((Logic.cells.length > selected)? Logic.cells[selected].y : 0)
         width: grid.width / grid.columns
         height: width
-        opacity: (main.state == "running")? 0.2 : 0
+        opacity: (main.state === "running")? 0.2 : 0
     }
 
     Rectangle {
@@ -101,31 +102,31 @@ Item {
     }
 
     function kbGoUp() {
-        if(state == "running") {
+        if(state === "running") {
             selected += (selected < columns)? columns * (rows - 1) : -columns;
         }
     }
 
     function kbGoDown() {
-        if(state == "running") {
+        if(state === "running") {
             selected += (selected < columns * (rows - 1))? columns : -columns * (rows - 1);
         }
     }
 
     function kbGoLeft() {
-        if(state == "running") {
+        if(state === "running") {
             selected += (selected % columns == 0)? columns - 1 : - 1;
         }
     }
 
     function kbGoRight() {
-        if (state == "running") {
+        if (state === "running") {
             selected += (selected % columns == columns - 1)? -columns + 1 : 1;
         }
     }
 
     function toggleLock() {
-        if(state == "running") {
+        if(state === "running") {
             Logic.cells[selected].locked = !Logic.cells[selected].locked;
         }
     }

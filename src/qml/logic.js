@@ -46,7 +46,7 @@ function addCell(cable, type) {
     cell.sprite = cable;
     cell.index = cells.length;
     cell.type = type
-    if(cable != "") {
+    if(cable !== "") {
         cableComponent.createObject(cell);
         createNode(type, cell)
     }
@@ -54,7 +54,7 @@ function addCell(cable, type) {
 }
 
 function createNode(type, cell) {
-    if(type != "none") {
+    if(type !== "none") {
         var node = canvasComponent.createObject(cell);
         node.spriteKey = cell.type;
         node.anchors.fill = cell;
@@ -78,18 +78,18 @@ function reset(width, height) {
 function setSprite(index, cable, type) {
     cells[index].angle = 0;
     cells[index].sprite = cable;
-    if (type != "none"){
+    if (type !== "none"){
         cells[index].type = type;
         nodes[cells[index]].spriteKey = type;
     }
 }
 
 function rotate(direction) {
-    if(cells[selected].locked || cells[selected].sprite == "") {
+    if(cells[selected].locked || cells[selected].sprite === "") {
         clicked(-1); //invalid click
     }
-    else if(state == "running") {
-        cells[selected].angle += (direction == "clockwise")? 90 : -90;
+    else if(state === "running") {
+        cells[selected].angle += (direction === "clockwise")? 90 : -90;
         clicked(selected);
     }
 }

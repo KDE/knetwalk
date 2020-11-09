@@ -38,7 +38,7 @@ GameView::GameView(QWidget *parent) :
     QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("qml/main.qml"));
 
     setSource(QUrl::fromLocalFile(path));
-    setRotateDuration();
+    updateSettings();
 
     connect(rootObject(), SIGNAL(clicked(int)),this, SLOT(clicked(int)));
     connect(rootObject(), SIGNAL(rotated(int,int)), this, SLOT(rotated(int,int)));
@@ -186,9 +186,10 @@ void GameView::solve()
     emit gameOver(QLatin1String("solved"));
 }
 
-void GameView::setRotateDuration()
+void GameView::updateSettings()
 {
     rootObject()->setProperty("rotateDuration", Settings::rotateDuration());
+    rootObject()->setProperty("reverseButtons", Settings::reverseButtons());
 }
 
 QString GameView::getCableCode(int cables)

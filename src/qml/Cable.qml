@@ -21,7 +21,7 @@ CanvasItem {
     spriteKey: "cable" + parent.sprite
     anchors.fill: parent
     rotation: parent.angle
-    opacity: (main.state == "paused")? 0 : 1
+    opacity: (main.state === "paused")? 0 : 1
     Behavior on rotation {
         id: animate
         NumberAnimation {

@@ -18,6 +18,10 @@
         <label>Whether lock cell after rotation.</label>
         <default>false</default>
     </entry>
+    <entry name="ReverseButtons" type="Bool" key="ReverseButtons">
+      <label>Use left click for clockwise and right click for counter-clockwise.</label>
+      <default>false</default>
+    </entry>
     <entry name="RotateDuration" type="Int" key="RotateDuration">
         <label>Duration for cell to complete one rotation.</label>
         <min>100</min>

@@ -41,7 +41,7 @@ public:
 
 
 public slots:
-    void setRotateDuration();
+    void updateSettings();
 
 signals:
     void newCell(const QVariant &cable, const QVariant &type);
