@@ -29,8 +29,8 @@
     
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2016-05-10</date>
-<releaseinfo>3.3.0 (Applications 16.04)</releaseinfo>
+<date>2020-11-12</date>
+<releaseinfo>3.3.0 (Applications 20.12)</releaseinfo>
 
 <abstract>
 <para>
@@ -267,6 +267,18 @@ of the &kde; Fundamentals.
 	 <listitem>
 	   <para>
 	     If checked, &knetwalk; will automatically lock cell after rotation.
+	   </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel>
+	     Reverse Mouse Buttons
+	   </guilabel>
+	 </term>
+	 <listitem>
+	   <para>
+	     If checked, &knetwalk; uses the left click for the clockwise rotation and the right click for the counter-clockwise rotation.
 	   </para>
 	 </listitem>
        </varlistentry>
