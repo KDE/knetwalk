@@ -170,7 +170,7 @@ void MainWindow::setupActions()
     actionCollection()->addAction( QStringLiteral( "kb_turn_clockwise" ), action);
 
     action = new QAction(i18n("Keyboard: Turn counterclockwise"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::CTRL + Qt::Key_Return);
+    actionCollection()->setDefaultShortcut(action, Qt::CTRL | Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateCounterclockwise()));
     actionCollection()->addAction( QStringLiteral( "kb_turn_counterclockwise" ), action);
 
