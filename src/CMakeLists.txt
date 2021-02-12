@@ -9,11 +9,11 @@ set(knetwalk_SRCS
     gameview.cpp
     mainwindow.cpp
     abstractgrid.cpp
+    knetwalk.qrc
 )
 
 ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX KNETWALK VERSION_HEADER knetwalk_version.h)
 
-qt5_add_resources(knetwalk_SRCS knetwalk.qrc)
 ki18n_wrap_ui( knetwalk_SRCS general.ui customgame.ui)
 
 kconfig_add_kcfg_files(knetwalk_SRCS settings.kcfgc)
