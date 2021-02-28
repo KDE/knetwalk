@@ -85,7 +85,7 @@
     <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
     <p xml:lang="x-test">xxKNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.xx</p>
   </description>
-  <url type="homepage">https://games.kde.org/game.php?game=knetwalk</url>
+  <url type="homepage">https://games.kde.org/games/knetwalk</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=knetwalk</url>
   <url type="help">https://docs.kde.org/?application=knetwalk</url>
   <url type="donation">https://www.kde.org/community/donations/?app=knetwalk&amp;source=appdata</url>
