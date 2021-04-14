@@ -122,9 +122,9 @@
   <project_group>KDE</project_group>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="3.3.21040" date="2021-04-22"/>
     <release version="3.3.20123" date="2021-03-04"/>
     <release version="3.3.20122" date="2021-02-04"/>
     <release version="3.3.20121" date="2021-01-07"/>
-    <release version="3.3.20120" date="2020-12-10"/>
   </releases>
 </component>
