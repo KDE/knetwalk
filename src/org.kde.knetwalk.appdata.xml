@@ -127,4 +127,5 @@
     <release version="3.3.21041" date="2021-05-13"/>
     <release version="3.3.21040" date="2021-04-22"/>
   </releases>
+  <content_rating type="oars-1.1"/>
 </component>
