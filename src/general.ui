@@ -17,7 +17,7 @@
       <string>Duration for cell to complete one rotation in milliseconds</string>
      </property>
      <property name="text">
-      <string>Rotate Duration:</string>
+      <string>Rotate duration:</string>
      </property>
     </widget>
    </item>
@@ -40,7 +40,7 @@
       <string>Play sounds on actions</string>
      </property>
      <property name="text">
-      <string>Play Sounds</string>
+      <string>Play sounds</string>
      </property>
     </widget>
    </item>
@@ -60,7 +60,7 @@
       <string>Automatically lock cell after rotation</string>
      </property>
      <property name="text">
-      <string>Auto Lock</string>
+      <string>Auto lock</string>
      </property>
     </widget>
    </item>
@@ -80,7 +80,7 @@
    <item row="2" column="1">
     <widget class="QCheckBox" name="kcfg_ReverseButtons">
      <property name="text">
-      <string>Reverse Mouse Buttons</string>
+      <string>Reverse mouse buttons</string>
      </property>
     </widget>
    </item>
