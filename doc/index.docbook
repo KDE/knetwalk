@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % English "INCLUDE"> 
+<!ENTITY % English "INCLUDE">
 <!ENTITY % addindex "IGNORE">
 ]>
 
@@ -26,11 +26,11 @@
 <year>2007</year>
 <holder>Fela Winkelmolen</holder>
 </copyright>
-    
+
 <legalnotice>&FDLNotice;</legalnotice>
 
-<date>2020-11-12</date>
-<releaseinfo>3.3.0 (Applications 20.12)</releaseinfo>
+<date>2021-07-26</date>
+<releaseinfo>3.3.2 (KDE Gear 21.08)</releaseinfo>
 
 <abstract>
 <para>
@@ -48,18 +48,18 @@
 
 <chapter id="introduction">
 <title>Introduction</title>
+  <note><title>Gametype:</title><para>Strategy</para></note>
+  <note><title>Number of possible players:</title><para>One</para></note>
 
-<para>
-&knetwalk; is a single player logic game.
-</para>
+  <para>&knetwalk; is a single player logic game.</para>
 
-<para>
-The object of the game is to start the LAN, connecting all the terminals to the server, in as few turns as possible.
-</para>
+  <para>The object of the game is to start the LAN, connecting all the terminals to the server, in as few turns as possible.</para>
 </chapter>
 
 <chapter id="how-to-play">
 <title>How to Play</title>
+
+<note><title>Objective:</title><para>Connect each client with the server, without leaving wires unconnected.</para></note>
 
 <screenshot>
 <mediaobject>
@@ -73,7 +73,7 @@ The object of the game is to start the LAN, connecting all the terminals to the 
 </screenshot>
 
 <para>
-The player is presented with a rectangular grid containing a server, several terminals, and pieces of wire.  The object of the game is to rotate these elements until every client is connected  to  the server, and no wires are left unconnected.  Optionally, you can try to get a high score by minimizing the number of rotations needed.
+The player is presented with a rectangular grid containing a server, several terminals, and pieces of wire.  The object of the game is to rotate these elements until every client is connected to the server, and no wires are left unconnected.  Optionally, you can try to get a high score by minimizing the number of rotations needed.
 </para>
 
 <para>
@@ -89,9 +89,9 @@ Left clicking on a square rotates it counterclockwise, while right clicking  rot
 <title>Rules</title>
 <itemizedlist>
 <listitem><para>There is only one possible correct solution for every game.</para></listitem>
-<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level connections can wrap from left to right and from top to bottom.</para></listitem>
+<listitem><para>When playing the <guilabel>Very hard</guilabel> difficulty level, connections can wrap from left to right and from top to bottom.</para></listitem>
 <listitem><para>The game ends when every terminal and every wire is connected to the server.</para></listitem>
-<listitem><para>The score represents the number of clicks it took to complete the game. The lower the score the better.</para></listitem>
+<listitem><para>The score rewards the least number of clicks it took to complete the game. The smaller this number, better.</para></listitem>
 </itemizedlist>
 </sect1>
 
@@ -189,7 +189,7 @@ Quits the program.
 </menuchoice></term>
 <listitem>
 <para>
-  Unlock all cells which were previously locked by the player using <keycap>Space</keycap> or automatically after checking <guilabel>Auto Lock</guilabel> item on <link linkend="config_general">General page</link> of Configure &knetwalk; dialog.
+  Unlock all cells which were previously locked by the player using &Space; or automatically after checking <guilabel>Auto lock</guilabel> option on <link linkend="config_general"><guilabel>General</guilabel> page</link> of <guilabel>Configure - &knetwalk;</guilabel> dialog.
 </para>
 </listitem>
 </varlistentry>
@@ -207,7 +207,7 @@ Quits the program.
 <listitem><para><guimenuitem>Medium</guimenuitem>: 7 rows, 7 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Hard</guimenuitem>: 9 rows, 9 columns, without wrapping.</para></listitem>
 <listitem><para><guimenuitem>Very hard</guimenuitem>: 9 rows, 9 columns, with wrapping.</para></listitem>
-<listitem><para><guimenuitem>Custom</guimenuitem>: The settings you have configured in the <link linkend="config_custom_game">Configure &knetwalk; dialog</link> will be used.</para></listitem>
+<listitem><para><guimenuitem>Custom</guimenuitem>: The settings you have configured in the <link linkend="config_custom_game"><guilabel>Configure - &knetwalk;</guilabel> dialog</link> will be used.</para></listitem>
 </itemizedlist>
 </para></listitem>
 </varlistentry>
@@ -218,7 +218,7 @@ Quits the program.
 <guimenuitem>Configure &knetwalk;...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
-  <action>Open Configure &knetwalk; dialog.</action> Please see <link linkend="configuration">Game Configuration</link> for more information.
+  <action>Open <guilabel>Configure - &knetwalk;</guilabel> dialog.</action> Please see <link linkend="configuration">Game Configuration</link> for more information.
 </para></listitem>
 </varlistentry>
 </variablelist>
@@ -235,10 +235,8 @@ of the &kde; Fundamentals.
 <sect1 id="configuration">
    <title>Game Configuration</title>
    <para>
-     To open the Configure &knetwalk; dialog, select <menuchoice>
-       <guimenu>Settings</guimenu>
-       <guimenuitem>Configure &knetwalk;...</guimenuitem>
-     </menuchoice>
+     To open the <guilabel>Configure - &knetwalk;</guilabel> dialog, select the <menuchoice><guimenu>Settings</guimenu>
+     <guimenuitem>Configure &knetwalk;...</guimenuitem></menuchoice> menu item.
    </para>
    <sect2 id="config_general">
      <title>General</title>
@@ -249,7 +247,7 @@ of the &kde; Fundamentals.
        <varlistentry>
 	 <term>
 	   <guilabel>
-	     Play Sounds
+	     Play sounds
 	   </guilabel>
 	 </term>
 	 <listitem>
@@ -261,7 +259,7 @@ of the &kde; Fundamentals.
        <varlistentry>
 	 <term>
 	   <guilabel>
-	     Auto Lock
+	     Auto lock
 	   </guilabel>
 	 </term>
 	 <listitem>
@@ -273,7 +271,7 @@ of the &kde; Fundamentals.
        <varlistentry>
 	 <term>
 	   <guilabel>
-	     Reverse Mouse Buttons
+	     Reverse mouse buttons
 	   </guilabel>
 	 </term>
 	 <listitem>
@@ -285,7 +283,7 @@ of the &kde; Fundamentals.
        <varlistentry>
 	 <term>
 	   <guilabel>
-	     Rotate Duration
+	     Rotate duration:
 	   </guilabel>
 	 </term>
 	 <listitem>
@@ -305,11 +303,11 @@ of the &kde; Fundamentals.
    <sect2 id="config_custom_game">
      <title>Custom Game</title>
      <para>
-       This page can be used to configure custom game settings. You can choose <guilabel>Width</guilabel> and <guilabel>Height</guilabel> of the board and check the <guilabel>Wrapping</guilabel> if the board should be wrapped from left to right and from top to bottom.
+       This page can be used to configure custom game settings. You can choose <guilabel>Width:</guilabel> and <guilabel>Height:</guilabel> of the board and check the <guilabel>Wrapping</guilabel> if the board should be wrapped from left to right and from top to bottom.
      </para>
    </sect2>
 </sect1>
- 
+
 
 <sect1 id="keybindings">
 <title id="keybindings-title">Shortcuts</title>
@@ -349,7 +347,7 @@ of the &kde; Fundamentals.
 <entry><keycap>F1</keycap></entry>
 </row>
 <row>
-<entry>What's this?</entry>
+<entry>What's this? help</entry>
 <entry>
 <keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo>
 </entry>
@@ -357,43 +355,43 @@ of the &kde; Fundamentals.
 <row>
 <entry>Move left</entry>
 <entry>
-<keycap>Left arrow</keycap>
+&Left; arrow
 </entry>
 </row>
 <row>
 <entry>Move right</entry>
 <entry>
-<keycap>Right arrow</keycap>
+&Right; arrow
 </entry>
 </row>
 <row>
 <entry>Move up</entry>
 <entry>
-<keycap>Up arrow</keycap>
+&Up; arrow
 </entry>
 </row>
 <row>
 <entry>Move down</entry>
 <entry>
-<keycap>Down arrow</keycap>
+&Down; arrow
 </entry>
 </row>
 <row>
 <entry>Turn clockwise</entry>
 <entry>
-<keycap>Return</keycap>
+&Enter;
 </entry>
 </row>
 <row>
 <entry>Turn counterclockwise</entry>
 <entry>
-<keycombo>&Ctrl;<keycap>Return</keycap></keycombo>
+<keycombo>&Ctrl;&Enter;</keycombo>
 </entry>
 </row>
 <row>
 <entry>Toggle lock</entry>
 <entry>
-<keycap>Space</keycap>
+&Space;
 </entry>
 </row>
 </tbody>
@@ -424,7 +422,7 @@ Documentation copyright 2007 by Fela Winkelmolen <email>fela.kde@gmail.com</emai
 
 </chapter>
 
-&documentation.index; 
+&documentation.index;
 </book>
 <!--
 Local Variables:
