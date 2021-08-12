@@ -120,7 +120,6 @@
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
-  <content_rating type="oars-1.1"/>
   <releases>
     <release version="3.3.21080" date="2021-08-12"/>
     <release version="3.3.21043" date="2021-07-08"/>
