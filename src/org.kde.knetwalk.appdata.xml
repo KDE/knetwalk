@@ -121,10 +121,10 @@
   </screenshots>
   <project_group>KDE</project_group>
   <releases>
+    <release version="3.3.21081" date="2021-09-02"/>
     <release version="3.3.21080" date="2021-08-12"/>
     <release version="3.3.21043" date="2021-07-08"/>
     <release version="3.3.21042" date="2021-06-10"/>
-    <release version="3.3.21041" date="2021-05-13"/>
   </releases>
   <content_rating type="oars-1.1"/>
 </component>
