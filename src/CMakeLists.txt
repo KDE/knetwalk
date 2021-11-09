@@ -5,10 +5,15 @@ add_subdirectory(sounds)
 ########### next target ###############
 
 set(knetwalk_SRCS 
-    main.cpp
-    gameview.cpp
-    mainwindow.cpp
     abstractgrid.cpp
+    abstractgrid.h
+    gameview.cpp
+    gameview.h
+    globals.h
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+
     knetwalk.qrc
 )
 
