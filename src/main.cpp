@@ -28,14 +28,6 @@
 
 #include <QCommandLineParser>
 
-static const char description[] =
-I18N_NOOP("KNetWalk, a game for system administrators.");
-
-static const char copyleft[] =
-I18N_NOOP("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-          "(C) 2007-2008 Fela Winkelmolen\n"
-          "(C) 2013 Ashwin Rajeev");
-
 int main(int argc, char ** argv)
 {
     // Fixes blurry icons with fractional scaling
@@ -50,8 +42,10 @@ int main(int argc, char ** argv)
     migrate.migrate();
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
-                         QStringLiteral(KNETWALK_VERSION_STRING), i18n(description),
-                         KAboutLicense::GPL, i18n(copyleft), QString(),
+                         QStringLiteral(KNETWALK_VERSION_STRING), i18n("KNetWalk, a game for system administrators."),
+                         KAboutLicense::GPL, i18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+                                                  "(C) 2007-2008 Fela Winkelmolen\n"
+                                                  "(C) 2013 Ashwin Rajeev"), QString(),
                          QStringLiteral("https://kde.org/applications/games/org.kde.knetwalk"));
     
     about.addAuthor(i18n("Andi Peredri"),
