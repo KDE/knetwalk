@@ -43,9 +43,9 @@ private:
         StatusBarIndexTime = 1
     };
     QSize boardSize();
-signals:
+Q_SIGNALS:
     void pause(const QVariant &paused);
-private slots:
+private Q_SLOTS:
     void startNewGame();
     void gameOver(const QVariant &msg);
     void rotationStarted();

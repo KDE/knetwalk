@@ -84,7 +84,7 @@ void GameView::clicked(int index)
 {
     if (index >= 0) {
         rotatingCells.insert(index);
-        emit rotationStarted();
+        Q_EMIT rotationStarted();
         if (Settings::playSounds()) {
             m_soundTurn->start();
         }
@@ -106,11 +106,11 @@ void GameView::rotated(int index, int angle)
     case 180: case -180:
         grid->cellAt(index)->invert();
     }
-    QList<int> changedCells = grid->updateConnections();
+    const QList<int> changedCells = grid->updateConnections();
     bool newTerminalConnected = false;
     rotatingCells.remove(index);
 
-    foreach (int i, changedCells) {
+    for (int i : changedCells) {
         if(grid->cellAt(i)->isTerminal()){
             newTerminalConnected = true;
         }
@@ -125,7 +125,7 @@ void GameView::rotated(int index, int angle)
     }
 
     if (Settings::autolock()) {
-        emit lock(index);
+        Q_EMIT lock(index);
     }
     if (rotatingCells.count() == 0) {
         checkCompleted();
@@ -165,7 +165,7 @@ void GameView::checkCompleted()
             return;
         }
     }
-    emit gameOver(QLatin1String("won"));
+    Q_EMIT gameOver(QLatin1String("won"));
 }
 
 void GameView::solve()
@@ -183,7 +183,7 @@ void GameView::solve()
             setSprite(i, code, QLatin1String("none"));
         }
     }
-    emit gameOver(QLatin1String("solved"));
+    Q_EMIT gameOver(QLatin1String("solved"));
 }
 
 void GameView::updateSettings()

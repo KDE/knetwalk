@@ -40,10 +40,10 @@ public:
     
 
 
-public slots:
+public Q_SLOTS:
     void updateSettings();
 
-signals:
+Q_SIGNALS:
     void newCell(const QVariant &cable, const QVariant &type);
     void setSprite(const QVariant &pos, const QVariant &cable, const QVariant &type);
     void setSize(const QVariant &width, const QVariant &height);
@@ -51,7 +51,7 @@ signals:
     void lock(const QVariant&);
     void gameOver(const QVariant &msg);
 
-private slots:
+private Q_SLOTS:
     void solve();
     void clicked(int index);
     void rotated(int index, int angle);

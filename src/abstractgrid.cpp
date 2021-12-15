@@ -374,7 +374,7 @@ int AbstractGrid::solutionCount()
 {
     MoveList possibleNextMoves;
     // TODO: put following in external function
-    foreach (AbstractCell *cell, m_cells) {
+    for (AbstractCell *cell : std::as_const(m_cells)) {
         if (!cell->hasBeenMoved()) {
             Directions dirs = cell->cables();
             Move move;
@@ -414,7 +414,7 @@ int AbstractGrid::solutionCount()
     // else
 
     int solutionsFound = 0;
-    foreach (const Move &nextMove, possibleNextMoves) {
+    for (const Move &nextMove : std::as_const(possibleNextMoves)) {
         int index = nextMove.index();
 
         switch (nextMove.move()) {
@@ -444,7 +444,7 @@ int AbstractGrid::solutionCount()
 bool AbstractGrid::movesDoneArePossible()
 {
 
-    foreach (AbstractCell *cell, m_cells) {
+    for (AbstractCell *cell : std::as_const(m_cells)) {
         if (!cell->hasBeenMoved()) continue;
 
         uint x = cell->index() % m_width;
@@ -496,7 +496,7 @@ bool AbstractGrid::movesDoneArePossible()
 
 bool AbstractGrid::hasUnneededCables()
 {
-    foreach (AbstractCell *cell, m_cells) {
+    for (AbstractCell *cell : std::as_const(m_cells)) {
         if (cell->isTerminal() || cell->isServer() || cell->cables() == None) {
             continue;
         }
@@ -518,7 +518,7 @@ bool AbstractGrid::hasUnneededCables()
 
 bool AbstractGrid::isPossibleSolution()
 {
-    foreach (AbstractCell *cell, m_cells) {
+    for (AbstractCell *cell : std::as_const(m_cells)) {
         cell->setConnected(false);
     }
     updateConnections();
@@ -528,7 +528,7 @@ bool AbstractGrid::isPossibleSolution()
 
 bool AbstractGrid::allTerminalsConnected() {
     // return false if there is a terminal that isn't connected
-    foreach (AbstractCell *cell, m_cells) {
+    for (AbstractCell *cell : std::as_const(m_cells)) {
         if (cell->isTerminal() && !cell->isConnected()) {
             return false;
         }
