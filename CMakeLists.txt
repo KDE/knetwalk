@@ -9,12 +9,15 @@ set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_
 project(knetwalk VERSION "3.3.${RELEASE_SERVICE_COMPACT_VERSION}")
 
 set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.89.0")
+set (KF5_MIN_VERSION "5.90.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
+include(KDEInstallDirs)
 
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick)
+find_package(Qt${QT_MAJOR_VERSION}QuickWidgets ${REQUIRED_QT_VERSION} CONFIG)
+
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
     ConfigWidgets
@@ -30,19 +33,18 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 
 find_package(KF5KDEGames 4.9.0 REQUIRED)
 
-find_package(Qt5Test ${QT_MIN_VERSION} QUIET)
-set_package_properties(Qt5Test PROPERTIES
+find_package(Qt${QT_MAJOR_VERSION}Test ${QT_MIN_VERSION} QUIET)
+set_package_properties(Qt${QT_MAJOR_VERSION}Test PROPERTIES
     PURPOSE "Required for tests"
     TYPE OPTIONAL)
-add_feature_info("Qt5Test" Qt5Test_FOUND "Required for building tests")
-if (NOT Qt5Test_FOUND)
+add_feature_info("Qt${QT_MAJOR_VERSION}Test" Qt${QT_MAJOR_VERSION}Test_FOUND "Required for building tests")
+if (NOT Qt${QT_MAJOR_VERSION}Test_FOUND)
     set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
 endif()
 
 include(FeatureSummary)
 include(ECMAddAppIcon)
 include(ECMInstallIcons)
-include(KDEInstallDirs)
 include(ECMSetupVersion)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
