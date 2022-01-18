@@ -20,8 +20,9 @@
 #include <KCrash>
 #include <QApplication>
 #include <KLocalizedString>
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
 #include <Kdelibs4ConfigMigrator>
-
+#endif
 #include "mainwindow.h"
 #include "knetwalk_version.h"
 #include <KDBusService>
@@ -37,11 +38,12 @@ int main(int argc, char ** argv)
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain("knetwalk");
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     Kdelibs4ConfigMigrator migrate(QStringLiteral("knetwalk"));
     migrate.setConfigFiles(QStringList() << QStringLiteral("knetwalkrc"));
     migrate.setUiFiles(QStringList() << QStringLiteral("knetwalkui.rc"));
     migrate.migrate();
+#endif
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QStringLiteral(KNETWALK_VERSION_STRING), i18n("KNetWalk, a game for system administrators."),
