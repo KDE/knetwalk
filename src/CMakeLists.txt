@@ -28,6 +28,7 @@ ecm_add_app_icon(knetwalk_SRCS ICONS ${ICONS_SRCS})
 add_executable(knetwalk ${knetwalk_SRCS})
 
 target_link_libraries(knetwalk
+    KF5::CoreAddons
     KF5::Crash
     KF5::DBusAddons
     KF5::TextWidgets
