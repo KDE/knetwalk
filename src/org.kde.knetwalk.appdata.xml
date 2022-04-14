@@ -28,6 +28,7 @@
   <name xml:lang="sk">KNetWalk</name>
   <name xml:lang="sl">KNetWalk</name>
   <name xml:lang="sv">Knetwalk</name>
+  <name xml:lang="tr">KNetWalk</name>
   <name xml:lang="uk">KNetWalk</name>
   <name xml:lang="x-test">xxKNetWalkxx</name>
   <name xml:lang="zh-CN">KNetWalk</name>
@@ -54,6 +55,7 @@
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
   <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
+  <summary xml:lang="tr">KNetWalk, sistem yöneticileri için bir oyundur</summary>
   <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
   <summary xml:lang="x-test">xxKNetWalk is a game for system administratorsxx</summary>
   <summary xml:lang="zh-CN">KNetWalk 是一款为系统管理员设计的游戏。</summary>
@@ -83,6 +85,7 @@
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
     <p xml:lang="sl">KNetWalk je logična igra za enega igralca. Načrtovanje omrežja tako, da so terminali povezani na strežnik z najmanj potezami.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
+    <p xml:lang="tr">KNetWalk, tek kişilik bir mantık oyunudur. Ağı, uçbirimleri sunucuya en az sayıda dönüş ile bağlayarak yapılandırın.</p>
     <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
     <p xml:lang="x-test">xxKNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.xx</p>
     <p xml:lang="zh-CN">KNetWalk 是一款单人推理游戏。构造网络，将所有终端尽可能直地连接到服务器上。</p>
@@ -115,6 +118,7 @@
       <caption xml:lang="sk">Hranie KNetWalk</caption>
       <caption xml:lang="sl">Igra KNetWalk</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
+      <caption xml:lang="tr">KNetWalk oynarken</caption>
       <caption xml:lang="uk">Гра у KNetWalk</caption>
       <caption xml:lang="x-test">xxPlaying KNetWalkxx</caption>
       <caption xml:lang="zh-CN">KNetWalk 游戏界面</caption>
