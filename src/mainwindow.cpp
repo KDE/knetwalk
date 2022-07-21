@@ -107,7 +107,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     setAutoSaveSettings();
 
-    m_gameClock = new KGameClock(this, KGameClock::MinSecOnly);
+    m_gameClock = new KGameClock(this, KGameClock::FlexibleHourMinSec);
     connect(m_gameClock, &KGameClock::timeChanged, this, &MainWindow::updateStatusBar);
 
     m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/start.wav")), this);

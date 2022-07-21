@@ -31,7 +31,7 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     XmlGui
 )
 
-find_package(KF5KDEGames 4.9.0 REQUIRED)
+find_package(KF5KDEGames 7.3.1 REQUIRED)
 
 find_package(Qt${QT_MAJOR_VERSION}Test ${QT_MIN_VERSION} QUIET)
 set_package_properties(Qt${QT_MAJOR_VERSION}Test PROPERTIES
