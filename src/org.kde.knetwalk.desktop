@@ -144,7 +144,6 @@ Comment[uk]=Гра-стратегія
 Comment[x-test]=xxStrategy gamexx
 Comment[zh_CN]=策略游戏
 Comment[zh_TW]=戰略遊戲
-Terminal=false
 Icon=knetwalk
 StartupNotify=true
 Categories=Qt;KDE;Game;StrategyGame;
