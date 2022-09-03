@@ -72,8 +72,6 @@ int main(int argc, char ** argv)
                     i18n("Port to use the QGraphicsView framework"),
                     QStringLiteral("brian.s.croom@gmail.com"));
 
-    about.setOrganizationDomain(QByteArray("kde.org"));
-    
     about.setProductName(QByteArray("knetwalk"));
     
     KAboutData::setApplicationData(about);
