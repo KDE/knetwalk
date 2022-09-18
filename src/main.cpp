@@ -75,6 +75,7 @@ int main(int argc, char ** argv)
     about.setProductName(QByteArray("knetwalk"));
     
     KAboutData::setApplicationData(about);
+
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.process(app);
@@ -83,9 +84,6 @@ int main(int argc, char ** argv)
     KCrash::initialize();
     KDBusService service;
  
-    app.setApplicationDisplayName(about.displayName());
-    app.setOrganizationDomain(about.organizationDomain());
-    app.setApplicationVersion(about.version());
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knetwalk")));
 
     MainWindow* window = new MainWindow;
