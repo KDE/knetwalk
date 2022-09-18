@@ -1,10 +1,9 @@
 add_subdirectory(pics)
 add_subdirectory(sounds)
 
+add_executable(knetwalk)
 
-########### next target ###############
-
-set(knetwalk_SRCS 
+target_sources(knetwalk PRIVATE
     abstractgrid.cpp
     abstractgrid.h
     gameview.cpp
@@ -19,13 +18,12 @@ set(knetwalk_SRCS
 
 ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX KNETWALK VERSION_HEADER knetwalk_version.h)
 
-ki18n_wrap_ui( knetwalk_SRCS general.ui customgame.ui)
+ki18n_wrap_ui(knetwalk general.ui customgame.ui)
 
-kconfig_add_kcfg_files(knetwalk_SRCS settings.kcfgc)
+kconfig_add_kcfg_files(knetwalk settings.kcfgc)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-knetwalk.png")
-ecm_add_app_icon(knetwalk_SRCS ICONS ${ICONS_SRCS})
-add_executable(knetwalk ${knetwalk_SRCS})
+ecm_add_app_icon(knetwalk ICONS ${ICONS_SRCS})
 
 target_link_libraries(knetwalk
     KF5::CoreAddons
@@ -37,9 +35,6 @@ target_link_libraries(knetwalk
 )
 
 install(TARGETS knetwalk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-
-########### install files ###############
 
 install(DIRECTORY qml DESTINATION ${KDE_INSTALL_DATADIR}/knetwalk)
 install(PROGRAMS org.kde.knetwalk.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
