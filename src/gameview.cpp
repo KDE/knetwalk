@@ -17,7 +17,9 @@
 
 #include "gameview.h"
 
+#include <kdegames_version.h>
 #include <KgSound>
+
 #include <QGraphicsObject>
 #include <KMessageBox>
 #include <KLocalizedString>
@@ -30,7 +32,11 @@ GameView::GameView(QWidget *parent) :
     grid(new AbstractGrid),
     m_provider(new KgThemeProvider)
 {
+#if KDEGAMES_VERSION >= QT_VERSION_CHECK(7, 4, 0)
+    m_provider->discoverThemes(QStringLiteral("themes"));
+#else
     m_provider->discoverThemes("appdata", QStringLiteral("themes"));
+#endif
     m_provider->setDeclarativeEngine(QStringLiteral("themeProvider"), engine());
     m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/turn.wav")), this);
     m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/click.wav")), this);
