@@ -13,7 +13,16 @@ set (KF5_MIN_VERSION "5.90.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
+
 include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+
+include(ECMAddAppIcon)
+include(ECMInstallIcons)
+include(ECMSetupVersion)
+include(ECMAddTests)
+include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick)
 find_package(Qt${QT_MAJOR_VERSION}QuickWidgets ${REQUIRED_QT_VERSION} CONFIG)
@@ -41,14 +50,6 @@ add_feature_info("Qt${QT_MAJOR_VERSION}Test" Qt${QT_MAJOR_VERSION}Test_FOUND "Re
 if (NOT Qt${QT_MAJOR_VERSION}Test_FOUND)
     set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
 endif()
-
-include(FeatureSummary)
-include(ECMAddAppIcon)
-include(ECMInstallIcons)
-include(ECMSetupVersion)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(ECMAddTests)
 
 add_definitions(
     -DQT_USE_FAST_CONCATENATION
