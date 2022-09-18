@@ -50,7 +50,7 @@ int main(int argc, char ** argv)
                          KAboutLicense::GPL, i18n("(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
                                                   "(C) 2007-2008 Fela Winkelmolen\n"
                                                   "(C) 2013 Ashwin Rajeev"), QString(),
-                         QStringLiteral("https://kde.org/applications/games/org.kde.knetwalk"));
+                         QStringLiteral("https://apps.kde.org/knetwalk"));
     
     about.addAuthor(i18n("Andi Peredri"),
                     i18n("original author"),
