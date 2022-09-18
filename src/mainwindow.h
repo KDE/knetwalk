@@ -36,7 +36,7 @@ class MainWindow : public KXmlGuiWindow
 {
 Q_OBJECT
 public:
-    explicit MainWindow(QWidget *parent=0);
+    explicit MainWindow(QWidget *parent=nullptr);
 private:
     enum StatusBarIndex {
         StatusBarIndexMoves = 0,

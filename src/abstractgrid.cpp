@@ -559,27 +559,27 @@ QList<int> AbstractGrid::updateConnections()
         int lindex = lCell(cell_index);
 
         AbstractCell *cell = m_cells[cell_index];
-        AbstractCell *ucell = (uindex != NO_CELL) ? m_cells[uindex] : 0;
-        AbstractCell *rcell = (rindex != NO_CELL) ? m_cells[rindex] : 0;
-        AbstractCell *dcell = (dindex != NO_CELL) ? m_cells[dindex] : 0;
-        AbstractCell *lcell = (lindex != NO_CELL) ? m_cells[lindex] : 0;
+        AbstractCell *ucell = (uindex != NO_CELL) ? m_cells[uindex] : nullptr;
+        AbstractCell *rcell = (rindex != NO_CELL) ? m_cells[rindex] : nullptr;
+        AbstractCell *dcell = (dindex != NO_CELL) ? m_cells[dindex] : nullptr;
+        AbstractCell *lcell = (lindex != NO_CELL) ? m_cells[lindex] : nullptr;
 
-        if ((cell->cables() & Up) && ucell != 0 &&
+        if ((cell->cables() & Up) && ucell != nullptr &&
                 (ucell->cables() & Down) && !newConnections[uindex]) {
             newConnections[uindex] = true;
             changedCells.append(ucell->index());
         }
-        if ((cell->cables() & Right) && rcell != 0 &&
+        if ((cell->cables() & Right) && rcell != nullptr &&
                 (rcell->cables() & Left) && !newConnections[rindex]) {
             newConnections[rindex] = true;
             changedCells.append(rcell->index());
         }
-        if ((cell->cables() & Down) && dcell != 0 &&
+        if ((cell->cables() & Down) && dcell != nullptr &&
                 (dcell->cables() & Up) && !newConnections[dindex]) {
             newConnections[dindex] = true;
             changedCells.append(dcell->index());
         }
-        if ((cell->cables() & Left) && lcell != 0 &&
+        if ((cell->cables() & Left) && lcell != nullptr &&
                 (lcell->cables() & Right) && !newConnections[lindex]) {
             newConnections[lindex] = true;
             changedCells.append(lcell->index());
