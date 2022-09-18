@@ -8,8 +8,8 @@ set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_
 
 project(knetwalk VERSION "3.3.${RELEASE_SERVICE_COMPACT_VERSION}")
 
-set (QT_MIN_VERSION "5.15.0")
-set (KF5_MIN_VERSION "5.90.0")
+set (QT_MIN_VERSION "5.15.2")
+set (KF5_MIN_VERSION "5.91.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
@@ -22,6 +22,7 @@ include(ECMAddAppIcon)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(ECMAddTests)
+include(ECMDeprecationSettings)
 include(FeatureSummary)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick)
@@ -51,11 +52,10 @@ if (NOT Qt${QT_MAJOR_VERSION}Test_FOUND)
     set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
 endif()
 
-add_definitions(
-    -DQT_DISABLE_DEPRECATED_BEFORE=0x050F00
-    -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-    -DKF_DISABLE_DEPRECATED_BEFORE_AND_AT=0x055900
-    -DKF_DEPRECATED_WARNINGS_SINCE=0x060000
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
+    KF 5.91
+    KDEGAMES 7.4
 )
 
 add_subdirectory(src)
