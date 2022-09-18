@@ -25,8 +25,13 @@ include(ECMAddTests)
 include(ECMDeprecationSettings)
 include(FeatureSummary)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets Qml Quick)
-find_package(Qt${QT_MAJOR_VERSION}QuickWidgets ${REQUIRED_QT_VERSION} CONFIG)
+find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED CONFIG COMPONENTS
+    Widgets
+    Qml
+    Quick
+    QuickWidgets
+    Test
+)
 
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     Config
@@ -42,15 +47,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
 )
 
 find_package(KF5KDEGames 7.3.1 REQUIRED)
-
-find_package(Qt${QT_MAJOR_VERSION}Test ${QT_MIN_VERSION} QUIET)
-set_package_properties(Qt${QT_MAJOR_VERSION}Test PROPERTIES
-    PURPOSE "Required for tests"
-    TYPE OPTIONAL)
-add_feature_info("Qt${QT_MAJOR_VERSION}Test" Qt${QT_MAJOR_VERSION}Test_FOUND "Required for building tests")
-if (NOT Qt${QT_MAJOR_VERSION}Test_FOUND)
-    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
-endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 5.15.2
