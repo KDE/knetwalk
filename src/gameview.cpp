@@ -6,27 +6,39 @@
 
 #include "gameview.h"
 
-#include <kdegames_version.h>
-#include <KgSound>
-
-#include <QGraphicsObject>
-#include <KMessageBox>
-#include <KLocalizedString>
-
+// game
 #include "globals.h"
 #include "settings.h"
+// KDEGames
+#include <kdegames_version.h>
+#include <KgSound>
+// KF
+#include <KMessageBox>
+#include <KLocalizedContext>
+#include <KLocalizedString>
+// Qt
+#include <QGraphicsObject>
+#include <QQmlContext>
+
 
 GameView::GameView(QWidget *parent) :
-    KgDeclarativeView(parent),
+    QQuickWidget(parent),
     grid(new AbstractGrid),
     m_provider(new KgThemeProvider)
 {
+    QQmlEngine *engine = this->engine();
+
+    auto *localizedContextObject = new KLocalizedContext(engine);
+    engine->rootContext()->setContextObject(localizedContextObject);
+
+    setResizeMode(SizeRootObjectToView);
+
 #if KDEGAMES_VERSION >= QT_VERSION_CHECK(7, 4, 0)
     m_provider->discoverThemes(QStringLiteral("themes"));
 #else
     m_provider->discoverThemes("appdata", QStringLiteral("themes"));
 #endif
-    m_provider->setDeclarativeEngine(QStringLiteral("themeProvider"), engine());
+    m_provider->setDeclarativeEngine(QStringLiteral("themeProvider"), engine);
     m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/turn.wav")), this);
     m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/click.wav")), this);
     m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/connect.wav")), this);

@@ -7,16 +7,18 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
-#include <KgDeclarativeView>
-#include <QVariant>
-#include <KgThemeProvider>
-#include <QQuickItem>
-
+// game
 #include "abstractgrid.h"
+// KDEGames
+#include <KgThemeProvider>
+// Qt
+#include <QQuickWidget>
+#include <QVariant>
+#include <QQuickItem>
 
 class KgSound;
 
-class GameView : public KgDeclarativeView
+class GameView : public QQuickWidget
 {
     Q_OBJECT
 public:
