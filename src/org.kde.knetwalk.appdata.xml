@@ -134,6 +134,10 @@
     </screenshot>
   </screenshots>
   <project_group>KDE</project_group>
+  <launchable type="desktop-id">org.kde.knetwalk.desktop</launchable>
+  <provides>
+    <binary>knetwalk</binary>
+  </provides>
   <releases>
     <release version="3.3.22081" date="2022-09-08"/>
     <release version="3.3.22080" date="2022-08-18"/>
