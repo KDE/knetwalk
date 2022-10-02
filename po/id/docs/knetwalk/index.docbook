@@ -1,0 +1,646 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Indonesian "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Buku Petunjuk &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Wantoyo</firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>wantoyek@gmail.com</email
+></address
+></affiliation
+><contrib
+>Terjemahan</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>10-05-2016</date>
+<releaseinfo
+>3.3.0 (Aplikasi 16.04)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, adalah sebuah permainan untuk administrasi sistem</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>permainan</keyword>
+<keyword
+>permainan logika</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Pengenalan</title>
+
+<para
+>&knetwalk; adalah sebuah permainan logika pemain tunggal. </para>
+
+<para
+>Tujuan dari permainan ini adalah untuk menjalankan LAN, mengkoneksikan semua terminal ke server, dalam beberapa langkah yang memungkinkan. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Bagaimana Memainkannya</title>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Permainan Papan &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Pemain disuguhkan dengan sebuah kisi persegi yang berisi sebuah server, berbagai terminal dan potongan kabel. Tujuan dari permainan ini adalah merotasikan elemen-elemen tersebut sampai setiap klien terkoneksi ke server, dan tidak ada kabel-kabel tak terkoneksi yang tertinggal. Selain itu, kamu bisa coba untuk mendapatkan skor tinggi dengan meminimalkan sejumlah perotasian yang diperlukan. </para>
+
+<para
+>Pengeklikan kiri pada persegi akan merotasinya berlawanan arah jarum jam, sementara pengeklikan kanan akan merotasinya searah jarum jam. Pengeklikan tengah pada persegi akan menandainya sebagai diblokir dan mencegahnya dirotasi kecuali diblokir oleh klik tengah lainnya; ini bisa sangat berguna untuk menandai kotak yang diketahui berada dalam orientasi yang benar. Bilah status menampilkan jumlah klik sejauh ini. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Peraturan Permainan, Kiat dan Strategis</title>
+
+<sect1 id="rules">
+<title
+>Peraturan</title>
+<itemizedlist>
+<listitem
+><para
+>Ini hanya salah satu kemungkinan solusi yang benar untuk setiap permainan.</para
+></listitem>
+<listitem
+><para
+>Ketika memainkan level tingkat kesulitan <guilabel
+>Sangat sulit</guilabel
+> perkoneksian bisa mengemas dari kiri ke kanan dan dari atas ke bawah.</para
+></listitem>
+<listitem
+><para
+>Permainan berakhir ketika setiap terminal dan setiap kabel telah terkoneksi ke server.</para
+></listitem>
+<listitem
+><para
+>Skor tersebut mewakili sejumlah klik yang dibutuhkan untuk menyelesaikan permainan. Skor yang lebih rendah adalah yang lebih baik.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Kiat dan Strategis</title>
+<itemizedlist>
+<listitem
+><para
+>Mulai menjangka persegi yang mana orientasinya bisa secara mudah ditentukan.</para
+></listitem>
+<listitem
+><para
+>Setelah kamu memastikan bahwa orientasinya persegi, kamu bisa menandainya menggunakan &MMB;. Hal ini berguna terutama dalam permainan yang lebih sulit.</para
+></listitem>
+<listitem
+><para
+>Cari kabel berbentuk I dan berbentuk T di dekat bingkai, dan kabel berbentuk L di dekat tepinya. Posisi kotak ini bisa dengan mudah ditentukan, kecuali jika kamu memainkan tingkat kesulitan <guilabel
+>Sangat sulit</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Saat memainkan tingkat kesulitan <guilabel
+>Sangat sulit</guilabel
+> tempat yang bagus untuk mulai mencari adalah berada di dekat kotak kosong, jika ada, dan di dekat wilayah yang berisi banyak terminal yang dikelompokkan bersama.</para
+></listitem>
+<listitem
+><para
+>Bahkan ketika bermain dengan tingkat kesulitan yang sama beberapa permainan lebih mudah daripada yang lain, jalankan ulang permainan jika kamu ingin mendapatkan papan yang berbeda.</para
+></listitem>
+<listitem
+><para
+>Jika kamu ingin mendapatkan skor yang baik, lakukan saja langkah ketika kamu yakin.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Ikhtisar Antarmuka</title>
+
+<sect1 id="menu">
+<title
+>Butir Menu</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Permainan</guimenu
+> <guimenuitem
+>Baru</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Mulaikan permainan baru. Ini menciptakan sebuah papan acak menggunakan level tingkat kesulitan saat ini. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Permainan</guimenu
+> <guimenuitem
+>Jeda</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Menjeda waktu permainan. Klik pada butir menu lagi untuk melanjutkan permainan. Perhatikan bahwa papan menghilang ketika permainan dijeda karena akan tidak adil jika kamu bisa mencari langkah yang baik tanpa tekanan waktu. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Permainan</guimenu
+> <guimenuitem
+>Tampilkan Skor Tinggi</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Menampilkan dialog yang berisi Skor Tinggi untuk berbagai level tingkat kesulitan. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Permainan</guimenu
+> <guimenuitem
+>Berhenti</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Berhentikan program. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Langkah</guimenu
+> <guimenuitem
+>Pecahkan</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Gunakan itu untuk menyerahkan permainan. Ini menunjukkan kamu sebuah solusi, tetapi rekaman tidak dianggap sebagai skor tinggi.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Langkah</guimenu
+> <guimenuitem
+>Lepaskan Kunci Semua</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Lepaskan kunci semua sel yang sebelumnya dikunci oleh pemain menggunakan <keycap
+>Spasi</keycap
+> atau secara otomatis setelah mencentang butir  <guilabel
+>Auto Kunci</guilabel
+> pada dialog <link linkend="config_general"
+>Halaman umum</link
+> Konfigurasi &knetwalk; </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Pengaturan</guimenu
+> <guisubmenu
+>Tingkat Kesulitan</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Memungkinkan kamu mengatur level tingkat kesulitan dari sub menu.</para>
+<para
+>Ada lima level tingkat kesulitan: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Mudah</guimenuitem
+>: 5 baris, 5 kolom, tanpa pengemasan.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sedang</guimenuitem
+>: 7 baris, 7 kolom, tanpa pengemasan.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sulit</guimenuitem
+>: 9 baris, 9 kolom, tanpa pengemasan.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sangat sulit</guimenuitem
+>: 9 baris, 9 kolom, tanpa pengemasan.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Kustom</guimenuitem
+>: Pengaturan yang telah kamu konfigurasi di dalam <link linkend="config_custom_game"
+>dialog Konfigurasikan &knetwalk;</link
+> akan digunakan.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Pengaturan</guimenu
+> <guimenuitem
+>Konfigurasikan &knetwalk;...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Buka dialog Konfigurasikan &knetwalk;.</action
+> Silakan lihat <link linkend="configuration"
+>Konfigurasi Permainan</link
+> untuk informasi selebihnya. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Selain itu &knetwalk; memiliki butir(-butir) menu &kde; pada umumnya seperti <guimenu
+>Pengaturan</guimenu
+> dan <guimenu
+>Bantuan</guimenu
+>, untuk informasi selebihnya bacalah bagian tentang <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Pengaturan</ulink
+> dan <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Bantuan</ulink
+> pada &kde; Fundamentals. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Konfigurasi Permainan</title>
+   <para
+>Untuk membuka dialog Konfigurasikan &knetwalk;, pilihlah <menuchoice
+> <guimenu
+>Pengaturan</guimenu
+> <guimenuitem
+>Konfigurasikan &knetwalk;...</guimenuitem
+> </menuchoice
+> </para>
+   <sect2 id="config_general">
+     <title
+>Umum</title>
+     <para
+>Menggunakan halaman ini kamu bisa mengubah pengaturan permainan berikut. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Bunyikan Suara </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Jika dicentang, suara-suara permainan &knetwalk; akan dibunyikan. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Auto Kunci </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Jika dicentang, &knetwalk; akan secara otomatis mengunci sel sesudah perotasian. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Durasi Rotasi </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Di sini kamu bisa menentukan waktu yang diperlukan untuk menganimasikan perotasian sel tunggal. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Tema</title>
+     <para
+>Untuk memilih tema yang kamu inginkan yang mau dimainkan, pergi menuju ke bagian <guilabel
+>Tema</guilabel
+>. Tema akan dimuat dengan mengeklik pada tombol <guibutton
+>Oke</guibutton
+> atau <guibutton
+>Terapkan</guibutton
+>. Permainan saat ini akan diakhiri dan yang baru akan dimulai. Kamu bisa klik pada tombol  <guibutton
+>Baku</guibutton
+> untuk memulihkan tema bakunya. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Kustomkan Permainan</title>
+     <para
+>Halaman ini bisa digunakan untuk mengkonfigurasi pengaturan kustom permainan. Kamu bisa memilih <guilabel
+>Lebar</guilabel
+> dan <guilabel
+>Tinggi</guilabel
+>-nya papan dan mencentang <guilabel
+>Pengemasan</guilabel
+> jika papan harus dikemas dari kiri ke kanan dan dari atas ke bawah. </para>
+   </sect2>
+</sect1>
+ 
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Pintasan</title>
+
+<para
+>Pintasan bakunya adalah:</para>
+
+<table>
+<title
+>Pintasan</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Mulaikan permainan yang baru</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Jeda</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Tampilkan Skor Tinggi</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Berhenti</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Bantuan</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Apakah ini?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pindah kiri</entry>
+<entry>
+<keycap
+>Panah kiri</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Pindah kanan</entry>
+<entry>
+<keycap
+>Panah kanan</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Pindah naik</entry>
+<entry>
+<keycap
+>Panah naik</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Pindah turun</entry>
+<entry>
+<keycap
+>Panah bawah</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Rotasikan searah jarum jam</entry>
+<entry>
+<keycap
+>Rotasikan kembali</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Rotasikan lawan arah jarum jam</entry>
+<entry>
+<keycombo
+>&Ctrl;<keycap
+>Rotasikan kembali</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Jungkit kunci</entry>
+<entry>
+<keycap
+>Spasi</keycap>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Pujian dan Lisensi</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Hakcipta 2004 - 2007 program oleh Andi Peredri, Thomas Nagy dan Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Hakcipta 2007 dokumentasi oleh Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Wantoyo<email
+>wantoyek@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

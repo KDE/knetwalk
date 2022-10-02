@@ -1,0 +1,540 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY kappname "&knetwalk;">
+<!ENTITY package "kdegames">
+<!ENTITY % Czech "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Příručka aplikace &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Lukáš</firstname
+><surname
+>Vlček</surname
+><affiliation
+><address
+><email
+>lukas_vlcek@email.cz</email
+></address
+></affiliation
+><contrib
+>Překlad</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2007-11-13</date>
+<releaseinfo
+>3.0.1</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, hra pro systémové administrátory.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>hra</keyword>
+<keyword
+>logická hra</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+
+<para
+>&knetwalk; je logická hra pro jednoho hráče. </para>
+
+<para
+>Cíl hry je spustit síť LAN, spojením všech terminálů k serveru v co nejkratším možném čase. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Jak hrát</title>
+
+<para
+>Hráč je přiveden před obdélníkovou síť obsahující server, několik terminálů a kusy kabelu. Cílem hry je otáčet těmito prvky, dokud nebude každý klient připojen k serveru a žádné kabely nebudou nepřipojené. Můžete se pokusit získat nejlepší výsledek minimalizováním počtu potřebných otáček. </para>
+
+<para
+>Kliknutím levým tlačítkem myši na čtverec jej otáčíte proti směru hodinových ručiček, zatímco kliknutím pravým tlačítkem myši se otáčí ve směru hodinových ručiček. Kliknutím prostředním tlačítkem myši na čtverec jej označíte jako blokovaný a zabráníte jeho otáčení, dokud jej opět neodblokujete prostředním tlačítkem myši. To může být velmi užitečné pro označení čtverce, u kterého víte, že má správnou orientaci. Stavový řádek zobrazuje počet kliknutí. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Herní pravidla, strategie a tipy</title>
+
+<sect1 id="rules">
+<title
+>Pravidla</title>
+<itemizedlist>
+<listitem
+><para
+>Pro každou hru je zde pouze jedno možné správné řešení.</para
+></listitem>
+<listitem
+><para
+>Při hraní úrovně obtížnosti <guilabel
+>Velmi těžká</guilabel
+>, můžete spojení ovinout z levé strany na pravou a z horní strany na dolní.</para
+></listitem>
+<listitem
+><para
+>Hra končí, když jsou na server připojeny všechny terminály a kabely.</para
+></listitem>
+<listitem
+><para
+>Hodnocení představuje počet kliknutí pro dokončení hry. Nižší hodnocení je lepší.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Strategie a tipy</title>
+<itemizedlist>
+<listitem
+><para
+>Najděte čtverec, pomocí kterého můžete snadno určit orientaci.</para
+></listitem>
+<listitem
+><para
+>Jakmile jste si jisti orientací čtverce, můžete jej označit pomocí <mousebutton
+>prostředního tlačítka myši</mousebutton
+>. To je užitečné zejména v obtížnějších hrách.</para
+></listitem>
+<listitem
+><para
+>Podívejte se na kabely tvarované do I a T v blízkosti okrajů a v rozích na kabely tvarované do L. Postavení těchto čtverců lze snadno určit, pokud nehrajete <guilabel
+>Velmi těžkou</guilabel
+> obtížnost.</para
+></listitem>
+<listitem
+><para
+>Při hraní <guilabel
+>Velmi těžké</guilabel
+> obtížnosti je dobré místo pro začátek blízko prázdných čtverců, pokud je přítomný a je blízko částí obsahující hodně seskupených terminálů.</para
+></listitem>
+<listitem
+><para
+>Dokonce i když hrajete stejnou obtížnost, některé hry jsou jednodušší než jiné. Pokud chcete získat různé desky, restartujte hru.</para
+></listitem>
+<listitem
+><para
+>Chcete-li získat dobré skóre, dělejte pouze takové tahy, které musíte.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Náhled na rozhraní</title>
+
+<sect1 id="game-menu">
+<title
+>Nabídka <guimenu
+>Hra</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Nová</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Spouští novou hru. Vytváří náhodnou desku používající aktuální obtížnost. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Zobrazit nejlepší výsledky</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Zobrazuje dialogové okno obsahující nejlepší výsledky v různých obtížnostech. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Ukončit</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Ukončuje tento program. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+
+
+
+<sect1 id="settings-menu">
+<title
+>Nabídka <guimenu
+>Nastavení</guimenu
+></title>
+
+<variablelist>
+
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guimenuitem
+>Zobrazovat nástrojovou lištu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Přepíná zobrazení nástrojové lišty. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guimenuitem
+>Zobrazovat stavovou lištu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Přepíná zobrazení stavové lišty. </para>
+</listitem>
+</varlistentry>
+
+<!--
+<varlistentry>
+<term
+><menuchoice>
+<guimenu
+>Settings</guimenu>
+<guimenuitem
+>Themes</guimenuitem>
+</menuchoice
+></term>
+<listitem
+><para>
+<action
+>Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
+</para
+></listitem>
+</varlistentry>
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guisubmenu
+>Obtížnost</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Nastavuje obtížnost pomocí podnabídky.</para>
+<para
+>Jsou zde čtyři obtížnosti: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Lehká</guimenuitem
+>: 5 řádků, 5 sloupců, bez ovinutí spojení na opačnou stranu.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Střední</guimenuitem
+>: 7 řádků, 7 sloupců, bez ovinutí spojení na opačnou stranu.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Těžká</guimenuitem
+>: 9 řádků, 9 sloupců, bez ovinutí spojení na opačnou stranu.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Velmi těžká</guimenuitem
+>: 9 řádků, 9 sloupců, s ovinutým spojením na opačnou stranu.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Settings</guimenu
+> <guimenuitem
+>Play Sounds...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+  <action
+>If checked, &knetwalk; game sounds are played.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guimenuitem
+>Nastavit klávesové zkratky...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Otevírá dialogové okno, které umožňuje přenastavit klávesové zkratky.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guimenuitem
+>Nastavit nástrojové lišty...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Zobrazuje standardní dialogové okno &kde;, ve kterém můžete nastavit ikony na nástrojové liště.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>Nabídka <guimenu
+>Nápověda</guimenu
+></title>
+&help.menu.documentation; </sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Klávesové zkratky</title>
+
+<para
+>Výchozí klávesové zkratky jsou:</para>
+
+<table>
+<title
+>Klávesové zkratky</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Spustit novou hru</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Zobrazit nejlepší výsledky</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Ukončit</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Nápověda</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Co je toto?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Informace o autorech a licenční ujednání</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Autorská práva na program (2004 - 2007): Andi Peredri, Thomas Nagy and Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Autorské právo na dokumentaci (2007): Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Překlad dokumentace Lukáš Vlček <email
+>lukas_vlcek@email.cz</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalace</title>
+
+<sect1 id="getting-knetwalk">
+<title
+>Jak získat &knetwalk;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilace a instalace</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

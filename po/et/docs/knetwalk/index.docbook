@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY kappname "&knetwalk;">
+<!ENTITY package "kdegames">
+<!ENTITY % Estonian  "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>&knetwalk;i käsiraamat</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Marek</firstname
+> <surname
+>Laane</surname
+> <affiliation
+><address
+><email
+>bald@smail.ee</email
+></address
+></affiliation
+><contrib
+>Tõlge eesti keelde</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2013-10-06</date>
+<releaseinfo
+>3.1.0 (&kde; 4.12)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk; on süsteemiadministraatorite mäng.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>mäng</keyword>
+<keyword
+>loogikamäng</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Sissejuhatus</title>
+
+<para
+>&knetwalk; on ühe mängijaga loogikamäng. </para>
+
+<para
+>Mängu eesmärk on luua kohtvõrk, ühendades kõik terminalid võimalikult väheste käikudega serveri külge. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Kuidas mängida</title>
+
+<para
+>Mängija ees seisab mänguväli, millel asuvad server, mõned terminalid ja hulk juhtmejuppe. Mängu eesmärk on pöörata kõiki elemente seni, kuni kõik kliendid on ühendatud serveriga ja kõik juhtmejupid on ühendatud. Lisaks on äärmiselt kasulik luua ühendused võimalikult väheste pööramistega, sest siis on tulemus parem. </para>
+
+<para
+>Vasakklõpsuga saab elementi pöörata vastupäeva, paremklõpsuga päripäeva. Hiire keskmise nupuga elemendile klõpsates see blokeeritakse ning seda ei saa enam pöörata, enne kui sellel ei tehta uut klõpsu hiire keskmise nupuga. See on kasulik näiteks nende väljade lukustamiseks, mis on kindlasti õiges asendis. Olekuribal näeb, mitu klõpsu on tehtud. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Mängureeglid, strateegia ja nõuanded</title>
+
+<sect1 id="rules">
+<title
+>Reeglid</title>
+<itemizedlist>
+<listitem
+><para
+>Igal mängul on ainult üks korrektne lahendus.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Väga raske</guilabel
+>l tasemel mängides võivad ühendused üle kanduda ka vasakult paremale ja ülevalt alla.</para
+></listitem>
+<listitem
+><para
+>Mäng lõpeb, kui kõik terminalid ja kõik juhtmejupid on ühendatud serveriga.</para
+></listitem>
+<listitem
+><para
+>Tulemus näitab mängu lõpetamiseks kulunud klõpsude arvu. Mida väiksem tulemus, seda parem.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Strateegia ja nõuanded</title>
+<itemizedlist>
+<listitem
+><para
+>Alusta väljadest, kus õige orientatsioon on ilmselge.</para
+></listitem>
+<listitem
+><para
+>Kui oled välja orientatsiooni paika pannud, võid selle fikseerida, klõpsates väljal &HKNga;. See on eriti kasulik raskema taseme mängudes.</para
+></listitem>
+<listitem
+><para
+>Otsi servade juures paiknevaid I- ja T-kujulisi ning nurkade juures asuvaid L-kujulisi ühendusi. Nende orientatsiooni on kerge paika panna, kui sa pole just valinud raskusastet <guilabel
+>Väga raske</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Raskusastme <guilabel
+>Väga raske</guilabel
+> korral on mõtet uurida kõigepealt tühjade väljade (kui neid on) ümbrust, samuti piirkondi, kus leidub palju terminale.</para
+></listitem>
+<listitem
+><para
+>Isegi ühe ja sama raskusastme korral võib üks mäng olla raskem kui teine, nii et kui tahad teistsugust paigutust, käivita mäng uuesti.</para
+></listitem>
+<listitem
+><para
+>Korraliku tulemuse nimel soorita käik alles siis, kui oled selles täiesti kindel.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Liidese tutvustus</title>
+
+<sect1 id="menu">
+<title
+>Menüükirjed</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Uus</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Alustab uut mängu. Selleks luuakse senise raskusastmega juhusliku sisuga mängulaud. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Paus</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Võimaldab mängu peatada. Sama menüükäsu uuesti valimisega saab mängu jätkata. Pane tähele, et pausi ajaks mängulaud varjatakse, sest see poleks üldse aus, kui sa kasutaksid tekkinud aega, mida ju ei arvestata, heade käikude otsimiseks. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Näita rekordeid</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Avab eri raskusastmete rekordeid näitava dialoogi. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Mäng</guimenu
+> <guimenuitem
+>Välju</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Lõpetab rakenduse töö. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Liikumine</guimenu
+> <guimenuitem
+>Eemalda kõigi lukustus</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Eemaldab kõigi sõlmede lukustuse, mille mängija on varem lukustanud klahviga <keycap
+>Tühikuklahv</keycap
+> või mis on automaatselt lukustatud, kui mängija on märkinud &knetwalk;i seadistustedialoogi kaardil <link linkend="config_general"
+>Üldine</link
+> valiku <guilabel
+>Automaatlukustus</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<!--
+<varlistentry>
+<term
+><menuchoice>
+<guimenu
+>Settings</guimenu>
+<guimenuitem
+>Themes</guimenuitem>
+</menuchoice
+></term>
+<listitem
+><para>
+<action
+>Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
+</para
+></listitem>
+</varlistentry>
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+> <guisubmenu
+>Raskusaste</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Võimaldab alammenüüst valida mängu raskusastme.</para>
+<para
+>Raskusastmeid on viis: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Kerge</guimenuitem
+>: 5 rida, 5 veergu, üleminekuta.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Keskmine</guimenuitem
+>: 7 rida, 7 veergu, ilma üleminekuta.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Raske</guimenuitem
+>: 9 rida, 9 veergu, ilma üleminekuta.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Väga raske</guimenuitem
+>: 9 rida, 9 veergu, üleminekuga.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Kohandatud</guimenuitem
+>: kasutatakse seadistus, mille oled määranud <link linkend="config_custom_game"
+>&knetwalk;i seadistustedialoogis</link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Seadistused</guimenu
+><guimenuitem
+>&knetwalk;i seadistamine...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avab &knetwalk;i seadistustedialoogi.</action
+> Täpsemalt kõneleb sellest osa <link linkend="configuration"
+>Mängu seadistamine</link
+>. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Lisaks on &knetwalk;il tavapärased &kde; <guimenu
+>seadistuste</guimenu
+> ja <guimenu
+>abi</guimenu
+>menüü elemendid, mille kohta leiab rohkem teavet &kde; põhialuste käsiraamatu osadest <ulink url="help:/fundamentals/ui.html#menus-settings"
+>Menüü Seadistused</ulink
+> ja <ulink url="help:/fundamentals/ui.html#menus-help"
+>Menüü Abi</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Mängu seadistamine</title>
+   <para
+>&knetwalk;i seadistustedialoogi avamiseks vali <menuchoice
+><guimenu
+>Seadistused</guimenu
+><guimenuitem
+>&knetwalk;i seadistamine...</guimenuitem
+></menuchoice
+> </para>
+   <sect2 id="config_general">
+     <title
+>Üldine</title>
+     <para
+>Sellel kaardil saab muuta mängu järgmisi seadistusi. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Helide esitamine </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Märkimisel mängitakse &knetwalk;i helisid. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Automaatlukustus </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Märkimisel lukustab &knetwalk; sõlmed automaatselt pärast pööramist. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Pööramise kestus </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Siin saab määrata aja, mis kulutatakse ühe sõlme pööramise animeerimisele. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Teema</title>
+     <para
+>Mängus kasutatava teema valimiseks ava sektsioon <guilabel
+>Teema</guilabel
+>. Teema saab laadida klõpsuga nupule <guibutton
+>OK</guibutton
+> või <guibutton
+>Rakenda</guibutton
+> Aktiivne mäng lõpetatakse ja alustatakse uut. Vaikimisi teema taastamiseks tuleb klõpsata nupule <guibutton
+>Vaikeväärtused</guibutton
+>. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Kohandatud mäng</title>
+     <para
+>Sellel kaardil saab seadistada kohandatud mängu. Valida saab mängulaua <guilabel
+>laiuse</guilabel
+> ja <guilabel
+>kõrguse</guilabel
+> ning valikuga <guilabel
+>Üleminek</guilabel
+> määrata, kas mängulaual võivad olla üleminekud vasakult paremale ja ülalt alla. </para>
+   </sect2>
+</sect1>
+ 
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Kiirklahvid</title>
+
+<para
+>Vaikimisi kiirklahvid on järgmised:</para>
+
+<table>
+<title
+>Kiirklahvid</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Uue mängu alustamine</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Paus</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Rekordite näitamine</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Väljumine</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Abi</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Mis see on?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Liiguta vasakule</entry>
+<entry>
+<keycap
+>Nool vasakule</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Liiguta paremale</entry>
+<entry>
+<keycap
+>Nool paremale</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Liiguta üles</entry>
+<entry>
+<keycap
+>Nool üles</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Liiguta alla</entry>
+<entry>
+<keycap
+>Nool alla</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Pööra päripäeva</entry>
+<entry>
+<keycap
+>Return</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Pööra vastupäeva</entry>
+<entry>
+<keycombo
+>&Ctrl;<keycap
+>Return</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Lülita lukustust</entry>
+<entry>
+<keycap
+>Tühikuklahv</keycap>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Autorid ja litsents</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Rakenduse autoriõigus 2004 - 2007: Andi Peredri, Thomas Nagy ja Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Dokumentatsiooni autoriõigus 2007: Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Tõlge eesti keelde: Marek Laane <email
+>bald@smail.ee</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Paigaldamine</title>
+
+<sect1 id="getting-knetwalk">
+<title
+>&knetwalk;i hankimine</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompileerimine ja paigaldamine</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

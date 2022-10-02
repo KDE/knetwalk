@@ -1,0 +1,339 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the knetwalk package.
+# Wantoyo <wantoyek@gmail.com>, 2019, 2021, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: knetwalk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2022-08-19 20:36+0700\n"
+"Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
+"Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Wantoyo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wantoyek@gmail.com"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "Lebarnya si kisi"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "Lebar:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "Kemas dari kiri ke kanan dan dari atas ke bawah"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "Pengemasan"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "Tingginya si kisi"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "Tinggi:"
+
+#: gameview.cpp:167
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"Catat: untuk memenangkan permainan semua terminal <strong>dan semua "
+"<em>kabel</em></strong> harus terkoneksi ke server!"
+
+#: gameview.cpp:170
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "Permainan ini belum menang!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "Durasi bagi sel untuk menyelesaikan rotasinya dalam milidetik"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, fuzzy, kde-format
+#| msgid "Rotate Duration:"
+msgid "Rotate duration:"
+msgstr "Durasi Rotasi:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Bunyikan suata saat aksi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, fuzzy, kde-format
+#| msgid "Play Sounds"
+msgid "Play sounds"
+msgstr "Bunyikan Suara"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "Secara otomatis mengunci sel sesudah perotasian"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, fuzzy, kde-format
+#| msgid "Auto Lock"
+msgid "Auto lock"
+msgstr "Auto Kunci"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr ""
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "Nama pengguna baku"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Apakah iya atau tidak suara permainan dibunyikan."
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "Apakah iya atau tidak mengunci sel sesudah perotasian."
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr ""
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "Durasi bagi sel untuk menyelesaikan perotasiannya."
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "Lebarnya si papan."
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "Tingginya si papan."
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr ""
+"Apakah iya atau tidak mengemas dari kiri ke kanan dan dari atas ke bawah "
+"adalah difungsikan."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Bilah Alat Utama"
+
+#: main.cpp:37
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk"
+
+#: main.cpp:38
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk adalah sebuah permainan bagi administrator sistem."
+
+#: main.cpp:39
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"(C) 2004-2005 Andi Peredri, di-porting ke KDE oleh Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+
+#: main.cpp:44
+#, kde-format
+msgid "Andi Peredri"
+msgstr "Andi Peredri"
+
+#: main.cpp:45
+#, kde-format
+msgid "original author"
+msgstr "penulis asli"
+
+#: main.cpp:48
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "Thomas Nagy"
+
+#: main.cpp:49
+#, kde-format
+msgid "KDE port"
+msgstr "Port KDE"
+
+#: main.cpp:52
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "Ashwin Rajeev"
+
+#: main.cpp:53
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "Port ke QtQuick"
+
+#: main.cpp:56
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:57
+#, kde-format
+msgid "icon design"
+msgstr "desain ikon"
+
+#: main.cpp:60
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:61
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "Portingan untuk menggunakan kerangka kerja QGraphicsView"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Custom"
+msgstr "Kustom"
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "&Unlock All"
+msgstr "&Lepaskan Kunci Semua"
+
+#: mainwindow.cpp:136
+#, kde-format
+msgid "Keyboard: Field right"
+msgstr "Keyboard: Bidang kanan"
+
+#: mainwindow.cpp:141
+#, kde-format
+msgid "Keyboard: Field left"
+msgstr "Keyboard: Bidang kiri"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Keyboard: Field up"
+msgstr "Keyboard: Bidang atas"
+
+#: mainwindow.cpp:151
+#, kde-format
+msgid "Keyboard: Field down"
+msgstr "Keyboard: Bidang bawah"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "Keyboard: Turn clockwise"
+msgstr "Keyboard: Rotasi searah jarum jam"
+
+#: mainwindow.cpp:161
+#, kde-format
+msgid "Keyboard: Turn counterclockwise"
+msgstr "Keyboard: Rotasi lawan arah jarum jam"
+
+#: mainwindow.cpp:166
+#, kde-format
+msgid "Keyboard: Toggle lock"
+msgstr "Keyboard: Jungkit kunci"
+
+#: mainwindow.cpp:177
+#, kde-format
+msgid "General"
+msgstr "Umum"
+
+#: mainwindow.cpp:178
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Custom Game"
+msgstr "Kustom Permainan"
+
+#: mainwindow.cpp:188 mainwindow.cpp:245
+#, kde-format
+msgid "Moves Penalty"
+msgstr "Penalti Gerakan"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] "Skormu adalah %1, kamu belum berhasil masuk ke daftar tingkat skor."
+msgstr[1] "Skormu adalah %1, kamu belum berhasil masuk ke daftar tingkat skor."
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr "Gerakan: %1"
+
+#: mainwindow.cpp:275
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr "Waktu: %1"
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "Dijeda"

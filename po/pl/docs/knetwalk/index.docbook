@@ -1,0 +1,536 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY kappname "&knetwalk;">
+<!ENTITY package "kdegames">
+<!ENTITY % Polish "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Podręcznik programu &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Krzysztof</firstname
+><surname
+>Woźniak</surname
+> <affiliation
+><address
+><email
+>wozniakk@ceti.pl</email
+></address
+> </affiliation
+><contrib
+>Polskie tłumaczenie</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2007-11-13</date>
+<releaseinfo
+>3.0.0</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, gra dla administratorów systemów.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>gra</keyword>
+<keyword
+>gra logiczna</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Wprowadzenie</title>
+
+<para
+>&knetwalk; jest przeznaczoną dla jednego gracza grą logiczną. </para>
+
+<para
+>Celem gry jest uruchomienie sieci LAN, poprzez podłączenie wszystkich terminali do serwera, w jak najmniejszej liczbie ruchów. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Jak grać</title>
+
+<para
+>Graczowi przedstawiana jest prostokątna siatka zawierająca serwer, trochę terminali oraz kawałki przewodu. Celem gry jest obracanie tych elementów, aż wszystkie terminale będą połączone z serwerem, i nie zostanie żaden niepodłączony kawałek przewodu. Dodatkowo, możesz starać się uzyskać najlepszy wynik, zmniejszając liczbę potrzebnych obrotów. </para>
+
+<para
+>Kliknięcie na kwadracie lewym przyciskiem myszki obraca go w kierunku wskazówek zegara, kliknięcie prawym przyciskiem w kierunku przeciwnym. Kliknięcie środkowym przyciskiem zaznacza kwadrat jako zablokowany i uniemożliwia jego obracanie do czasu, aż zostanie odblokowany przez ponowne kliknięcie środkowym przyciskiem. Pożyteczne może być zaznaczanie kwadratów, co do których jesteśmy pewni poprawnego ustawienia. Pasek stanu pokazuje liczbę wykonanych kliknięć. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Zasady gry, strategia gry i sztuczki</title>
+
+<sect1 id="rules">
+<title
+>Zasady</title>
+<itemizedlist>
+<listitem
+><para
+>Istnieje tylko jedno poprawne rozwiązanie każdej gry.</para
+></listitem>
+<listitem
+><para
+>Granie na <guilabel
+>Bardzo trudnym</guilabel
+> poziomie trudności, wymaga połączeń zawijających się od lewej do prawej i z góry do dołu.</para
+></listitem>
+<listitem
+><para
+>Gra kończy się wtedy gdy każdy terminal i wszystkie przewody są podłączone do serwera.</para
+></listitem>
+<listitem
+><para
+>Wynik odzwierciedla liczbę kliknięć, które były potrzebne do zakończenia gry. Im niższy wynik tym lepiej.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Strategia i wskazówki</title>
+<itemizedlist>
+<listitem
+><para
+>Zacznij od poszukiwania kwadratów, których kierunek może być łatwo określony.</para
+></listitem>
+<listitem
+><para
+>Jeżeli jesteś pewny orientacji danego kwadratu, możesz zaznaczyć go środkowym przyciskiem myszki. Jest to szczególnie użyteczne w trudniejszych grach.</para
+></listitem>
+<listitem
+><para
+>Szukaj przewodów w kształcie liter I oraz T, w okolicach krawędzi, oraz w kształcie L w okolicach rogów. Pozycja tych kwadratów może być łatwo określona, chyba że grasz na <guilabel
+>Bardzo trudnym</guilabel
+> poziomie.</para
+></listitem>
+<listitem
+><para
+>Podczas gry w poziom <guilabel
+>Bardzo trudny</guilabel
+> najlepiej zacząć rozglądać się w okolicach pustych kwadratów, jeżeli takie są, oraz obok miejsc zawierających zgrupowana dużą liczbę terminali.</para
+></listitem>
+<listitem
+><para
+>Nawet grając na tym samym poziomie trudności, pewne gry są łatwiejsze od innych, uruchom grę ponownie jeżeli chcesz spróbować zagrać w inną planszę.</para
+></listitem>
+<listitem
+><para
+>Jeżeli chcesz zdobyć dobry wynik, wykonuj ruch tylko wtedy gdy jesteś go pewny.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Przegląd interfejsu</title>
+
+<sect1 id="game-menu">
+<title
+>Menu <guimenu
+>Gra</guimenu
+></title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Nowa</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Uruchamia nową grę. Tworzy losową planszę dla ustalonego poziom trudności. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Pokaż najlepsze wyniki</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Wyświetla okno dialogowe z listą najlepszych wyników dla różnych poziomów trudności. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Gra</guimenu
+> <guimenuitem
+>Zakończ</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Kończy pracę programu. </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+
+
+
+<sect1 id="settings-menu">
+<title
+>Menu <guimenu
+>Ustawienia</guimenu
+> </title>
+
+<variablelist>
+
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Wyświetlaj/Ukryj pasek narzędzi</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Włącza lub wyłącza wyświetlanie paska narzędzi. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Wyświetl pasek stanu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Włącza lub wyłącza wyświetlanie paska stanu. </para>
+</listitem>
+</varlistentry>
+
+<!--
+<varlistentry>
+<term
+><menuchoice>
+<guimenu
+>Settings</guimenu>
+<guimenuitem
+>Themes</guimenuitem>
+</menuchoice
+></term>
+<listitem
+><para>
+<action
+>Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
+</para
+></listitem>
+</varlistentry>
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+><guisubmenu
+>Poziom trudności</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Pozwala na wybranie poziomu trudności z podmenu.</para>
+<para
+>Dostępne są cztery poziomy trudności: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Łatwy</guimenuitem
+>: 5 wiersz, 5 kolumn, bez zawijania.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Średni</guimenuitem
+>: 7 wierszy, 7 kolumn, bez zawijania.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Trudny</guimenuitem
+>: 9 wierszy, 9 kolumn, bez zawijania.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Bardzo trudny</guimenuitem
+>: 9 wierszy, 9 kolumn, z zawijaniem.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Konfiguracja skrótów...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Otwiera okno, które pozwala Ci na zdefiniowanie wszystkich skrótów klawiszowych.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Konfiguracja pasków narzędzi...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Wyświetla standardowe okno &kde;, gdzie możesz skonfigurować ikony paska narzędzi.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ustawienia</guimenu
+> <guimenuitem
+>Konfiguracja powiadomień...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>Ta funkcja wyświetla standardowe okno dialogowe konfiguracji powiadomień &kde;, gdzie można zmienić różne powiadomienia (dźwięki, komunikaty, itp.) używane przez &knetwalk;.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>Menu <guimenu
+>Pomoc</guimenu
+></title>
+&help.menu.documentation; </sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Skróty klawiszowe</title>
+
+<para
+>Domyślne skróty to:</para>
+
+<table>
+<title
+>Skróty klawiszowe</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Rozpocznij nową grę</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pokaż najlepsze wyniki</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Zakończ</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pomoc</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Co to jest?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Zasługi i licencje</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Prawa autorskie do programu (c) 2004 - 2007  Andi Peredri, Thomas Nagy i Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Prawa autorskie do dokumentacji: (c) 2007 by Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Polskie tłumaczenie dokumentacji: Krzysztof Woźniak<email
+>wozniakk@ceti.pl</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalacja</title>
+
+<sect1 id="getting-knetwalk">
+<title
+>Jak zdobyć &knetwalk;</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilacja i instalacja</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

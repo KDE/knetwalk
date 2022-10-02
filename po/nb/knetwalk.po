@@ -1,0 +1,338 @@
+# Translation of knetwalk to Norwegian Bokmål
+#
+# Jørgen Grønlund <jorgenhg@broadpark.no>, 2006.
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2008, 2009, 2010, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: knetwalk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2014-01-07 14:30+0100\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Jørgen Grønlund"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "jorgenhg@broadpark.no"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "Bredde på rutenettet"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "Bredde:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "Rull over fra venstre til høyre og fra øverst til nederst"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "Brett-rulling"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "Høyde på rutenettet"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "Høyde:"
+
+#: gameview.cpp:167
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"Merk: for å vinne må alle terminaler <strong>og alle <em>kabler</em></"
+"strong> kobles til tjeneren!"
+
+#: gameview.cpp:170
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "Spillet er ikke vunnet ennå!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "Tid i millisekunder for en celle å gjøre én rotasjon"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, kde-format
+msgid "Rotate duration:"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Spill lyder ved handlinger"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, kde-format
+msgid "Play sounds"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "Lås cellen automatisk etter rotasjon"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, kde-format
+msgid "Auto lock"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr ""
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "Standard brukernavn"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Om spillyder skal spilles av."
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "Om cellen skal låses etter rotasjon."
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr ""
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "Tid for en celle å gjøre én rotasjon."
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "Bredden på brettet."
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "Høyden på spillebrettet."
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr ""
+"Om det er mulig å rulle over fra venstre til høyre og fra øverst til nederst."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hovedverktøylinje"
+
+#: main.cpp:37
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk"
+
+#: main.cpp:38
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk, et spill for systemadministratorer."
+
+#: main.cpp:39
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"© 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"© 2007-2008 Fela Winkelmolen\n"
+"© 2013 Ashwin Rajeev"
+
+#: main.cpp:44
+#, kde-format
+msgid "Andi Peredri"
+msgstr "Andi Peredri"
+
+#: main.cpp:45
+#, kde-format
+msgid "original author"
+msgstr "opprinnelig forfatter"
+
+#: main.cpp:48
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "Thomas Nagy"
+
+#: main.cpp:49
+#, kde-format
+msgid "KDE port"
+msgstr "KDE-port"
+
+#: main.cpp:52
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "Ashwin Rajeev"
+
+#: main.cpp:53
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "Port til QtQuick"
+
+#: main.cpp:56
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trunev"
+
+#: main.cpp:57
+#, kde-format
+msgid "icon design"
+msgstr "Ikondesign"
+
+#: main.cpp:60
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:61
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "Porting til å bruke rammeverket QGraphicsView"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Custom"
+msgstr "Tilpasset"
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "&Unlock All"
+msgstr "&Lås opp alt"
+
+#: mainwindow.cpp:136
+#, kde-format
+msgid "Keyboard: Field right"
+msgstr "Tastatur: felt høyre"
+
+#: mainwindow.cpp:141
+#, kde-format
+msgid "Keyboard: Field left"
+msgstr "Tastatur: felt venstre"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Keyboard: Field up"
+msgstr "Tastatur: felt opp"
+
+#: mainwindow.cpp:151
+#, kde-format
+msgid "Keyboard: Field down"
+msgstr "Tastatur: felt ned"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "Keyboard: Turn clockwise"
+msgstr "Tastatur: snu med klokka"
+
+#: mainwindow.cpp:161
+#, kde-format
+msgid "Keyboard: Turn counterclockwise"
+msgstr "Tastatur: snu mot klokka"
+
+#: mainwindow.cpp:166
+#, kde-format
+msgid "Keyboard: Toggle lock"
+msgstr "Tastatur: lås av/på"
+
+#: mainwindow.cpp:177
+#, kde-format
+msgid "General"
+msgstr "Generelt"
+
+#: mainwindow.cpp:178
+#, kde-format
+msgid "Theme"
+msgstr "Tema"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Custom Game"
+msgstr "Selvvalgt spill"
+
+#: mainwindow.cpp:188 mainwindow.cpp:245
+#, kde-format
+msgid "Moves Penalty"
+msgstr "Poengtap for trekk"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] "Du fikk %1 poeng og kom ikke på rekordlista."
+msgstr[1] "Du fikk %1 poeng og kom ikke på rekordlista."
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr "Trekk: %1"
+
+#: mainwindow.cpp:275
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr "Tid: %1"
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "Pause"

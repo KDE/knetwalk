@@ -1,0 +1,534 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY kappname "&knetwalk;">
+<!ENTITY package "kdegames">
+<!ENTITY % Japanese "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&knetwalk; ハンドブック</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Yukiko</firstname
+><surname
+>Bando</surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+>日本語訳</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2007-11-13</date>
+<releaseinfo
+>3.0.0</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk; はシステム管理者のためのゲームです。</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>ゲーム</keyword>
+<keyword
+>論理ゲーム</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>はじめに</title>
+
+<para
+>&knetwalk; は 1 人でプレイする論理ゲームです。 </para>
+
+<para
+>このゲームの目的は、できるだけ少ない回数ですべてのターミナルをサーバに接続して LAN を構築することです。 </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>プレイ方法</title>
+
+<para
+>&knetwalk; のゲームボードには、1 つのサーバと複数のターミナルおよび数本のケーブルが含まれています。このゲームの目的は、これらの要素を回転してすべてのターミナルをサーバに接続することです。ケーブルもすべて接続しなければなりません。ハイスコアを狙う場合は、できるだけ少ない回数で完成するように試みてください。 </para>
+
+<para
+>ボード上のます目は、右クリックで時計回りに、左クリックで反時計回りに回転します。中クリックでます目をロックすることもできます。ロックされたます目は、もう一度中クリックしてロックを解除しなければ、回転できません。これは、既に正しい向きにセットされているます目にマークを付けておくために使います。ステータスバーには回転した回数が表示されます。 </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>ゲームのルール、戦略、ヒント</title>
+
+<sect1 id="rules">
+<title
+>ルール</title>
+<itemizedlist>
+<listitem
+><para
+>それぞれのゲームには 1 つの解しかありません。</para
+></listitem>
+<listitem
+><para
+><guilabel
+>非常に難しい</guilabel
+> レベルでは、ボードの上端と下端および右端と左端でケーブルをつなぐことができます (折り返し)。</para
+></listitem>
+<listitem
+><para
+>すべてのターミナルとケーブルがサーバに接続された時点でゲーム終了となります。</para
+></listitem>
+<listitem
+><para
+>スコアは LAN を構築するまでに要した回転回数によって決まります。回数が少ないほど良いスコアになります。</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>戦略とヒント</title>
+<itemizedlist>
+<listitem
+><para
+>まず、正しい向きを容易に判断できるます目を探してください。</para
+></listitem>
+<listitem
+><para
+>向きが正しくセットされているます目には、中クリックでマークを付けておくことができます。これは特に難易度の高いゲームで役立ちます。</para
+></listitem>
+<listitem
+><para
+>ボードの端にある I 型と T 型のケーブル、およびボードの四隅にある L 型のケーブルを探してください。これらのケーブルの正しい向きは、<guilabel
+>非常に難しい</guilabel
+> レベル以外では容易に判断できるでしょう。</para
+></listitem>
+<listitem
+><para
+><guilabel
+>非常に難しい</guilabel
+> レベルでは、何もないます目とターミナルがたくさん集っている場所の付近から始めるとよいでしょう。</para
+></listitem>
+<listitem
+><para
+>同じレベルであってもボードによって難易度が多少異なります。他のボードでプレイしたいときは、新しいゲームを開始してください。</para
+></listitem>
+<listitem
+><para
+>良いスコアを出すためには、確信が持てるまでは回転しないようにしましょう。</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>インターフェースの概要</title>
+
+<sect1 id="game-menu">
+<title
+><guimenu
+>ゲーム</guimenu
+> メニュー</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ゲーム</guimenu
+> <guimenuitem
+>新規</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>新しいゲームを開始します。現在の難易度のボードがランダムに選択されます。 </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ゲーム</guimenu
+> <guimenuitem
+>ハイスコアを表示</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>難易度別のハイスコアを表示するダイアログを開きます。 </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>ゲーム</guimenu
+> <guimenuitem
+>終了</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>プログラムを終了します。 </para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+
+
+
+<sect1 id="settings-menu">
+<title
+><guimenu
+>設定</guimenu
+> メニュー</title>
+
+<variablelist>
+
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guimenuitem
+>ツールバーを表示</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>ツールバーの表示/非表示を切り替えます。 </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guimenuitem
+>ステータスバーを表示</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>ステータスバーの表示/非表示を切り替えます。 </para>
+</listitem>
+</varlistentry>
+
+<!--
+<varlistentry>
+<term
+><menuchoice>
+<guimenu
+>Settings</guimenu>
+<guimenuitem
+>Themes</guimenuitem>
+</menuchoice
+></term>
+<listitem
+><para>
+<action
+>Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
+</para
+></listitem>
+</varlistentry>
+-->
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guisubmenu
+>難易度</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>サブメニューからゲームの難易度を選択します。</para>
+<para
+>難易度には 4 つレベルがあります。 <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>簡単</guimenuitem
+>: ボード 5 x 5、折り返しなし</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>普通</guimenuitem
+>: ボード 7 x 7、折り返しなし</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>難しい</guimenuitem
+>: ボード 9 x 9、折り返しなし</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>非常に難しい</guimenuitem
+>: ボード 9 x 9、折り返しあり</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guimenuitem
+>ショートカットを設定...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>キーボードショートカットの割り当てを変更するためのダイアログを開きます。</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guimenuitem
+>ツールバーを設定...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>ツールバーに表示するボタンを設定するためのダイアログを開きます。</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>設定</guimenu
+> <guimenuitem
+>通知を設定...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+>&knetwalk; が使用する通知 (サウンドや表示メッセージ) を変更するためのダイアログを開きます。</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+><guimenu
+>ヘルプ</guimenu
+> メニュー</title>
+&help.menu.documentation; </sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>ショートカット</title>
+
+<para
+>標準のショートカット:</para>
+
+<table>
+<title
+>ショートカット</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>新しいゲームを開始</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>ハイスコアを表示</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>終了</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>ヘルプ</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>これは何？</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>クレジットとライセンス</title>
+
+<para
+>&knetwalk; </para>
+<para
+>プログラム Copyright 2004 - 2007 Andi Peredri, Thomas Nagy, Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>ドキュメンテーション Copyright 2007 Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>日本語訳: Yukiko Bando</para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>インストール</title>
+
+<sect1 id="getting-knetwalk">
+<title
+>&knetwalk; の入手方法</title>
+&install.intro.documentation; </sect1>
+
+<sect1 id="compilation">
+<title
+>コンパイルとインストール</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

@@ -1,0 +1,382 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sairan Kikkarin <sairan@computer.org>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2013-10-24 03:00+0600\n"
+"Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
+"Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Сайран Киккарин"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sairan@computer.org"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "Тордың ені"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "Ені:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "Солдан оңға, жоғардан төменге тұйықталсын"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "Тұйықтау"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "Тордың біиктігі"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "Биіктігі:"
+
+#: gameview.cpp:167
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"Ескерту: жеңу үшін бүкіл терминалдар <strong>мен барлық <em>сымдарын</em></"
+"strong> серверге қосу керек."
+
+#: gameview.cpp:170
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "Әлі жеңген жоқсыз!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "Ұяны бұрау уақыты (миллисекунд)"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, fuzzy, kde-format
+#| msgid "Rotate Duration:"
+msgid "Rotate duration:"
+msgstr "Бұралыс ұзақтығы:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Амалда дыбыстарын ойнау"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, fuzzy, kde-format
+#| msgid "Play Sounds"
+msgid "Play sounds"
+msgstr "Дыбыстары болсын"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "Ұяны бұрағаннан кейін автоматты түрде бекіту"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, fuzzy, kde-format
+#| msgid "Auto Lock"
+msgid "Auto lock"
+msgstr "Автобекітілсін"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr ""
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "Әдетті пайдаланушы аты"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Ойын дыбыстары керек пе, жоқ па."
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "Ұяны бұрағаннан кейін бекіту керек пе."
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr ""
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "Ұяны бұрау уақыты."
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "Тақтасының ені."
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "Тақтасының биіктігі."
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr "Солдан оңға, жоғардан төменге тұйықтауы керек пе."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Негізгі құралдар"
+
+#: main.cpp:37
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk"
+
+#: main.cpp:38
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk, жүйелік әкімшілер ойыны."
+
+#: main.cpp:39
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"(C) 2004-2005 Andi Peredri, KDE-ге бейімдеген Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen(C) 2013 Ashwin Rajeev"
+
+#: main.cpp:44
+#, kde-format
+msgid "Andi Peredri"
+msgstr "Andi Peredri"
+
+#: main.cpp:45
+#, kde-format
+msgid "original author"
+msgstr "бастапқы авторы"
+
+#: main.cpp:48
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "Thomas Nagy"
+
+#: main.cpp:49
+#, kde-format
+msgid "KDE port"
+msgstr "KDE порты"
+
+#: main.cpp:52
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "Ashwin Rajeev"
+
+#: main.cpp:53
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "QtQuick-қа порттау"
+
+#: main.cpp:56
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:57
+#, kde-format
+msgid "icon design"
+msgstr "таңбашалары"
+
+#: main.cpp:60
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:61
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "QGraphicsView негізіне бейімдеген"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Custom"
+msgstr "Өзгеше"
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "&Unlock All"
+msgstr "Бүкілін б&осату"
+
+#: mainwindow.cpp:136
+#, kde-format
+msgid "Keyboard: Field right"
+msgstr "Пернетақта: Оңға"
+
+#: mainwindow.cpp:141
+#, kde-format
+msgid "Keyboard: Field left"
+msgstr "Пернетақта: Солға"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Keyboard: Field up"
+msgstr "Пернетақта: Жоғарлау"
+
+#: mainwindow.cpp:151
+#, kde-format
+msgid "Keyboard: Field down"
+msgstr "Пернетақта: Төмендеу"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "Keyboard: Turn clockwise"
+msgstr "Пернетақта: Сағат жүрісімен бұрау"
+
+#: mainwindow.cpp:161
+#, kde-format
+msgid "Keyboard: Turn counterclockwise"
+msgstr "Пернетақта: Сағат тіліне қарсы бұрау"
+
+#: mainwindow.cpp:166
+#, kde-format
+msgid "Keyboard: Toggle lock"
+msgstr "Пернетақта: Бұғаттау/Босату"
+
+#: mainwindow.cpp:177
+#, kde-format
+msgid "General"
+msgstr "Жалпы"
+
+#: mainwindow.cpp:178
+#, kde-format
+msgid "Theme"
+msgstr "Нақышы"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Custom Game"
+msgstr "Өзгеше ойын"
+
+#: mainwindow.cpp:188 mainwindow.cpp:245
+#, kde-format
+msgid "Moves Penalty"
+msgstr "Айып жүрістер"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] "Ұпайыңыз %1, жетістіктер тізіміне кірмейді."
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr "Жүрістер: %1"
+
+#: mainwindow.cpp:275
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr "Уақыты: %1"
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "Аялдауда"
+
+#~ msgid " ms"
+#~ msgstr " мс"
+
+#~ msgid "Fela Winkelmolen"
+#~ msgstr "Fela Winkelmolen"
+
+#~ msgid "current maintainer"
+#~ msgstr "қазіргі жетілдірушісі"
+
+#~ msgid "Game is paused."
+#~ msgstr "Ойын аялдап тұр."
+
+#~ msgid ""
+#~ "<h3>Rules of Game</h3><p>You are the system administrator and your goal "
+#~ "is to connect each terminal and each cable to the central server.</"
+#~ "p><p>Click the right mouse button to turn the cable in a clockwise "
+#~ "direction, and the left mouse button to turn the cable in a "
+#~ "counterclockwise direction.</p><p>Start the LAN with as few turns as "
+#~ "possible!</p>"
+#~ msgstr ""
+#~ "<h3>Ойының ережесі</h3><p>Сіз жүйелік әкімшісіз және мақсатыңыз әр "
+#~ "терминал мен әр сымын орталық серверге қосу.</p><p>Тышқанның оң жақ "
+#~ "батырмасын басып сағатың тілі бойынша, сол жақ батырмасын басып - сағат "
+#~ "тіліне қарсы бұрылыңыз.</p><p>Мейілінше шамалы жүрістерімен желі торын "
+#~ "құрыңыз!</p>"
+
+#~ msgid "New Game"
+#~ msgstr "Жаңа ойын"
+
+#~ msgid "The graphical theme to be used."
+#~ msgstr "Пайдаланатын графикалық нақышы."
+
+#~ msgid "Start with Easy difficulty level"
+#~ msgstr "Оңай деңгейінен бастау"
+
+#~ msgid "Start with Medium difficulty level"
+#~ msgstr "Орташа деңгейінен бастау"
+
+#~ msgid "Start with Hard difficulty level"
+#~ msgstr "Қиын деңгейінен бастау"
+
+#~ msgid "Start with Very Hard difficulty level"
+#~ msgstr "Ең қиын деңгейінен бастау"
+
+#~ msgid "The difficulty level."
+#~ msgstr "Қиындық деңгейі."

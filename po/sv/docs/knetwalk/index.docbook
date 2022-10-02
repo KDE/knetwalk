@@ -1,0 +1,676 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Swedish "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Handbok &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-07-26</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&kappname; är ett spel för systemadministratörer.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>logikspel</keyword>
+<keyword
+>Knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+  <note
+><title
+>Speltyp:</title
+><para
+>Strategi</para
+></note>
+  <note
+><title
+>Antal möjliga spelare:</title
+><para
+>En</para
+></note>
+
+  <para
+>&knetwalk; är ett logikspel för en ensam spelare.</para>
+
+  <para
+>Spelets syfte är att starta det lokala nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Hur man spelar</title>
+
+<note
+><title
+>Syfte:</title
+><para
+>Anslut alla klienter med server, utan att lämna sladdar oanslutna.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Spelbrädet i &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Ett rektangulärt rutnät som innehåller en server, flera terminaler, och sladdar visas för spelaren. Spelets syfte är att rotera elementen till varje klient är ansluten till servern, och inga sladdar är lämnade utan anslutning. Dessutom kan du försöka få bra poäng genom att minimera antalet rotationer som behövs. </para>
+
+<para
+>Att vänsterklicka på en ruta roterar den moturs, medan ett högerklick roterar den medurs. Att klicka på en ruta med mittenknappen markerar den som blockerad och förhindrar att den roteras, om inte blockeringen tas bort med ytterligare ett klick med mittenknappen. Det kan vara mycket användbart för att markera rutor som man vet har rätt orientering. Statusraden visar antalet klick hittills. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Spelets regler, strategi och tips</title>
+
+<sect1 id="rules">
+<title
+>Regler</title>
+<itemizedlist>
+<listitem
+><para
+>Det finns bara en möjlig riktig lösning för varje spel.</para
+></listitem>
+<listitem
+><para
+>När svårighetsnivån <guilabel
+>Mycket svår</guilabel
+> används, kan anslutningar gå runt från vänster till höger och från överkanten till underkanten.</para
+></listitem>
+<listitem
+><para
+>Spelet är slut när alla terminaler och alla sladdar är anslutna till servern.</para
+></listitem>
+<listitem
+><para
+>Poängen belönar det minsta antalet klick det tog att göra färdigt spelet. Ju lägre värdet är desto bättre.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Strategi och tips</title>
+<itemizedlist>
+<listitem
+><para
+>Börja leta efter rutor vars orientering enkelt kan bestämmas.</para
+></listitem>
+<listitem
+><para
+>När du väl är säker på orienteringen hos en ruta kan du markera den med musens mittenknapp. Det är särskilt användbart i svårare spel.</para
+></listitem>
+<listitem
+><para
+>Titta efter I-formade och T-formade sladdar nära gränserna, och L-formade sladdar nära kanterna. Positionen för sådana rutor kan enkelt avgöras, om du inte spelar svårighetsnivån <guilabel
+>Mycket svår</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>När du spelar svårighetsnivån <guilabel
+>Mycket svår</guilabel
+>, är ett bra ställe att börja titta nära tomma rutor, om det finns några, och nära områden som innehåller många terminaler samlade i en grupp.</para
+></listitem>
+<listitem
+><para
+>Till och med vid spel med samma svårighetsivå är vissa spel enklare än andra. Starta om spelet om du vill få en annan spelplan.</para
+></listitem>
+<listitem
+><para
+>Om du vill få ett bra resultat, gör bara ett drag när du är helt säker.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Översikt av gränssnittet</title>
+
+<sect1 id="menu">
+<title
+>Menyalternativ</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Startar ett nytt spel. Det skapar en slumpmässig spelplan med aktuell svårighetsnivå. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Paus</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Gör paus i speltidtagningen. Klicka på menyalternativet igen för att återuppta spelet. Observera att spelbrädet försvinner när spelet gör paus, eftersom det vore ojust om du kunde leta efter bra drag utan tidspress. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Visa bästa resultat</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Visar en dialogruta med bästa resultat för de olika svårighetsnivåerna. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Avslutar programmet. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Lös</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Använd detta för att ge upp ett spel. Det visar lösningen, men rekordet anses inte vara ett bästa resultat.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Flytta</guimenu
+> <guimenuitem
+>Lås upp alla</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Lås upp alla celler som tidigare låstes av spelaren med <keycap
+>Mellanslag</keycap
+> eller automatiskt efter att ha markerat alternativet <guilabel
+>Lås automatiskt</guilabel
+> på <link linkend="config_general"
+>sidan <guilabel
+>Allmänt</guilabel
+></link
+> i dialogrutan <guilabel
+>Anpassa - &knetwalk;</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Svårighet</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Låter dig ange svårighetsnivån från en undermeny.</para>
+<para
+>Det finns fem svårighetsnivåer: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Lätt</guimenuitem
+>: 5 rader, 5 kolumner, utan att gå runt.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Normal</guimenuitem
+>: 7 rader, 7 kolumner, utan att gå runt.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Svår</guimenuitem
+>: 9 rader, 9 kolumner, utan att gå runt.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mycket svår</guimenuitem
+>: 9 rader, 9 kolumner, kan gå runt.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Egen</guimenuitem
+>: Inställningarna som du har ställt in på <link linkend="config_custom_game"
+>dialogrutan <guilabel
+>Anpassa - &knetwalk;</guilabel
+></link
+> används.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa &knetwalk;...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Öppna dialogrutan <guilabel
+>Anpassa - &knetwalk;</guilabel
+>.</action
+> Se <link linkend="configuration"
+>Spelanpassning</link
+> för mer information. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Dessutom har &knetwalk; de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten  <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Spelanpassning</title>
+   <para
+>Välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa &knetwalk;...</guimenuitem
+></menuchoice
+> för att öppna dialogrutan <guilabel
+>Anpassa - &knetwalk;</guilabel
+>. </para>
+   <sect2 id="config_general">
+     <title
+>Allmänt</title>
+     <para
+>Genom att använda den här sidan kan följande spelinställningar ändras. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Spela ljud </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Om markerad, spelas &knetwalk;s spelljud. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Lås automatiskt </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Om markerad, låser &knetwalk; automatiskt cellen efter rotation. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Omvända musknappar </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Om markerad, använder &knetwalk; vänsterklick för medurs rotation och högerklick för moturs rotation. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Rotationens tidslängd: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Här kan du bestämma tiden som behövs för att animera rotation av en enskild cell. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Tema</title>
+     <para
+>Gå till sidan <guilabel
+>Tema</guilabel
+> för att välja temat du vill spela med. Temat läses in genom att klicka på <guibutton
+>Ok</guibutton
+> eller <guibutton
+>Verkställ</guibutton
+>. Det pågående spelet avslutas och ett nytt startas. Du kan klicka på knappen <guibutton
+>Förval</guibutton
+> för att återställa standardtemat. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Eget spel</title>
+     <para
+>Den här sidan kan användas för att anpassa egna spelinställningar. Du kan välja brädets <guilabel
+>Bredd:</guilabel
+> och <guilabel
+>Höjd:</guilabel
+> och markera <guilabel
+>Gå runt</guilabel
+> om brädet ska gå runt från vänster till höger och från överkant till underkant. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Genvägar</title>
+
+<para
+>Förvalda genvägar är:</para>
+
+<table>
+<title
+>Genvägar</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Starta ett nytt spel</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Paus</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Visa bästa resultat</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Avsluta</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Hjälp</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Vad är det här? hjälp</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Flytta åt vänster</entry>
+<entry
+>Vänsterpil </entry>
+</row>
+<row>
+<entry
+>Flytta åt höger</entry>
+<entry
+>Högerpil </entry>
+</row>
+<row>
+<entry
+>Flytta upp</entry>
+<entry
+>Uppåtpil </entry>
+</row>
+<row>
+<entry
+>Flytta ner</entry>
+<entry
+>Neråtpil </entry>
+</row>
+<row>
+<entry
+>Vänd medurs</entry>
+<entry
+><keycap
+>Retur</keycap
+> </entry>
+</row>
+<row>
+<entry
+>Vänd moturs</entry>
+<entry>
+<keycombo
+>&Ctrl;<keycap
+>Retur</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Växla låsning</entry>
+<entry
+><keycap
+>Mellanslag</keycap
+> </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Program copyright 2004 - 2007 av Andi Peredri, Thomas Nagy och Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Dokumentation copyright 2007 av Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

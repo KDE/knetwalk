@@ -1,0 +1,658 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Підручник з &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Сергій</firstname
+><surname
+>Якимчук</surname
+><affiliation
+><address
+><email
+>yakim@yakim.org.ua</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>26 липня 2021 року</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk; — гра для системних адміністраторів.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>гра</keyword>
+<keyword
+>логічна гра</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+  <note
+><title
+>Тип гри:</title
+><para
+>Стратегія</para
+></note>
+  <note
+><title
+>Можлива кількість гравців:</title
+><para
+>Один</para
+></note>
+
+  <para
+>&knetwalk; — це логічна гра для одного гравця.</para>
+
+  <para
+>Ціль гри — запустити мережу, з'єднавши всі термінали з сервером, якомога швидше.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Правила гри</title>
+
+<note
+><title
+>Мета:</title
+><para
+>З'єднати усі клієнти із сервером, не залишивши жодного кабелю нез'єднаним.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Ігрова дошка &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Гравцю дається прямокутне поле, що містить сервер, декілька терміналів, і шматки дроту. Ціль гри — обертаючи ці елементи, з'єднати кожен комп'ютер з сервером, не залишаючи вільних шматків дроту. Ви можете спробувати отримати високу кількість балів шляхом зменшення числа потрібних обертань. </para>
+
+<para
+>Клацання лівою кнопкою миші по полю обертає елемент проти годинникової стрілки, правою — за годинниковою стрілкою. Середня кнопка призводить до блокування елемента і перешкоджає його обертанню. Розблокувати елемент можна повторним натисканням середньої кнопки. Ця функція може бути корисною для запобігання випадкового обертання елементів гри, які вже розміщені правильно. Рядок стану показує число здійснених поворотів. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Правила гри, стратегія та поради</title>
+
+<sect1 id="rules">
+<title
+>Правила гри</title>
+<itemizedlist>
+<listitem
+><para
+>У кожній грі існує лише один правильний розв’язок.</para
+></listitem>
+<listitem
+><para
+>Коли граєте на <guilabel
+>Дуже важкому</guilabel
+> рівні складності сполучення можуть переноситись зліва направо та зверху вниз.</para
+></listitem>
+<listitem
+><para
+>Гра закінчується, коли всі комп'ютери та дроти під'єднано до сервера.</para
+></listitem>
+<listitem
+><para
+>Кількість набраних очок відповідає кількості зроблених поворотів. Чим менше поворотів — тим краще.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Стратегія та поради</title>
+<itemizedlist>
+<listitem
+><para
+>На початку гри шукайте поля, розташування елементів яких може бути легко визначене.</para
+></listitem>
+<listitem
+><para
+>Якщо ви впевнені в розташуванні елемента, ви можете відзначити це, за допомогою середньої кнопки миші. Це особливо корисно на високих рівнях складності.</para
+></listitem>
+<listitem
+><para
+>Знайдіть I- та Т- подібні дроти біля меж, і L-подібні дроти біля краю поля. Їх правильне розміщення може легко бути виявлено, крім випадків гри на <guilabel
+>Дуже складному</guilabel
+> рівні складності.</para
+></listitem>
+<listitem
+><para
+>Коли граєте на <guilabel
+>Дуже складному</guilabel
+> рівні, краще почати з елементів, що розташовані поблизу пустих квадратів, якщо вони є, або поблизу великого скупчення терміналів.</para
+></listitem>
+<listitem
+><para
+>Навіть граючи на тому ж самому рівні складності, деякі ігри можуть виявитися простішими за інші; почніть нову гру, якщо ви хочете змінити поле.</para
+></listitem>
+<listitem
+><para
+>Якщо ви хочете набрати гарну кількість очок, робіть лише ті рухи, в яких впевнені.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Огляд інтерфейсу</title>
+
+<sect1 id="menu">
+<title
+>Пункти меню</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Нова</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Почати нову гру. Створюється випадкове поле, відповідно до поточного рівня складності. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Зупинка ігрового часу. Натисніть той же пункт меню для продовження гри. Зауважте, що ігрове поле недоступне в режимі паузи, бо це б було не чесно, якщо б Ви могли познаходити гарні ходи не витрачаючи час. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Показати рекорди</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Показується діалогове вікно, що містить рекорди для різних рівнів складності. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Завершує роботу програми. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Хід</guimenu
+> <guimenuitem
+>Розв’язати</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Скористайтеся цим пунктом для того, щоб здатися у грі. Програма покаже вам розв’язок, але результат гри не буде записано до списку найкращих результатів.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Хід</guimenu
+> <guimenuitem
+>Розблокувати усі</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Розблокувати усі комірки, які раніше було заблоковано користувачем за допомогою клавіші <keycap
+>Пробіл</keycap
+> або автоматично після позначення пункту <guilabel
+>Автоблокування</guilabel
+> на <link linkend="config_general"
+>сторінці «Загальне»</link
+> діалогового вікна налаштувань &knetwalk;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Складність</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Встановіть рівень складності за допомогою підменю</para>
+<para
+>Передбачено п’ять рівнів складності: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Простий</guimenuitem
+>: 5 рядків, 5 стовпців, без переносу.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Середній</guimenuitem
+>: 7 рядків, 7 стовпців, без переносу.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Важкий</guimenuitem
+>: 9 рядків, 9 стовпців, без переносу.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Дуже важкий</guimenuitem
+>: 9 рядків, 9 стовпців, з переносом.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Нетиповий</guimenuitem
+>: буде використано параметри, вказані за допомогою <link linkend="config_custom_game"
+>діалогового вікна налаштовування &knetwalk;</link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати &knetwalk;...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Відкрити діалогове вікно налаштувань &knetwalk;.</action
+> Докладніший його опис можна знайти у розділі <link linkend="configuration"
+>Налаштування гри</link
+>. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Крім того, у &knetwalk; передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Налаштування гри</title>
+   <para
+>Щоб відкрити діалогове вікно налаштувань &knetwalk;, скористайтеся пунктом меню <menuchoice
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Налаштувати &knetwalk;...</guimenuitem
+> </menuchoice
+> </para>
+   <sect2 id="config_general">
+     <title
+>Загальне</title>
+     <para
+>За допомогою цієї сторінки ви можете змінити вказані нижче параметри гри. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Відтворювати звуки </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Якщо позначено, під час гри у &knetwalk; відтворюватимуться звуки гри. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Автоблокування </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Якщо позначено цей пункт, &knetwalk; автоматично блокуватиме комірки після обертання. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Реверс кнопок миші </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Якщо позначено, &knetwalk; використовуватиме клацання лівою для обертання за годинниковою стрілкою і клацання правою для обертання проти годинникової стрілки. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Тривалість обертання: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Тут ви можете вказати час, що витрачатиметься на анімацію одного обертання комірки. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Тема</title>
+     <para
+>Щоб обрати тему гри, вам слід відкрити сторінку тем. Тему буде завантажено після натискання кнопки <guibutton
+>Гаразд</guibutton
+> або <guibutton
+>Застосувати</guibutton
+>. Після цього поточну гру буде завершено, ви розпочнете гру з початку. Для відновлення типової теми натисніть кнопку <guibutton
+>Типові значення</guibutton
+>. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Нетипова гра</title>
+     <para
+>За допомогою цієї сторінки можна визначити параметри нетипового режиму гри. Ви можете вибрати <guilabel
+>Ширину</guilabel
+> і <guilabel
+>Висоту</guilabel
+> дошки та визначити, чи буде дошка замкненою зліва праворуч і згори вниз, за допомогою пункту <guilabel
+>Замкнена дошка</guilabel
+>. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Скорочення</title>
+
+<para
+>Типовими скороченнями є</para>
+
+<table>
+<title
+>Скорочення</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Почати нову гру</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Пауза</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Показати таблицю рекордів</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Вийти</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Довідка</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Довідка «Що це?»</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Перейти ліворуч</entry>
+<entry
+>Стрілка ліворуч </entry>
+</row>
+<row>
+<entry
+>Перейти праворуч</entry>
+<entry
+>Стрілка праворуч </entry>
+</row>
+<row>
+<entry
+>Перейти вище</entry>
+<entry
+>Стрілка вгору </entry>
+</row>
+<row>
+<entry
+>Перейти нижче</entry>
+<entry
+>Стрілка вниз </entry>
+</row>
+<row>
+<entry
+>Повернути за годинниковою стрілкою</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Повернути проти годинникової стрілки</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Перемикання блокування</entry>
+<entry
+>Пробіл </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Авторські права та ліцензування</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Авторські права на програму належать Andi Peredri, Thomas Nagy та Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+>, ©2004–2007 </para>
+<para
+>Авторські права на документацію до програми належать Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+>, ©2007 </para>
+
+<para
+>Переклад українською: Якимчук Сергій<email
+>yakim@yakim.org.ua</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

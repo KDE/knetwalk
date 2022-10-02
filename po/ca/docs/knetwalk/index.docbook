@@ -1,0 +1,652 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>El manual del &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>26 de juliol de 2021</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>El &knetwalk;, un joc per a administradors de sistema.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>joc</keyword>
+<keyword
+>joc de lògica</keyword>
+<keyword
+>KNetWalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+  <note
+><title
+>Tipus de joc:</title
+><para
+>Estratègia</para
+></note>
+  <note
+><title
+>Nombre de possibles jugadors:</title
+><para
+>Un</para
+></note>
+
+  <para
+>El &knetwalk; és un joc de lògica d'un sol jugador.</para>
+
+  <para
+>L'objectiu del joc és iniciar la LAN, connectant tots els terminals amb el servidor, en tan pocs torns com sigui possible.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Com jugar</title>
+
+<note
+><title
+>Objectiu:</title
+><para
+>Connectar cada client amb el servidor, sense deixar cap cable desconnectat.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Tauler de joc del &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Al jugador se li presenta una quadrícula rectangular que conté un servidor, diversos terminals i peces de cable. L'objectiu del joc és fer girar aquests elements fins que cada client estigui connectat amb el servidor, i sense deixar cables desconnectats. De manera opcional, podeu intentar obtenir una puntuació alta minimitzant la quantitat de girs necessaris. </para>
+
+<para
+>El clic esquerre sobre un quadrat el farà girar en sentit contrari a les agulles del rellotge, mentre que el clic dret el farà girar en el sentit de les agulles del rellotge. El clic del mig marcarà un quadrat com bloquejat i evitarà que es giri a menys que es desbloquegi mitjançant un altre clic del mig. Això pot ser molt útil per a marcar quadrats que se sap que estan en l'orientació correcta. La barra d'estat mostrarà el nombre de clics fins ara. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Les regles del joc, estratègies i consells</title>
+
+<sect1 id="rules">
+<title
+>Regles</title>
+<itemizedlist>
+<listitem
+><para
+>Només hi ha una possible solució correcta per a cada partida.</para
+></listitem>
+<listitem
+><para
+>Quan jugueu amb el nivell de dificultat <guilabel
+>Molt difícil</guilabel
+>, les connexions podran embolcallar d'esquerra a dreta i de dalt a baix.</para
+></listitem>
+<listitem
+><para
+>La partida acabarà quan cada terminal i cada cable estigui connectat amb el servidor.</para
+></listitem>
+<listitem
+><para
+>La puntuació recompensa el menor nombre de clics que heu realitzat per a completar la partida. Com més baix sigui aquest nombre, millor.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Les estratègies i consells</title>
+<itemizedlist>
+<listitem
+><para
+>Comenceu a cercar els quadrats on l'orientació es pugui determinar amb facilitat.</para
+></listitem>
+<listitem
+><para
+>Quan esteu segur de l'orientació d'un quadrat, podreu marcar-lo amb el &BMR;. Això és particularment útil en les partides més difícils.</para
+></listitem>
+<listitem
+><para
+>Cerqueu els cables en forma d'I i en forma de T que es trobin a prop de les vores, i els cables en forma de L prop de les cantonades. La posició d'aquests quadrats es pot determinar amb facilitat, llevat que esteu jugant amb el nivell de dificultat <guilabel
+>Molt difícil</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Quan es juga amb el nivell de dificultat <guilabel
+>Molt difícil</guilabel
+>, un bon lloc per a començar a mirar és a prop dels quadrats buits, si n'hi ha, i prop de les regions que contenen molts terminals agrupats.</para
+></listitem>
+<listitem
+><para
+>Fins i tot quan es juga amb el mateix nivell de dificultat, algunes partides són més fàcils que d'altres, reinicieu la partida per a obtenir un tauler diferent.</para
+></listitem>
+<listitem
+><para
+>Per a obtenir una bona puntuació, només feu un moviment quan n'esteu segur.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Resum de la interfície</title>
+
+<sect1 id="menu">
+<title
+>Elements de menú</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Inicia una partida nova. Crea un tauler aleatori emprant el nivell de dificultat actual. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Pausa</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Posa en pausa el temps de la partida. Torneu a fer clic sobre l'element de menú per a reprendre-la. Recordeu que quan la partida estigui en pausa, el tauler desapareixerà, ja que seria injust si poguéssiu cercar moviments bons sense la pressió del temps. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Mostra les puntuacions...</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Mostra un diàleg que conté les puntuacions més altes per als diferents nivells de dificultat. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Surt del programa. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Resol</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Empreu-lo per a renunciar a una partida. Us mostra la solució, però el rècord no es considerarà com una puntuació més alta.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mou</guimenu
+> <guimenuitem
+>Desbloqueja-ho to</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Desbloqueja totes les cel·les que ha bloquejat prèviament el jugador emprant la tecla &Space; o automàticament després de marcar l'opció <guilabel
+>Bloqueig automàtic</guilabel
+> a la <link linkend="config_general"
+>pàgina <guilabel
+>General</guilabel
+></link
+> del diàleg <guilabel
+>Configuració - &knetwalk;</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Dificultat</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Permet establir el nivell de dificultat des d'un submenú.</para>
+<para
+>Hi ha cinc nivells de dificultat: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Fàcil</guimenuitem
+>: 5 files, 5 columnes, sense embolcallar.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mitjana</guimenuitem
+>: 7 files, 7 columnes, sense embolcallar.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Difícil</guimenuitem
+>: 9 files, 9 columnes, sense embolcallar.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Molt difícil</guimenuitem
+>: 9 files, 9 columnes, amb embolcall.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Personalitzada</guimenuitem
+>: S'utilitzaran les opcions de configuració que heu establert en el <link linkend="config_custom_game"
+>diàleg <guilabel
+>Configuració - &knetwalk;</guilabel
+></link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura el &knetwalk;...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Obre el diàleg <guilabel
+>Configuració - &knetwalk;</guilabel
+>.</action
+> Per a més informació, vegeu la <link linkend="configuration"
+>Configuració del joc</link
+>. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>De manera addicional, el &knetwalk; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Configuració del joc</title>
+   <para
+>Per a obrir el diàleg <guilabel
+>Configuració - &knetwalk;</guilabel
+>, seleccioneu l'element de menú <menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Configura el &knetwalk;...</guimenuitem
+></menuchoice
+>. </para>
+   <sect2 id="config_general">
+     <title
+>General</title>
+     <para
+>Emprant aquesta pàgina podreu canviar les opcions de configuració del joc. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Reprodueix els sons </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si està marcada, el &knetwalk; reproduirà els sons del joc. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Bloqueig automàtic </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Bloqueja automàticament la cel·la després del gir. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Inverteix els botons del ratolí </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si està marcada, el &knetwalk; emprarà el clic esquerre per al gir en sentit de les agulles del rellotge i el clic dret per al gir en sentit contrari de les agulles del rellotge. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Durada del gir: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Aquí podeu determinar el temps necessari per a animar un sol gir de la cel·la. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Tema</title>
+     <para
+>Per a seleccionar el tema amb el qual voleu jugar, aneu a la secció <guilabel
+>Tema</guilabel
+>. El tema es carregarà fent clic a <guibutton
+>D'acord</guibutton
+> o <guibutton
+>Aplica</guibutton
+>. La partida actual acabarà i començarà una de nova. Podeu fer clic sobre el botó &nbsp;<guibutton
+>Per omissió</guibutton
+> per a restaurar el tema predeterminat. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Partida personalitzada</title>
+     <para
+>Aquesta pàgina es pot utilitzar per a configurar les opcions de configuració de les partides personalitzades. Podeu escollir una <guilabel
+>Amplada:</guilabel
+> i <guilabel
+>Alçada:</guilabel
+> del tauler i marcar <guilabel
+>Embolcallament</guilabel
+> si el tauler ha d'embolcallar d'esquerra a dreta i de dalt a baix. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Dreceres</title>
+
+<para
+>Les dreceres predeterminades són les següents:</para>
+
+<table>
+<title
+>Dreceres</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Inicia una partida nova</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pausa</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Mostra les millors puntuacions</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Surt</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Ajuda</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Ajuda «Què és això?»</entry>
+<entry>
+<keycombo action="simul"
+>&Maj;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Mou a l'esquerra</entry>
+<entry
+>&Left; </entry>
+</row>
+<row>
+<entry
+>Mou a la dreta</entry>
+<entry
+>&Right; </entry>
+</row>
+<row>
+<entry
+>Mou amunt</entry>
+<entry
+>&Up; </entry>
+</row>
+<row>
+<entry
+>Mou avall</entry>
+<entry
+>&Down; </entry>
+</row>
+<row>
+<entry
+>Gira en sentit horari</entry>
+<entry
+>&Intro; </entry>
+</row>
+<row>
+<entry
+>Gira en sentit antihorari</entry>
+<entry>
+<keycombo
+>&Ctrl;&Intro;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Commuta el bloqueig</entry>
+<entry
+>&Space; </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Copyright del programa 2004 - 2007 per en Andi Peredri, Thomas Nagy i Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Copyright de la documentació 2007 per en Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

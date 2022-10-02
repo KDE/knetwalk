@@ -1,0 +1,339 @@
+# translation of knetwalk.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2006, 2009.
+# Michal Sulek <misurel@gmail.com>, 2010, 2011.
+# Roman Paholík <wizzardsk@gmail.com>, 2013, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: knetwalk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2022-04-09 20:14+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Richard Frič,Michal Šulek"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Richard.Fric@kdemail.net,misurel@gmail.com"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "Šírka mriežky"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "Šírka:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "Zalamovať zľava doprava a z hora dolu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "Zalamovanie"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "Výška mriežky"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "Výška:"
+
+#: gameview.cpp:167
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"Poznámka: aby ste vyhrali, musíte k serveru pripojiť všetky terminály "
+"<strong>aj všetky <em>káble</em></strong>!"
+
+#: gameview.cpp:170
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "Ešte ste nevyhrali!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "Trvanie ukončenia jedného otočenia bunky v milisekundách"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, kde-format
+msgid "Rotate duration:"
+msgstr "Trvanie otočenia:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Prehrať zvuky pri akciách"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, kde-format
+msgid "Play sounds"
+msgstr "Zahrať zvuky"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "Automaticky zamknúť bunku po otočení"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, kde-format
+msgid "Auto lock"
+msgstr "Automaticky zamknúť"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr "Otočiť tlačidlá myši"
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "Štandardné meno užívateľa"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Či budú prehrávané zvuky hry."
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "Či zamknúť bunku po otočení"
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr ""
+"Použite ľavý klik pre smer hodinových ručičiek a pravý pre opačný smer."
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "Trvanie ukončenia jedného otočenia bunky."
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "Šírka dosky."
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "Výška dosky."
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr "Či zalamovanie zľava doprava a zhora dolu je povolené."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: main.cpp:37
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk"
+
+#: main.cpp:38
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk, hra pre správcov systému."
+
+#: main.cpp:39
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"(C) 2004-2005 Andi Peredri, portovanie do KDE od Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+
+#: main.cpp:44
+#, kde-format
+msgid "Andi Peredri"
+msgstr "Andi Peredri"
+
+#: main.cpp:45
+#, kde-format
+msgid "original author"
+msgstr "pôvodný autor"
+
+#: main.cpp:48
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "Thomas Nagy"
+
+#: main.cpp:49
+#, kde-format
+msgid "KDE port"
+msgstr "KDE port"
+
+#: main.cpp:52
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "Ashwin Rajeev"
+
+#: main.cpp:53
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "Port do QtQuick"
+
+#: main.cpp:56
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:57
+#, kde-format
+msgid "icon design"
+msgstr "návrh ikon"
+
+#: main.cpp:60
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:61
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "Portovanie do QGraphicsView frameworku"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Custom"
+msgstr "Vlastné"
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "&Unlock All"
+msgstr "Odomknúť všetko"
+
+#: mainwindow.cpp:136
+#, kde-format
+msgid "Keyboard: Field right"
+msgstr "Klávesnica: pole vpravo"
+
+#: mainwindow.cpp:141
+#, kde-format
+msgid "Keyboard: Field left"
+msgstr "Klávesnica: pole vľavo"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Keyboard: Field up"
+msgstr "Klávesnica: pole hore"
+
+#: mainwindow.cpp:151
+#, kde-format
+msgid "Keyboard: Field down"
+msgstr "Klávesnica: pole dole"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "Keyboard: Turn clockwise"
+msgstr "Klávesnica: otáčať po smere hodinových ručičiek"
+
+#: mainwindow.cpp:161
+#, kde-format
+msgid "Keyboard: Turn counterclockwise"
+msgstr "Klávesnica: otáčať proti smere hodinových ručičiek"
+
+#: mainwindow.cpp:166
+#, kde-format
+msgid "Keyboard: Toggle lock"
+msgstr "Klávesnica: zapnúť zámok"
+
+#: mainwindow.cpp:177
+#, kde-format
+msgid "General"
+msgstr "Všeobecné"
+
+#: mainwindow.cpp:178
+#, kde-format
+msgid "Theme"
+msgstr "Téma"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Custom Game"
+msgstr "Vlastná hra"
+
+#: mainwindow.cpp:188 mainwindow.cpp:245
+#, kde-format
+msgid "Moves Penalty"
+msgstr "Penalizácia za pohyby"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] "Vaše skóre bolo %1, nedostali ste sa do zoznamu najvyššieho skóre."
+msgstr[1] "Vaše skóre bolo %1, nedostali ste sa do zoznamu najvyššieho skóre."
+msgstr[2] "Vaše skóre bolo %1, nedostali ste sa do zoznamu najvyššieho skóre."
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr "Ťahy: %1"
+
+#: mainwindow.cpp:275
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr "Čas: %1"
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "Pozastavené"
+
+#~ msgid " ms"
+#~ msgstr " ms"

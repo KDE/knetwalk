@@ -1,0 +1,668 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Руководство пользователя &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Евгений</firstname
+> <surname
+>Трунев</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский язык</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>26 июля 2021 г.</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, игра для системных администраторов.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>игра</keyword>
+<keyword
+>логическая игра</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+  <note
+><title
+>Жанр:</title
+><para
+>Стратегические игры</para
+></note>
+  <note
+><title
+>Количество игроков:</title
+><para
+>Один игрок</para
+></note>
+
+  <para
+>&knetwalk; — логическая игра для одного игрока.</para>
+
+  <para
+>Цель игры — построить локальную сеть, подключив все терминалы к серверу за как можно меньшее количество ходов.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Правила игры</title>
+
+<note
+><title
+>Цель:</title
+><para
+>Соединить все клиенты с сервером, подключив все провода.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Игровое поле &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Игроку предлагается прямоугольная сетка, содержащая сервер, несколько терминалов и фрагменты провода. Цель игры заключается во вращении этих проводов для подключения каждого клиента к серверу, при этом необходимо использовать все фрагменты провода. Чем меньше поворотов проводов сделает игрок, тем больше очков он получит. </para>
+
+<para
+>Щелчок левой кнопкой мыши по клетке вращает её против часовой стрелки, а щелчок правой кнопкой мыши — по часовой стрелке. Если щёлкнуть по клетке средней кнопкой мыши, она помечается как заблокированная и не будет поворачиваться без предварительной разблокировки повторным щелчком средней кнопки мыши; эта возможность очень удобна, когда требуется отметить те клетки, которые точно находятся в правильном положении. В строке состояния показано количество сделанных щелчков. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Правила игры, стратегия и советы</title>
+
+<sect1 id="rules">
+<title
+>Правила игры</title>
+<itemizedlist>
+<listitem
+><para
+>Для каждой игры возможно только одно верное решение.</para
+></listitem>
+<listitem
+><para
+>При игре на уровне <guilabel
+>Сложный</guilabel
+> можно напрямую установить связь между крайними горизонталями и вертикалями (замкнутая поверхность).</para
+></listitem>
+<listitem
+><para
+>Игра заканчивается после подключения к серверу всех терминалов и проводов.</para
+></listitem>
+<listitem
+><para
+>Количество очков зависит от количества щелчков, которое потребовалось для прохождения игры. Чем их меньше, тем лучше.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Стратегия и советы</title>
+<itemizedlist>
+<listitem
+><para
+>Начните искать клетки, положение которых легко определить.</para
+></listitem>
+<listitem
+><para
+>При уверенности в правильном положении клетки её можно отметить с помощью щелчка средней кнопкой мыши. Это особенно полезно при игре на более высоком уровне сложности.</para
+></listitem>
+<listitem
+><para
+>Ищите I-образные и T-образные провода рядом с границами, а также L-образные провода рядом с краями. Положение этих клеток легко определить (если только это не игра на уровне <guilabel
+>Сложный</guilabel
+>).</para
+></listitem>
+<listitem
+><para
+>При игре на уровне <guilabel
+>Сложный</guilabel
+> лучше начать поиск рядом с пустыми клетками, если они есть, и рядом с областями, содержащими много сгруппированных вместе терминалов.</para
+></listitem>
+<listitem
+><para
+>Даже при игре на одном и том же уровне сложности некоторые игры всё равно окажутся более сложными. Перезапустите игру, если требуется сменить поле.</para
+></listitem>
+<listitem
+><para
+>Чтобы получить больше очков, делайте ход только в случае уверенности в нём.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Обзор интерфейса</title>
+
+<sect1 id="menu">
+<title
+>Пункты меню</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Новая</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Запуск новой игры. Создаётся случайное поле для текущего уровня сложности. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Пауза</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Приостановка игрового времени. Выберите этот пункт меню снова, чтобы возобновить игру. Обратите внимание, что поле исчезает при приостановке игры (чтобы не давать игроку возможность продолжать поиск хороших ходов без учёта времени на это). </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Показать лучшие результаты</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Показ диалогового окна с таблицей рекордов для различных уровней сложности. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Выход из программы. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ход</guimenu
+> <guimenuitem
+>Решение</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Используйте этот пункт меню, чтобы оставить игру. Программа покажет решение, но очки не будут включены в таблицу рекордов.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ход</guimenu
+> <guimenuitem
+>Разблокировать все</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Разблокировать все клетки, ранее заблокированные при нажатии клавиши «Пробел» игроком или автоматически (после включения параметра <guilabel
+>Автоблокировка</guilabel
+> на странице <link linkend="config_general"
+><guilabel
+>Общие</guilabel
+></link
+> диалога <guilabel
+>Настройка — &knetwalk;</guilabel
+>). </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+><guisubmenu
+>Уровень сложности</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Позволяет задать уровень сложности с помощью вложенного меню.</para>
+<para
+>Уровней сложности пять: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Легкий</guimenuitem
+>: 5 строк, 5 столбцов, без замыкания.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Средний</guimenuitem
+>: 7 строк, 7 столбцов, без замыкания.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Трудный</guimenuitem
+>: 9 строк, 9 столбцов, без замыкания.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Сложный</guimenuitem
+>: 9 строк, 9 столбцов, с замыканием.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Свой вариант</guimenuitem
+>: будут использоваться параметры, настроенные в диалоге <link linkend="config_custom_game"
+><guilabel
+>Настройка — &knetwalk;</guilabel
+></link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить &knetwalk;...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Открыть диалог <guilabel
+>Настройка — &knetwalk;</guilabel
+>.</action
+> Дополнительные сведения доступны в разделе <link linkend="configuration"
+>Настройка игры</link
+>. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Кроме того, меню &knetwalk; содержит общие для приложений &kde; пункты <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>. Информацию о них возможно найти в разделах <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> «Основ &kde;». </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Настройка игры</title>
+   <para
+>Чтобы открыть диалог <guilabel
+>Настройка — &knetwalk;</guilabel
+>, выберите пункт меню <menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Настроить &knetwalk;...</guimenuitem
+></menuchoice
+>. </para>
+   <sect2 id="config_general">
+     <title
+>Общие</title>
+     <para
+>На этой странице можно изменить следующие параметры игры. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Звуковое сопровождение </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Если этот флажок установлен, в игре &knetwalk; будут воспроизводиться звуки. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Автоблокировка </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Если этот флажок установлен, &knetwalk; будет автоматически блокировать клетку после поворота. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Поменять местами кнопки мыши </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Если этот флажок установлен, при щелчке левой кнопкой мыши &knetwalk; будет выполнять поворот по часовой стрелке, а при щелчке правой кнопкой мыши — против неё. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Длительность поворота: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Здесь можно указать время анимации одного поворота клетки. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Тема</title>
+     <para
+>Для выбора оформления следует перейти в раздел <guilabel
+>Тема</guilabel
+>. Оформление будет загружено после нажатия кнопки <guibutton
+>OK</guibutton
+> или <guibutton
+>Применить</guibutton
+>. Затем текущая игра будет завершена, и начнётся новая. Чтобы восстановить оформление по умолчанию, нажмите кнопку <guibutton
+>По умолчанию</guibutton
+>. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Своё поле</title>
+     <para
+>Эта страница позволяет настроить пользовательские параметры игры. Можно задать параметры <guilabel
+>Ширина:</guilabel
+> и <guilabel
+>Высота:</guilabel
+> поляи установить флажок <guilabel
+>Сворачивание</guilabel
+>, чтобы было возможно напрямую установить связь между крайними горизонталями и вертикалями (замкнутая поверхность). </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Комбинации клавиш</title>
+
+<para
+>Стандартные комбинации клавиш:</para>
+
+<table>
+<title
+>Комбинации клавиш</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Начать новую игру</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Пауза</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Показать рекорды</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Выход</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Справка</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Контекстная справка («Что это?»)</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Перемещение влево</entry>
+<entry
+>Стрелка влево </entry>
+</row>
+<row>
+<entry
+>Перемещение вправо</entry>
+<entry
+>Стрелка вправо </entry>
+</row>
+<row>
+<entry
+>Перемещение вверх</entry>
+<entry
+>Стрелка вверх </entry>
+</row>
+<row>
+<entry
+>Перемещение вниз</entry>
+<entry
+>Стрелка вниз </entry>
+</row>
+<row>
+<entry
+>Поворот по часовой стрелке</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Поворот против часовой стрелки</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Переключить блокировку</entry>
+<entry
+>«Пробел» </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Авторские права на программу: Andi Peredri, Thomas Nagy и Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+>, 2004—2007 </para>
+<para
+>Авторские права на документацию: Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+>, 2007 </para>
+
+<para
+>Олеся Герасименко<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

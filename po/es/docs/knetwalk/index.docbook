@@ -1,0 +1,716 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Spanish "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Manual de &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+><firstname
+>Santiago</firstname
+> <surname
+>Fernández Sancho</surname
+><affiliation
+><address
+> <email
+>santi@kde-es.org</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Kira</firstname
+><surname
+>J. Fernández</surname
+><affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductora</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>David</firstname
+><surname
+>Paul Peña</surname
+><affiliation
+><address
+><email
+>eodos0@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit
+>  
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-07-26</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, un juego para administradores de sistemas.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>juego</keyword>
+<keyword
+>juego de lógica</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+  <note
+><title
+>Tipo de juego:</title
+><para
+>Estrategia</para
+></note>
+  <note
+><title
+>Número de jugadores posibles:</title
+><para
+>Uno</para
+></note>
+
+  <para
+>&knetwalk; es un juego de lógica para un jugador.</para>
+
+  <para
+>El objeto del juego es arrancar la LAN, conectando todos los terminales al servidor, en el menor número de turnos posible.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Cómo jugar</title>
+
+<note
+><title
+>Objetivo:</title
+><para
+>Conectar cada cliente con el servidor sin dejar cables sin conectar.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>El tablero de juego de &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Al jugador se le presenta una rejilla rectangular que contiene un servidor, varios terminales y cables. El objeto del juego es girar estos elementos hasta que cada cliente esté conectado al servidor, y no quede ningún cable desconectado. También puede intentar conseguir una de las mejores puntuaciones minimizando el número de rotaciones necesarias. </para>
+
+<para
+>Una pulsación con el botón derecho en un cuadrado lo girará en sentido contrario a las agujas del reloj, mientras que una pulsación con el botón derecho lo girará en el sentido de las agujas del reloj. Una pulsación con el botón central lo bloqueará y evitará que se haya girado, a menos que lo desbloquee con una nueva pulsación con el botón central. Puede ser práctico para marcar los cuadrados que tengan la orientación correcta. La barra de estado muestra el número de pulsaciones realizadas hasta el momento. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Reglas del juego, estrategias y consejos</title>
+
+<sect1 id="rules">
+<title
+>Reglas</title>
+<itemizedlist>
+<listitem
+><para
+>Solo hay una solución posible para cada partida.</para
+></listitem>
+<listitem
+><para
+>Cuando juega con el nivel de dificultad <guilabel
+>Muy difícil</guilabel
+>, las conexiones pueden ser envolventes yendo de izquierda a derecha y de arriba hacia abajo.</para
+></listitem>
+<listitem
+><para
+>El juego finaliza cuando el terminal y cada uno de los cables están conectados al servidor.</para
+></listitem>
+<listitem
+><para
+>La tabla de puntuaciones premia el menor número de clics empleado para completar la partida. El número más bajo es el mejor.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Estrategias y consejos</title>
+<itemizedlist>
+<listitem
+><para
+>Comience por los cuadrados cuya orientación se puede determinar con facilidad.</para
+></listitem>
+<listitem
+><para
+>Una vez que esté seguro de la orientación de un cuadrado puede marcarlo utilizando el &MMB; Es particularmente práctico en partidas difíciles.</para
+></listitem>
+<listitem
+><para
+>Busque los cables con forma de I y de T cerca de los bordes, y con forma de L cerca de las esquinas. Su posición se puede determinar con facilidad, a menos que esté jugando al nivel de dificultad <guilabel
+>Muy difícil </guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Cuando esté jugando al nivel de dificultad <guilabel
+>Muy difícil</guilabel
+> un buen sitio para empezar a buscar es cerca de los cuadrados vacíos, si existen, y de las regiones que contienen muchos terminales agrupados.</para
+></listitem>
+<listitem
+><para
+>Aunque juegue en el mismo nivel de dificultad algunas partidas son más difíciles que otras. Reinicie el juego si quiere utilizar un tablero diferente.</para
+></listitem>
+<listitem
+><para
+>Si quiere conseguir una buena puntuación, haga un movimiento cuando esté seguro.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Vista general de la interfaz</title>
+
+<sect1 id="menu">
+<title
+>Elementos del menú</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nuevo</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Inicia una partida nueva. Crea un tablero aleatorio utilizando la dificultad del nivel actual. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Pausar</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Pausa el tiempo del juego. Pulse de nuevo este elemento del menú para continuar con el juego. Tenga en cuenta que el tablero desaparece cuando el juego está en pausa porque no sería bonito que pudiera pensar un buen movimiento sin estar bajo la presión del tiempo. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Mostrar mejores puntuaciones</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Muestra un diálogo que contiene las mejores puntuaciones para varios niveles de dificultad. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Sale del programa. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mover</guimenu
+> <guimenuitem
+>Resolver</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Úselo para rendirse en una partida. Le muestra la solución, pero la puntuación no se tendrá en cuenta en la lista de las mejores puntuaciones.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Mover</guimenu
+> <guimenuitem
+>Desbloquear todo</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Desbloquee todas las celdas bloqueadas por el jugador usando &Space; o automáticamente si marca la opción <guilabel
+>Bloqueo automático</guilabel
+> en la página<link linkend="config_general"
+><guilabel
+>General</guilabel
+></link
+> del diálogo de <guilabel
+>Configuración de &knetwalk;</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Dificultad</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Le permite establecer el nivel de dificultad desde un submenú.</para>
+<para
+>Existen cinco niveles de dificultad: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Fácil</guimenuitem
+>: 5 filas, 5 columnas, no envolvente.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Medio</guimenuitem
+>: 7 filas, 7 columnas, no envolvente.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Difícil</guimenuitem
+>: 9 filas, 9 columnas, no envolvente.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Muy difícil</guimenuitem
+>: 9 filas, 9 columnas, envolvente.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Personalizado</guimenuitem
+>: se utilizarán las preferencias que haya configurado en el <link linkend="config_custom_game"
+>diálogo <guilabel
+>Configurar &knetwalk;</guilabel
+></link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Configurar &knetwalk;... </guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Abrir el diálogo <guilabel
+>Configurar &knetwalk;</guilabel
+>.</action
+> Consulte <link linkend="configuration"
+>Configuración del juego</link
+> para más información. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>De forma adicional, &knetwalk; posee los elementos de menú comunes de &kde; <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+>. Para más información, lea las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menú Preferencias</ulink
+> y el <ulink url="help:/fundamentals/menus.html#menus-help"
+>menú Ayuda</ulink
+> de los principios fundamentales de &kde;. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Configuración del juego</title>
+   <para
+>Para abrir el diálogo <guilabel
+>Configurar &knetwalk;</guilabel
+>, seleccione la opción <menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Configurar &knetwalk;...</guimenuitem
+></menuchoice
+> en el menú. </para>
+   <sect2 id="config_general">
+     <title
+>General</title>
+     <para
+>Usando esta página puede cambiar las siguientes opciones del juego. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Reproducir sonidos </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si está marcada, se reproducen los sonidos de &knetwalk;. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Bloqueo automático </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si está activado, &knetwalk; bloqueará automáticamente la celda tras su rotación. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Invertir los botones del ratón </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si está marcado, &knetwalk; usa el clic izquierdo para la rotación en sentido horario y el clic derecho para la rotación en sentido antihorario. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Duración de la rotación: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Aquí puede determinar el tiempo que se necesita para realizar la animación de rotación de una celda. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Tema</title>
+     <para
+>Para selccionar el tema con el que jugar, vaya a la sección <guilabel
+>Tema</guilabel
+>. El tema se carga pulsando en <guibutton
+>Aceptar</guibutton
+> o <guibutton
+>Aplicar</guibutton
+>. La partida actual se cerrará y empiezará una nueva. Puede pulsar en el botón <guibutton
+>Predeterminados</guibutton
+> para restaurar el tema por defecto. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Juego personalizado</title>
+     <para
+>Esta página puede ser usada para configurar las opciones personalizables del juego. Puede configurar el <guilabel
+>Ancho</guilabel
+> y <guilabel
+>Alto</guilabel
+> del tablero y seleccionar el modo <guilabel
+>Ajuste</guilabel
+> para que vaya de izquierda a  derecha y de arriba a abajo. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Accesos rápidos</title>
+
+<para
+>Los accesos rápidos predeterminados son:</para>
+
+<table>
+<title
+>Accesos rápidos</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Inicia una partida nueva</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pausar</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Mostrar mejores puntuaciones</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Salir</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Ayuda</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Ayuda ¿Qué es esto?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Mover a la izquierda</entry>
+<entry
+>Flecha &Left; </entry>
+</row>
+<row>
+<entry
+>Mover a la derecha</entry>
+<entry
+>Flecha &Right; </entry>
+</row>
+<row>
+<entry
+>Mover hacia arriba</entry>
+<entry
+>Flecha &Up; </entry>
+</row>
+<row>
+<entry
+>Mover hacia abajo</entry>
+<entry
+>Flecha &Down; </entry>
+</row>
+<row>
+<entry
+>Girar en sentido horario</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Girar en sentido antihorario</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Conmutar bloqueo</entry>
+<entry
+>&Space; </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Derechos de autor del programa 2004 - 2007 de Andi Peredri, Thomas Nagy y Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Derechos de autor de la documentación. 2007 de Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Santiago Fernández Sancho <email
+>santi@kde-es.org</email
+>, Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+> y David Paul Peña <email
+>eodos0@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

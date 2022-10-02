@@ -1,0 +1,419 @@
+# translation of knetwalk.po to British English
+#
+# Andrew Coles <andrew_coles@yahoo.co.uk>, 2005, 2010.
+# Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2005, 2009.
+# Steve Allewell <steve.allewell@gmail.com>, 2014, 2020, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: knetwalk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"PO-Revision-Date: 2021-07-31 16:37+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 21.04.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrew Coles, Steve Allewell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "Width of the grid"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "Width:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "Wrap from left to right and from top to bottom"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "Wrapping"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "Height of the grid"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "Height:"
+
+#: gameview.cpp:167
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+
+#: gameview.cpp:170
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "The game is not won yet!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "Duration for cell to complete one rotation in milliseconds"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, kde-format
+msgid "Rotate duration:"
+msgstr "Rotate duration:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Play sounds on actions"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, kde-format
+msgid "Play sounds"
+msgstr "Play sounds"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "Automatically lock cell after rotation"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, kde-format
+msgid "Auto lock"
+msgstr "Auto lock"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr "Reverse mouse buttons"
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "Default user name"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "Whether game sounds are played."
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "Whether to lock cell after rotation."
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr "Use left click for clockwise and right click for anticlockwise."
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "Duration for cell to complete one rotation."
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "The width of the board."
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "The height of the board."
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr "Whether wrapping from left to right and from top to bottom is enabled."
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Main Toolbar"
+
+#: main.cpp:37
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk"
+
+#: main.cpp:38
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk, a game for system administrators."
+
+#: main.cpp:39
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+
+#: main.cpp:44
+#, kde-format
+msgid "Andi Peredri"
+msgstr "Andi Peredri"
+
+#: main.cpp:45
+#, kde-format
+msgid "original author"
+msgstr "original author"
+
+#: main.cpp:48
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "Thomas Nagy"
+
+#: main.cpp:49
+#, kde-format
+msgid "KDE port"
+msgstr "KDE port"
+
+#: main.cpp:52
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "Ashwin Rajeev"
+
+#: main.cpp:53
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "Port to QtQuick"
+
+#: main.cpp:56
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:57
+#, kde-format
+msgid "icon design"
+msgstr "icon design"
+
+#: main.cpp:60
+#, kde-format
+msgid "Brian Croom"
+msgstr "Brian Croom"
+
+#: main.cpp:61
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "Port to use the QGraphicsView framework"
+
+#: mainwindow.cpp:85
+#, kde-format
+msgid "Custom"
+msgstr "Custom"
+
+#: mainwindow.cpp:131
+#, kde-format
+msgid "&Unlock All"
+msgstr "&Unlock All"
+
+#: mainwindow.cpp:136
+#, kde-format
+msgid "Keyboard: Field right"
+msgstr "Keyboard: Field right"
+
+#: mainwindow.cpp:141
+#, kde-format
+msgid "Keyboard: Field left"
+msgstr "Keyboard: Field left"
+
+#: mainwindow.cpp:146
+#, kde-format
+msgid "Keyboard: Field up"
+msgstr "Keyboard: Field up"
+
+#: mainwindow.cpp:151
+#, kde-format
+msgid "Keyboard: Field down"
+msgstr "Keyboard: Field down"
+
+#: mainwindow.cpp:156
+#, kde-format
+msgid "Keyboard: Turn clockwise"
+msgstr "Keyboard: Turn clockwise"
+
+#: mainwindow.cpp:161
+#, kde-format
+msgid "Keyboard: Turn counterclockwise"
+msgstr "Keyboard: Turn anticlockwise"
+
+#: mainwindow.cpp:166
+#, kde-format
+msgid "Keyboard: Toggle lock"
+msgstr "Keyboard: Toggle lock"
+
+#: mainwindow.cpp:177
+#, kde-format
+msgid "General"
+msgstr "General"
+
+#: mainwindow.cpp:178
+#, kde-format
+msgid "Theme"
+msgstr "Theme"
+
+#: mainwindow.cpp:179
+#, kde-format
+msgid "Custom Game"
+msgstr "Custom Game"
+
+#: mainwindow.cpp:188 mainwindow.cpp:245
+#, kde-format
+msgid "Moves Penalty"
+msgstr "Moves Penalty"
+
+#: mainwindow.cpp:249
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] "Your score was %1, you did not make it to the high score list."
+msgstr[1] "Your score was %1, you did not make it to the high score list."
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr "Moves: %1"
+
+#: mainwindow.cpp:275
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr "Time: %1"
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "Paused"
+
+#~ msgid " ms"
+#~ msgstr " ms"
+
+#~ msgid "Fela Winkelmolen"
+#~ msgstr "Fela Winkelmolen"
+
+#~ msgid "current maintainer"
+#~ msgstr "current maintainer"
+
+#~ msgid "Game is paused."
+#~ msgstr "Game is paused."
+
+#~ msgid ""
+#~ "<h3>Rules of Game</h3><p>You are the system administrator and your goal "
+#~ "is to connect each terminal and each cable to the central server.</"
+#~ "p><p>Click the right mouse button to turn the cable in a clockwise "
+#~ "direction, and the left mouse button to turn the cable in a "
+#~ "counterclockwise direction.</p><p>Start the LAN with as few turns as "
+#~ "possible!</p>"
+#~ msgstr ""
+#~ "<h3>Rules of Game</h3><p>You are the system administrator and your goal "
+#~ "is to connect each terminal and each cable to the central server.</"
+#~ "p><p>Click the right mouse button to turn the cable in a clockwise "
+#~ "direction, and the left mouse button to turn the cable in an "
+#~ "anticlockwise direction.</p><p>Start the LAN with as few turns as "
+#~ "possible!</p>"
+
+#~ msgid "New Game"
+#~ msgstr "New Game"
+
+#~ msgid "The graphical theme to be used."
+#~ msgstr "The graphical theme to be used."
+
+#~ msgid "Start with Easy difficulty level"
+#~ msgstr "Start with Easy difficulty level"
+
+#~ msgid "Start with Medium difficulty level"
+#~ msgstr "Start with Medium difficulty level"
+
+#~ msgid "Start with Hard difficulty level"
+#~ msgstr "Start with Hard difficulty level"
+
+#~ msgid "Start with Very Hard difficulty level"
+#~ msgstr "Start with Very Hard difficulty level"
+
+#~ msgid "The difficulty level."
+#~ msgstr "The difficulty level."
+
+#~ msgid "Use &Keyboard"
+#~ msgstr "Use &Keyboard"
+
+#~ msgid "Failed to load \"%1\" theme. Please check your installation."
+#~ msgstr "Failed to load \"%1\" theme. Please check your installation."
+
+#~ msgid "Start in novice mode"
+#~ msgstr "Start in novice mode"
+
+#~ msgid "Start in normal mode"
+#~ msgstr "Start in normal mode"
+
+#~ msgid "Start in expert mode"
+#~ msgstr "Start in expert mode"
+
+#~ msgid "Start in master mode"
+#~ msgstr "Start in master mode"
+
+#~ msgid "anonymous"
+#~ msgstr "anonymous"
+
+#~ msgid "Click: %1"
+#~ msgstr "Click: %1"
+
+#~ msgid "Novice"
+#~ msgstr "Novice"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Expert"
+#~ msgstr "Expert"
+
+#~ msgid "Master"
+#~ msgstr "Master"

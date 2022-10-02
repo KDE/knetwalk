@@ -1,0 +1,648 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Het handboek van &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+&Freek.de.Kruijf;&Ronald.Stroethoff; 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-07-26</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, een spel voor systeembeheerders.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>logisch spel</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+  <note
+><title
+>Speltype:</title
+><para
+>Strategie</para
+></note>
+  <note
+><title
+>Aantal mogelijke spelers:</title
+><para
+>Eén</para
+></note>
+
+  <para
+>&knetwalk; is een logisch spel voor één speler.</para>
+
+  <para
+>Het doel van het spel is om het LAN op te starten, alle terminals met de server te verbinden in zo weinig mogelijke beurten.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Hoe te spelen</title>
+
+<note
+><title
+>Doel:</title
+><para
+>Verbind elke client met de server, zonder draden zonder verbinding achter te laten.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Het spelbord van &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>De speler krijgt een rechthoekig raster voorgeschoteld met een server, verschillende terminals en stukken draad. Het doel van het spel is om deze elementen te draaien totdat elke client verbonden is met de server en er geen draden meer loshangen. U kunt als mogelijkheid een hoge score te krijgen door het noodzakelijke aantal draaiingen te minimaliseren. </para>
+
+<para
+>Als u met de &LMB; op een vierkant klikt dan draait het linksom en als u met de &RMB; erop klikt dan draait het rechtsom. U blokkeert het draaien door er met de &MMB; op te klikken, U deblokkeert het door weer met de &MMB; erop te klikken; dit kan handig zijn om de vierkanten te markeren waarvan u weet dat ze in de juiste stand staan. De statusbalk toont het aantal gemaakte klikken. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Spelregels, strategieën en tips</title>
+
+<sect1 id="rules">
+<title
+>Regels</title>
+<itemizedlist>
+<listitem
+><para
+>Er is slechts één mogelijke oplossing voor elk spel.</para
+></listitem>
+<listitem
+><para
+>Als u de moeilijkheidsgraad <guilabel
+>Erg Moeilijk</guilabel
+> speelt, dan kan het gebeuren dat de verbindingen aan de linkerkant doorlopen en aan de rechterkant weer binnen komen of aan de bovenkant doorlopen en aan de onderkant weer binnen komen.</para
+></listitem>
+<listitem
+><para
+>Het spel eindigt wanneer elke terminal en elke draad verbonden is met de server.</para
+></listitem>
+<listitem
+><para
+>De score beloont het minste aantal klikken dat nodig was om het spel te beëindigen. Hoe lager dit aantal, hoe beter.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Strategieën en tips</title>
+<itemizedlist>
+<listitem
+><para
+>Begin eerst met zoeken naar vierkanten waarvan u de juiste stand gemakkelijk kunt vaststellen.</para
+></listitem>
+<listitem
+><para
+>Als u er zeker van bent dat een vierkant in de juiste stand staat dan kunt u het vastzetten door erop te klikken met de &MMB;. Dit is met name handig in de moeilijkere rondes .</para
+></listitem>
+<listitem
+><para
+>Zoek langs de randen naar draden met de I-vorm en de T-vorm, en in de hoeken naar draden in de L-vorm. De standen van deze vierkanten kunt gemakkelijk vaststellen, tenzij u bezig bent met het spelen van de moeilijkheidsgraad <guilabel
+>Erg moeilijk</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Als u bezig bent met het spelen van de moeilijkheidsgraad <guilabel
+>Erg moeilijk</guilabel
+> dan zijn, vlakbij lege vierkanten (indien aanwezig) en vlakbij plekken waar veel terminals bij elkaar komen, goede locaties waar u kunt starten met bekijken.</para
+></listitem>
+<listitem
+><para
+>Zelfs als u met dezelfde moeilijkheidsgraad speelt, zijn sommige spelletjes makkelijker dan andere, herstart het spel als u een ander speelveld wilt.</para
+></listitem>
+<listitem
+><para
+>Als u een goede score wilt, doe dan alleen een zet wanneer u zeker bent.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Overzicht van het interface</title>
+
+<sect1 id="menu">
+<title
+>Menu-items</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Start een nieuw spel. Het maakt een willekeurig bord met de huidige moeilijkheidsgraad. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Pauze</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Pauzeer de speltijd. Klik opnieuw op het menu-item om het spel te hervatten. Merk op dat het bord verdwijnt wanneer het spel wordt gepauzeerd omdat het oneerlijk zou zijn als u naar goede zetten zou kunnen zoeken zonder de tijdsdruk. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Topscores tonen</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Toont een dialoog met de hoge scores voor de verschillende moeilijkheidsgraden. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Sluit het programma. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Oplossen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Gebruik het om een spel op te geven. Het toont u de oplossing: maar het wordt niet beschouwd als een hoge score.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zet</guimenu
+> <guimenuitem
+>Alles ontgrendelen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Ontgrendelt alle vierkanten die door de speler met gebruik van &Space; vergrendelt zijn of die automatisch vergrendelt zijn door het inschakelen van het item <guilabel
+>Auto Lock</guilabel
+> op <link linkend="config_general"
+>Algemene pagina</link
+> van het dialoogvenster <guilabel
+>Configureren - &knetwalk;</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Moeilijkheidsgraad</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Hier kunt u de moeilijkheidsgraad in een submenu selecteren.</para>
+<para
+>Er zijn vijf niveaus in de moeilijkheidsgraad: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Makkelijk</guimenuitem
+>: 5 rijen, 5 kolommen, zonder wrapping.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Gemiddeld</guimenuitem
+>: 7 rijen, 7 kolommen, zonder wrapping.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Moeilijk</guimenuitem
+>: 9 rijen, 9 kolommen, zonder wrapping.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Erg moeilijk</guimenuitem
+>: 9 rijen, 9 kolommen, met wrapping.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Aangepast</guimenuitem
+>: De instellingen die u heeft gemaakt in de <link linkend="config_custom_game"
+>dialoog <guilabel
+>Configure - &knetwalk;</guilabel
+></link
+> zullen worden gebruikt.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>&knetwalk; instellen...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Open de dialoog <guilabel
+>Configure - &knetwalk;</guilabel
+>.</action
+> Lees <link linkend="configuration"
+>Instellingen voor het spel</link
+> voor meer informatie. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>&knetwalk; heeft de standaard menu-items van &kde; <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, lees voor meer informatie de secties over het <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Instellingen</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van de &kde; Fundamentals. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Configuratie voor het spel</title>
+   <para
+>Om de dialoog <guilabel
+>Configure - &knetwalk;</guilabel
+> te openen, selecteert u menu-item <menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>&knetwalk; configureren...</guimenuitem
+></menuchoice
+> </para>
+   <sect2 id="config_general">
+     <title
+>Algemeen</title>
+     <para
+>Via dit venster kunt u de volgende instellingen van het spel aanpassen. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Geluid afspelen </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Indien ingeschakeld, laat &knetwalk; spelgeluiden horen. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Automatisch vergrendelen </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Indien geactiveerd zal &knetwalk; automatisch de cel na rotatie vergrendelen. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Muisknoppen omwisselen </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Indien geactiveerd gebruikt &knetwalk; de linker klik voor de rechtsom rotatie en de rechter klik voor de linksom rotatie. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Duur van de rotatie: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Hier kunt u de tijd bepalen die nodig is om het roteren van een enkele cel te animeren. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Thema</title>
+     <para
+>Om het thema te selecteren dat u wilt toepassen, gaat u naar de sectie <guilabel
+>Thema</guilabel
+>. U laadt het gekozen thema door te klikken op <guibutton
+>OK</guibutton
+> of <guibutton
+>Toepassen</guibutton
+>. Het huidige spel zal eindigen en een nieuwe opgestart. Als u klikt op de knop <guibutton
+>Standaard</guibutton
+> dan laadt u het standaard thema weer. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Aangepast spel</title>
+     <para
+>Dit dialoogvenster kunt u gebruiken om eigen speel-instellingen aan te maken. U kunt de <guilabel
+>Breedte:</guilabel
+> en <guilabel
+>Hoogte:</guilabel
+> van het speelveld wijzigen en <guilabel
+>Wrapping</guilabel
+> inschakelen als de linkerzijde van het speelveld aan moet sluiten aan de rechterzijde en bovenkant aan moet sluiten aan de onderzijde. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Sneltoetsen</title>
+
+<para
+>De standaard sneltoetsen zijn:</para>
+
+<table>
+<title
+>Sneltoetsen</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Start een nieuw spel</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pauzeren</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Topscores tonen</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Afsluiten</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Help</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Wat is dit? help</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Naar links</entry>
+<entry
+>&Left;-pijl </entry>
+</row>
+<row>
+<entry
+>Naar rechts</entry>
+<entry
+>&Right;-pijl </entry>
+</row>
+<row>
+<entry
+>Omhoog verplaatsen</entry>
+<entry
+>&Up;-pijl </entry>
+</row>
+<row>
+<entry
+>Omlaag verplaatsen</entry>
+<entry
+>&Down;-pijl </entry>
+</row>
+<row>
+<entry
+>Rechtsom draaien</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Linksom draaien</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Zet blokkering aan of uit</entry>
+<entry
+>&Space; </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Dankbetuiging en licentie</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Programma copyright 2004 - 2007 door Andi Peredri, Thomas Nagy en Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Documentatie copyright 2007 bij Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+&meld.fouten;&vertaling.freek;&vertaling.ronald;&nagelezen.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

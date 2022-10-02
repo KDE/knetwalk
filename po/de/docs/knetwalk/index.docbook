@@ -1,0 +1,656 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % German "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>Das Handbuch zu &knetwalk;</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Burkhard</firstname
+><surname
+>Lück</surname
+><affiliation
+><address
+><email
+>lueck@hube-lueck.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2020-11-12</date>
+<releaseinfo
+>3.3.0 (Anwendungen 20.12)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk; ist ein Spiel für Systemadministratoren.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Logikspiel</keyword>
+<keyword
+>knetwalk</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+>&knetwalk; ist ein Logikspiel für einen Spieler. </para>
+
+<para
+>Ziel des Spiels ist es, mit möglichst wenig Zügen alle Terminals mit dem Server zu verbinden und damit das Netzwerk fertig aufzubauen. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Spielanleitung</title>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&knetwalk;-Spielfeld</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Das Spielfeld besteht aus einem rechteckigen Gitternetz, in dem sich ein Server, mehrere Terminals und Kabelstücke befinden. Ziel des Spiels ist, diese Elemente so zu drehen, dass jeder Klient mit dem Server verbunden ist und keine losen Kabelstücke übrig bleiben. Zusätzlich können Sie die Punktzahl erhöhen, indem Sie versuchen, so wenige Drehungen wie möglich zu verwenden. </para>
+
+<para
+>Mit der linken Maustaste drehen Sie ein Feld gegen den Uhrzeigersinn, mit der rechten Maustaste im Uhrzeigersinn. Die mittlere Maustaste markiert ein Feld als gesperrt, sodass es nicht mehr gedreht werden kann - es sei denn, Sie entsperren es mit einem weiteren Klick mit der mittleren Maustaste wieder. Dies ist sehr nützlich bei Feldern, von denen Sie wissen, dass sie sich bereits in der richtigen Position befinden. Die Statusleiste zeigt die Anzahl der bisherigen Züge an. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Spielregeln, Spielstrategien und Tipps</title>
+
+<sect1 id="rules">
+<title
+>Spielregeln</title>
+<itemizedlist>
+<listitem
+><para
+>Für jedes Spiel gibt es nur eine richtige Lösung.</para
+></listitem>
+<listitem
+><para
+>In der Schwierigkeitsstufe <guilabel
+>Sehr schwierig</guilabel
+> können auch Verbindungen über das Spielfeld hinaus von links nach rechts oder von oben nach unten gelegt werden.</para
+></listitem>
+<listitem
+><para
+>Das Spiel ist beendet, wenn Sie alle Terminals und Kabel an den Server angeschlossen haben.</para
+></listitem>
+<listitem
+><para
+>Die Punktzahl berechnet sich aus der Anzahl der Züge, die Sie gebraucht haben, um das Spiel zu lösen. Je geringer die Punktzahl umso besser.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Spielstrategien und Tipps</title>
+<itemizedlist>
+<listitem
+><para
+>Beginnen Sie damit, Felder zu suchen, deren Position sehr einfach ermittelt werden kann.</para
+></listitem>
+<listitem
+><para
+>Wenn Sie sich der Position eines Feldes sicher sind, können Sie es mit der &MMBn; markieren. Diese Funktion ist besonders bei schwierigen Spielen nützlich.</para
+></listitem>
+<listitem
+><para
+>Halten Sie nach I-förmigen und T-förmigen Kabeln nah des Randes und L-förmigen Kabeln nahe der Ecken Ausschau. Die Position dieser Felder kann sehr leicht bestimmt werden, außer Sie spielen im Schwierigkeitsgrad <guilabel
+>Sehr schwierig</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>Beim Spielen in der Schwierigkeitsstufe <guilabel
+>Sehr schwierig</guilabel
+> ist es sinnvoll, sich zuerst den Regionen um leere Felder oder mit vielen Terminals beieinander zuzuwenden.</para
+></listitem>
+<listitem
+><para
+>Auch in der gleichen Schwierigkeitsstufe gibt es Spiele, die leichter oder schwieriger sind als andere. Starten Sie ein neues Spiel, wenn Sie ein anderes Spielbrett erhalten möchten.</para
+></listitem>
+<listitem
+><para
+>Wenn Sie eine hohe Punktzahl erreichen möchten, tätigen Sie einen Zug nur, wenn Sie sich völlig sicher sind.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Die Benutzeroberfläche</title>
+
+<sect1 id="menu">
+<title
+>Menüeinträge</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Startet eine neues Spiel mit einem zufälligen Spielbrett im aktuellen Schwierigkeitsgrad. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Pause</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Hält die Spielzeit an. Klicken Sie erneut auf den Menüpunkt, um das Spiel fortzusetzen. Beachten Sie, dass das Spielfeld während der Pause verschwindet, da Sie sich sonst unfairerweise ohne Zeitdruck gute Züge überlegen könnten. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Bestenliste anzeigen</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Zeigt einen Dialog mit den Bestenlisten für die unterschiedlichen Schwierigkeitsstufen. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Beendet das Programm. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zug</guimenu
+> <guimenuitem
+>Lösen</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Sie geben damit das Spiel auf. Die Lösung wird dann angezeigt, aber das Ergebnis wird nicht in die Bestenliste eingetragen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Zug</guimenu
+> <guimenuitem
+>Alle entsperren</guimenuitem
+>  </menuchoice
+></term>
+<listitem>
+<para
+>Entsperrt alle Zellen, die vorher vom Spieler mit der <keycap
+>Leertaste</keycap
+> oder automatisch nach Aktivierung von <guilabel
+>Automatisch sperren</guilabel
+> auf der Seite <link linkend="config_general"
+>Allgemein</link
+> im Einrichtungsdialog von &knetwalk;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guisubmenu
+>Schwierigkeitsgrad</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Hier können Sie den Schwierigkeitsgrad aus einem Untermenü wählen.</para>
+<para
+>Es gibt fünf Schwierigkeitsgrade: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Einfach</guimenuitem
+>: 5 Reihen, 5 Spalten, ohne Umbruch.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Mittel</guimenuitem
+>: 7 Reihen, 7 Spalten, ohne Umbruch.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Schwierig</guimenuitem
+>: 9 Reihen, 9 Spalten, ohne Umbruch.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Sehr schwierig</guimenuitem
+>: 9 Reihen, 9 Spalten, mit Umbruch.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Benutzerdefiniert</guimenuitem
+>: Die von Ihnen im <link linkend="config_custom_game"
+>Einstellungsdialog für &knetwalk;</link
+> eingegeben Einstellungen werden verwendet.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>&knetwalk; einrichten ...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Öffnet den Einrichtungsdialog von &knetwalk;.</action
+> Weitere Informationen dazu finden Sie im Abschnitt <link linkend="configuration"
+>Spieleinstellungen</link
+>. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Zusätzlich hat &knetwalk; die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Spieleinstellungen</title>
+   <para
+>Um den Einrichtungsdialog von &knetwalk; zu öffnen, wählen Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>&knetwalk; einrichten ...</guimenuitem
+></menuchoice
+> </para>
+   <sect2 id="config_general">
+     <title
+>Allgemein</title>
+     <para
+>Auf dieser Seite finden Sie die folgenden Einstellungen für das Spiel. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Klänge wiedergeben </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Falls markiert, werden die Klänge zum Spiel &knetwalk; abgespielt. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Automatisch sperren </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Ist dies aktiviert, werden Zellen nach einer Drehung automatisch gesperrt. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Maustasten tauschen </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Ist dies aktiviert, dreht Klicken mit der linken Maustaste im Uhrzeigersinn und Klicken mit der rechten Maustaste gegen den Uhrzeigersinn. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Dauer der Drehung </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Hier können Sie die Zeit für die Animation zum Drehen einer einzelnen Zelle festlegen. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Design</title>
+     <para
+>Das Design wird im Abschnitt <guilabel
+>Design</guilabel
+> ausgewählt und durch einen Klick auf <guibutton
+>OK</guibutton
+> oder <guibutton
+>Anwenden</guibutton
+> geladen. Dadurch wird das aktuelle Spiel beendet und ein neues startet. Mittels Klick auf <guibutton
+>Voreinstellungen</guibutton
+> wird das Standarddesign wiederhergestellt. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Benutzerdefiniertes Spiel</title>
+     <para
+>Auf dieser Seite werden benutzerdefinierte Spiele eingerichtet. Sie können die <guilabel
+>Breite</guilabel
+> und <guilabel
+>Höhe</guilabel
+> des Spielfelds festlegen und <guilabel
+>Umbruch</guilabel
+> ankreuzen, wenn Verbindungen auch vom oberen zum unteren und vom rechten zum linken Rand das Spielfelds überspringen dürfen.  </para>
+   </sect2>
+</sect1>
+ 
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Kurzbefehle</title>
+
+<para
+>Folgende Tastenkürzel sind als Standard eingestellt:</para>
+
+<table>
+<title
+>Kurzbefehle</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Neues Spiel starten</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Pause</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Bestenliste anzeigen</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Beenden</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Hilfe</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>Was ist das?</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Nach links drehen</entry>
+<entry>
+<keycap
+>Pfeil links</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Nach rechts drehen</entry>
+<entry>
+<keycap
+>Pfeil rechts</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Nach oben drehen</entry>
+<entry>
+<keycap
+>Pfeil hoch</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Nach unten drehen</entry>
+<entry>
+<keycap
+>Pfeil runter</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Im Uhrzeigersinn drehen</entry>
+<entry>
+<keycap
+>Eingabetaste</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Gegen Uhrzeigersinn drehen</entry>
+<entry>
+<keycombo
+>&Ctrl;<keycap
+>Eingabetaste</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Sperre ein-/ausschalten</entry>
+<entry>
+<keycap
+>Leertaste</keycap>
+</entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Danksagungen und Lizenz</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Programm Copyright 2004 - 2007 by Andi Peredri, Thomas Nagy and Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Dokumentation Copyright 2007 Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Übersetzung Burkhard Lück<email
+>lueck@hube-lueck.de</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+
