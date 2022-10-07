@@ -19,6 +19,7 @@
   <name xml:lang="gl">KNetWalk</name>
   <name xml:lang="id">KNetWalk</name>
   <name xml:lang="it">KNetWalk</name>
+  <name xml:lang="ka">KNetWalk</name>
   <name xml:lang="ko">KNetWalk</name>
   <name xml:lang="nl">KNetWalk</name>
   <name xml:lang="nn">KNettvandrar</name>
@@ -48,6 +49,7 @@
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="id">KNetWalk adalah sebuah permainan untuk administrator sistem</summary>
   <summary xml:lang="it">KNetWalk è un gioco per amministratori di sistema</summary>
+  <summary xml:lang="ka">KNetWalk თამაშია სისტემური ადმინისტრატორებისთვის</summary>
   <summary xml:lang="ko">KNetWalk는 시스템 관리자 대상 게임입니다</summary>
   <summary xml:lang="nl">KNetWalk is een spel voor systeembeheerders</summary>
   <summary xml:lang="nn">KNettvandrar er eit spel for systemadministratorar</summary>
@@ -115,6 +117,7 @@
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="id">Memainkan KNetWalk</caption>
       <caption xml:lang="it">Giocare a KNetWalk</caption>
+      <caption xml:lang="ka">KNetWalk-ის თამაში</caption>
       <caption xml:lang="ko">KNetWalk 플레이</caption>
       <caption xml:lang="nl">KNetWalk spelen</caption>
       <caption xml:lang="nn">Spelar KNettvandrar</caption>
