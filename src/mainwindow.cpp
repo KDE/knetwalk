@@ -16,7 +16,6 @@
 #include <KToggleAction>
 #include <KActionCollection>
 #include <KStandardGameAction>
-#include <KMessageBox>
 #include <QStatusBar>
 
 #include <KgDifficulty>
