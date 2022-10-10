@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-10 00:43+0000\n"
 "PO-Revision-Date: 2013-11-23 20:52+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -249,72 +249,72 @@ msgstr "Brian Croom"
 msgid "Port to use the QGraphicsView framework"
 msgstr "Modificări pentru a folosi platforma QGraphicsView"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
 msgstr "Personalizat"
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
 msgstr "&Deblochează tot"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
 msgstr "Tastatură: Câmp la dreapta"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
 msgstr "Tastatură: Câmp la stânga"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
 msgstr "Tastatură: Câmp sus"
 
-#: mainwindow.cpp:151
+#: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
 msgstr "Tastatură: Câmp jos"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
 msgstr "Tastatură: Întoarce la dreapta"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
 msgstr "Tastatură: Întoarce la stânga"
 
-#: mainwindow.cpp:166
+#: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
 msgstr "Tastatură: Comută blocarea"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:176
 #, kde-format
 msgid "General"
 msgstr "General"
 
-#: mainwindow.cpp:178
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
 msgstr "Tematică"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
 msgstr "Joc personalizat"
 
-#: mainwindow.cpp:188 mainwindow.cpp:245
+#: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
 msgstr "Penalitate mutări"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
@@ -322,13 +322,13 @@ msgstr[0] "Scorul final a fost %1, nu ați intrat în lista de recorduri."
 msgstr[1] "Scorul final a fost %1, nu ați intrat în lista de recorduri."
 msgstr[2] "Scorul final a fost %1, nu ați intrat în lista de recorduri."
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
 msgstr "Mutări: %1"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"

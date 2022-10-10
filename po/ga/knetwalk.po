@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/knetwalk.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-10 00:43+0000\n"
 "PO-Revision-Date: 2005-05-13 07:57-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -246,72 +246,72 @@ msgstr "Brian Croom"
 msgid "Port to use the QGraphicsView framework"
 msgstr "Leagan a úsáideann QGraphicsView"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
 msgstr ""
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
 msgstr ""
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
 msgstr "Méarchlár: Réimse ar dheis"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
 msgstr "Méarchlár: Réimse ar chlé"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
 msgstr "Méarchlár: Réimse suas"
 
-#: mainwindow.cpp:151
+#: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
 msgstr "Méarchlár: Réimse síos"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
 msgstr "Méarchlár: Rothlaigh ar deiseal"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
 msgstr "Méarchlár: Rothlaigh ar tuathal"
 
-#: mainwindow.cpp:166
+#: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
 msgstr "Méarchlár: Scoránaigh glas"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:176
 #, kde-format
 msgid "General"
 msgstr ""
 
-#: mainwindow.cpp:178
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
 msgstr "Téama"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
 msgstr ""
 
-#: mainwindow.cpp:188 mainwindow.cpp:245
+#: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
 msgstr "Pionós as Bearta"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
@@ -321,13 +321,13 @@ msgstr[2] "Ba é %1 do scór - níl ceann de na scóir is fearr é seo."
 msgstr[3] "Ba é %1 do scór - níl ceann de na scóir is fearr é seo."
 msgstr[4] "Ba é %1 do scór - níl ceann de na scóir is fearr é seo."
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
 msgstr "Bearta: %1"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"

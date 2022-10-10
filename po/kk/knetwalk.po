@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-10 00:43+0000\n"
 "PO-Revision-Date: 2013-10-24 03:00+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -246,84 +246,84 @@ msgstr "Brian Croom"
 msgid "Port to use the QGraphicsView framework"
 msgstr "QGraphicsView негізіне бейімдеген"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
 msgstr "Өзгеше"
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
 msgstr "Бүкілін б&осату"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
 msgstr "Пернетақта: Оңға"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
 msgstr "Пернетақта: Солға"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
 msgstr "Пернетақта: Жоғарлау"
 
-#: mainwindow.cpp:151
+#: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
 msgstr "Пернетақта: Төмендеу"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
 msgstr "Пернетақта: Сағат жүрісімен бұрау"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
 msgstr "Пернетақта: Сағат тіліне қарсы бұрау"
 
-#: mainwindow.cpp:166
+#: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
 msgstr "Пернетақта: Бұғаттау/Босату"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:176
 #, kde-format
 msgid "General"
 msgstr "Жалпы"
 
-#: mainwindow.cpp:178
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
 msgstr "Нақышы"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
 msgstr "Өзгеше ойын"
 
-#: mainwindow.cpp:188 mainwindow.cpp:245
+#: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
 msgstr "Айып жүрістер"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
 msgstr[0] "Ұпайыңыз %1, жетістіктер тізіміне кірмейді."
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
 msgstr "Жүрістер: %1"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"

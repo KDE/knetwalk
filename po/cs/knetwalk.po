@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-20 00:42+0000\n"
+"POT-Creation-Date: 2022-10-10 00:43+0000\n"
 "PO-Revision-Date: 2021-07-29 13:05+0200\n"
 "Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -248,72 +248,72 @@ msgstr "Brian Croom"
 msgid "Port to use the QGraphicsView framework"
 msgstr "Přenos do frameworku QGraphicsView"
 
-#: mainwindow.cpp:85
+#: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
 msgstr "Vlastní"
 
-#: mainwindow.cpp:131
+#: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
 msgstr "&Odemknout vše"
 
-#: mainwindow.cpp:136
+#: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
 msgstr "Klávesnice: o pole doprava"
 
-#: mainwindow.cpp:141
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
 msgstr "Klávesnice: o pole doleva"
 
-#: mainwindow.cpp:146
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
 msgstr "Klávesnice: o pole nahoru"
 
-#: mainwindow.cpp:151
+#: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
 msgstr "Klávesnice: o pole dolů"
 
-#: mainwindow.cpp:156
+#: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
 msgstr "Klávesnice: Otáčet se po směru hodinových ručiček"
 
-#: mainwindow.cpp:161
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
 msgstr "Klávesnice: Otáčet se proti směru hodinových ručiček"
 
-#: mainwindow.cpp:166
+#: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
 msgstr "Klávesnice: Zapnout zámek"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:176
 #, kde-format
 msgid "General"
 msgstr "Obecné"
 
-#: mainwindow.cpp:178
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
 msgstr "Motiv"
 
-#: mainwindow.cpp:179
+#: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
 msgstr "Vlastní hra"
 
-#: mainwindow.cpp:188 mainwindow.cpp:245
+#: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
 msgstr "Penalizace za pohyby"
 
-#: mainwindow.cpp:249
+#: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
@@ -324,13 +324,13 @@ msgstr[1] ""
 msgstr[2] ""
 "Vaše skóre bylo %1, na zápis do listiny nejvyšších skóre to nestačilo."
 
-#: mainwindow.cpp:274
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
 msgstr "Tahy: %1"
 
-#: mainwindow.cpp:275
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"
