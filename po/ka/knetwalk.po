@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-10 00:43+0000\n"
-"PO-Revision-Date: 2022-10-06 21:10+0200\n"
+"PO-Revision-Date: 2022-11-28 07:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -44,7 +44,7 @@ msgstr "სიგანე:"
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr ""
+msgstr "გადატანა მარცხნიდან მარჯვნივ და ზემოდან ქვემოთ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
@@ -80,7 +80,7 @@ msgstr "ჯერ არ მოგიგიათ!"
 #: general.ui:17
 #, kde-format
 msgid "Duration for cell to complete one rotation in milliseconds"
-msgstr ""
+msgstr "დრო, რომელიც უჯრედს ერთი შემობრუნებისთვის სჭირდება, მილიწამებში"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
@@ -128,25 +128,27 @@ msgstr "ნაგულისხმევი მომხმარებლი�
 #: knetwalk.kcfg:14
 #, kde-format
 msgid "Whether game sounds are played."
-msgstr ""
+msgstr "ჩართულია თუ არა თამაშის ხმები."
 
 #. i18n: ectx: label, entry (Autolock), group (General)
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr ""
+msgstr "დაიბლოკება უჯრედი შემობრუნების შემდეგ, თუ არა."
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
 msgstr ""
+"გამოიყენეთ მარცხენა წკაპი საათის მიმართულებით და მარჯვენა წკაპი საათის-"
+"საწინააღმდეგო მიმართულებისთვის."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
 #, kde-format
 msgid "Duration for cell to complete one rotation."
-msgstr ""
+msgstr "დრო, რომელიც უჯრედს ერთი შემობრუნებისთვის სჭირდება."
 
 #. i18n: ectx: label, entry (Width), group (Custom)
 #: knetwalk.kcfg:34
@@ -164,7 +166,7 @@ msgstr "დაფის სიმაღლე."
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr ""
+msgstr "ჩართულია გადატანა მარცხნიდან მარჯვნივ და ზემოდან ქვემოთ, თუ არა."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -180,7 +182,7 @@ msgstr "KNetWalk"
 #: main.cpp:38
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
-msgstr ""
+msgstr "KNetWalk, თამაში სისტემური ადმინისტრატორებისთვის."
 
 #: main.cpp:39
 #, kde-format
@@ -189,6 +191,9 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
 
 #: main.cpp:44
 #, kde-format
@@ -238,7 +243,7 @@ msgstr "Brian Croom"
 #: main.cpp:61
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
-msgstr ""
+msgstr "QGraphicsView -ის გამოყენება"
 
 #: mainwindow.cpp:84
 #, kde-format
@@ -248,42 +253,42 @@ msgstr "ხელით მითითებული"
 #: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
-msgstr ""
+msgstr "&ყველას განბლოკვა"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
-msgstr ""
+msgstr "კლავიატურა: ველი მარჯვნივ"
 
 #: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
-msgstr ""
+msgstr "კლავიატურა: ველი მარცხნივ"
 
 #: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
-msgstr ""
+msgstr "კლავიატურა: ველი მაღლა"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
-msgstr ""
+msgstr "კლავიატურა: ველი დაბლა"
 
 #: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
-msgstr ""
+msgstr "კლავიატურა: საათის ისრის მიმართულებით მოტრიალება"
 
 #: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
-msgstr ""
+msgstr "კლავიატურა: საათის ისრის საწინააღმდეგო მიმართულებით მოტრიალება"
 
 #: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
-msgstr ""
+msgstr "კლავიატურა: დაბლოკვის გადართვა"
 
 #: mainwindow.cpp:176
 #, kde-format
@@ -298,7 +303,7 @@ msgstr "თემა"
 #: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
-msgstr ""
+msgstr "თამაშის მორგება"
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -309,8 +314,8 @@ msgstr ""
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "თქვენი ქულებია %1. თქვენ ვერ მოხვდით ტოპ მოთამაშეებში."
+msgstr[1] "თქვენი ქულებია %1. თქვენ ვერ მოხვდით ტოპ მოთამაშეებში."
 
 #: mainwindow.cpp:273
 #, kde-format
