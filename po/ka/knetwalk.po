@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-10 00:43+0000\n"
-"PO-Revision-Date: 2022-11-28 07:19+0100\n"
+"PO-Revision-Date: 2022-11-30 06:42+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -70,6 +70,8 @@ msgid ""
 "Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
 "need to be connected to the server!"
 msgstr ""
+"შენიშვნა: ყველა თამაშის მოსაგებად ყველა ტერმინალი <strong>და "
+"ყველა<em>კაბელი</em></strong> სერვერთან უნდა იყოს მიერთებული!"
 
 #: gameview.cpp:170
 #, kde-format
@@ -308,7 +310,7 @@ msgstr "თამაშის მორგება"
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
-msgstr ""
+msgstr "სვლის სასჯელი"
 
 #: mainwindow.cpp:248
 #, kde-format
