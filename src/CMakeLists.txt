@@ -26,11 +26,11 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-knetwalk.png")
 ecm_add_app_icon(knetwalk ICONS ${ICONS_SRCS})
 
 target_link_libraries(knetwalk
-    KF5::CoreAddons
-    KF5::Crash
-    KF5::DBusAddons
-    KF5::TextWidgets
-    KF5::XmlGui
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::Crash
+    KF${KF_MAJOR_VERSION}::DBusAddons
+    KF${KF_MAJOR_VERSION}::TextWidgets
+    KF${KF_MAJOR_VERSION}::XmlGui
     KF5KDEGames
 )
 
