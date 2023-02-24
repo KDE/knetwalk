@@ -143,10 +143,10 @@
     <binary>knetwalk</binary>
   </provides>
   <releases>
+    <release version="3.3.22123" date="2023-03-02"/>
     <release version="3.3.22122" date="2023-02-02"/>
     <release version="3.3.22121" date="2023-01-05"/>
     <release version="3.3.22120" date="2022-12-08"/>
-    <release version="3.3.22083" date="2022-11-03"/>
   </releases>
   <content_rating type="oars-1.1"/>
 </component>
