@@ -215,7 +215,7 @@ msgstr "Thomas Nagy"
 #: main.cpp:49
 #, kde-format
 msgid "KDE port"
-msgstr "النقل إلى كدي"
+msgstr "النقل إلى كِيدِي"
 
 #: main.cpp:52
 #, kde-format
