@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -320,7 +320,6 @@ msgstr "移動回数"
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
 msgstr[0] "あなたのスコアは %1 でした。ハイスコアには届きませんでした。"
-msgstr[1] "あなたのスコアは %1 でした。ハイスコアには届きませんでした。"
 
 #: mainwindow.cpp:273
 #, kde-format
