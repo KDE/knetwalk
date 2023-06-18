@@ -11,6 +11,7 @@
   <name xml:lang="de">KNetWalk</name>
   <name xml:lang="el">KNetWalk</name>
   <name xml:lang="en-GB">KNetWalk</name>
+  <name xml:lang="eo">KNetWalk</name>
   <name xml:lang="es">KNetWalk</name>
   <name xml:lang="et">KNetWalk</name>
   <name xml:lang="eu">KNetWalk</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="de">KNetWalk, ein Spiel für Systemadministratoren</summary>
   <summary xml:lang="el">Το KNetWalk είναι ένα παιχνίδι για διαχειριστές συστημάτων</summary>
   <summary xml:lang="en-GB">KNetWalk is a game for system administrators</summary>
+  <summary xml:lang="eo">KNetWalk estas ludo por sistemestroj</summary>
   <summary xml:lang="es">KNetWalk es un juego para administradores de sistemas</summary>
   <summary xml:lang="et">KNetWalk on süsteemiadministraatorite mäng</summary>
   <summary xml:lang="eu">KNetWalk sistema-administratzaileentzako joko bat da</summary>
@@ -110,6 +112,7 @@
       <caption xml:lang="de">KNetWalk spielen</caption>
       <caption xml:lang="el">Παίζω KNetWalk</caption>
       <caption xml:lang="en-GB">Playing KNetWalk</caption>
+      <caption xml:lang="eo">Ludante KNetWalk</caption>
       <caption xml:lang="es">Jugando a KNetWalk</caption>
       <caption xml:lang="et">KNetWalki mängimine</caption>
       <caption xml:lang="eu">KNetWalk jokatzea</caption>
