@@ -218,3 +218,5 @@ QString GameView::getCableCode(int cables)
     directionNames[Up|Right|Down]   = QStringLiteral("1110");
     return directionNames[cables];
 }
+
+#include "moc_gameview.cpp"

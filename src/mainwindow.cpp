@@ -287,3 +287,4 @@ QSize MainWindow::boardSize()
     }
 }
 
+#include "moc_mainwindow.cpp"
