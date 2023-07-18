@@ -11,7 +11,6 @@
   <name xml:lang="de">KNetWalk</name>
   <name xml:lang="el">KNetWalk</name>
   <name xml:lang="en-GB">KNetWalk</name>
-  <name xml:lang="eo">KNetWalk</name>
   <name xml:lang="es">KNetWalk</name>
   <name xml:lang="et">KNetWalk</name>
   <name xml:lang="eu">KNetWalk</name>
@@ -31,7 +30,7 @@
   <name xml:lang="sk">KNetWalk</name>
   <name xml:lang="sl">KNetWalk</name>
   <name xml:lang="sv">Knetwalk</name>
-  <name xml:lang="tr">K Geçit</name>
+  <name xml:lang="tr">KNetWalk</name>
   <name xml:lang="uk">KNetWalk</name>
   <name xml:lang="x-test">xxKNetWalkxx</name>
   <name xml:lang="zh-CN">KNetWalk</name>
@@ -42,7 +41,6 @@
   <summary xml:lang="de">KNetWalk, ein Spiel für Systemadministratoren</summary>
   <summary xml:lang="el">Το KNetWalk είναι ένα παιχνίδι για διαχειριστές συστημάτων</summary>
   <summary xml:lang="en-GB">KNetWalk is a game for system administrators</summary>
-  <summary xml:lang="eo">KNetWalk estas ludo por sistemestroj</summary>
   <summary xml:lang="es">KNetWalk es un juego para administradores de sistemas</summary>
   <summary xml:lang="et">KNetWalk on süsteemiadministraatorite mäng</summary>
   <summary xml:lang="eu">KNetWalk sistema-administratzaileentzako joko bat da</summary>
@@ -62,7 +60,7 @@
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
   <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
-  <summary xml:lang="tr">K Geçit, sistem yöneticileri için bir oyundur</summary>
+  <summary xml:lang="tr">KNetWalk, sistem yöneticileri için bir oyundur</summary>
   <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
   <summary xml:lang="x-test">xxKNetWalk is a game for system administratorsxx</summary>
   <summary xml:lang="zh-CN">KNetWalk 是一款为系统管理员设计的游戏。</summary>
@@ -76,7 +74,6 @@
     <p xml:lang="de">KNetWalk ist ein Logikspiel für einen Spieler. Ziel des Spiels ist es, mit möglichst wenig Zügen alle Terminals mit dem Server zu verbinden und damit das Netzwerk fertig aufzubauen.</p>
     <p xml:lang="el">Το KNetWalk είναι ένα παιχνίδι λογικής για έναν παίκτη. Κατασκευάστε το δίκτυο, συνδέστε όλα τα τερματικά στον εξυπηρετητή σε όσο το δυνατόν λιγότερες εναλλαγές.</p>
     <p xml:lang="en-GB">KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.</p>
-    <p xml:lang="eo">KNetWalk estas unu-ludanta logika ludo. Konstruu la reton, ligante ĉiujn terminalojn al la servilo en la eble plej malmultaj provoj.</p>
     <p xml:lang="es">KNetWalk es un juego lógico para un único jugador. Construya la red conectando todos los terminales al servidor en el menor número posible de giros.</p>
     <p xml:lang="et">KNetWalk on ühe mängijaga loogikamäng. Selles tuleb luua võrk, ühendades kõik terminalid serveri külge võimalikult väheste käikudega.</p>
     <p xml:lang="eu">KNetWalk jokalari bakarreko logika joko bat da. Eraiki sarea, terminal guztiak zerbitzarira konektatuz, ahalik txanda gutxienetan.</p>
@@ -96,7 +93,7 @@
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
     <p xml:lang="sl">KNetWalk je logična igra za enega igralca. Načrtovanje omrežja tako, da so terminali povezani na strežnik z najmanj potezami.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
-    <p xml:lang="tr">K Geçit, tek kişilik bir mantık oyunudur. Ağı, uçbirimleri sunucuya en az sayıda dönüş ile bağlayarak yapılandırın.</p>
+    <p xml:lang="tr">KNetWalk, tek kişilik bir mantık oyunudur. Ağı, uçbirimleri sunucuya en az sayıda dönüş ile bağlayarak yapılandırın.</p>
     <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
     <p xml:lang="x-test">xxKNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.xx</p>
     <p xml:lang="zh-CN">KNetWalk 是一款单人推理游戏。构造网络，将所有终端尽可能直地连接到服务器上。</p>
@@ -113,7 +110,6 @@
       <caption xml:lang="de">KNetWalk spielen</caption>
       <caption xml:lang="el">Παίζω KNetWalk</caption>
       <caption xml:lang="en-GB">Playing KNetWalk</caption>
-      <caption xml:lang="eo">Ludante KNetWalk</caption>
       <caption xml:lang="es">Jugando a KNetWalk</caption>
       <caption xml:lang="et">KNetWalki mängimine</caption>
       <caption xml:lang="eu">KNetWalk jokatzea</caption>
@@ -133,7 +129,7 @@
       <caption xml:lang="sk">Hranie KNetWalk</caption>
       <caption xml:lang="sl">Igra KNetWalk</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
-      <caption xml:lang="tr">K Geçit oynarken</caption>
+      <caption xml:lang="tr">KNetWalk oynarken</caption>
       <caption xml:lang="uk">Гра у KNetWalk</caption>
       <caption xml:lang="x-test">xxPlaying KNetWalkxx</caption>
       <caption xml:lang="zh-CN">KNetWalk 游戏界面</caption>
