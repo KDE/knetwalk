@@ -25,18 +25,13 @@ kconfig_add_kcfg_files(knetwalk settings.kcfgc)
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/pics/*-apps-knetwalk.png")
 ecm_add_app_icon(knetwalk ICONS ${ICONS_SRCS})
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(knetwalk KDEGames6)
-else()
-    target_link_libraries(knetwalk KF5KDEGames)
-endif()
-
 target_link_libraries(knetwalk
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::DBusAddons
-    KF${KF_MAJOR_VERSION}::TextWidgets
-    KF${KF_MAJOR_VERSION}::XmlGui
+    KDEGames6
+    KF6::CoreAddons
+    KF6::Crash
+    KF6::DBusAddons
+    KF6::TextWidgets
+    KF6::XmlGui
 )
 
 install(TARGETS knetwalk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -5,34 +5,22 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#include <KAboutData>
-#include <KCrash>
-#include <QApplication>
-#include <KLocalizedString>
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-#include <Kdelibs4ConfigMigrator>
-#endif
 #include "mainwindow.h"
 #include "knetwalk_version.h"
+
+#include <KAboutData>
+#include <KCrash>
+#include <KLocalizedString>
 #include <KDBusService>
 
+#include <QApplication>
 #include <QCommandLineParser>
 
 int main(int argc, char ** argv)
 {
-    // Fixes blurry icons with fractional scaling
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
-#endif
     QApplication app(argc, argv);
 
     KLocalizedString::setApplicationDomain("knetwalk");
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    Kdelibs4ConfigMigrator migrate(QStringLiteral("knetwalk"));
-    migrate.setConfigFiles(QStringList() << QStringLiteral("knetwalkrc"));
-    migrate.setUiFiles(QStringList() << QStringLiteral("knetwalkui.rc"));
-    migrate.migrate();
-#endif
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QStringLiteral(KNETWALK_VERSION_STRING), i18n("KNetWalk, a game for system administrators."),
