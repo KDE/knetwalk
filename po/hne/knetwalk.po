@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2009-02-26 10:49+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -65,14 +65,14 @@ msgstr ""
 msgid "Height:"
 msgstr ""
 
-#: gameview.cpp:167
+#: gameview.cpp:162
 #, kde-format
 msgid ""
 "Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
 "need to be connected to the server!"
 msgstr ""
 
-#: gameview.cpp:170
+#: gameview.cpp:165
 #, kde-format
 msgid "The game is not won yet!"
 msgstr "खेल अभी जीते नइ गे हे!"
@@ -173,17 +173,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr "मुख्य औजार पट्टी"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KNetWalk"
 msgstr "केनेटवाक"
 
-#: main.cpp:38
+#: main.cpp:26
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
 msgstr "केनेटवाक, तंत्र प्रसासक मन बर एक खेल."
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid ""
 #| "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
@@ -196,52 +196,52 @@ msgstr ""
 "(C) 2004, 2005 एन्डी पेरेद्री, थामस नेगी ह केडीई मं पोर्ट करिस\n"
 " (C) 2007-2008 फेला विन्केल्मलेन"
 
-#: main.cpp:44
+#: main.cpp:32
 #, kde-format
 msgid "Andi Peredri"
 msgstr "एन्डी पेरेद्री"
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "original author"
 msgstr "मूल लेखक"
 
-#: main.cpp:48
+#: main.cpp:36
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "थामस नेगी"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "KDE port"
 msgstr "केडीई पोर्ट"
 
-#: main.cpp:52
+#: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
 msgstr ""
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "यूजीन त्रोवनेव"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "icon design"
 msgstr "चिनहा डिजाइन"
 
-#: main.cpp:60
+#: main.cpp:48
 #, kde-format
 msgid "Brian Croom"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
 msgstr ""

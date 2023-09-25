@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-10 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2009-06-01 18:37+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -65,14 +65,14 @@ msgstr ""
 msgid "Height:"
 msgstr ""
 
-#: gameview.cpp:167
+#: gameview.cpp:162
 #, kde-format
 msgid ""
 "Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
 "need to be connected to the server!"
 msgstr ""
 
-#: gameview.cpp:170
+#: gameview.cpp:165
 #, kde-format
 msgid "The game is not won yet!"
 msgstr ""
@@ -173,17 +173,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr "Shiriti Kryesor"
 
-#: main.cpp:37
+#: main.cpp:25
 #, kde-format
 msgid "KNetWalk"
 msgstr "KNetWalk"
 
-#: main.cpp:38
+#: main.cpp:26
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
 msgstr ""
 
-#: main.cpp:39
+#: main.cpp:27
 #, fuzzy, kde-format
 #| msgid ""
 #| "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
@@ -196,52 +196,52 @@ msgstr ""
 "(C) 2004-2005 Andi Peredri, sjellë në KDE nga Thomas Nagy\n"
 "(C) 2007-2008 Fela Winkelmolen"
 
-#: main.cpp:44
+#: main.cpp:32
 #, kde-format
 msgid "Andi Peredri"
 msgstr "Andi Peredri"
 
-#: main.cpp:45
+#: main.cpp:33
 #, kde-format
 msgid "original author"
 msgstr "autori fillestar"
 
-#: main.cpp:48
+#: main.cpp:36
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "Thomas Nagy"
 
-#: main.cpp:49
+#: main.cpp:37
 #, kde-format
 msgid "KDE port"
 msgstr "KDE port"
 
-#: main.cpp:52
+#: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
 msgstr ""
 
-#: main.cpp:53
+#: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
 msgstr ""
 
-#: main.cpp:56
+#: main.cpp:44
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:57
+#: main.cpp:45
 #, kde-format
 msgid "icon design"
 msgstr ""
 
-#: main.cpp:60
+#: main.cpp:48
 #, kde-format
 msgid "Brian Croom"
 msgstr ""
 
-#: main.cpp:61
+#: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-12 03:23+0200\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2016-03-20 15:25+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -80,41 +80,50 @@ msgstr ""
 msgid "The game is not won yet!"
 msgstr "Partija još nije dobijena!"
 
-#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
-#: general.ui:30
-#, kde-format
-msgid "Play sounds on actions"
-msgstr "Zvukovi na radnje"
-
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
-#: general.ui:33
-#, kde-format
-msgid "Play Sounds"
-msgstr "Puštaj zvukove"
-
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
-#: general.ui:53
+#: general.ui:17
 #, kde-format
 msgid "Duration for cell to complete one rotation in milliseconds"
 msgstr "Trajanje jedne rotacije ćelije u milisekundama"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: general.ui:56
-#, kde-format
-msgid "Rotate Duration:"
+#: general.ui:20
+#, fuzzy, kde-format
+#| msgid "Rotate Duration:"
+msgid "Rotate duration:"
 msgstr "Trajanje rotacije:"
 
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "Zvukovi na radnje"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, fuzzy, kde-format
+#| msgid "Play Sounds"
+msgid "Play sounds"
+msgstr "Puštaj zvukove"
+
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
-#: general.ui:63
+#: general.ui:60
 #, kde-format
 msgid "Automatically lock cell after rotation"
 msgstr "Automatsko zaključavanje ćelije posle rotacije"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
-#: general.ui:66
-#, kde-format
-msgid "Auto Lock"
+#: general.ui:63
+#, fuzzy, kde-format
+#| msgid "Auto Lock"
+msgid "Auto lock"
 msgstr "Automatsko zaključavanje"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr ""
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
@@ -134,26 +143,32 @@ msgstr "Da li puštati zvukove u igri."
 msgid "Whether lock cell after rotation."
 msgstr "Da li zaključati ćeliju posle rotacije."
 
-#. i18n: ectx: label, entry (RotateDuration), group (General)
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr ""
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
 #, kde-format
 msgid "Duration for cell to complete one rotation."
 msgstr "Trajanje jedne rotacije ćelije."
 
 #. i18n: ectx: label, entry (Width), group (Custom)
-#: knetwalk.kcfg:30
+#: knetwalk.kcfg:34
 #, kde-format
 msgid "The width of the board."
 msgstr "Širina table."
 
 #. i18n: ectx: label, entry (Height), group (Custom)
-#: knetwalk.kcfg:36
+#: knetwalk.kcfg:40
 #, kde-format
 msgid "The height of the board."
 msgstr "Visina table."
 
 #. i18n: ectx: label, entry (Wrapping), group (Custom)
-#: knetwalk.kcfg:42
+#: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
 msgstr "Da li omotavati preko leve na desnu i preko gornje na donju ivicu."
@@ -164,12 +179,17 @@ msgstr "Da li omotavati preko leve na desnu i preko gornje na donju ivicu."
 msgid "Main Toolbar"
 msgstr "Glavna traka"
 
-#: main.cpp:32
+#: main.cpp:25
+#, kde-format
+msgid "KNetWalk"
+msgstr "K‑mrežohod"
+
+#: main.cpp:26
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
 msgstr "K‑mrežohod, igra za sistem-administratore"
 
-#: main.cpp:35
+#: main.cpp:27
 #, kde-format
 msgid ""
 "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
@@ -180,128 +200,123 @@ msgstr ""
 "© 2007–2008 Fela Vinkelmolen\n"
 "© 2013, Ašvin Radživ"
 
-#: main.cpp:52
-#, kde-format
-msgid "KNetWalk"
-msgstr "K‑mrežohod"
-
-#: main.cpp:57
+#: main.cpp:32
 #, kde-format
 msgid "Andi Peredri"
 msgstr "Andrej Peredrij"
 
-#: main.cpp:58
+#: main.cpp:33
 #, kde-format
 msgid "original author"
 msgstr "prvobitni autor"
 
-#: main.cpp:61
+#: main.cpp:36
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "Tamaš Nađ"
 
-#: main.cpp:62
+#: main.cpp:37
 #, kde-format
 msgid "KDE port"
 msgstr "prenos na KDE"
 
-#: main.cpp:65
+#: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
 msgstr "Ašvin Radživ"
 
-#: main.cpp:66
+#: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
 msgstr "Prenos na QtQuick"
 
-#: main.cpp:69
+#: main.cpp:44
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Jevgenij Trunjov"
 
-#: main.cpp:70
+#: main.cpp:45
 #, kde-format
 msgid "icon design"
 msgstr "dizajn ikonica"
 
-#: main.cpp:73
+#: main.cpp:48
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brajan Krum"
 
-#: main.cpp:74
+#: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
 msgstr "Prenos na radni okvir QGraphicsView"
 
 # >> @item difficulty level
-#: mainwindow.cpp:96
+#: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
 msgstr "posebno"
 
-#: mainwindow.cpp:142
+#: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
 msgstr "&Otključaj sve"
 
-#: mainwindow.cpp:147
+#: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
 msgstr "Tastatura: polje desno"
 
-#: mainwindow.cpp:152
+#: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
 msgstr "Tastatura: polje lijevo"
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
 msgstr "Tastatura: polje gore"
 
-#: mainwindow.cpp:162
+#: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
 msgstr "Tastatura: polje dolje"
 
-#: mainwindow.cpp:167
+#: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
 msgstr "Tastatura: okret udesno"
 
-#: mainwindow.cpp:172
+#: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
 msgstr "Tastatura: okret ulijevo"
 
-#: mainwindow.cpp:177
+#: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
 msgstr "Tastatura: zaključavanje"
 
-#: mainwindow.cpp:188
+#: mainwindow.cpp:176
 #, kde-format
 msgid "General"
 msgstr "Opšte"
 
-#: mainwindow.cpp:189
+#: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
 msgstr "Tema"
 
-#: mainwindow.cpp:190
+#: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
 msgstr "Posebna igra"
 
-#: mainwindow.cpp:199 mainwindow.cpp:256
+#: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
 msgstr "Kazneni potezi"
 
-#: mainwindow.cpp:260
+#: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
@@ -315,20 +330,20 @@ msgstr[3] ""
 "Ostvarili ste rezultat %1, nedovoljno za upis na spisak najrezultata."
 
 # >> @info:status
-#: mainwindow.cpp:285
+#: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
 msgstr "poteza: %1"
 
 # >> @info:status
-#: mainwindow.cpp:286
+#: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"
 msgstr "vreme: %1"
 
-#: qml/main.qml:76
+#: qml/main.qml:66
 #, kde-format
 msgid "Paused"
 msgstr "Pauzirano"
