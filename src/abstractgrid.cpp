@@ -529,7 +529,7 @@ bool AbstractGrid::allTerminalsConnected() {
 QList<int> AbstractGrid::updateConnections()
 {
     // TODO: add int AbstractGrid::cellsCount()
-    QVector<bool> newConnections(m_width * m_height);
+    QList<bool> newConnections(m_width * m_height);
     for (uint i = 0; i < m_width * m_height; ++i) {
         newConnections[i] = false;
     }
