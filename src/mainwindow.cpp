@@ -108,24 +108,24 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::setupActions()
 {
     // Game
-    KStandardGameAction::gameNew(this, SLOT(startNewGame()),
+    KStandardGameAction::gameNew(this, &MainWindow::startNewGame,
                                  actionCollection());
 
-    m_pauseAction = KStandardGameAction::pause(this, SLOT(pauseGame(bool)),
+    m_pauseAction = KStandardGameAction::pause(this, &MainWindow::pauseGame,
                                                actionCollection());
     connect(Kg::difficulty(), &KgDifficulty::gameRunningChanged, m_pauseAction,
             &QAction::setEnabled);
 
-    QAction *action = KStandardGameAction::solve(m_view, SLOT(solve()), actionCollection());
+    QAction *action = KStandardGameAction::solve(m_view, &GameView::solve, actionCollection());
     connect(Kg::difficulty(), &KgDifficulty::gameRunningChanged, action, &QAction::setEnabled);
 
-    KStandardGameAction::highscores(this, SLOT(showHighscores()),
+    KStandardGameAction::highscores(this, &MainWindow::showHighscores,
                                     actionCollection());
 
-    KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    KStandardGameAction::quit(this, &MainWindow::close, actionCollection());
 
     // Settings
-    KStandardAction::preferences(this, SLOT(configureSettings()), actionCollection());
+    KStandardAction::preferences(this, &MainWindow::configureSettings, actionCollection());
 
     action = new QAction(i18n("&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));

@@ -33,6 +33,7 @@ public:
 
 public Q_SLOTS:
     void updateSettings();
+    void solve();
 
 Q_SIGNALS:
     void newCell(const QVariant &cable, const QVariant &type);
@@ -43,7 +44,6 @@ Q_SIGNALS:
     void gameOver(const QVariant &msg);
 
 private Q_SLOTS:
-    void solve();
     void clicked(int index);
     void rotated(int index, int angle);
 
