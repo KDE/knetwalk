@@ -10,7 +10,7 @@
 // game
 #include "abstractgrid.h"
 // KDEGames
-#include <KgThemeProvider>
+#include <KGameThemeProvider>
 // Qt
 #include <QQuickWidget>
 #include <QVariant>
@@ -27,7 +27,7 @@ public:
     void startNewGame(uint width, uint height, Wrapping w);
     int minimumMoves() {return grid->minimumMoves();}
     int cellCount() {return grid->cellCount();}
-    KgThemeProvider* getProvider() {return m_provider;}
+    KGameThemeProvider* getProvider() {return m_provider;}
     
 
 
@@ -53,7 +53,7 @@ private:
     void checkCompleted();
 
     AbstractGrid *grid;
-    KgThemeProvider* m_provider;
+    KGameThemeProvider* m_provider;
     KgSound *m_soundTurn;
     KgSound *m_soundClick;
     KgSound *m_soundConnect;

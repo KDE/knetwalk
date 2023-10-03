@@ -23,7 +23,7 @@
 GameView::GameView(QWidget *parent) :
     QQuickWidget(parent),
     grid(new AbstractGrid),
-    m_provider(new KgThemeProvider)
+    m_provider(new KGameThemeProvider)
 {
     QQmlEngine *engine = this->engine();
 

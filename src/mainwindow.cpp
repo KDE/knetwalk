@@ -19,7 +19,7 @@
 #include <QStatusBar>
 
 #include <KGameDifficulty>
-#include <KgThemeSelector>
+#include <KGameThemeSelector>
 #include <KGameRenderer>
 #include <KScoreDialog>
 #include <KGameClock>
@@ -174,7 +174,7 @@ void MainWindow::configureSettings()
         return;
     KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("settings"), Settings::self());
     dialog->addPage(new GeneralConfig(dialog), i18n("General"), QStringLiteral("games-config-options"));
-    dialog->addPage(new KgThemeSelector(m_view->getProvider()), i18n("Theme"), QStringLiteral("games-config-theme"));
+    dialog->addPage(new KGameThemeSelector(m_view->getProvider()), i18n("Theme"), QStringLiteral("games-config-theme"));
     dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QStringLiteral("games-config-custom"));
     connect(dialog, &KConfigDialog::settingsChanged, m_view, &GameView::updateSettings);
 //    dialog->setHelp(QString(),QLatin1String("knetwalk"));
