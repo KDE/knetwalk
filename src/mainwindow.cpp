@@ -18,7 +18,7 @@
 #include <KStandardGameAction>
 #include <QStatusBar>
 
-#include <KgDifficulty>
+#include <KGameDifficulty>
 #include <KgThemeSelector>
 #include <KGameRenderer>
 #include <KScoreDialog>
@@ -77,14 +77,14 @@ MainWindow::MainWindow(QWidget *parent)
     statusBar()->insertPermanentWidget(1, m_timeLabel, 1);
 
     // Difficulty
-    Kg::difficulty()->addStandardLevelRange(
-        KgDifficultyLevel::Easy, KgDifficultyLevel::VeryHard
+    KGameDifficulty::global()->addStandardLevelRange(
+        KGameDifficultyLevel::Easy, KGameDifficultyLevel::VeryHard
     );
-    Kg::difficulty()->addLevel(
-                new KgDifficultyLevel(100, QByteArray("Custom"), i18n("Custom"))
+    KGameDifficulty::global()->addLevel(
+                new KGameDifficultyLevel(100, QByteArray("Custom"), i18n("Custom"))
     );
-    KgDifficultyGUI::init(this);
-    connect(Kg::difficulty(), &KgDifficulty::currentLevelChanged, this, &MainWindow::startNewGame);
+    KGameDifficultyGUI::init(this);
+    connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged, this, &MainWindow::startNewGame);
 
 
     setCentralWidget(m_view);
@@ -113,11 +113,11 @@ void MainWindow::setupActions()
 
     m_pauseAction = KStandardGameAction::pause(this, &MainWindow::pauseGame,
                                                actionCollection());
-    connect(Kg::difficulty(), &KgDifficulty::gameRunningChanged, m_pauseAction,
+    connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, m_pauseAction,
             &QAction::setEnabled);
 
     QAction *action = KStandardGameAction::solve(m_view, &GameView::solve, actionCollection());
-    connect(Kg::difficulty(), &KgDifficulty::gameRunningChanged, action, &QAction::setEnabled);
+    connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, action, &QAction::setEnabled);
 
     KStandardGameAction::highscores(this, &MainWindow::showHighscores,
                                     actionCollection());
@@ -129,7 +129,7 @@ void MainWindow::setupActions()
 
     action = new QAction(i18n("&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
-    connect(Kg::difficulty(), &KgDifficulty::gameRunningChanged, action, &QAction::setEnabled);
+    connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, action, &QAction::setEnabled);
     actionCollection()->addAction( QStringLiteral( "unlock_all" ), action);
 
     action = new QAction(i18n("Keyboard: Field right"), this);
@@ -185,7 +185,7 @@ void MainWindow::showHighscores()
 {
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
-    scoreDialog.initFromDifficulty(Kg::difficulty());
+    scoreDialog.initFromDifficulty(KGameDifficulty::global());
     scoreDialog.exec();
 }
 
@@ -194,10 +194,10 @@ void MainWindow::startNewGame()
     if(Settings::playSounds())
         m_soundStart->start();
 
-    const KgDifficultyLevel::StandardLevel l = Kg::difficultyLevel();
+    const KGameDifficultyLevel::StandardLevel l = KGameDifficulty::globalLevel();
 
-    bool isWrapped = (l == KgDifficultyLevel::VeryHard);
-    if (Kg::difficultyLevel() == KgDifficultyLevel::Custom)
+    bool isWrapped = (l == KGameDifficultyLevel::VeryHard);
+    if (KGameDifficulty::globalLevel() == KGameDifficultyLevel::Custom)
         isWrapped = Settings::wrapping();
     const QSize size = boardSize();
     m_view->startNewGame(size.width(), size.height(), (Wrapping)isWrapped);
@@ -208,7 +208,7 @@ void MainWindow::startNewGame()
     {
         m_pauseAction->setChecked(false);
     }
-    Kg::difficulty()->setGameRunning(true);
+    KGameDifficulty::global()->setGameRunning(true);
 
     updateStatusBar();
 }
@@ -216,7 +216,7 @@ void MainWindow::startNewGame()
 void MainWindow::gameOver(const QVariant &msg)
 {
     m_gameClock->pause();
-    Kg::difficulty()->setGameRunning(false);
+    KGameDifficulty::global()->setGameRunning(false);
 
     if (msg.toString() != QLatin1String("won"))
         return;
@@ -242,7 +242,7 @@ void MainWindow::gameOver(const QVariant &msg)
     // show the new dialog and add the new score to it
     KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
     scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
-    scoreDialog.initFromDifficulty(Kg::difficulty());
+    scoreDialog.initFromDifficulty(KGameDifficulty::global());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
         QString comment = i18np("Your score was %1, you did not make it to the high score list.",
@@ -278,11 +278,11 @@ void MainWindow::updateStatusBar()
 
 QSize MainWindow::boardSize()
 {
-    switch (Kg::difficultyLevel()) {
-    case KgDifficultyLevel::Easy: return QSize(5, 5);
-    case KgDifficultyLevel::Medium: return QSize(7, 7);
-    case KgDifficultyLevel::Hard: return QSize(9, 9);
-    case KgDifficultyLevel::Custom: return QSize(Settings::width(), Settings::height());
+    switch (KGameDifficulty::globalLevel()) {
+    case KGameDifficultyLevel::Easy: return QSize(5, 5);
+    case KGameDifficultyLevel::Medium: return QSize(7, 7);
+    case KGameDifficultyLevel::Hard: return QSize(9, 9);
+    case KGameDifficultyLevel::Custom: return QSize(Settings::width(), Settings::height());
     default: return QSize(9, 9);
     }
 }
