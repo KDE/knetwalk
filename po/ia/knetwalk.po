@@ -1,69 +1,67 @@
-# translation of knetwalk.po to Hebrew
-# translation of knetwalk.po to
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the knetwalk package.
 #
-# Diego Iastrubni <elcuco@kde.org>, 2006.
-# Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
-# SPDX-FileCopyrightText: 2023 Yaron Shahrabani <sh.yaron@gmail.com>
+# giovanni <g.sora@tiscali.it>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2023-10-01 22:43+0300\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: צוות התרגום של KDE ישראל\n"
-"Language: he\n"
+"PO-Revision-Date: 2023-10-02 16:47+0200\n"
+"Last-Translator: giovanni <g.sora@tiscali.it>\n"
+"Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
+"Language: ia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Israel Berger וצוות התרגום של KDE ישראל"
+msgstr "Giovanni Sora"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "israelb@gmail.com, kde-l10n.he@kde.org"
+msgstr "g.sora@tiscali.it"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
 #, kde-format
 msgid "Width of the grid"
-msgstr "רוחב הרשת"
+msgstr "Largessa del grillia"
 
 #. i18n: ectx: property (text), widget (QLabel, width)
 #: customgame.ui:33
 #, kde-format
 msgid "Width:"
-msgstr "רוחב:"
+msgstr "Largessa:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr "גלישה משמאל לימין ומלמעלה למטה"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
 #, kde-format
 msgid "Wrapping"
-msgstr "גלישה"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, height)
 #: customgame.ui:66
 #, kde-format
 msgid "Height of the grid"
-msgstr "גובה הרשת"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, height)
 #: customgame.ui:69
 #, kde-format
 msgid "Height:"
-msgstr "גובה:"
+msgstr "Altessa:"
 
 #: gameview.cpp:162
 #, kde-format
@@ -71,109 +69,107 @@ msgid ""
 "Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
 "need to be connected to the server!"
 msgstr ""
-"לתשומת לבך: כדי לנצח במשחק, כל המסופים <strong>וכל <em>הכבלים</em></strong> "
-"צריכים להיות מחוברים לשרת!"
 
 #: gameview.cpp:165
 #, kde-format
 msgid "The game is not won yet!"
-msgstr "לא ניצחת במשחק עדיין!"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: general.ui:17
 #, kde-format
 msgid "Duration for cell to complete one rotation in milliseconds"
-msgstr "משך הזמן שבו תא משלים סיבוב אחד במילישניות"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
 #, kde-format
 msgid "Rotate duration:"
-msgstr "משך סיבוב:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:40
 #, kde-format
 msgid "Play sounds on actions"
-msgstr "השמעת צלילים עם פעולות"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
 #, kde-format
 msgid "Play sounds"
-msgstr "השמעת צלילים"
+msgstr "Reproduce sonos"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:60
 #, kde-format
 msgid "Automatically lock cell after rotation"
-msgstr "לנעול תא אוטומטית לאחר סיבוב"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
 #, kde-format
 msgid "Auto lock"
-msgstr "נעילה אוטומטית"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr "היפוך לחצני עכבר"
+msgstr ""
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
 #, kde-format
 msgid "Default user name"
-msgstr "ברירת מחדל של שם משתמש"
+msgstr "Nomine de usator predefinite"
 
 #. i18n: ectx: label, entry (PlaySounds), group (General)
 #: knetwalk.kcfg:14
 #, kde-format
 msgid "Whether game sounds are played."
-msgstr "האם צלילי המשחק יושמעו."
+msgstr ""
 
 #. i18n: ectx: label, entry (Autolock), group (General)
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr "האם לנעול את התא לאחר סיבוב."
+msgstr ""
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
-msgstr "להשתמש בלחיצה שמאלית לסיבוב עם כיוון השעון וימנית לכיוון הנגדי."
+msgstr ""
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
 #, kde-format
 msgid "Duration for cell to complete one rotation."
-msgstr "משך הזמן שבו תא משלים סיבוב אחד."
+msgstr ""
 
 #. i18n: ectx: label, entry (Width), group (Custom)
 #: knetwalk.kcfg:34
 #, kde-format
 msgid "The width of the board."
-msgstr "רוחב הלוח."
+msgstr ""
 
 #. i18n: ectx: label, entry (Height), group (Custom)
 #: knetwalk.kcfg:40
 #, kde-format
 msgid "The height of the board."
-msgstr "גובה הלוח."
+msgstr ""
 
 #. i18n: ectx: label, entry (Wrapping), group (Custom)
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr "האם גלישה משמאל לימין ומלמעלה למטה פעילה."
+msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
 #, kde-format
 msgid "Main Toolbar"
-msgstr "סרגל כלים ראשי"
+msgstr "Barra de instrumento principal"
 
 #: main.cpp:25
 #, kde-format
@@ -183,7 +179,7 @@ msgstr "KNetWalk"
 #: main.cpp:26
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
-msgstr "KNetWalk, משחק למנהלי מערכות."
+msgstr ""
 
 #: main.cpp:27
 #, kde-format
@@ -192,145 +188,142 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"(C) 2004-2005 אנדי פרדרי, הוסב ל־KDE על ידי תומס נאגי\n"
-"(C) 2007-2008 פלה וינקלמולן\n"
-"(C) 2013 אשווין רג׳יב"
 
 #: main.cpp:32
 #, kde-format
 msgid "Andi Peredri"
-msgstr "אנדי פרדרי"
+msgstr "Andi Peredri"
 
 #: main.cpp:33
 #, kde-format
 msgid "original author"
-msgstr "יוצר מקורי"
+msgstr "Autor original"
 
 #: main.cpp:36
 #, kde-format
 msgid "Thomas Nagy"
-msgstr "תומס נאגי"
+msgstr "Thomas Nagy"
 
 #: main.cpp:37
 #, kde-format
 msgid "KDE port"
-msgstr "הסבה ל־KDE"
+msgstr ""
 
 #: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
-msgstr "אשווין רג׳יב"
+msgstr ""
 
 #: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
-msgstr "הסבה ל־QtQuick"
+msgstr ""
 
 #: main.cpp:44
 #, kde-format
 msgid "Eugene Trounev"
-msgstr "יוג׳ין טרונב"
+msgstr "Eugene Trounev"
 
 #: main.cpp:45
 #, kde-format
 msgid "icon design"
-msgstr "עיצוב סמלים"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
 msgid "Brian Croom"
-msgstr "בריאן קרום"
+msgstr "Brian Croom"
 
 #: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
-msgstr "הסבה לשימוש בתשתית QGraphicsView"
+msgstr ""
 
 #: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
-msgstr "התאמה אישית"
+msgstr "Personalisate"
 
 #: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
-msgstr "ל&שחרר הכול"
+msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
 msgid "Keyboard: Field right"
-msgstr "מקלדת: שדה ימינה"
+msgstr ""
 
 #: mainwindow.cpp:140
 #, kde-format
 msgid "Keyboard: Field left"
-msgstr "מקלדת: שדה שמאלה"
+msgstr ""
 
 #: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
-msgstr "מקלדת: שדה למעלה"
+msgstr ""
 
 #: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
-msgstr "מקלדת: שדה למטה"
+msgstr ""
 
 #: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
-msgstr "מקלדת: סיבוב עם כיוון השעון"
+msgstr ""
 
 #: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
-msgstr "מקלדת: סיבוב נגד כיוון השעון"
+msgstr ""
 
 #: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
-msgstr "מקלדת: נעילה/שחרור"
+msgstr ""
 
 #: mainwindow.cpp:176
 #, kde-format
 msgid "General"
-msgstr "כללי"
+msgstr "General"
 
 #: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
-msgstr "ערכת עיצוב"
+msgstr "Thema"
 
 #: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
-msgstr "משחק בהתאמה אישית"
+msgstr ""
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
-msgstr "עונש מהלכים"
+msgstr ""
 
 #: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
-msgstr[1] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
+msgstr[0] ""
+msgstr[1] ""
 
 #: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
-msgstr "מהלכים: %1"
+msgstr "Motiones: %1"
 
 #: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"
-msgstr "זמן: %1"
+msgstr "Tempore: %1"
 
 #: qml/main.qml:66
 #, kde-format
 msgid "Paused"
-msgstr "מושהה"
+msgstr "In pausa"
