@@ -10,7 +10,7 @@
 #include "globals.h"
 #include "settings.h"
 // KDEGames
-#include <KgSound>
+#include <KGameSound>
 // KF
 #include <KMessageBox>
 #include <KLocalizedContext>
@@ -34,9 +34,9 @@ GameView::GameView(QWidget *parent) :
 
     m_provider->discoverThemes(QStringLiteral("themes"));
     m_provider->setDeclarativeEngine(QStringLiteral("themeProvider"), engine);
-    m_soundTurn = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/turn.wav")), this);
-    m_soundClick = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/click.wav")), this);
-    m_soundConnect = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/connect.wav")), this);
+    m_soundTurn = new KGameSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/turn.wav")), this);
+    m_soundClick = new KGameSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/click.wav")), this);
+    m_soundConnect = new KGameSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/connect.wav")), this);
     QString path = QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("qml/main.qml"));
 
     setSource(QUrl::fromLocalFile(path));

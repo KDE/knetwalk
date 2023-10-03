@@ -16,7 +16,7 @@
 #include <QVariant>
 #include <QQuickItem>
 
-class KgSound;
+class KGameSound;
 
 class GameView : public QQuickWidget
 {
@@ -54,9 +54,9 @@ private:
 
     AbstractGrid *grid;
     KGameThemeProvider* m_provider;
-    KgSound *m_soundTurn;
-    KgSound *m_soundClick;
-    KgSound *m_soundConnect;
+    KGameSound *m_soundTurn;
+    KGameSound *m_soundClick;
+    KGameSound *m_soundConnect;
     QSet<int> rotatingCells;
 };
 

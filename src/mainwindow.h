@@ -15,7 +15,7 @@
 
 #include <QList>
 
-class KgSound;
+class KGameSound;
 class KGameClock;
 class KToggleAction;
 class GameView;
@@ -52,8 +52,8 @@ private:
     KToggleAction* m_pauseAction;
 
     GameView *m_view;
-    KgSound *m_soundStart;
-    KgSound *m_soundWin;
+    KGameSound *m_soundStart;
+    KGameSound *m_soundWin;
     QLabel *m_timeLabel;
     QLabel *m_movesLabel;
 };

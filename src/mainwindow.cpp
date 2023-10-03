@@ -23,7 +23,7 @@
 #include <KGameRenderer>
 #include <KScoreDialog>
 #include <KGameClock>
-#include <KgSound>
+#include <KGameSound>
 
 #include <ctime>
 #include <cmath>
@@ -98,8 +98,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_gameClock = new KGameClock(this, KGameClock::FlexibleHourMinSec);
     connect(m_gameClock, &KGameClock::timeChanged, this, &MainWindow::updateStatusBar);
 
-    m_soundStart = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/start.wav")), this);
-    m_soundWin = new KgSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/win.wav")), this);
+    m_soundStart = new KGameSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/start.wav")), this);
+    m_soundWin = new KGameSound(QStandardPaths::locate(QStandardPaths::AppDataLocation, QStringLiteral("sounds/win.wav")), this);
 
 
     startNewGame();
