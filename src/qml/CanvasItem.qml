@@ -5,8 +5,8 @@
 */
 
 import QtQuick 2.3
-import org.kde.games.core 0.1 as KgCore
+import org.kde.games.core 0.1 as KGameCore
 
-KgCore.KgItem {
+KGameCore.KGameItem {
     provider: themeProvider
 }
