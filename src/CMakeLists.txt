@@ -30,8 +30,10 @@ target_link_libraries(knetwalk
     KF6::CoreAddons
     KF6::Crash
     KF6::DBusAddons
+    KF6::I18n
     KF6::TextWidgets
     KF6::XmlGui
+    Qt6::QuickWidgets
 )
 
 install(TARGETS knetwalk  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
