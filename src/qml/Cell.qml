@@ -27,7 +27,7 @@ Item{
         enabled: main.state === "running"
         acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
         hoverEnabled: true
-        onClicked: {
+        onClicked: mouse => {
             main.selected = index
             switch (mouse.button) {
                 case Qt.LeftButton:
