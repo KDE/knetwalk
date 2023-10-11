@@ -556,14 +556,14 @@
 
 <sect1 id="keybindings">
 <title id="keybindings-title"
->Accesos rápidos</title>
+>Atajos de teclado</title>
 
 <para
->Los accesos rápidos predeterminados son:</para>
+>Los atajos de teclado predeterminados son:</para>
 
 <table>
 <title
->Accesos rápidos</title>
+>Atajos de teclado</title>
 <tgroup cols="2">
 <tbody>
 <row>
