@@ -133,37 +133,37 @@ void MainWindow::setupActions()
     actionCollection()->addAction( QStringLiteral( "unlock_all" ), action);
 
     action = new QAction(i18n("Keyboard: Field right"), this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Right);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Right);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoRight()));
     actionCollection()->addAction( QStringLiteral( "kb_go_right" ), action);
 
     action = new QAction(i18n("Keyboard: Field left"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Left);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Left);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoLeft()));
     actionCollection()->addAction( QStringLiteral( "kb_go_left" ), action);
 
     action = new QAction(i18n("Keyboard: Field up"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Up);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Up);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoUp()));
     actionCollection()->addAction( QStringLiteral( "kb_go_up" ), action);
 
     action = new QAction(i18n("Keyboard: Field down"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Down);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Down);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoDown()));
     actionCollection()->addAction( QStringLiteral( "kb_go_down" ), action);
 
     action = new QAction(i18n("Keyboard: Turn clockwise"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Return);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateClockwise()));
     actionCollection()->addAction( QStringLiteral( "kb_turn_clockwise" ), action);
 
     action = new QAction(i18n("Keyboard: Turn counterclockwise"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::CTRL | Qt::Key_Return);
+    KActionCollection::setDefaultShortcut(action, Qt::CTRL | Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateCounterclockwise()));
     actionCollection()->addAction( QStringLiteral( "kb_turn_counterclockwise" ), action);
 
     action = new QAction(i18n("Keyboard: Toggle lock"),this);
-    actionCollection()->setDefaultShortcut(action, Qt::Key_Space);
+    KActionCollection::setDefaultShortcut(action, Qt::Key_Space);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(toggleLock()));
     actionCollection()->addAction( QStringLiteral( "kb_lock" ), action);
 }
