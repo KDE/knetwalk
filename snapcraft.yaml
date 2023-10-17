@@ -4,6 +4,7 @@ confinement: strict
 grade: stable
 base: core22
 adopt-info: knetwalk
+version: '23.08.2'
 apps:
     knetwalk:
         # extensions:
