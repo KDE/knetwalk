@@ -15,7 +15,7 @@
 #include <QAction>
 #include <KToggleAction>
 #include <KActionCollection>
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 #include <QStatusBar>
 
 #include <KGameDifficulty>
@@ -108,21 +108,21 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::setupActions()
 {
     // Game
-    KStandardGameAction::gameNew(this, &MainWindow::startNewGame,
+    KGameStandardAction::gameNew(this, &MainWindow::startNewGame,
                                  actionCollection());
 
-    m_pauseAction = KStandardGameAction::pause(this, &MainWindow::pauseGame,
+    m_pauseAction = KGameStandardAction::pause(this, &MainWindow::pauseGame,
                                                actionCollection());
     connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, m_pauseAction,
             &QAction::setEnabled);
 
-    QAction *action = KStandardGameAction::solve(m_view, &GameView::solve, actionCollection());
+    QAction *action = KGameStandardAction::solve(m_view, &GameView::solve, actionCollection());
     connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, action, &QAction::setEnabled);
 
-    KStandardGameAction::highscores(this, &MainWindow::showHighscores,
+    KGameStandardAction::highscores(this, &MainWindow::showHighscores,
                                     actionCollection());
 
-    KStandardGameAction::quit(this, &MainWindow::close, actionCollection());
+    KGameStandardAction::quit(this, &MainWindow::close, actionCollection());
 
     // Settings
     KStandardAction::preferences(this, &MainWindow::configureSettings, actionCollection());
