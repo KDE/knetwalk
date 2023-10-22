@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2023-10-19 20:14+0300\n"
+"PO-Revision-Date: 2023-10-21 15:52+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -313,13 +313,13 @@ msgid "Moves Penalty"
 msgstr "עונש מהלכים"
 
 #: mainwindow.cpp:248
-#, fuzzy, kde-format
+#, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
 msgstr[0] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
 msgstr[1] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
+msgstr[3] "הניקוד שלך היה %1, לא הגעת לטבלת השיאנים."
 
 #: mainwindow.cpp:273
 #, kde-format
