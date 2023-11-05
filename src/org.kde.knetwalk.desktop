@@ -3,6 +3,7 @@ Type=Application
 Exec=knetwalk -qwindowtitle %c
 X-DocPath=knetwalk/index.html
 Name=KNetWalk
+Name[ast]=KNetWalk
 Name[bs]=KNetWalk
 Name[ca]=KNetWalk
 Name[ca@valencia]=KNetWalk
