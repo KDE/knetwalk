@@ -19,9 +19,9 @@
 #include <QStatusBar>
 
 #include <KGameDifficulty>
+#include <KGameHighScoreDialog>
 #include <KGameThemeSelector>
 #include <KGameRenderer>
-#include <KScoreDialog>
 #include <KGameClock>
 #include <KGameSound>
 
@@ -183,8 +183,8 @@ void MainWindow::configureSettings()
 
 void MainWindow::showHighscores()
 {
-    KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
+    KGameHighScoreDialog scoreDialog(KGameHighScoreDialog::Name | KGameHighScoreDialog::Time, this);
+    scoreDialog.addField(KGameHighScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
     scoreDialog.initFromDifficulty(KGameDifficulty::global());
     scoreDialog.exec();
 }
@@ -234,14 +234,14 @@ void MainWindow::gameOver(const QVariant &msg)
     int score = static_cast<int>(100.0 / penalty);
 
     // create the new scoreInfo
-    KScoreDialog::FieldInfo scoreInfo;
-    scoreInfo[KScoreDialog::Score].setNum(score);
-    scoreInfo[KScoreDialog::Custom1].setNum(m_clickCount/2);
-    scoreInfo[KScoreDialog::Time] = m_gameClock->timeString();
+    KGameHighScoreDialog::FieldInfo scoreInfo;
+    scoreInfo[KGameHighScoreDialog::Score].setNum(score);
+    scoreInfo[KGameHighScoreDialog::Custom1].setNum(m_clickCount/2);
+    scoreInfo[KGameHighScoreDialog::Time] = m_gameClock->timeString();
 
     // show the new dialog and add the new score to it
-    KScoreDialog scoreDialog(KScoreDialog::Name | KScoreDialog::Time, this);
-    scoreDialog.addField(KScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
+    KGameHighScoreDialog scoreDialog(KGameHighScoreDialog::Name | KGameHighScoreDialog::Time, this);
+    scoreDialog.addField(KGameHighScoreDialog::Custom1, i18n("Moves Penalty"), QStringLiteral( "moves" ));
     scoreDialog.initFromDifficulty(KGameDifficulty::global());
     bool madeIt = scoreDialog.addScore(scoreInfo);
     if (!madeIt) {
