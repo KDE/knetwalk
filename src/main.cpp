@@ -20,7 +20,7 @@ int main(int argc, char ** argv)
 {
     QApplication app(argc, argv);
 
-    KLocalizedString::setApplicationDomain("knetwalk");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("knetwalk"));
 
     KAboutData about(QStringLiteral("knetwalk"), i18n("KNetWalk"),
                          QStringLiteral(KNETWALK_VERSION_STRING), i18n("KNetWalk, a game for system administrators."),
