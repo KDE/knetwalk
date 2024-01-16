@@ -158,4 +158,3 @@ Comment[zh_TW]=戰略遊戲
 Icon=knetwalk
 StartupNotify=true
 Categories=Qt;KDE;Game;StrategyGame;
-X-DBUS-ServiceName=org.kde.knetwalk
