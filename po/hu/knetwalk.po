@@ -2,30 +2,31 @@
 # Tamas Szanto <taszanto@gmail.com>, 2005.
 # Kristóf Kiszel <ulysses@kubuntu.org>, 2011.
 # Balázs Úr <urbalazs@gmail.com>, 2013.
+# SPDX-FileCopyrightText: 2024 Kristof Kiszel <ulysses@fsf.hu>
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2013-10-23 12:44+0200\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2024-02-11 20:38+0100\n"
+"Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Szántó Tamás"
+msgstr "Kiszel Kristóf"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "taszanto@gmail.com"
+msgstr "ulysses@fsf.hu"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
@@ -85,8 +86,7 @@ msgstr "Időtartam ezredmásodpercben, ameddig egy cella elvégez egy forgatást
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
-#, fuzzy, kde-format
-#| msgid "Rotate Duration:"
+#, kde-format
 msgid "Rotate duration:"
 msgstr "Forgatási időtartam:"
 
@@ -98,8 +98,7 @@ msgstr "Hangok lejátszása a műveleteknél"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Sounds"
+#, kde-format
 msgid "Play sounds"
 msgstr "Hangok lejátszása"
 
@@ -111,8 +110,7 @@ msgstr "Cella automatikus zárolása forgatás után"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
-#, fuzzy, kde-format
-#| msgid "Auto Lock"
+#, kde-format
 msgid "Auto lock"
 msgstr "Automatikus zárolás"
 
@@ -120,7 +118,7 @@ msgstr "Automatikus zárolás"
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr ""
+msgstr "Fordított egérgombok"
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
@@ -145,6 +143,8 @@ msgstr "Legyen-e zárolva a cella forgatás után."
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
 msgstr ""
+"A bal kattintás az óramutató járása szerinti, a jobb kattintás az óramutató "
+"járásával ellentétes."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
