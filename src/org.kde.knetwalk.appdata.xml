@@ -20,6 +20,7 @@
   <name xml:lang="fr">KNetWalk</name>
   <name xml:lang="gl">KNetWalk</name>
   <name xml:lang="he">KNetWalk</name>
+  <name xml:lang="hu">KNetWalk</name>
   <name xml:lang="id">KNetWalk</name>
   <name xml:lang="it">KNetWalk</name>
   <name xml:lang="ka">KNetWalk</name>
@@ -52,6 +53,7 @@
   <summary xml:lang="fr">KNetWalk est un jeu pour les administrateurs système</summary>
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="he">KNetWalk הוא משחק למנהלי מערכות</summary>
+  <summary xml:lang="hu">A KNetWalk egy játék rendszergazdáknak</summary>
   <summary xml:lang="id">KNetWalk adalah sebuah permainan untuk administrator sistem</summary>
   <summary xml:lang="it">KNetWalk è un gioco per amministratori di sistema</summary>
   <summary xml:lang="ka">KNetWalk თამაშია სისტემური ადმინისტრატორებისთვის</summary>
@@ -87,6 +89,7 @@
     <p xml:lang="fr">KNetWalk est un jeu de logique à un seul joueur. Construisez un réseau et reliez tous les terminaux au serveur en jouant le moins de coups possible.</p>
     <p xml:lang="gl">KNetWalk é un xogo de lóxica para un xogador. Constrúe unha rede conectando todos os terminais ao servidor no menor número de quendas posíbel.</p>
     <p xml:lang="he">KNetWalk הוא משחק חשיבה לשחקן יחיד. צריך לבנות את הרשת תוף חיבור כל המסופים לשרת עם כמה שפחות פניות.</p>
+    <p xml:lang="hu">A KNetWalk egy egyjátékos logikai játék. Építse ki a hálózatot az összes terminálnak a kiszolgálóhoz csatlakoztatásával, a lehető legkevesebb kör alatt.</p>
     <p xml:lang="id">KNetWalk adalah sebuah permainan logika pemain tunggal. Kontruksi jaringan, mengkoneksikan semua terminal ke server sedikit menikung-nikung.</p>
     <p xml:lang="it">KNetWalk è un gioco di logica per singolo giocatore. Costruisci la rete e connetti tutti i terminali al server in meno turni possibili.</p>
     <p xml:lang="ka">KNetWalk ერთკაციანი ლოგიკური თამაშია. ააგეთ ქსელი, შეუერთეთ ყველა ტერმინალი და სერვერი სვლების მინიმალური რაოდენობით.</p>
@@ -126,6 +129,7 @@
       <caption xml:lang="fr">Partie de KNetWalk en cours</caption>
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="he">משחק ב־KNetWalk</caption>
+      <caption xml:lang="hu">A KNetWalk játék közben</caption>
       <caption xml:lang="id">Memainkan KNetWalk</caption>
       <caption xml:lang="it">Giocare a KNetWalk</caption>
       <caption xml:lang="ka">KNetWalk-ის თამაში</caption>
