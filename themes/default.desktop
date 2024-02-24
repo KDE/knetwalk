@@ -1,5 +1,6 @@
 [KGameTheme]
 Name=Default
+Name[ar]=المبدئيّ
 Name[be]=Прадвызначаны
 Name[br]=Dre ziouer
 Name[bs]=Podrazumijevani
@@ -63,6 +64,7 @@ Name[x-test]=xxDefaultxx
 Name[zh_CN]=默认
 Name[zh_TW]=預設
 Description=KNetWalk Default theme for KDE 4
+Description[ar]=السمة المبدئيّة كيدي ٤ لمسلك الشبكة ك
 Description[bs]=KNetWalk zadana tema za KDE 4
 Description[ca]=Tema predeterminat del KNetWalk per al KDE 4
 Description[ca@valencia]=Tema predeterminat de KNetWalk per a KDE 4
