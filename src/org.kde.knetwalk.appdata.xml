@@ -4,6 +4,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>KNetWalk</name>
+  <name xml:lang="ar">مسلك الشبكة ك</name>
   <name xml:lang="ast">KNetWalk</name>
   <name xml:lang="ca">KNetWalk</name>
   <name xml:lang="ca-valencia">KNetWalk</name>
@@ -40,6 +41,7 @@
   <name xml:lang="zh-CN">KNetWalk</name>
   <name xml:lang="zh-TW">KNetWalk</name>
   <summary>KNetWalk is a game for system administrators</summary>
+  <summary xml:lang="ar">مسلك الشبكة ك هي لعبة لمدراء النظام</summary>
   <summary xml:lang="ca">El KNetWalk és un joc per a administradors de sistemes</summary>
   <summary xml:lang="ca-valencia">KNetWalk és un joc per a administradors de sistemes</summary>
   <summary xml:lang="de">KNetWalk, ein Spiel für Systemadministratoren</summary>
@@ -76,6 +78,7 @@
     <p>
       KNetWalk is a single player logic game. Construct the network, connecting all the terminals to the server in the fewest turns possible.
     </p>
+    <p xml:lang="ar">مسلك الشبكة ك  هي لعبة منطقية للاعب واحد. قم ببناء الشبكة، وربط جميع الأجهزة الطرفية بالخادم في أقل عدد ممكن من المنعطفات.</p>
     <p xml:lang="ca">El KNetWalk és un joc de lògica per a un únic jugador. Construeix la xarxa, connectant tots els terminals amb el servidor, fent els mínims girs possibles.</p>
     <p xml:lang="ca-valencia">KNetWalk és un joc de lògica per a un únic jugador. Construïx la xarxa, connectant tots els terminals amb el servidor, fent els mínims girs possibles.</p>
     <p xml:lang="de">KNetWalk ist ein Logikspiel für einen Spieler. Ziel des Spiels ist es, mit möglichst wenig Zügen alle Terminals mit dem Server zu verbinden und damit das Netzwerk fertig aufzubauen.</p>
@@ -116,6 +119,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>Playing KNetWalk</caption>
+      <caption xml:lang="ar">يلعب مسلك الشبكة ك</caption>
       <caption xml:lang="ca">Jugant al KNetWalk</caption>
       <caption xml:lang="ca-valencia">Jugant a KNetWalk</caption>
       <caption xml:lang="de">KNetWalk spielen</caption>
