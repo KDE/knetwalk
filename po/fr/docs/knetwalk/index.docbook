@@ -1,9 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY kappname "&knetwalk;">
-<!ENTITY package "kdegames">
-<!ENTITY % French "INCLUDE"
-> 
+<!ENTITY % French "INCLUDE">
 <!ENTITY % addindex "IGNORE">
 ]>
 
@@ -46,14 +43,14 @@
 <holder
 >Fela Winkelmolen</holder>
 </copyright>
-    
+
 <legalnotice
 >&FDLNotice;</legalnotice>
 
 <date
->13/11/2007</date>
+>26-07-2021</date>
 <releaseinfo
->3.0.0</releaseinfo>
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
 
 <abstract>
 <para
@@ -70,24 +67,55 @@
 <keyword
 >jeu de logique</keyword>
 <keyword
->knetwalk</keyword>
+>KNetwalk</keyword>
 </keywordset>
 </bookinfo>
 
 <chapter id="introduction">
 <title
 >Introduction</title>
+  <note
+><title
+>Type de jeu :</title
+><para
+>Stratégie</para
+></note>
+  <note
+><title
+>Nombre possible de joueurs :</title
+><para
+>Un</para
+></note>
 
-<para
->&knetwalk; est un simple jeu de logique. </para>
+  <para
+>&knetwalk; est un simple jeu de logique.</para>
 
-<para
->Le but du jeu est de démarrer une LAN, en connectant tous les terminaux au serveur, en moins de tours possible. </para>
+  <para
+>Le but du jeu est de démarrer une LAN, en connectant tous les terminaux au serveur, en moins de tours possible.</para>
 </chapter>
 
 <chapter id="how-to-play">
 <title
 >Comment jouer</title>
+
+<note
+><title
+>Objectif :</title
+><para
+>Connectez chaque client au serveur, sans laisser de fils déconnectés.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Grille de jeu de &knetwalk;</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
 
 <para
 >Le joueur est représenté avec une zone rectangulaire contenant un serveur, tous les terminaux, et des liaisons. Le but du jeu est de pivoter ces éléments jusqu'à que chaque client soit connecté avec le serveur, et qu'aucune liaison ne soit déconnecté. Éventuellement, vous pouvez essayer d'atteindre un score le plus haut en minimisant le nombre de rotations possibles. </para>
@@ -111,9 +139,9 @@
 ></listitem>
 <listitem
 ><para
->Quand le niveau de difficulté <guilabel
+>Lors d'une partie avec un niveau de difficulté <guilabel
 >Très difficile</guilabel
-> est sélectionné, les connexions peuvent être effectuées de chaque coté du plateau de jeu pour rejoindre les autres cotés de bas en haut et de gauche à droite.</para
+>, les connexions peuvent être repliées de chaque coté du plateau de jeu pour rejoindre les autres cotés de bas en haut et de gauche à droite.</para
 ></listitem>
 <listitem
 ><para
@@ -121,7 +149,7 @@
 ></listitem>
 <listitem
 ><para
->Le score représente le nombre de clics qu'il faut réaliser pour compléter la partie. Plus le nombre est bas, plus le score est élevé.</para
+>Le score représente le nombre de clics qu'il faut au moins réaliser pour terminer la partie. Plus ce nombre est bas, plus le score est élevé.</para
 ></listitem>
 </itemizedlist>
 </sect1>
@@ -167,11 +195,9 @@
 <title
 >Vue d'ensemble de l'interface</title>
 
-<sect1 id="game-menu">
+<sect1 id="menu">
 <title
->Le menu <guimenu
->jeu</guimenu
-></title>
+>Éléments de menu</title>
 
 <variablelist>
 <varlistentry>
@@ -192,6 +218,25 @@
 <listitem>
 <para
 >Démarre une nouvelle partie. Cela crée un plateau aléatoire utilisant la difficulté du niveau actuel. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Mettre en pause</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Met en pause la durée de la partie. Cliquez sur l'élément de menu à nouveau, afin de reprendre la partie. Veuillez noter que le plateau disparaît lorsque la partie est en pause, car il serait injuste si vous pouviez rechercher un bon déplacement sans avoir de contrainte de temps. </para>
 </listitem>
 </varlistentry>
 
@@ -236,34 +281,19 @@
 >Quitte le programme. </para>
 </listitem>
 </varlistentry>
-</variablelist>
-
-</sect1>
-
-
-
-
-<sect1 id="settings-menu">
-<title
->Le menu <guimenu
->Configuration</guimenu
-></title>
-
-<variablelist>
-
 
 <varlistentry>
 <term
 ><menuchoice
 ><guimenu
->Configuration</guimenu
+>Se déplacer</guimenu
 > <guimenuitem
->Afficher la barre d'outils</guimenuitem
+>Résoudre</guimenuitem
 > </menuchoice
 ></term>
 <listitem>
 <para
->Affiche ou cache la barre d'outils. </para>
+>Utilisez-le pour abandonner une partie. Il vous montre la solution mais l'enregistrement ne sera pas considéré comme un score élevé.</para>
 </listitem>
 </varlistentry>
 
@@ -271,35 +301,24 @@
 <term
 ><menuchoice
 ><guimenu
->Configuration</guimenu
+>Se déplacer</guimenu
 > <guimenuitem
->Afficher la barre d'état</guimenuitem
+>Tout déverrouiller</guimenuitem
 > </menuchoice
 ></term>
 <listitem>
 <para
->Affiche ou cache la barre d'état. </para>
+>Déverrouillez toutes les cellules précédemment verrouillées par le joueur à l'aide de &Space; ou automatiquement après avoir sélectionné l'option <guilabel
+>Verrouillage automatique</guilabel
+> dans la <link linkend="config_general"
+>page <guilabel
+>Général</guilabel
+></link
+> de la boîte de dialogue <guilabel
+>Configurer - &knetwalk;</guilabel
+>. </para>
 </listitem>
 </varlistentry>
-
-<!--
-<varlistentry>
-<term
-><menuchoice>
-<guimenu
->Settings</guimenu>
-<guimenuitem
->Themes</guimenuitem>
-</menuchoice
-></term>
-<listitem
-><para>
-<action
->Choose a graphical theme for the game. Which themes are available depends on the current installation.</action>
-</para
-></listitem>
-</varlistentry>
--->
 
 <varlistentry>
 <term
@@ -314,7 +333,7 @@
 <para
 >Configure le niveau de difficulté depuis un sous-menu.</para>
 <para
->Il y a quatre niveaux de difficulté :  <itemizedlist>
+>Il y a cinq niveaux de difficulté : <itemizedlist>
 <listitem
 ><para
 ><guimenuitem
@@ -339,6 +358,16 @@
 >Très difficile</guimenuitem
 > : 7 lignes, 7 colonnes, avec plateau torique.</para
 ></listitem>
+<listitem
+><para
+><guimenuitem
+>Personnalisé</guimenuitem
+> : les paramètres que vous avez configurés dans la <link linkend="config_custom_game"
+> boîte de dialogue <guilabel
+>Configurer - &knetwalk;</guilabel
+></link
+> seront utilisés.</para
+></listitem>
 </itemizedlist>
 </para
 ></listitem>
@@ -350,56 +379,124 @@
 ><guimenu
 >Configuration</guimenu
 > <guimenuitem
->Configurer les raccourcis clavier...</guimenuitem
+>Configurer &knetwalk;...</guimenuitem
 > </menuchoice
 ></term>
 <listitem
-><para>
-<action
->Ouvre une boîte de dialogue vous permettant de redéfinir tous les raccourcis clavier.</action>
-</para
+><para
+><action
+>Ouvrez la boîte de dialogue <guilabel
+>Configurer - &knetwalk;</guilabel
+>.</action
+> Veuillez consulter la section <link linkend="configuration"
+>Configuration du jeu</link
+> pour plus d'informations. </para
 ></listitem>
 </varlistentry>
+</variablelist>
 
-<varlistentry>
-<term
-><menuchoice
+<para
+>En outre, &knetwalk; possède les éléments communs de menu de &kde; <guimenu
+>Configuration</guimenu
+> et <guimenu
+>Aide</guimenu
+>. Pour plus d'informations, veuillez consulter les sections sur le <ulink url="help:/fundamentals/menus.html#menus-settings"
+>menu « Configuration »</ulink
+> et le <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu « Aide »</ulink
+> des principes fondamentaux de &kde;. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Configuration du jeu</title>
+   <para
+>Pour ouvrir la boîte de dialogue <guilabel
+>Configurer - &knetwalk;</guilabel
+>, veuillez sélectionner l'élément de menu <menuchoice
 ><guimenu
 >Configuration</guimenu
 > <guimenuitem
->Configurer la barre d'outils...</guimenuitem
-> </menuchoice
-></term>
-<listitem
-><para
->Affiche une boîte de dialogue standard &kde; où vous pouvez configurer les icônes de la barre d'outils.</para
-></listitem>
-</varlistentry>
-
-<varlistentry>
-<term
-><menuchoice
-><guimenu
->Configuration</guimenu
-><guimenuitem
->Configurer les notifications...</guimenuitem
+>Configurer &knetwalk;...</guimenuitem
 ></menuchoice
-></term>
-<listitem
-><para
->Cet élément affiche une boîte de dialogue de configuration des notifications standard &kde;, où vous pouvez modifier les notifications (sons, messages visibles, &etc;) utilisées par &knetwalk;.</para
-></listitem>
-</varlistentry>
-
-</variablelist>
+>. </para>
+   <sect2 id="config_general">
+     <title
+>Général</title>
+     <para
+>En utilisant cette page, vous pouvez modifier les paramètres de jeu suivants. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Jouer les sons </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si cette option est sélectionnée, les sons du jeu pour &knetwalk; sont joués. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Verrouiller automatiquement </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si cette option est sélectionnée, &knetwalk; verrouillera automatiquement la cellule après la rotation. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Boutons de souris inversés </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Si cette option est sélectionnée, &knetwalk; utilise le clic gauche pour la rotation dans le sens horaire et le clic droit pour la rotation dans le sens antihoraire. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Durée de rotation : </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Vous pouvez déterminer ici, le temps nécessaire pour animer une unique rotation de cellule. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Thème</title>
+     <para
+>Pour sélectionner le thème que vous souhaitez jouer, veuillez aller à la section <guilabel
+>Thème</guilabel
+>. Le thème est chargé en cliquant sur le bouton <guibutton
+>OK</guibutton
+> ou le bouton <guibutton
+>Appliquer</guibutton
+>. La partie en cours sera terminée et une nouvelle commencera. Vous pouvez cliquer sur le bouton <guibutton
+>Par défaut</guibutton
+> pour restaurer le thème par défaut. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Partie personnalisée</title>
+     <para
+>Cette page peut être utilisée pour configurer des paramètres personnalisés de jeu. Vous pouvez sélectionner <guilabel
+>Largeur :</guilabel
+> et <guilabel
+>Hauteur :</guilabel
+> du plateau et vérifier le <guilabel
+>retour à la ligne</guilabel
+> si la plateau doit être replié de gauche à droite et de haut en bas. </para>
+   </sect2>
 </sect1>
 
-<sect1 id="help">
-<title
->Le menu <guimenu
->Aide</guimenu
-></title>
-&help.menu.documentation; </sect1>
 
 <sect1 id="keybindings">
 <title id="keybindings-title"
@@ -421,6 +518,14 @@
 >&Ctrl;<keycap
 >N</keycap
 ></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Mettre en pause</entry>
+<entry>
+<keycap
+>P</keycap>
 </entry>
 </row>
 <row>
@@ -453,13 +558,57 @@
 </row>
 <row>
 <entry
->Qu'est ce que c'est ?</entry>
+>Qu'est ce que c'est ? Aide</entry>
 <entry>
 <keycombo action="simul"
 >&Maj;<keycap
 >F1</keycap
 ></keycombo>
 </entry>
+</row>
+<row>
+<entry
+>Déplacer à gauche</entry>
+<entry
+>Flèche vers la &Left; </entry>
+</row>
+<row>
+<entry
+>Déplacer à droite</entry>
+<entry
+>flèche vers la &Right; </entry>
+</row>
+<row>
+<entry
+>Déplacer vers le haut</entry>
+<entry
+>Flèche vers le &Up; </entry>
+</row>
+<row>
+<entry
+>Déplacer vers le bas</entry>
+<entry
+>Flèche vers le &Down; </entry>
+</row>
+<row>
+<entry
+>Tourner dans le sens des aiguilles d’une montre</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Tourner dans le sens inverse des aiguilles d'une montre</entry>
+<entry>
+<keycombo
+>&Ctrl; &Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Activer / Désactiver le verrouillage</entry>
+<entry
+>&Space; </entry>
 </row>
 </tbody>
 </tgroup>
@@ -486,26 +635,9 @@
 
 <para
 >Traduction française par &StanislasZeller;. Relecture par &LudovicGrossard;</para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
-<appendix id="installation">
-<title
->Installation</title>
-
-<sect1 id="getting-knetwalk">
-<title
->Comment obtenir &knetwalk;</title>
-&install.intro.documentation; </sect1>
-
-<sect1 id="compilation">
-<title
->Compilation et installation</title>
-&install.compile.documentation; </sect1>
-</appendix>
-
-
-&documentation.index; 
+&documentation.index;
 </book>
 <!--
 Local Variables:
