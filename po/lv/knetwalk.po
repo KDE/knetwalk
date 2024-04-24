@@ -5,67 +5,68 @@
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Viesturs Zariņš <viesturs.zarins@mii.lu.lv>, 2009.
 # Einars Sprugis <einars8@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2012-06-29 22:30+0300\n"
-"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-04-21 15:32+0300\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 23.08.5\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Viesturs Zariņš"
+msgstr "Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "viesturs.zarins@mii.lu.lv"
+msgstr "viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
 #, kde-format
 msgid "Width of the grid"
-msgstr ""
+msgstr "Režģa platums"
 
 #. i18n: ectx: property (text), widget (QLabel, width)
 #: customgame.ui:33
 #, kde-format
 msgid "Width:"
-msgstr ""
+msgstr "Platums:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr ""
+msgstr "Aplauzt no kreisās uz labo un no augšas uz apakšu"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
 #, kde-format
 msgid "Wrapping"
-msgstr ""
+msgstr "Aplaušana"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, height)
 #: customgame.ui:66
 #, kde-format
 msgid "Height of the grid"
-msgstr ""
+msgstr "Režģa augstums"
 
 #. i18n: ectx: property (text), widget (QLabel, height)
 #: customgame.ui:69
 #, kde-format
 msgid "Height:"
-msgstr ""
+msgstr "Augstums:"
 
 #: gameview.cpp:162
 #, kde-format
@@ -74,7 +75,7 @@ msgid ""
 "need to be connected to the server!"
 msgstr ""
 "Piezīme: lai uzvarētu, pie servera ir jāpieslēdz visi termināli <strong>un "
-"visi <em>vadi</em></strong>!"
+"visi <em>kabeļi</em></strong>!"
 
 #: gameview.cpp:165
 #, kde-format
@@ -85,91 +86,94 @@ msgstr "Spēle vēl nav galā!"
 #: general.ui:17
 #, kde-format
 msgid "Duration for cell to complete one rotation in milliseconds"
-msgstr ""
+msgstr "Šūnas ilgums milisekundēs, lai pabeigtu vienu rotāciju"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
 #, kde-format
 msgid "Rotate duration:"
-msgstr ""
+msgstr "Rotācijas ilgums:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:40
 #, kde-format
 msgid "Play sounds on actions"
-msgstr ""
+msgstr "Atskaņot darbību skaņas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
 #, kde-format
 msgid "Play sounds"
-msgstr ""
+msgstr "Atskaņot skaņas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:60
 #, kde-format
 msgid "Automatically lock cell after rotation"
-msgstr ""
+msgstr "Automātiski slēgt šūnu pēc rotācijas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
 #, kde-format
 msgid "Auto lock"
-msgstr ""
+msgstr "Automātiska slēgšana"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr ""
+msgstr "Samainīt vietām peles pogas"
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
 #, kde-format
 msgid "Default user name"
-msgstr "Noklusētā lietotāja vārds"
+msgstr "Noklusētā lietotājvārds"
 
 #. i18n: ectx: label, entry (PlaySounds), group (General)
 #: knetwalk.kcfg:14
 #, kde-format
 msgid "Whether game sounds are played."
-msgstr ""
+msgstr "Vai tiks atskaņotas spēles skaņas."
 
 #. i18n: ectx: label, entry (Autolock), group (General)
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr ""
+msgstr "Vai slēgt šūnu pēc rotācijas."
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
 msgstr ""
+"Izmantojiet peles kreiso pogu, lai rotētu pulksteņrādītāja virzienā, un labo "
+"pogu, lai rotētu pretēji pulksteņrādītāja virzienam."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
 #, kde-format
 msgid "Duration for cell to complete one rotation."
-msgstr ""
+msgstr "Šūnas ilgums, lai pabeigtu vienu rotāciju."
 
 #. i18n: ectx: label, entry (Width), group (Custom)
 #: knetwalk.kcfg:34
 #, kde-format
 msgid "The width of the board."
-msgstr ""
+msgstr "Spēles laukuma platums."
 
 #. i18n: ectx: label, entry (Height), group (Custom)
 #: knetwalk.kcfg:40
 #, kde-format
 msgid "The height of the board."
-msgstr ""
+msgstr "Spēles laukuma augstums."
 
 #. i18n: ectx: label, entry (Wrapping), group (Custom)
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
 msgstr ""
+"Vai ir ieslēgta aplaušana no kreisās uz labo pusi un no augšas uz apakšu."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -185,20 +189,18 @@ msgstr "KNetWalk"
 #: main.cpp:26
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
-msgstr "KNetWalk, sistēmas administratoru spēle."
+msgstr "„KNetWalk“ — sistēmas administratoru spēle."
 
 #: main.cpp:27
-#, fuzzy, kde-format
-#| msgid ""
-#| "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-#| "(C) 2007-2008 Fela Winkelmolen"
+#, kde-format
 msgid ""
 "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"(C) 2004-2005 Andi Peredri, portēja uz KDE Thomas Nagy\n"
-"(C) 2007-2008 Fela Winkelmolen"
+"(C) 2004—2005 Andi Peredri, uz KDE portēja Thomas Nagy\n"
+"(C) 2007—2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
 
 #: main.cpp:32
 #, kde-format
@@ -208,7 +210,7 @@ msgstr "Andi Peredri"
 #: main.cpp:33
 #, kde-format
 msgid "original author"
-msgstr "oriģināla autors"
+msgstr "sākotnējais autors"
 
 #: main.cpp:36
 #, kde-format
@@ -218,17 +220,17 @@ msgstr "Thomas Nagy"
 #: main.cpp:37
 #, kde-format
 msgid "KDE port"
-msgstr "pielāgošana KDE"
+msgstr "KDE ports"
 
 #: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
-msgstr ""
+msgstr "Ashwin Rajeev"
 
 #: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
-msgstr ""
+msgstr "„QtQuick“ ports"
 
 #: main.cpp:44
 #, kde-format
@@ -248,17 +250,17 @@ msgstr "Brian Croom"
 #: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
-msgstr "Pielāgojis QGraphicsView karkasam"
+msgstr "Portēja, lai izmantotu „QGraphicsView“ satvaru"
 
 #: mainwindow.cpp:84
 #, kde-format
 msgid "Custom"
-msgstr ""
+msgstr "Pielāgota"
 
 #: mainwindow.cpp:130
 #, kde-format
 msgid "&Unlock All"
-msgstr ""
+msgstr "&Atslēgt visu"
 
 #: mainwindow.cpp:135
 #, kde-format
@@ -273,42 +275,42 @@ msgstr "Tastatūra: pa kreisi"
 #: mainwindow.cpp:145
 #, kde-format
 msgid "Keyboard: Field up"
-msgstr "Tastatūra: uz augšu"
+msgstr "Tastatūra: augšup"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgid "Keyboard: Field down"
-msgstr "Tastatūra: uz leju"
+msgstr "Tastatūra: lejup"
 
 #: mainwindow.cpp:155
 #, kde-format
 msgid "Keyboard: Turn clockwise"
-msgstr "Tastatūra: griezt pulksteņa virzienā"
+msgstr "Tastatūra: pagriezt pulksteņrādītāja virzienā"
 
 #: mainwindow.cpp:160
 #, kde-format
 msgid "Keyboard: Turn counterclockwise"
-msgstr "Tastatūra: griezt pretīm pulkstenim"
+msgstr "Tastatūra: pagriezt pretēji pulksteņrādītāja virzienam"
 
 #: mainwindow.cpp:165
 #, kde-format
 msgid "Keyboard: Toggle lock"
-msgstr "Tastatūra: pārslēgt saslēgšanu"
+msgstr "Tastatūra: ieslēgt/izslēgt slēgšanu"
 
 #: mainwindow.cpp:176
 #, kde-format
 msgid "General"
-msgstr ""
+msgstr "Pamata"
 
 #: mainwindow.cpp:177
 #, kde-format
 msgid "Theme"
-msgstr "Tēma"
+msgstr "Motīvs"
 
 #: mainwindow.cpp:178
 #, kde-format
 msgid "Custom Game"
-msgstr ""
+msgstr "Pielāgota spēle"
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -319,9 +321,9 @@ msgstr "Gājienu sods"
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] "Tavs rezultāts ir %1, neizdevās iekļūt labāko rezultātu tabulā"
-msgstr[1] "Tavs rezultāts ir %1, neizdevās iekļūt labāko rezultātu tabulā"
-msgstr[2] "Tavs rezultāts ir %1, neizdevās iekļūt labāko rezultātu tabulā"
+msgstr[0] "Tavs rezultāts ir %1. Tev neizdevās iekļūt labāko rezultātu tabulā."
+msgstr[1] "Tavs rezultāts ir %1. Tev neizdevās iekļūt labāko rezultātu tabulā."
+msgstr[2] "Tavs rezultāts ir %1. Tev neizdevās iekļūt labāko rezultātu tabulā."
 
 #: mainwindow.cpp:273
 #, kde-format
@@ -338,7 +340,7 @@ msgstr "Laiks: %1"
 #: qml/main.qml:66
 #, kde-format
 msgid "Paused"
-msgstr ""
+msgstr "Pauzēts"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "Fela Winkelmolen"
