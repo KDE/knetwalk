@@ -215,7 +215,7 @@ Quits the program.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure &knetwalk;...</guimenuitem>
+<guimenuitem>Configure &knetwalk;…</guimenuitem>
 </menuchoice></term>
 <listitem><para>
   <action>Open <guilabel>Configure - &knetwalk;</guilabel> dialog.</action> Please see <link linkend="configuration">Game Configuration</link> for more information.
@@ -236,7 +236,7 @@ of the &kde; Fundamentals.
    <title>Game Configuration</title>
    <para>
      To open the <guilabel>Configure - &knetwalk;</guilabel> dialog, select the <menuchoice><guimenu>Settings</guimenu>
-     <guimenuitem>Configure &knetwalk;...</guimenuitem></menuchoice> menu item.
+     <guimenuitem>Configure &knetwalk;…</guimenuitem></menuchoice> menu item.
    </para>
    <sect2 id="config_general">
      <title>General</title>
