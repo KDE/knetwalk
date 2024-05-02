@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
         KGameDifficultyLevel::Easy, KGameDifficultyLevel::VeryHard
     );
     KGameDifficulty::global()->addLevel(
-                new KGameDifficultyLevel(100, QByteArray("Custom"), i18n("Custom"))
+                new KGameDifficultyLevel(100, QByteArray("Custom"), i18nc("@item difficulty", "Custom"))
     );
     KGameDifficultyGUI::init(this);
     connect(KGameDifficulty::global(), &KGameDifficulty::currentLevelChanged, this, &MainWindow::startNewGame);
@@ -127,42 +127,42 @@ void MainWindow::setupActions()
     // Settings
     KStandardAction::preferences(this, &MainWindow::configureSettings, actionCollection());
 
-    action = new QAction(i18n("&Unlock All"), this);
+    action = new QAction(i18nc("@action", "&Unlock All"), this);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(unlockAll()));
     connect(KGameDifficulty::global(), &KGameDifficulty::gameRunningChanged, action, &QAction::setEnabled);
     actionCollection()->addAction( QStringLiteral( "unlock_all" ), action);
 
-    action = new QAction(i18n("Keyboard: Field right"), this);
+    action = new QAction(i18nc("@action", "Move Right"), this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Right);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoRight()));
     actionCollection()->addAction( QStringLiteral( "kb_go_right" ), action);
 
-    action = new QAction(i18n("Keyboard: Field left"),this);
+    action = new QAction(i18nc("@action", "Move Left"),this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Left);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoLeft()));
     actionCollection()->addAction( QStringLiteral( "kb_go_left" ), action);
 
-    action = new QAction(i18n("Keyboard: Field up"),this);
+    action = new QAction(i18nc("@action", "Move Up"),this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Up);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoUp()));
     actionCollection()->addAction( QStringLiteral( "kb_go_up" ), action);
 
-    action = new QAction(i18n("Keyboard: Field down"),this);
+    action = new QAction(i18nc("@action", "Move Down"),this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Down);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(kbGoDown()));
     actionCollection()->addAction( QStringLiteral( "kb_go_down" ), action);
 
-    action = new QAction(i18n("Keyboard: Turn clockwise"),this);
+    action = new QAction(i18nc("@action", "Turn Clockwise"),this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateClockwise()));
     actionCollection()->addAction( QStringLiteral( "kb_turn_clockwise" ), action);
 
-    action = new QAction(i18n("Keyboard: Turn counterclockwise"),this);
+    action = new QAction(i18nc("@action", "Turn Counterclockwise"),this);
     KActionCollection::setDefaultShortcut(action, Qt::CTRL | Qt::Key_Return);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(rotateCounterclockwise()));
     actionCollection()->addAction( QStringLiteral( "kb_turn_counterclockwise" ), action);
 
-    action = new QAction(i18n("Keyboard: Toggle lock"),this);
+    action = new QAction(i18nc("@action", "Toggle Lock"),this);
     KActionCollection::setDefaultShortcut(action, Qt::Key_Space);
     connect(action, SIGNAL(triggered()), m_view->rootObject(), SLOT(toggleLock()));
     actionCollection()->addAction( QStringLiteral( "kb_lock" ), action);
@@ -173,9 +173,9 @@ void MainWindow::configureSettings()
     if (KConfigDialog::showDialog(QStringLiteral("settings")))
         return;
     KConfigDialog *dialog = new KConfigDialog(this, QStringLiteral("settings"), Settings::self());
-    dialog->addPage(new GeneralConfig(dialog), i18n("General"), QStringLiteral("games-config-options"));
-    dialog->addPage(new KGameThemeSelector(m_view->getProvider()), i18n("Theme"), QStringLiteral("games-config-theme"));
-    dialog->addPage(new CustomGameConfig(dialog), i18n("Custom Game"), QStringLiteral("games-config-custom"));
+    dialog->addPage(new GeneralConfig(dialog), i18nc("@title:tab", "General"), QStringLiteral("games-config-options"));
+    dialog->addPage(new KGameThemeSelector(m_view->getProvider()), i18nc("@title:tab", "Theme"), QStringLiteral("games-config-theme"));
+    dialog->addPage(new CustomGameConfig(dialog), i18nc("@title:tab", "Custom Game"), QStringLiteral("games-config-custom"));
     connect(dialog, &KConfigDialog::settingsChanged, m_view, &GameView::updateSettings);
 //    dialog->setHelp(QString(),QLatin1String("knetwalk"));
     dialog->show();
