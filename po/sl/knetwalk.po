@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2021-08-02 11:27+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -252,62 +252,85 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Predelava za uporabo ogrodja QGraphicsView"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Po meri"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Odkleni vse"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Tipkovnica: polje levo"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Tipkovnica: polje desno"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Kazenske poteze"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Tipkovnica: polje navzgor"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Premikov: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Tipkovnica: polje navzdol"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Tipkovnica: obrni v smeri urinega kazalca"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Tipkovnica: obrni v obratni smeri urinega kazalca"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Tipkovnica: preklopi zaklep"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Splošno"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Igra po meri"
 
@@ -349,6 +372,18 @@ msgstr "Čas: %1"
 #, kde-format
 msgid "Paused"
 msgstr "V premoru"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Tipkovnica: polje levo"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Tipkovnica: polje desno"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Tipkovnica: polje navzgor"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Tipkovnica: polje navzdol"
 
 #~ msgid " ms"
 #~ msgstr " ms"

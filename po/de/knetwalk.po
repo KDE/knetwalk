@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2021-08-25 16:01+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -254,62 +254,84 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Portierung auf das QGraphicsView-Framework"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Benutzerdefiniert"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Alle entsperren"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Tastatur: Feld rechts"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Tastatur: Feld links"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Strafpunkte"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Tastatur: Feld hoch"
+#, fuzzy, kde-format
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Züge: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Tastatur: Feld runter"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Tastatur: Im Uhrzeigersinn drehen"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Tastatur: Gegen Uhrzeigersinn drehen"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Tastatur: Sperre ein-/ausschalten"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Allgemein"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Design"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Benutzerdefiniertes Spiel"
 
@@ -341,6 +363,18 @@ msgstr "Zeit: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Angehalten"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Tastatur: Feld rechts"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Tastatur: Feld links"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Tastatur: Feld hoch"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Tastatur: Feld runter"
 
 #~ msgid " ms"
 #~ msgstr " ms"
@@ -396,6 +430,3 @@ msgstr "Angehalten"
 #~ msgstr ""
 #~ "Das Design „%1“ lässt sich nicht laden. Bitte überprüfen Sie die "
 #~ "Installation."
-
-#~ msgid "Moves: %1"
-#~ msgstr "Züge: %1"

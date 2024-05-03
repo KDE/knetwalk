@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2022-08-23 13:47+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -252,62 +252,85 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "QGraphicsView azpiegitura erabiltzeko eratorpena"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Norberak finkatua"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "Denak &giltzapetik askatu"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Teklatua: Eskuineko eremua"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Teklatua: Ezkerreko eremua"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Mugimenduengatiko zigorra"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Teklatua: Goiko eremua"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Mugimenduak: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Teklatua: Beheko eremua"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Teklatua: biratu erloju-orratzen noranzkoan"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Teklatua: biratu erloju-orratzen aurkako noranzkoan"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Teklatua: txandakatu giltzatzea"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Orokorra"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Gaia"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Norberak finkatutako jokoa"
 
@@ -341,6 +364,18 @@ msgstr "Denbora: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Etenda"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Teklatua: Eskuineko eremua"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Teklatua: Ezkerreko eremua"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Teklatua: Goiko eremua"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Teklatua: Beheko eremua"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "Fela Winkelmolen"

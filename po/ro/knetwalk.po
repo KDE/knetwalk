@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2013-11-23 20:52+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -250,62 +250,85 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Modificări pentru a folosi platforma QGraphicsView"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personalizat"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Deblochează tot"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Tastatură: Câmp la dreapta"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Tastatură: Câmp la stânga"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Penalitate mutări"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Tastatură: Câmp sus"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Mutări: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Tastatură: Câmp jos"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Tastatură: Întoarce la dreapta"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Tastatură: Întoarce la stânga"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Tastatură: Comută blocarea"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tematică"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Joc personalizat"
 
@@ -338,6 +361,18 @@ msgstr "Timp: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Întrerupt"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Tastatură: Câmp la dreapta"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Tastatură: Câmp la stânga"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Tastatură: Câmp sus"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Tastatură: Câmp jos"
 
 #~ msgid " ms"
 #~ msgstr " ms"

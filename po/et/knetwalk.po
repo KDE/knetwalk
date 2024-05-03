@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2014-06-10 18:28+0300\n"
 "Last-Translator: Marek Laane <bald@smail.ee>\n"
 "Language-Team: Estonian <kde-et@linux.ee>\n"
@@ -248,62 +248,85 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Portimine QGraphicsView raamistiku peale"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Kohandatud"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Eemalda kõigi lukustus"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Klaviatuur: väli paremale"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Klaviatuur: väli vasakule"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Käigu karistus"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Klaviatuur: väli üles"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Käike: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Klaviatuur: väli alla"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Klaviatuur: pööramine päripäeva"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Klaviatuur: pööramine vastupäeva"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Klaviatuur: luku lülitamine"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Üldine"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Teema"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Kohandatud mäng"
 
@@ -335,6 +358,18 @@ msgstr "Aeg: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Paus"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Klaviatuur: väli paremale"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Klaviatuur: väli vasakule"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Klaviatuur: väli üles"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Klaviatuur: väli alla"
 
 #~ msgid " ms"
 #~ msgstr " ms"

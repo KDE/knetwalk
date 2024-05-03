@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2024-02-23 22:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -250,62 +250,83 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "نقل إلى إطار العمل QGraphicsView"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "مخصّص"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "فك ال&كل"
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "لوحة المفاتيح: يمين الحقل"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "لوحة المفاتيح: يسار الحقل"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "عقوبة التحريكات"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "لوحة المفاتيح: أعلى الحقل"
+#, fuzzy, kde-format
+msgctxt "@action"
+msgid "Move Up"
+msgstr "الحركات 1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "لوحة المفاتيح: أسفل الحقل"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "لوحة المفاتيح: دور باتجاه عقارب الساعة"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "لوحة المفاتيح: دور عكس عقارب الساعة"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "لوحة المفاتيح: غير حالة القفل"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "عامّ"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "السمة"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "لعبة مخصصة"
 
@@ -341,6 +362,18 @@ msgstr "الوقت: %1"
 #, kde-format
 msgid "Paused"
 msgstr "مُلبثة"
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "لوحة المفاتيح: يمين الحقل"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "لوحة المفاتيح: يسار الحقل"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "لوحة المفاتيح: أعلى الحقل"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "لوحة المفاتيح: أسفل الحقل"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "Fela Winkelmolen"
@@ -390,10 +423,6 @@ msgstr "مُلبثة"
 
 #~ msgid "Failed to load \"%1\" theme. Please check your installation."
 #~ msgstr "فشل فى تحميل سمة  \"%1\" ، من فضلك أفحص تثبيتك."
-
-#, fuzzy
-#~ msgid "Moves: %1"
-#~ msgstr "الحركات 1"
 
 #~ msgid "Start in novice mode"
 #~ msgstr "ابدأ في النمط المبتدئ"

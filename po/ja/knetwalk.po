@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2008-05-02 23:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -252,61 +252,80 @@ msgstr ""
 
 #: mainwindow.cpp:84
 #, kde-format
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr ""
 
 #: mainwindow.cpp:130
 #, kde-format
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "キーボード: 右のフィールド"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "キーボード: 左のフィールド"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "移動回数"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "キーボード: 上のフィールド"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "クリック回数: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "キーボード: 下のフィールド"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "キーボード: 時計回りに回転"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "キーボード: 反時計回りに回転"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Keyboard: ロックのオン/オフを切り替え"
 
 #: mainwindow.cpp:176
 #, kde-format
+msgctxt "@title:tab"
 msgid "General"
 msgstr ""
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "テーマ"
 
 #: mainwindow.cpp:178
 #, kde-format
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr ""
 
@@ -337,3 +356,15 @@ msgstr "タイム: %1"
 #, kde-format
 msgid "Paused"
 msgstr ""
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "キーボード: 右のフィールド"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "キーボード: 左のフィールド"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "キーボード: 上のフィールド"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "キーボード: 下のフィールド"

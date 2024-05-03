@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2021-07-28 14:57+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
@@ -262,69 +262,88 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Portage pour l'utilisation de l'infrastructure « QGraphicsView »"
 
 #: mainwindow.cpp:84
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom"
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personnalisé"
 
 #: mainwindow.cpp:130
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Unlock All"
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr "To&ut débloquer"
 
-# unreviewed-context
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "Clavier : répondre à droite"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
-# unreviewed-context
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "Clavier : répondre à gauche"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "Pénalité de mouvement"
 
-# unreviewed-context
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "Clavier : répondre en haut"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "Déplacements : %1"
 
-# unreviewed-context
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "Clavier : répondre en bas"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 # unreviewed-context
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "Clavier : tourner dans le sens horaire"
 
 # unreviewed-context
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "Clavier : tourner dans le sens anti horaire"
 
 # unreviewed-context
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "Clavier : activer / déactiver le verrouillage"
 
 #: mainwindow.cpp:176
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:tab"
 msgid "General"
 msgstr "Général"
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Thème"
 
 #: mainwindow.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Custom Game"
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Jeu personnalisé"
 
@@ -361,6 +380,22 @@ msgstr "Temps : %1"
 #, kde-format
 msgid "Paused"
 msgstr "Pause"
+
+# unreviewed-context
+#~ msgid "Keyboard: Field right"
+#~ msgstr "Clavier : répondre à droite"
+
+# unreviewed-context
+#~ msgid "Keyboard: Field left"
+#~ msgstr "Clavier : répondre à gauche"
+
+# unreviewed-context
+#~ msgid "Keyboard: Field up"
+#~ msgstr "Clavier : répondre en haut"
+
+# unreviewed-context
+#~ msgid "Keyboard: Field down"
+#~ msgstr "Clavier : répondre en bas"
 
 #~ msgid " ms"
 #~ msgstr " ms"

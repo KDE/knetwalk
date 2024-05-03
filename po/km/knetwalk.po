@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2009-10-24 11:08+0700\n"
 "Last-Translator: Morn Met\n"
 "Language-Team: Khmer <kde-i18n-doc@kde.org>\n"
@@ -250,61 +250,80 @@ msgstr "ច្រក​សម្រាប់​ប្រើ​គម្រោង
 
 #: mainwindow.cpp:84
 #, kde-format
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr ""
 
 #: mainwindow.cpp:130
 #, kde-format
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​​​ខាង​ស្ដាំ"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "ក្ដារ​ចុច ៖ ​ដាក់​ទៅ​ខាង​ឆ្វេង"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "ផ្លាស់ទី​ការ​ពិន័យ"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​ខាង​លើ"
+#, fuzzy, kde-format
+#| msgctxt "Number of mouse clicks"
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "ផ្លាស់ទី ៖ %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​ខាង​ក្រោម"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "ក្ដារ​ចុច ៖ ត្រឡប់​ស្រប​ទ្រនិច​នាឡិកា"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "ក្ដារ​ចុច ៖ ត្រឡប់​ច្រាស​ទ្រនិច​នាឡិកា"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "ក្ដារ​ចុច ៖ បិទបើក​សោ"
 
 #: mainwindow.cpp:176
 #, kde-format
+msgctxt "@title:tab"
 msgid "General"
 msgstr ""
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "ស្បែក"
 
 #: mainwindow.cpp:178
 #, kde-format
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr ""
 
@@ -335,6 +354,18 @@ msgstr "ពេលវេលា ៖ %1"
 #, kde-format
 msgid "Paused"
 msgstr ""
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​​​ខាង​ស្ដាំ"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "ក្ដារ​ចុច ៖ ​ដាក់​ទៅ​ខាង​ឆ្វេង"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​ខាង​លើ"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "ក្ដារ​ចុច ៖ ដាក់​ទៅ​ខាង​ក្រោម"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "Fela Winkelmolen"

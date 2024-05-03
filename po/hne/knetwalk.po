@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2009-02-26 10:49+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -248,61 +248,79 @@ msgstr ""
 
 #: mainwindow.cpp:84
 #, kde-format
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr ""
 
 #: mainwindow.cpp:130
 #, kde-format
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
-msgstr "कुंजीपट: जेवनी छेत्र"
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
 
 #: mainwindow.cpp:140
-#, kde-format
-msgid "Keyboard: Field left"
-msgstr "कुंजीपट: डेरी छेत्र"
+#, fuzzy, kde-format
+#| msgid "Moves Penalty"
+msgctxt "@action"
+msgid "Move Left"
+msgstr "चाल पेनाल्टी"
 
 #: mainwindow.cpp:145
-#, kde-format
-msgid "Keyboard: Field up"
-msgstr "कुंजीपट: उपरी छेत्र"
+#, fuzzy, kde-format
+#| msgid "Moves: %1"
+msgctxt "@action"
+msgid "Move Up"
+msgstr "चालें: %1"
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
-msgstr "कुंजीपट: निचला छेत्र"
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
 
 #: mainwindow.cpp:155
-#, kde-format
-msgid "Keyboard: Turn clockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr "कुंजीपट: घड़ी के दिसा मं घुमाव"
 
 #: mainwindow.cpp:160
-#, kde-format
-msgid "Keyboard: Turn counterclockwise"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr "कुंजीपट: घड़ी के विपरीत दिसा मं घुमाव"
 
 #: mainwindow.cpp:165
-#, kde-format
-msgid "Keyboard: Toggle lock"
+#, fuzzy, kde-format
+#| msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr "कुंजीपट: ताला टागल करव"
 
 #: mainwindow.cpp:176
 #, kde-format
+msgctxt "@title:tab"
 msgid "General"
 msgstr ""
 
 #: mainwindow.cpp:177
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Theme"
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr "प्रसंग"
 
 #: mainwindow.cpp:178
 #, kde-format
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr ""
 
@@ -334,6 +352,18 @@ msgstr "समय: %1"
 #, kde-format
 msgid "Paused"
 msgstr ""
+
+#~ msgid "Keyboard: Field right"
+#~ msgstr "कुंजीपट: जेवनी छेत्र"
+
+#~ msgid "Keyboard: Field left"
+#~ msgstr "कुंजीपट: डेरी छेत्र"
+
+#~ msgid "Keyboard: Field up"
+#~ msgstr "कुंजीपट: उपरी छेत्र"
+
+#~ msgid "Keyboard: Field down"
+#~ msgstr "कुंजीपट: निचला छेत्र"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "फेला विन्केल्मलेन"
@@ -367,9 +397,6 @@ msgstr ""
 
 #~ msgid "Failed to load \"%1\" theme. Please check your installation."
 #~ msgstr "प्रसंग \"%1\" चालू कर पाय मं फेल. किरपा करके, अपन इंस्टालेसन जांचव."
-
-#~ msgid "Moves: %1"
-#~ msgstr "चालें: %1"
 
 #~ msgid "Start in novice mode"
 #~ msgstr "नौसिखिया मोड मं चालू करव"

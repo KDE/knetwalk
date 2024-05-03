@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2006-08-21 02:36+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -245,61 +245,73 @@ msgstr ""
 
 #: mainwindow.cpp:84
 #, kde-format
+msgctxt "@item difficulty"
 msgid "Custom"
 msgstr ""
 
 #: mainwindow.cpp:130
 #, kde-format
+msgctxt "@action"
 msgid "&Unlock All"
 msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
-msgid "Keyboard: Field right"
+msgctxt "@action"
+msgid "Move Right"
 msgstr ""
 
 #: mainwindow.cpp:140
 #, kde-format
-msgid "Keyboard: Field left"
+msgctxt "@action"
+msgid "Move Left"
 msgstr ""
 
 #: mainwindow.cpp:145
 #, kde-format
-msgid "Keyboard: Field up"
+msgctxt "@action"
+msgid "Move Up"
 msgstr ""
 
 #: mainwindow.cpp:150
 #, kde-format
-msgid "Keyboard: Field down"
+msgctxt "@action"
+msgid "Move Down"
 msgstr ""
 
 #: mainwindow.cpp:155
 #, kde-format
-msgid "Keyboard: Turn clockwise"
+msgctxt "@action"
+msgid "Turn Clockwise"
 msgstr ""
 
 #: mainwindow.cpp:160
 #, kde-format
-msgid "Keyboard: Turn counterclockwise"
+msgctxt "@action"
+msgid "Turn Counterclockwise"
 msgstr ""
 
 #: mainwindow.cpp:165
 #, kde-format
-msgid "Keyboard: Toggle lock"
+msgctxt "@action"
+msgid "Toggle Lock"
 msgstr ""
 
 #: mainwindow.cpp:176
 #, kde-format
+msgctxt "@title:tab"
 msgid "General"
 msgstr ""
 
 #: mainwindow.cpp:177
 #, kde-format
+msgctxt "@title:tab"
 msgid "Theme"
 msgstr ""
 
 #: mainwindow.cpp:178
 #, kde-format
+msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr ""
 
