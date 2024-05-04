@@ -9,17 +9,17 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-08-02 11:27+0200\n"
+"PO-Revision-Date: 2024-05-03 10:36+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
+"Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -252,84 +252,73 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Predelava za uporabo ogrodja QGraphicsView"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Po meri"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr "&Odkleni vse"
+msgstr "Odkleni vse"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Premakni se na desno"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Kazenske poteze"
+msgstr "Premakni se na levo"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Premikov: %1"
+msgstr "Premakni se gor"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Premakni se dol"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Tipkovnica: obrni v smeri urinega kazalca"
+msgstr "Obrni se v smeri urinega kazalca"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Tipkovnica: obrni v obratni smeri urinega kazalca"
+msgstr "Obrni se v obratni smeri urinega kazalca"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Tipkovnica: preklopi zaklep"
+msgstr "Preklopi zaklep"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Splošno"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Igra po meri"

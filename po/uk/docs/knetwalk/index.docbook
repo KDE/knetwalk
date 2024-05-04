@@ -389,7 +389,7 @@
 ><guimenu
 >Параметри</guimenu
 > <guimenuitem
->Налаштувати &knetwalk;...</guimenuitem
+>Налаштувати &knetwalk;…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -424,7 +424,7 @@
 > <guimenu
 >Параметри</guimenu
 > <guimenuitem
->Налаштувати &knetwalk;...</guimenuitem
+>Налаштувати &knetwalk;…</guimenuitem
 > </menuchoice
 > </para>
    <sect2 id="config_general">

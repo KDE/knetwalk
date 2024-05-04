@@ -252,7 +252,7 @@
 > <guimenu
 >Joc</guimenu
 > <guimenuitem
->Mostra les puntuacions...</guimenuitem
+>Mostra les puntuacions</guimenuitem
 ></menuchoice
 ></term>
 <listitem>
@@ -379,7 +379,7 @@
 ><guimenu
 >Arranjament</guimenu
 > <guimenuitem
->Configura el &knetwalk;...</guimenuitem
+>Configura el &knetwalk;…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -418,7 +418,7 @@
 ><guimenu
 >Arranjament</guimenu
 > <guimenuitem
->Configura el &knetwalk;...</guimenuitem
+>Configura el &knetwalk;…</guimenuitem
 ></menuchoice
 >. </para>
    <sect2 id="config_general">

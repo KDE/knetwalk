@@ -7,13 +7,13 @@
 # Görkem Çetin <gorkem@gorkemcetin.com>, 2005.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013-2014.
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2023-05-08 11:31+0300\n"
+"PO-Revision-Date: 2024-05-04 01:06+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -197,8 +197,8 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"(C) 2004-2005 Andi Peredri, Thomas Nagy tarafından KDE portu\n"
-"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2004–2005 Andi Peredri, Thomas Nagy tarafından KDE geçişi\n"
+"(C) 2007–2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 
 #: main.cpp:32
@@ -209,7 +209,7 @@ msgstr "Andi Peredri"
 #: main.cpp:33
 #, kde-format
 msgid "original author"
-msgstr "asıl yazar"
+msgstr "Özgün yazar"
 
 #: main.cpp:36
 #, kde-format
@@ -229,7 +229,7 @@ msgstr "Ashwin Rajeev"
 #: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
-msgstr "QtQuick portu"
+msgstr "QtQuick geçişi"
 
 #: main.cpp:44
 #, kde-format
@@ -252,87 +252,76 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "QGraphicsView çatısı kullanmak için geçiş"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Özel"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr "&Tümünün Kilidini Kaldır"
+msgstr "&Tümünün Kilidini Aç"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Sağa Taşı"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Hareketler Cezalı"
+msgstr "Sola Taşı"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Hareketler: %1"
+msgstr "Yukarı Taşı"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Aşağı Taşı"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Klavye: Saat Yönünde dön"
+msgstr "Saat Yönünde Dön"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Klavye: Saat yönünün tersine dön"
+msgstr "Saat Yönünün Tersine Dön"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Klavye: Bağlantı kilitle"
+msgstr "Kilidi Aç/Kapat"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Genel"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
-msgstr "Özel Oyun"
+msgstr " Özel Oyun"
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -350,7 +339,7 @@ msgstr[1] "Puanınız %1. Yüksek puanlar listesine giremediniz."
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
-msgstr "Hareketler: %1"
+msgstr "Hareket: %1"
 
 #: mainwindow.cpp:274
 #, kde-format

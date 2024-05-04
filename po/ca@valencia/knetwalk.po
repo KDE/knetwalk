@@ -1,7 +1,7 @@
 # Translation of knetwalk.po to Catalan (Valencian)
-# Copyright (C) 2005-2021 This_file_is_part_of_KDE
+# Copyright (C) 2005-2024 This_file_is_part_of_KDE
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2006, 2010, 2013, 2015, 2020.
+# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2006, 2010, 2013, 2015, 2020, 2024.
 # Albert Astals Cid <aacid@kde.org>, 2005, 2008, 2009.
 # Aleix Pol <aleixpol@gmail.com>, 2007.
 # Manuel Tortosa <manutortosa@chakra-project.org>, 2009, 2010.
@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-07-27 20:18+0200\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
+"PO-Revision-Date: 2024-05-03 09:02+0200\n"
+"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.07.80\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -252,15 +252,13 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Adaptació per a utilitzar el marc de treball «QGraphicsView»"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personalitzada"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Desbloqueja-ho tot"
@@ -269,67 +267,58 @@ msgstr "&Desbloqueja-ho tot"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Mou cap a la dreta"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Penalització de moviments"
+msgstr "Mou cap a l'esquerra"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Moviments: %1"
+msgstr "Mou cap amunt"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Mou cap avall"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Teclat: gira en sentit horari"
+msgstr "Gira en sentit horari"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Teclat: gira en sentit antihorari"
+msgstr "Gira en sentit antihorari"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Teclat: bloqueja el gir"
+msgstr "Canvia el bloqueig"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Partida personalitzada"
@@ -366,15 +355,3 @@ msgstr "Temps: %1"
 #, kde-format
 msgid "Paused"
 msgstr "En pausa"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Teclat: casella dreta"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Teclat: casella esquerra"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Teclat: casella superior"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Teclat: casella inferior"

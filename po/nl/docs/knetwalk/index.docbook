@@ -377,7 +377,7 @@
 ><guimenu
 >Instellingen</guimenu
 > <guimenuitem
->&knetwalk; instellen...</guimenuitem
+>&knetwalk; configureren…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -416,7 +416,7 @@
 ><guimenu
 >Instellingen</guimenu
 > <guimenuitem
->&knetwalk; configureren...</guimenuitem
+>&knetwalk; configureren…</guimenuitem
 ></menuchoice
 > </para>
    <sect2 id="config_general">
