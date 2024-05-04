@@ -210,7 +210,8 @@ void AbstractGrid::print() {
         }
         qDebug() << str1 << "     " << str2;
         qDebug() << QLatin1String( " " );
-        str1 = str2 = QLatin1String( "" );
+        str1.clear();
+        str2.clear();
     }
 }
 
