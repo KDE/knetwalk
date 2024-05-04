@@ -4,40 +4,43 @@
 # Pablo de Vicente <pablo.devicente@gmail.com>, 2005.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
 # Jaime Robles <jaime@kde.org>, 2009.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2013, 2020, 2021.
+# SPDX-FileCopyrightText: 2009, 2013, 2020, 2021, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
 # Rocio Gallego <traducciones@rociogallego.com>, 2013.
+# Sofía Priego <spriego@darksylvania.net>, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2021-07-27 12:07+0200\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"PO-Revision-Date: 2024-05-03 20:23+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 21.04.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Rocío Gallego,Santiago Fernández Sancho,Kira J. Fernández"
+msgstr "Sofía Priego,Rocío Gallego,Santiago Fernández Sancho,Kira J. Fernández"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "traducciones@rociogallego.com,santi@kde-es.org,kirajfdez@gmail.com"
+msgstr ""
+"spriego@darksylvania.net,traducciones@rociogallego.com,santi@kde-es.org,"
+"kirajfdez@gmail.com"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
 #, kde-format
 msgid "Width of the grid"
-msgstr "Anchura de la rejilla"
+msgstr "Anchura de la cuadrícula"
 
 #. i18n: ectx: property (text), widget (QLabel, width)
 #: customgame.ui:33
@@ -61,7 +64,7 @@ msgstr "Ajuste"
 #: customgame.ui:66
 #, kde-format
 msgid "Height of the grid"
-msgstr "Altura de la rejilla"
+msgstr "Altura de la cuadrícula"
 
 #. i18n: ectx: property (text), widget (QLabel, height)
 #: customgame.ui:69
@@ -75,13 +78,13 @@ msgid ""
 "Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
 "need to be connected to the server!"
 msgstr ""
-"Nota: ¡Para ganar el juego necesita conectar todos los terminales <strong>y "
-"todos los <em>cables</em></strong> al servidor!"
+"Nota: ¡Para ganar la partida tienes que conectar todos los terminales "
+"<strong>y todos los <em>cables</em></strong> al servidor!"
 
 #: gameview.cpp:165
 #, kde-format
 msgid "The game is not won yet!"
-msgstr "¡Todavía no ha ganado el juego!"
+msgstr "¡Todavía no has ganado la partida!"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, label)
 #: general.ui:17
@@ -135,13 +138,13 @@ msgstr "Nombre de usuario predeterminado"
 #: knetwalk.kcfg:14
 #, kde-format
 msgid "Whether game sounds are played."
-msgstr "Si se reproducen los sonidos del juego."
+msgstr "Indica si se reproducen sonidos durante el juego."
 
 #. i18n: ectx: label, entry (Autolock), group (General)
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr "Si se debe bloquear la celda tras la rotación."
+msgstr "Indica si se debe bloquear la celda tras la rotación."
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
@@ -173,7 +176,8 @@ msgstr "La altura del tablero."
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr "Si se activa el ajuste de izquierda a derecha y de arriba a abajo."
+msgstr ""
+"Indica si se activa el ajuste de izquierda a derecha y de arriba a abajo."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -210,7 +214,7 @@ msgstr "Andi Peredri"
 #: main.cpp:33
 #, kde-format
 msgid "original author"
-msgstr "Autor original"
+msgstr "Autor original."
 
 #: main.cpp:36
 #, kde-format
@@ -220,7 +224,7 @@ msgstr "Thomas Nagy"
 #: main.cpp:37
 #, kde-format
 msgid "KDE port"
-msgstr "Portado a KDE"
+msgstr "Adaptación a KDE."
 
 #: main.cpp:40
 #, kde-format
@@ -230,7 +234,7 @@ msgstr "Ashwin Rajeev"
 #: main.cpp:41
 #, kde-format
 msgid "Port to QtQuick"
-msgstr "Adaptación a QtQuick"
+msgstr "Adaptación a QtQuick."
 
 #: main.cpp:44
 #, kde-format
@@ -240,7 +244,7 @@ msgstr "Eugene Trounev"
 #: main.cpp:45
 #, kde-format
 msgid "icon design"
-msgstr "diseño de iconos"
+msgstr "Diseño de iconos."
 
 #: main.cpp:48
 #, kde-format
@@ -250,7 +254,7 @@ msgstr "Brian Croom"
 #: main.cpp:49
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
-msgstr "Adaptación para usar la infraestructura QGraphicsView"
+msgstr "Adaptación para usar la infraestructura QGraphicsView."
 
 #: mainwindow.cpp:84
 #, kde-format
@@ -315,18 +319,18 @@ msgstr "Partida personalizada"
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
 msgid "Moves Penalty"
-msgstr "Movimientos de castigo"
+msgstr "Penalización de movimientos"
 
 #: mainwindow.cpp:248
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
 msgstr[0] ""
-"Su puntuación fue %1, y por ello no tendrá un sitio en la lista de mejores "
-"puntuaciones."
+"Tu puntuación es de %1, por lo que no has conseguido entrar en la lista de "
+"mejores puntuaciones."
 msgstr[1] ""
-"Su puntuación fue %1, y por ello no tendrá un sitio en la lista de mejores "
-"puntuaciones."
+"Tu puntuación es de %1, por lo que no has conseguido entrar en la lista de "
+"mejores puntuaciones."
 
 #: mainwindow.cpp:273
 #, kde-format
