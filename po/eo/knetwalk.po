@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2023-11-26 23:00+0100\n"
+"PO-Revision-Date: 2024-05-04 07:47+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -247,84 +247,73 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Portado al uzo de la QGraphicsView-framo"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Propra"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr "Malŝlos&u Ĉion"
+msgstr "Malŝlosi Ĉi&ujn"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Movi Dekstren"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Puno pri Movoj"
+msgstr "Move Maldekstren"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Movoj: %1"
+msgstr "Movi Supren"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Move Malsupren"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Klavaro: Rotacii dekstrume"
+msgstr "Rotacii Dekstrume"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Klavaro: Rotacii maldekstrume"
+msgstr "Rotacii Maldekstrume"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Klavaro: Baskuligi ŝloson"
+msgstr "Baskuligi Ŝloson"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Ĝenerala"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Etoso"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Propra Ludo"
@@ -357,15 +346,3 @@ msgstr "Tempdaŭro: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Paŭzita"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Klavaro: Kampo dekstren"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Klavaro: Kampo maldekstren"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Klavaro: Kampo supren"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Klavaro: Kampo malsupren"
