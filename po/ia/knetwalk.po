@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the knetwalk package.
 #
-# giovanni <g.sora@tiscali.it>, 2023.
+# giovanni <g.sora@tiscali.it>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2023-10-02 16:47+0200\n"
+"PO-Revision-Date: 2024-05-06 12:30+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -240,8 +240,7 @@ msgid "Port to use the QGraphicsView framework"
 msgstr ""
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personalisate"
@@ -256,27 +255,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Move a dextera"
 
 #: mainwindow.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr ""
+msgstr "Move a sinistra"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Motiones: %1"
+msgstr "Move in alto"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Move a basso "
 
 #: mainwindow.cpp:155
 #, kde-format
@@ -297,25 +294,22 @@ msgid "Toggle Lock"
 msgstr ""
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "General"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Thema"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
-msgstr "Personalisate"
+msgstr "Joco Personalisate"
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
