@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
 "PO-Revision-Date: 2021-07-29 13:05+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -249,87 +249,76 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Přenos do frameworku QGraphicsView"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr "Vlastní"
+msgstr ""
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr "&Odemknout vše"
+msgstr ""
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Posunout doprava"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Penalizace za pohyby"
+msgstr "Posunout doleva"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Tahy: %1"
+msgstr "Posunout nahoru"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Posunout dolů"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Klávesnice: Otáčet se po směru hodinových ručiček"
+msgstr ""
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Klávesnice: Otáčet se proti směru hodinových ručiček"
+msgstr ""
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Klávesnice: Zapnout zámek"
+msgstr "Přepnout zámek"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Obecné"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Motiv"
+msgstr ""
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
-msgstr "Vlastní hra"
+msgstr ""
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -363,15 +352,3 @@ msgstr "Čas: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Pozastaveno"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Klávesnice: o pole doprava"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Klávesnice: o pole doleva"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Klávesnice: o pole nahoru"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Klávesnice: o pole dolů"

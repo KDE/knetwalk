@@ -245,15 +245,13 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "移植到 QGraphicsView 框架"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "自定义"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "解锁全部(&U)"
@@ -265,19 +263,16 @@ msgid "Move Right"
 msgstr ""
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "处罚移动"
+msgstr ""
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "步数：%1"
+msgstr ""
 
 #: mainwindow.cpp:150
 #, kde-format
@@ -286,43 +281,37 @@ msgid "Move Down"
 msgstr ""
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "键盘：顺时针旋转"
+msgstr ""
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "键盘：逆时针旋转"
+msgstr ""
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "键盘：切换锁定"
+msgstr ""
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "常规"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "主题"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "自定义游戏"
@@ -354,15 +343,3 @@ msgstr "时间：%1"
 #, kde-format
 msgid "Paused"
 msgstr "已暂停"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "键盘：向右"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "键盘：向左"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "键盘：向上"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "键盘：向下"

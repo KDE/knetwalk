@@ -359,15 +359,3 @@ msgstr "Tid: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Pause"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Tastatur: felt høyre"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Tastatur: felt venstre"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Tastatur: felt opp"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Tastatur: felt ned"
