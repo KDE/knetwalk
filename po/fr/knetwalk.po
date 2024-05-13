@@ -1,30 +1,30 @@
 # translation of knetwalk.po to Francais
 # translation of knetwalk.po to
 #
+# SPDX-FileCopyrightText: 2013, 2020, 2021, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Brice Rothschild <brice.rothschild@gmail.com>, 2005.
 # Matthieu Robin <kde@macolu.org>, 2005.
 # Matthieu Robin <matthieu@macolu.org>, 2005.
 # Jean-Jacques FINAZZI <mrjay01@users.sourceforge.net>, 2008.
 # Guillaume Pujol <guill.p@gmail.com>, 2008.
 # Mickael Sibelle <kimael@gmail.com>, 2009, 2010.
-# Xavier Besnard <xavier.besnard@kde.org>, 2013, 2020, 2021.
 # Arnaud R. <kasai@redwolf.fr>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-07-28 14:57+0200\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2024-05-11 11:06+0200\n"
+"Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
+"Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 21.07.80\n"
-"X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
+"X-Environment: kde\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -262,15 +262,13 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Portage pour l'utilisation de l'infrastructure « QGraphicsView »"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Personnalisé"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "To&ut débloquer"
@@ -279,70 +277,61 @@ msgstr "To&ut débloquer"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Déplacer vers la droite"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Pénalité de mouvement"
+msgstr "Déplacer vers la gauche"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Déplacements : %1"
+msgstr "Déplacer vers le haut"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Déplacer vers le bas"
 
 # unreviewed-context
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Clavier : tourner dans le sens horaire"
+msgstr "Tourner dans le sens horaire"
 
 # unreviewed-context
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Clavier : tourner dans le sens anti horaire"
+msgstr "Tourner dans le sens antihoraire"
 
 # unreviewed-context
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Clavier : activer / déactiver le verrouillage"
+msgstr "Activer / déactiver le verrouillage"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Général"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Thème"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Jeu personnalisé"
