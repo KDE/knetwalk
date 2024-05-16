@@ -67,7 +67,7 @@
 <keyword
 >jeu de logique</keyword>
 <keyword
->KNetwalk</keyword>
+>KNetWalk</keyword>
 </keywordset>
 </bookinfo>
 
@@ -476,7 +476,7 @@
 >Pour sélectionner le thème que vous souhaitez jouer, veuillez aller à la section <guilabel
 >Thème</guilabel
 >. Le thème est chargé en cliquant sur le bouton <guibutton
->OK</guibutton
+>Ok</guibutton
 > ou le bouton <guibutton
 >Appliquer</guibutton
 >. La partie en cours sera terminée et une nouvelle commencera. Vous pouvez cliquer sur le bouton <guibutton
@@ -592,7 +592,7 @@
 </row>
 <row>
 <entry
->Tourner dans le sens des aiguilles d’une montre</entry>
+>Tourner dans le sens des aiguilles d'une montre</entry>
 <entry
 >&Enter; </entry>
 </row>
