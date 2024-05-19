@@ -90,7 +90,21 @@
 ><contrib
 >Traductor</contrib
 ></othercredit
->  
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
+> 
 </authorgroup>
 
 <copyright>
@@ -174,10 +188,10 @@
 </screenshot>
 
 <para
->Al jugador se le presenta una rejilla rectangular que contiene un servidor, varios terminales y cables. El objeto del juego es girar estos elementos hasta que cada cliente esté conectado al servidor, y no quede ningún cable desconectado. También puede intentar conseguir una de las mejores puntuaciones minimizando el número de rotaciones necesarias. </para>
+>Se muestra una cuadrícula rectangular que contiene un servidor, varios terminales y cables. El objeto del juego es girar estos elementos hasta que cada cliente esté conectado al servidor y no quede ningún cable sin conectar. También puedes intentar conseguir una de las mejores puntuaciones minimizando el número de rotaciones necesarias. </para>
 
 <para
->Una pulsación con el botón derecho en un cuadrado lo girará en sentido contrario a las agujas del reloj, mientras que una pulsación con el botón derecho lo girará en el sentido de las agujas del reloj. Una pulsación con el botón central lo bloqueará y evitará que se haya girado, a menos que lo desbloquee con una nueva pulsación con el botón central. Puede ser práctico para marcar los cuadrados que tengan la orientación correcta. La barra de estado muestra el número de pulsaciones realizadas hasta el momento. </para>
+>Pulsa con el botón izquierdo del ratón en un cuadrado para girarlo en sentido contrario a las agujas del reloj. Pulsa con el botón derecho del ratón para girarlo en el sentido de las agujas del reloj. Una pulsación con el botón central lo bloqueará y evitará que se gire. Se puede desbloquear con una nueva pulsación con el botón central. Puede ser práctico para marcar los cuadrados que tengan la orientación correcta. La barra de estado muestra el número de pulsaciones realizadas hasta el momento. </para>
 
 </chapter>
 
@@ -195,7 +209,7 @@
 ></listitem>
 <listitem
 ><para
->Cuando juega con el nivel de dificultad <guilabel
+>Cuando juegas con el nivel de dificultad <guilabel
 >Muy difícil</guilabel
 >, las conexiones pueden ser envolventes yendo de izquierda a derecha y de arriba hacia abajo.</para
 ></listitem>
@@ -216,31 +230,31 @@
 <itemizedlist>
 <listitem
 ><para
->Comience por los cuadrados cuya orientación se puede determinar con facilidad.</para
+>Comienza por los cuadrados cuya orientación se puede determinar con facilidad.</para
 ></listitem>
 <listitem
 ><para
->Una vez que esté seguro de la orientación de un cuadrado puede marcarlo utilizando el &MMB; Es particularmente práctico en partidas difíciles.</para
+>Una vez que estés seguro de la orientación de un cuadrado, puedes marcarlo usando el &MMB;. Es particularmente práctico en partidas difíciles.</para
 ></listitem>
 <listitem
 ><para
->Busque los cables con forma de I y de T cerca de los bordes, y con forma de L cerca de las esquinas. Su posición se puede determinar con facilidad, a menos que esté jugando al nivel de dificultad <guilabel
+>Busca los cables con forma de I y de T cercanos a los bordes y los que tienen forma de L cerca de las esquinas. Su posición se puede determinar con facilidad, a menos que estés jugando con el nivel de dificultad <guilabel
 >Muy difícil </guilabel
 >.</para
 ></listitem>
 <listitem
 ><para
->Cuando esté jugando al nivel de dificultad <guilabel
+>Cuando estés jugando con el nivel de dificultad <guilabel
 >Muy difícil</guilabel
-> un buen sitio para empezar a buscar es cerca de los cuadrados vacíos, si existen, y de las regiones que contienen muchos terminales agrupados.</para
+>, un buen sitio para empezar a buscar es cerca de los cuadrados vacíos, si existen, y de las regiones que contienen muchos terminales agrupados.</para
 ></listitem>
 <listitem
 ><para
->Aunque juegue en el mismo nivel de dificultad algunas partidas son más difíciles que otras. Reinicie el juego si quiere utilizar un tablero diferente.</para
+>Aunque juegues en el mismo nivel de dificultad, algunas partidas son más difíciles que otras. Reinicia el juego si quieres usar un tablero diferente.</para
 ></listitem>
 <listitem
 ><para
->Si quiere conseguir una buena puntuación, haga un movimiento cuando esté seguro.</para
+>Si quieres conseguir una buena puntuación, haz un movimiento cuando estés seguro.</para
 ></listitem>
 </itemizedlist>
 </sect1>
@@ -273,7 +287,7 @@
 ></term>
 <listitem>
 <para
->Inicia una partida nueva. Crea un tablero aleatorio utilizando la dificultad del nivel actual. </para>
+>Inicia una partida nueva. Crea un tablero aleatorio usando la dificultad del nivel actual. </para>
 </listitem>
 </varlistentry>
 
@@ -292,7 +306,7 @@
 ></term>
 <listitem>
 <para
->Pausa el tiempo del juego. Pulse de nuevo este elemento del menú para continuar con el juego. Tenga en cuenta que el tablero desaparece cuando el juego está en pausa porque no sería bonito que pudiera pensar un buen movimiento sin estar bajo la presión del tiempo. </para>
+>Pausa el tiempo del juego. Pulsa de nuevo esta opción del menú para continuar el juego. Ten en cuenta que el tablero desaparece cuando el juego está en pausa porque no sería bonito que pudieras pensar un buen movimiento sin estar bajo la presión del tiempo. </para>
 </listitem>
 </varlistentry>
 
@@ -349,7 +363,7 @@
 ></term>
 <listitem>
 <para
->Úselo para rendirse en una partida. Le muestra la solución, pero la puntuación no se tendrá en cuenta en la lista de las mejores puntuaciones.</para>
+>Úsalo para rendirte en una partida. Muestra la solución, pero la puntuación no se tendrá en cuenta en la lista de mejores puntuaciones.</para>
 </listitem>
 </varlistentry>
 
@@ -364,7 +378,7 @@
 ></term>
 <listitem>
 <para
->Desbloquee todas las celdas bloqueadas por el jugador usando &Space; o automáticamente si marca la opción <guilabel
+>Desbloquea todas las celdas bloqueadas por el jugador usando &Space; o automáticamente si marca las opción <guilabel
 >Bloqueo automático</guilabel
 > en la página<link linkend="config_general"
 ><guilabel
@@ -387,7 +401,7 @@
 ></term>
 <listitem>
 <para
->Le permite establecer el nivel de dificultad desde un submenú.</para>
+>Permite establecer el nivel de dificultad usando un submenú.</para>
 <para
 >Existen cinco niveles de dificultad: <itemizedlist>
 <listitem
@@ -418,7 +432,7 @@
 ><para
 ><guimenuitem
 >Personalizado</guimenuitem
->: se utilizarán las preferencias que haya configurado en el <link linkend="config_custom_game"
+>: se usarán las preferencias que hayas configurado en el <link linkend="config_custom_game"
 >diálogo <guilabel
 >Configurar &knetwalk;</guilabel
 ></link
@@ -441,10 +455,10 @@
 <listitem
 ><para
 ><action
->Abrir el diálogo <guilabel
+>Abre el diálogo <guilabel
 >Configurar &knetwalk;</guilabel
 >.</action
-> Consulte <link linkend="configuration"
+> Consulta <link linkend="configuration"
 >Configuración del juego</link
 > para más información. </para
 ></listitem>
@@ -456,7 +470,7 @@
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
->. Para más información, lea las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>. Para más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
 >menú Preferencias</ulink
 > y el <ulink url="help:/fundamentals/menus.html#menus-help"
 >menú Ayuda</ulink
@@ -470,7 +484,7 @@
    <para
 >Para abrir el diálogo <guilabel
 >Configurar &knetwalk;</guilabel
->, seleccione la opción <menuchoice
+>, selecciona la opción <menuchoice
 ><guimenu
 >Preferencias</guimenu
 > <guimenuitem
@@ -481,7 +495,7 @@
      <title
 >General</title>
      <para
->Usando esta página puede cambiar las siguientes opciones del juego. </para>
+>En esta página puedes cambiar las siguientes opciones del juego. </para>
      <variablelist>
        <varlistentry>
 	 <term>
@@ -520,7 +534,7 @@
 	 </term>
 	 <listitem>
 	   <para
->Aquí puede determinar el tiempo que se necesita para realizar la animación de rotación de una celda. </para>
+>Aquí puedes determinar el tiempo que se necesita para realizar la animación de rotación de una celda. </para>
 	 </listitem>
        </varlistentry>
      </variablelist>
@@ -529,13 +543,13 @@
      <title
 >Tema</title>
      <para
->Para selccionar el tema con el que jugar, vaya a la sección <guilabel
+>Para seleccionar el tema con el que jugar, ve a la sección <guilabel
 >Tema</guilabel
 >. El tema se carga pulsando en <guibutton
 >Aceptar</guibutton
 > o <guibutton
 >Aplicar</guibutton
->. La partida actual se cerrará y empiezará una nueva. Puede pulsar en el botón <guibutton
+>. La partida actual se cerrará y empezará una nueva. Puedes pulsar en el botón <guibutton
 >Predeterminados</guibutton
 > para restaurar el tema por defecto. </para>
    </sect2>
@@ -543,13 +557,13 @@
      <title
 >Juego personalizado</title>
      <para
->Esta página puede ser usada para configurar las opciones personalizables del juego. Puede configurar el <guilabel
->Ancho</guilabel
-> y <guilabel
->Alto</guilabel
-> del tablero y seleccionar el modo <guilabel
+>Esta página se puede usar para configurar las opciones personalizables del juego. Puedes configurar la <guilabel
+>Anchura</guilabel
+> y la <guilabel
+>Altura</guilabel
+> del tablero y seleccionar el modo de <guilabel
 >Ajuste</guilabel
-> para que vaya de izquierda a  derecha y de arriba a abajo. </para>
+> para que vaya de izquierda a derecha y de arriba a abajo. </para>
    </sect2>
 </sect1>
 
@@ -568,7 +582,7 @@
 <tbody>
 <row>
 <entry
->Inicia una partida nueva</entry>
+>Empezar una partida nueva</entry>
 <entry>
 <keycombo action="simul"
 >&Ctrl;<keycap
@@ -614,7 +628,7 @@
 </row>
 <row>
 <entry
->Ayuda ¿Qué es esto?</entry>
+>Ayuda «¿Qué es esto?»</entry>
 <entry>
 <keycombo action="simul"
 >&Shift;<keycap
@@ -681,16 +695,16 @@
 <para
 >&knetwalk; </para>
 <para
->Derechos de autor del programa 2004 - 2007 de Andi Peredri, Thomas Nagy y Fela Winkelmolen <email
+>Copyright del programa 2004-2007 por Andi Peredri, Thomas Nagy y Fela Winkelmolen <email
 >fela.kde@gmail.com</email
 > </para>
 <para
->Derechos de autor de la documentación. 2007 de Fela Winkelmolen <email
+>Copyright de la documentación 2007 por Fela Winkelmolen <email
 >fela.kde@gmail.com</email
 > </para>
 
 <para
->Traducido por Rocío Gallego <email
+>Documentación traducida por Rocío Gallego <email
 >traducciones@rociogallego.com</email
 >, Santiago Fernández Sancho <email
 >santi@kde-es.org</email
@@ -698,6 +712,10 @@
 >kirajfdez@gmail.com</email
 > y David Paul Peña <email
 >eodos0@gmail.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 
