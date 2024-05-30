@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2024-05-06 12:30+0200\n"
+"PO-Revision-Date: 2024-05-29 14:45+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -43,13 +43,13 @@ msgstr "Largessa:"
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr ""
+msgstr "Inveloppa ex sinistra a dextera e ex alto a basso "
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
 #, kde-format
 msgid "Wrapping"
-msgstr ""
+msgstr "Inveloppar"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, height)
 #: customgame.ui:66
@@ -188,6 +188,9 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
+"(C) 2004-2005 Andi Peredri, portate a KDE per Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
 
 #: main.cpp:32
 #, kde-format
@@ -207,12 +210,12 @@ msgstr "Thomas Nagy"
 #: main.cpp:37
 #, kde-format
 msgid "KDE port"
-msgstr ""
+msgstr "Porto de KDE"
 
 #: main.cpp:40
 #, kde-format
 msgid "Ashwin Rajeev"
-msgstr ""
+msgstr "Ashwin Rajeev"
 
 #: main.cpp:41
 #, kde-format
@@ -227,7 +230,7 @@ msgstr "Eugene Trounev"
 #: main.cpp:45
 #, kde-format
 msgid "icon design"
-msgstr ""
+msgstr "designo de icone"
 
 #: main.cpp:48
 #, kde-format
@@ -249,7 +252,7 @@ msgstr "Personalisate"
 #, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr ""
+msgstr "Disb&loca toto"
 
 #: mainwindow.cpp:135
 #, kde-format
@@ -279,13 +282,13 @@ msgstr "Move a basso "
 #, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr ""
+msgstr "Gira in senso horari"
 
 #: mainwindow.cpp:160
 #, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr ""
+msgstr "Gira in senso anti-horari"
 
 #: mainwindow.cpp:165
 #, kde-format
