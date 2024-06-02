@@ -1,16 +1,16 @@
 # translation of knetwalk.po to
 #
+# SPDX-FileCopyrightText: 2011, 2013, 2014, 2021, 2024 Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>
 # Krzysztof Lichota <krzysiek@lichota.net>, 2005.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2006.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2008.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2009.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2013, 2014, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-03 00:37+0000\n"
-"PO-Revision-Date: 2021-08-01 07:35+0200\n"
+"PO-Revision-Date: 2024-06-01 09:02+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -249,15 +250,13 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Port, który używa szkieletu QGraphicsView"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Własny"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "Odblok&uj wszystkie"
@@ -266,67 +265,58 @@ msgstr "Odblok&uj wszystkie"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Przesuń w prawo"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Koszt ruchu"
+msgstr "Przesuń w lewo"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Ruchy: %1"
+msgstr "Przesuń w górę"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Przesuń w dół"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Klawiatura: obrót w prawo"
+msgstr "Obróć w prawo"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Klawiatura: obrót w lewo"
+msgstr "Obróć w lewo"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Klawiatura: włącz/wyłącz blokadę"
+msgstr "Przełącz blokadę"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Ogólne"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Wystrój"
+msgstr "Wygląd"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Własna gra"
