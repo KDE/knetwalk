@@ -250,14 +250,12 @@ msgstr "Porting til å bruke rammeverket QGraphicsView"
 
 #: mainwindow.cpp:84
 #, fuzzy, kde-format
-#| msgid "Custom"
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "Tilpasset"
 
 #: mainwindow.cpp:130
 #, fuzzy, kde-format
-#| msgid "&Unlock All"
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Lås opp alt"
@@ -270,15 +268,12 @@ msgstr ""
 
 #: mainwindow.cpp:140
 #, fuzzy, kde-format
-#| msgid "Moves Penalty"
 msgctxt "@action"
 msgid "Move Left"
 msgstr "Poengtap for trekk"
 
 #: mainwindow.cpp:145
 #, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
 msgctxt "@action"
 msgid "Move Up"
 msgstr "Trekk: %1"
@@ -291,42 +286,36 @@ msgstr ""
 
 #: mainwindow.cpp:155
 #, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
 msgctxt "@action"
 msgid "Turn Clockwise"
 msgstr "Tastatur: snu med klokka"
 
 #: mainwindow.cpp:160
 #, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
 msgctxt "@action"
 msgid "Turn Counterclockwise"
 msgstr "Tastatur: snu mot klokka"
 
 #: mainwindow.cpp:165
 #, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Tastatur: lås av/på"
 
 #: mainwindow.cpp:176
 #, fuzzy, kde-format
-#| msgid "General"
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Generelt"
 
 #: mainwindow.cpp:177
 #, fuzzy, kde-format
-#| msgid "Theme"
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
 #, fuzzy, kde-format
-#| msgid "Custom Game"
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Selvvalgt spill"

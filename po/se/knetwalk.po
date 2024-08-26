@@ -297,7 +297,6 @@ msgstr ""
 
 #: mainwindow.cpp:176
 #, fuzzy, kde-format
-#| msgid "General"
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Oppalaš"
