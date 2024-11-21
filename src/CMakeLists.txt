@@ -33,6 +33,7 @@ target_link_libraries(knetwalk
     KF6::I18n
     KF6::TextWidgets
     KF6::XmlGui
+    KF6::IconThemes
     Qt6::QuickWidgets
 )
 
