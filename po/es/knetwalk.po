@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2024-05-03 20:23+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -185,17 +185,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr "Barra de herramientas principal"
 
-#: main.cpp:25
+#: main.cpp:42
 #, kde-format
 msgid "KNetWalk"
 msgstr "KNetWalk"
 
-#: main.cpp:26
+#: main.cpp:43
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
 msgstr "KNetWalk, un juego para administradores de sistema."
 
-#: main.cpp:27
+#: main.cpp:44
 #, kde-format
 msgid ""
 "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
@@ -206,52 +206,52 @@ msgstr ""
 "© 2007-2008 Fela Winkelmolen\n"
 "© 2013 Ashwin Rajeev"
 
-#: main.cpp:32
+#: main.cpp:49
 #, kde-format
 msgid "Andi Peredri"
 msgstr "Andi Peredri"
 
-#: main.cpp:33
+#: main.cpp:50
 #, kde-format
 msgid "original author"
 msgstr "Autor original."
 
-#: main.cpp:36
+#: main.cpp:53
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "Thomas Nagy"
 
-#: main.cpp:37
+#: main.cpp:54
 #, kde-format
 msgid "KDE port"
 msgstr "Adaptación a KDE."
 
-#: main.cpp:40
+#: main.cpp:57
 #, kde-format
 msgid "Ashwin Rajeev"
 msgstr "Ashwin Rajeev"
 
-#: main.cpp:41
+#: main.cpp:58
 #, kde-format
 msgid "Port to QtQuick"
 msgstr "Adaptación a QtQuick."
 
-#: main.cpp:44
+#: main.cpp:61
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:45
+#: main.cpp:62
 #, kde-format
 msgid "icon design"
 msgstr "Diseño de iconos."
 
-#: main.cpp:48
+#: main.cpp:65
 #, kde-format
 msgid "Brian Croom"
 msgstr "Brian Croom"
 
-#: main.cpp:49
+#: main.cpp:66
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
 msgstr "Adaptación para usar la infraestructura QGraphicsView."

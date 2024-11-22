@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-03 00:37+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2007-12-24 12:20+0530\n"
 "Last-Translator: Ravishankar Shrivastava <aviratlami@aol.in>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
@@ -174,17 +174,17 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr "मुख्य औज़ार पट्टी"
 
-#: main.cpp:25
+#: main.cpp:42
 #, kde-format
 msgid "KNetWalk"
 msgstr "केनेटवाक"
 
-#: main.cpp:26
+#: main.cpp:43
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
 msgstr "केनेटवाक, तंत्र प्रशासकों के लिए एक खेल."
 
-#: main.cpp:27
+#: main.cpp:44
 #, fuzzy, kde-format
 #| msgid ""
 #| "(C) 2004, 2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
@@ -197,52 +197,52 @@ msgstr ""
 "(C) 2004, 2005 एन्डी पेरेद्री, थॉमस नेगी द्वारा केडीई पर पोर्ट किया गया\n"
 " (C) 2007 फेला विन्केल्मलेन"
 
-#: main.cpp:32
+#: main.cpp:49
 #, kde-format
 msgid "Andi Peredri"
 msgstr "एन्डी पेरेद्री"
 
-#: main.cpp:33
+#: main.cpp:50
 #, kde-format
 msgid "original author"
 msgstr "मूल लेखक"
 
-#: main.cpp:36
+#: main.cpp:53
 #, kde-format
 msgid "Thomas Nagy"
 msgstr "थॉमस नेगी"
 
-#: main.cpp:37
+#: main.cpp:54
 #, kde-format
 msgid "KDE port"
 msgstr "केडीई पोर्ट"
 
-#: main.cpp:40
+#: main.cpp:57
 #, kde-format
 msgid "Ashwin Rajeev"
 msgstr ""
 
-#: main.cpp:41
+#: main.cpp:58
 #, kde-format
 msgid "Port to QtQuick"
 msgstr ""
 
-#: main.cpp:44
+#: main.cpp:61
 #, kde-format
 msgid "Eugene Trounev"
 msgstr ""
 
-#: main.cpp:45
+#: main.cpp:62
 #, kde-format
 msgid "icon design"
 msgstr ""
 
-#: main.cpp:48
+#: main.cpp:65
 #, kde-format
 msgid "Brian Croom"
 msgstr ""
 
-#: main.cpp:49
+#: main.cpp:66
 #, kde-format
 msgid "Port to use the QGraphicsView framework"
 msgstr ""
