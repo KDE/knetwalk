@@ -16,6 +16,18 @@ target_sources(knetwalk PRIVATE
     knetwalk.qrc
 )
 
+if(APPLE)
+    set_target_properties(knetwalk PROPERTIES
+	    MACOSX_BUNDLE_DISPLAY_NAME "KNetwalk"
+        MACOSX_BUNDLE_BUNDLE_NAME "KNetwalk"
+        MACOSX_BUNDLE_LONG_VERSION_STRING "KNetwalk ${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${RELEASE_SERVICE_VERSION_MAJOR}.${RELEASE_SERVICE_VERSION_MINOR}"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${RELEASE_SERVICE_VERSION}"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "org.kde.knetwalk"
+        MACOSX_BUNDLE_COPYRIGHT "2024 The KNetwalk Developers")
+endif()
+
+
 ecm_setup_version(${PROJECT_VERSION} VARIABLE_PREFIX KNETWALK VERSION_HEADER knetwalk_version.h)
 
 ki18n_wrap_ui(knetwalk general.ui customgame.ui)
