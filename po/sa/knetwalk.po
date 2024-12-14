@@ -1,0 +1,346 @@
+# Sanskrit translations for knetwalk package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the knetwalk package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: knetwalk\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
+"PO-Revision-Date: 2024-12-13 19:10+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n>2);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#. i18n: ectx: property (toolTip), widget (QLabel, width)
+#: customgame.ui:30
+#, kde-format
+msgid "Width of the grid"
+msgstr "जालस्य विस्तारः"
+
+#. i18n: ectx: property (text), widget (QLabel, width)
+#: customgame.ui:33
+#, kde-format
+msgid "Width:"
+msgstr "विस्तार:"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:56
+#, kde-format
+msgid "Wrap from left to right and from top to bottom"
+msgstr "वामतः दक्षिणतः उपरितः अधः च वेष्टनं कुर्वन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
+#: customgame.ui:59
+#, kde-format
+msgid "Wrapping"
+msgstr "वेष्टनम्"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, height)
+#: customgame.ui:66
+#, kde-format
+msgid "Height of the grid"
+msgstr "जालस्य ऊर्ध्वता"
+
+#. i18n: ectx: property (text), widget (QLabel, height)
+#: customgame.ui:69
+#, kde-format
+msgid "Height:"
+msgstr "औनत्यम्‌:"
+
+#: gameview.cpp:162
+#, kde-format
+msgid ""
+"Note: to win the game all terminals <strong>and all <em>cables</em></strong> "
+"need to be connected to the server!"
+msgstr ""
+"नोटः- क्रीडां जितुम् सर्वाणि टर्मिनलानि <strong>सर्वाणि <em>केबलानि</em> च</strong> "
+"सर्वरेण सह सम्बद्धानि भवेयुः!"
+
+#: gameview.cpp:165
+#, kde-format
+msgid "The game is not won yet!"
+msgstr "अद्यापि क्रीडा न जिता!"
+
+#. i18n: ectx: property (toolTip), widget (QLabel, label)
+#: general.ui:17
+#, kde-format
+msgid "Duration for cell to complete one rotation in milliseconds"
+msgstr "एकं परिभ्रमणं पूर्णं कर्तुं कोष्ठकस्य अवधिः मिलीसेकेण्ड्-मात्रेषु"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: general.ui:20
+#, kde-format
+msgid "Rotate duration:"
+msgstr "परिभ्रमण अवधिः : १."
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:40
+#, kde-format
+msgid "Play sounds on actions"
+msgstr "क्रियासु ध्वनयः वादयन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
+#: general.ui:43
+#, kde-format
+msgid "Play sounds"
+msgstr "ध्वनयः वादयन्तु"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:60
+#, kde-format
+msgid "Automatically lock cell after rotation"
+msgstr "परिभ्रमणस्य अनन्तरं स्वयमेव कोष्ठकं ताडयन्तु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
+#: general.ui:63
+#, kde-format
+msgid "Auto lock"
+msgstr "स्वतः ताला"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ReverseButtons)
+#: general.ui:83
+#, kde-format
+msgid "Reverse mouse buttons"
+msgstr "मूषकस्य बटनं विपर्यययन्तु"
+
+#. i18n: ectx: label, entry (username), group (Preferences)
+#: knetwalk.kcfg:9
+#, kde-format
+msgid "Default user name"
+msgstr "पूर्वनिर्धारितं उपयोक्तृनाम"
+
+#. i18n: ectx: label, entry (PlaySounds), group (General)
+#: knetwalk.kcfg:14
+#, kde-format
+msgid "Whether game sounds are played."
+msgstr "क्रीडाध्वनयः क्रीड्यन्ते वा।"
+
+#. i18n: ectx: label, entry (Autolock), group (General)
+#: knetwalk.kcfg:18
+#, kde-format
+msgid "Whether lock cell after rotation."
+msgstr "परिभ्रमणस्य अनन्तरं कोष्ठकं ताडयतु वा।"
+
+#. i18n: ectx: label, entry (ReverseButtons), group (General)
+#: knetwalk.kcfg:22
+#, kde-format
+msgid "Use left click for clockwise and right click for counter-clockwise."
+msgstr "घड़ीयानदिशायां वामक्लिक्, प्रतिघटिकादिशायाः कृते दक्षिणक्लिक् च उपयुज्यताम् ।"
+
+#. i18n: ectx: label, entry (RotateDuration), group (General)
+#: knetwalk.kcfg:26
+#, kde-format
+msgid "Duration for cell to complete one rotation."
+msgstr "एकं परिभ्रमणं पूर्णं कर्तुं कोष्ठकस्य अवधिः।"
+
+#. i18n: ectx: label, entry (Width), group (Custom)
+#: knetwalk.kcfg:34
+#, kde-format
+msgid "The width of the board."
+msgstr "फलकस्य विस्तारः ।"
+
+#. i18n: ectx: label, entry (Height), group (Custom)
+#: knetwalk.kcfg:40
+#, kde-format
+msgid "The height of the board."
+msgstr "फलकस्य ऊर्ध्वता ।"
+
+#. i18n: ectx: label, entry (Wrapping), group (Custom)
+#: knetwalk.kcfg:46
+#, kde-format
+msgid "Whether wrap from left to right and from top to bottom is enabled."
+msgstr "वामतः दक्षिणतः उपरितः अधः च वेष्टनं सक्षमम् अस्ति वा।"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: knetwalkui.rc:13
+#, kde-format
+msgid "Main Toolbar"
+msgstr "मुख्य साधनपट्टी"
+
+#: main.cpp:42
+#, kde-format
+msgid "KNetWalk"
+msgstr "KNetWalk इति"
+
+#: main.cpp:43
+#, kde-format
+msgid "KNetWalk, a game for system administrators."
+msgstr "KNetWalk इति प्रणालीप्रशासकानां कृते एकः क्रीडा ।"
+
+#: main.cpp:44
+#, kde-format
+msgid ""
+"(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
+"(C) 2007-2008 Fela Winkelmolen\n"
+"(C) 2013 Ashwin Rajeev"
+msgstr ""
+"(C) 2004-2005 एण्डी पेरेड्री, थोमस नागी द्वारा केडीई मध्ये पोर्ट् कृतम्\n"
+"(ग) 2007-2008 फेला विन्केलमोलेन\n"
+"(ग) 2013 अश्विन राजीव"
+
+#: main.cpp:49
+#, kde-format
+msgid "Andi Peredri"
+msgstr "अण्डी पेरेद्री"
+
+#: main.cpp:50
+#, kde-format
+msgid "original author"
+msgstr "मूल लेखक"
+
+#: main.cpp:53
+#, kde-format
+msgid "Thomas Nagy"
+msgstr "थोमस नागी"
+
+#: main.cpp:54
+#, kde-format
+msgid "KDE port"
+msgstr "KDE पोर्ट्"
+
+#: main.cpp:57
+#, kde-format
+msgid "Ashwin Rajeev"
+msgstr "अश्विन राजीव"
+
+#: main.cpp:58
+#, kde-format
+msgid "Port to QtQuick"
+msgstr "QtQuick प्रति पोर्ट्"
+
+#: main.cpp:61
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "यूजीन ट्रोनेव"
+
+#: main.cpp:62
+#, kde-format
+msgid "icon design"
+msgstr "आइकन डिजाइन"
+
+#: main.cpp:65
+#, kde-format
+msgid "Brian Croom"
+msgstr "ब्रायन क्रूम"
+
+#: main.cpp:66
+#, kde-format
+msgid "Port to use the QGraphicsView framework"
+msgstr "QGraphicsView framework इत्यस्य उपयोगाय पोर्ट्"
+
+#: mainwindow.cpp:84
+#, kde-format
+msgctxt "@item difficulty"
+msgid "Custom"
+msgstr ""
+
+#: mainwindow.cpp:130
+#, kde-format
+msgctxt "@action"
+msgid "&Unlock All"
+msgstr ""
+
+#: mainwindow.cpp:135
+#, kde-format
+msgctxt "@action"
+msgid "Move Right"
+msgstr ""
+
+#: mainwindow.cpp:140
+#, kde-format
+msgctxt "@action"
+msgid "Move Left"
+msgstr ""
+
+#: mainwindow.cpp:145
+#, kde-format
+msgctxt "@action"
+msgid "Move Up"
+msgstr ""
+
+#: mainwindow.cpp:150
+#, kde-format
+msgctxt "@action"
+msgid "Move Down"
+msgstr ""
+
+#: mainwindow.cpp:155
+#, kde-format
+msgctxt "@action"
+msgid "Turn Clockwise"
+msgstr ""
+
+#: mainwindow.cpp:160
+#, kde-format
+msgctxt "@action"
+msgid "Turn Counterclockwise"
+msgstr ""
+
+#: mainwindow.cpp:165
+#, kde-format
+msgctxt "@action"
+msgid "Toggle Lock"
+msgstr ""
+
+#: mainwindow.cpp:176
+#, kde-format
+msgctxt "@title:tab"
+msgid "General"
+msgstr ""
+
+#: mainwindow.cpp:177
+#, kde-format
+msgctxt "@title:tab"
+msgid "Theme"
+msgstr ""
+
+#: mainwindow.cpp:178
+#, kde-format
+msgctxt "@title:tab"
+msgid "Custom Game"
+msgstr ""
+
+#: mainwindow.cpp:187 mainwindow.cpp:244
+#, kde-format
+msgid "Moves Penalty"
+msgstr "चालयति दण्डः"
+
+#: mainwindow.cpp:248
+#, kde-format
+msgid "Your score was %1, you did not make it to the high score list."
+msgid_plural "Your score was %1, you did not make it to the high score list."
+msgstr[0] ""
+msgstr[1] ""
+
+#: mainwindow.cpp:273
+#, kde-format
+msgctxt "Number of mouse clicks"
+msgid "Moves: %1"
+msgstr ""
+
+#: mainwindow.cpp:274
+#, kde-format
+msgctxt "Time elapsed"
+msgid "Time: %1"
+msgstr ""
+
+#: qml/main.qml:66
+#, kde-format
+msgid "Paused"
+msgstr "विरामः कृतः"
