@@ -36,6 +36,7 @@
   <name xml:lang="pt">KNetWalk</name>
   <name xml:lang="pt-BR">KNetWalk</name>
   <name xml:lang="ru">KNetWalk</name>
+  <name xml:lang="sa">KNetWalk इति</name>
   <name xml:lang="sk">KNetWalk</name>
   <name xml:lang="sl">KNetWalk</name>
   <name xml:lang="sv">Knetwalk</name>
@@ -71,6 +72,7 @@
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
   <summary xml:lang="pt-BR">O KNetWalk é um jogo para administradores de sistema</summary>
   <summary xml:lang="ru">KNetWalk — игра для системных администраторов</summary>
+  <summary xml:lang="sa">KNetWalk इति प्रणालीप्रशासकानाम् एकः क्रीडा अस्ति</summary>
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
   <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
@@ -109,6 +111,7 @@
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
     <p xml:lang="pt-BR">O KNetWalk é um jogo de um jogar simples de lógica. Construa a rede, conectando todos os terminais ao servidor com o menor número de giros possíveis.</p>
     <p xml:lang="ru">KNetWalk — это логическая игра для одного игрока. Постройте сеть, подключив все терминалы к серверу за как можно меньшее количество ходов.</p>
+    <p xml:lang="sa">KNetWalk इति एकः खिलाडी तर्कक्रीडा अस्ति । जालस्य निर्माणं कुर्वन्तु, सर्वाणि टर्मिनल्-स्थानानि सर्वर्-सङ्गणकेन सह न्यूनतमेषु वारेषु संयोजयन्तु ।</p>
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
     <p xml:lang="sl">KNetWalk je logična igra za enega igralca. Načrtovanje omrežja tako, da so terminali povezani na strežnik z najmanj potezami.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
@@ -151,6 +154,7 @@
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
       <caption xml:lang="pt-BR">Jogando KNetWalk</caption>
       <caption xml:lang="ru">Игра в KNetWalk</caption>
+      <caption xml:lang="sa">KNetWalk इति क्रीडन्</caption>
       <caption xml:lang="sk">Hranie KNetWalk</caption>
       <caption xml:lang="sl">Igra KNetWalk</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
