@@ -20,12 +20,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "भवतः नामानि"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "भवतः ईमेलपत्राणि"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
@@ -248,73 +248,73 @@ msgstr "QGraphicsView framework इत्यस्य उपयोगाय प�
 #, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr ""
+msgstr "आचारः"
 
 #: mainwindow.cpp:130
 #, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
-msgstr ""
+msgstr "&सर्वं अनलॉक कुर्वन्तु"
 
 #: mainwindow.cpp:135
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "दक्षिणतः गच्छतु"
 
 #: mainwindow.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr ""
+msgstr "वामभागे गच्छतु"
 
 #: mainwindow.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr ""
+msgstr "उपरि गच्छतु"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "अधः गच्छतु"
 
 #: mainwindow.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr ""
+msgstr "घड़ीयाः दिशि घुमाव"
 
 #: mainwindow.cpp:160
 #, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr ""
+msgstr "घड़ीयाः विपरीतदिशा भ्रमन्तु"
 
 #: mainwindow.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr ""
+msgstr "टॉगल लॉक"
 
 #: mainwindow.cpp:176
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr ""
+msgstr "सामान्य"
 
 #: mainwindow.cpp:177
 #, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr ""
+msgstr "विषयवस्तु"
 
 #: mainwindow.cpp:178
 #, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
-msgstr ""
+msgstr "कस्टम गेम"
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -325,20 +325,20 @@ msgstr "चालयति दण्डः"
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "भवतः स्कोरः %1 आसीत्, भवतः उच्चाङ्कसूचौ न अभवत् ।"
+msgstr[1] "भवतः स्कोरः %1 आसीत्, भवतः उच्चाङ्कसूचौ न अभवत् ।"
 
 #: mainwindow.cpp:273
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
-msgstr ""
+msgstr "चालयति : %1"
 
 #: mainwindow.cpp:274
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"
-msgstr ""
+msgstr "समयः %1"
 
 #: qml/main.qml:66
 #, kde-format
