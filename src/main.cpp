@@ -5,13 +5,17 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
+#include "config-knetwalk.h"
+
 #include "mainwindow.h"
 #include "knetwalk_version.h"
 
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
+#if HAVE_KDBUSADDONS
 #include <KDBusService>
+#endif
 #define HAVE_KICONTHEME __has_include(<KIconTheme>)
 #if HAVE_KICONTHEME
 #include <KIconTheme>
@@ -76,7 +80,9 @@ int main(int argc, char ** argv)
     about.processCommandLine(&parser);
 
     KCrash::initialize();
+#if HAVE_KDBUSADDONS
     KDBusService service;
+#endif
  
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("knetwalk")));
 
