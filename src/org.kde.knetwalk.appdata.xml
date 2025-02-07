@@ -25,6 +25,7 @@
   <name xml:lang="gl">KNetWalk</name>
   <name xml:lang="he">KNetWalk</name>
   <name xml:lang="hu">KNetWalk</name>
+  <name xml:lang="ia">KNetWalk</name>
   <name xml:lang="id">KNetWalk</name>
   <name xml:lang="it">KNetWalk</name>
   <name xml:lang="ka">KNetWalk</name>
@@ -60,6 +61,7 @@
   <summary xml:lang="gl">KNetWalk é un xogo para administradores de sistemas</summary>
   <summary xml:lang="he">KNetWalk הוא משחק למנהלי מערכות</summary>
   <summary xml:lang="hu">A KNetWalk egy játék rendszergazdáknak</summary>
+  <summary xml:lang="ia">KNetWalk es un joco per administratores de systema</summary>
   <summary xml:lang="id">KNetWalk adalah sebuah permainan untuk administrator sistem</summary>
   <summary xml:lang="it">KNetWalk è un gioco per amministratori di sistema</summary>
   <summary xml:lang="ka">KNetWalk თამაშია სისტემური ადმინისტრატორებისთვის</summary>
@@ -140,6 +142,7 @@
       <caption xml:lang="gl">Xogando a KNetWalk</caption>
       <caption xml:lang="he">משחק ב־KNetWalk</caption>
       <caption xml:lang="hu">A KNetWalk játék közben</caption>
+      <caption xml:lang="ia">Jocar KNetWalk</caption>
       <caption xml:lang="id">Memainkan KNetWalk</caption>
       <caption xml:lang="it">Giocare a KNetWalk</caption>
       <caption xml:lang="ka">KNetWalk-ის თამაში</caption>
