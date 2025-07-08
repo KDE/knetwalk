@@ -1,4 +1,6 @@
 # Spanish translations for knetwalk.po package.
+# Copyright (C) 2005-2025 This file is copyright:
+# This file is distributed under the same license as the knetwalk package.
 #
 # SPDX-FileCopyrightText: 2005 Pablo de Vicente <pablo.devicente@gmail.com>
 # SPDX-FileCopyrightText: 2005, 2007, 2008, 2009 Santiago Fernández Sancho <santi@kde-es.org>
@@ -12,7 +14,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:38+0000\n"
-"PO-Revision-Date: 2025-04-07 21:32+0100\n"
+"PO-Revision-Date: 2025-07-07 17:57+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
