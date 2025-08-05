@@ -106,7 +106,7 @@ msgstr "شغّل الأصوات"
 #: general.ui:60
 #, kde-format
 msgid "Automatically lock cell after rotation"
-msgstr "قفل الخلية تلقائيًا بعد التدوير"
+msgstr "قفل الخلية آليًّا بعد التدوير"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
@@ -124,7 +124,7 @@ msgstr "عكس أزرار الفأرة"
 #: knetwalk.kcfg:9
 #, kde-format
 msgid "Default user name"
-msgstr "اسم المستخدم الافتراضي"
+msgstr "اسم المستخدم المبدئي"
 
 #. i18n: ectx: label, entry (PlaySounds), group (General)
 #: knetwalk.kcfg:14
