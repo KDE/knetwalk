@@ -1,14 +1,14 @@
 # translation of knetwalk.po to
+# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012.
-# SPDX-FileCopyrightText: 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:38+0000\n"
-"PO-Revision-Date: 2024-05-04 12:00+0400\n"
+"PO-Revision-Date: 2025-08-06 14:35+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -168,8 +169,7 @@ msgstr "ارتفاع اللوحة."
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr ""
-"ما إذا كان تم تمكين الالتفاف من اليسار إلى اليمين ومن الأعلى إلى الأسفل."
+msgstr "إذا كان الالتفاف من اليسار إلى اليمين ومن الأعلى إلى الأسفل مُمكن."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -194,7 +194,7 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"(C) 2004-2005 آندي بيريدري، تم نقله إلى KDE بواسطة توماس ناجي\n"
+"(C) 2004-2005 آندي بيريدري، نقله إلى كيدي توماس ناجي\n"
 "(C) 2007-2008 فيلا وينكلمولين\n"
 "(C) 2013 أشوين راجيف"
 
@@ -329,12 +329,12 @@ msgstr "عقوبة التحريكات"
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[1] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[2] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[3] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[4] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[5] "نتيجتك هى %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[0] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[1] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[2] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[3] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[4] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[5] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
 
 #: mainwindow.cpp:273
 #, kde-format
