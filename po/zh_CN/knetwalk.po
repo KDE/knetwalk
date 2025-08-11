@@ -260,43 +260,43 @@ msgstr "解锁全部(&U)"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "向右移"
 
 #: mainwindow.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr ""
+msgstr "向左移"
 
 #: mainwindow.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr ""
+msgstr "向上移"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "向下移"
 
 #: mainwindow.cpp:155
 #, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr ""
+msgstr "顺时针旋转"
 
 #: mainwindow.cpp:160
 #, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr ""
+msgstr "逆时针旋转"
 
 #: mainwindow.cpp:165
 #, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr ""
+msgstr "切换锁定"
 
 #: mainwindow.cpp:176
 #, kde-format
