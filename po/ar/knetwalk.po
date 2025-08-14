@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-12-23 00:38+0000\n"
-"PO-Revision-Date: 2025-08-06 14:35+0400\n"
+"PO-Revision-Date: 2025-08-13 18:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -185,7 +185,7 @@ msgstr "مسلك الشبكة ك"
 #: main.cpp:47
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
-msgstr "مسلك الشبكة ك ، لعبة لمدراء النظام."
+msgstr "مسلك الشبكة ك، لعبة لمدراء النظام."
 
 #: main.cpp:48
 #, kde-format
@@ -329,12 +329,12 @@ msgstr "عقوبة التحريكات"
 #, kde-format
 msgid "Your score was %1, you did not make it to the high score list."
 msgid_plural "Your score was %1, you did not make it to the high score list."
-msgstr[0] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[1] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[2] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[3] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[4] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
-msgstr[5] "نتيجتك هي %1  ، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[0] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[1] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[2] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[3] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[4] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
+msgstr[5] "نتيجتك هي %1، لم تستطع الدخول إلى قائمة أعلى النتائج."
 
 #: mainwindow.cpp:273
 #, kde-format
