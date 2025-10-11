@@ -1,8 +1,8 @@
 # SPDX-FileCopyrightText: 2009, 2010, 2024 Johannes Obermayr <johannesobermayr@gmx.de>
-# Stefan Winter <swinter@kde.org>, 2005, 2007.
-# Thomas Reitelbach <tr@erdfunkstelle.de>, 2006.
-# Burkhard Lück <lueck@hube-lueck.de>, 2008, 2013, 2021.
-# Linda-Maria Wirthmann <dont.breathe.today@googlemail.de>, 2009.
+# SPDX-FileCopyrightText: 2005, 2007 Stefan Winter <swinter@kde.org>
+# SPDX-FileCopyrightText: 2006 Thomas Reitelbach <tr@erdfunkstelle.de>
+# SPDX-FileCopyrightText: 2008, 2013, 2021 Burkhard Lück <lueck@hube-lueck.de>
+# SPDX-FileCopyrightText: 2009 Linda-Maria Wirthmann <dont.breathe.today@googlemail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
