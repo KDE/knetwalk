@@ -1,11 +1,11 @@
 # Translation of knetwalk.po to Catalan
 # Copyright (C) 2005-2024 This_file_is_part_of_KDE
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2005, 2006, 2010, 2013, 2015, 2020, 2024.
-# Albert Astals Cid <aacid@kde.org>, 2005, 2008, 2009.
-# Aleix Pol <aleixpol@gmail.com>, 2007.
-# Manuel Tortosa <manutortosa@chakra-project.org>, 2009, 2010.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2014, 2017, 2020, 2021.
+# SPDX-FileCopyrightText: 2005, 2006, 2010, 2013, 2015, 2020, 2024 Josep M. Ferrer <txemaq@gmail.com>
+# SPDX-FileCopyrightText: 2005, 2008, 2009 Albert Astals Cid <aacid@kde.org>
+# SPDX-FileCopyrightText: 2007 Aleix Pol <aleixpol@gmail.com>
+# SPDX-FileCopyrightText: 2009, 2010 Manuel Tortosa <manutortosa@chakra-project.org>
+# SPDX-FileCopyrightText: 2014, 2017, 2020, 2021 Antoni Bella Pérez <antonibella5@yahoo.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
