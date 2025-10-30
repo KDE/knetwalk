@@ -168,6 +168,7 @@
     <binary>knetwalk</binary>
   </provides>
   <releases>
+    <release version="3.3.25082" date="2025-11-06"/>
     <release version="3.3.25082" date="2025-10-09"/>
     <release version="3.3.25081" date="2025-09-11"/>
     <release version="3.3.25080" date="2025-08-14"/>
