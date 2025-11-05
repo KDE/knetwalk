@@ -236,7 +236,7 @@
 ></term>
 <listitem>
 <para
->Met en pause la durée de la partie. Cliquez sur l'élément de menu à nouveau, afin de reprendre la partie. Veuillez noter que le plateau disparaît lorsque la partie est en pause, car il serait injuste si vous pouviez rechercher un bon déplacement sans avoir de contrainte de temps. </para>
+>Met en pause la durée de la partie. Cliquez sur l'élément de menu à nouveau, afin de reprendre la partie. Veuillez noter que le plateau disparait lorsque la partie est en pause, car il serait injuste si vous pouviez rechercher un bon déplacement sans avoir de contrainte de temps. </para>
 </listitem>
 </varlistentry>
 
@@ -257,7 +257,7 @@
 ></term>
 <listitem>
 <para
->Affiche une boîte de dialogue contenant les meilleurs scores pour les différents niveaux de difficulté. </para>
+>Affiche une boite de dialogue contenant les meilleurs scores pour les différents niveaux de difficulté. </para>
 </listitem>
 </varlistentry>
 
@@ -314,7 +314,7 @@
 >page <guilabel
 >Général</guilabel
 ></link
-> de la boîte de dialogue <guilabel
+> de la boite de dialogue <guilabel
 >Configurer - &knetwalk;</guilabel
 >. </para>
 </listitem>
@@ -363,7 +363,7 @@
 ><guimenuitem
 >Personnalisé</guimenuitem
 > : les paramètres que vous avez configurés dans la <link linkend="config_custom_game"
-> boîte de dialogue <guilabel
+> boite de dialogue <guilabel
 >Configurer - &knetwalk;</guilabel
 ></link
 > seront utilisés.</para
@@ -385,7 +385,7 @@
 <listitem
 ><para
 ><action
->Ouvrez la boîte de dialogue <guilabel
+>Ouvrez la boite de dialogue <guilabel
 >Configurer - &knetwalk;</guilabel
 >.</action
 > Veuillez consulter la section <link linkend="configuration"
@@ -412,7 +412,7 @@
    <title
 >Configuration du jeu</title>
    <para
->Pour ouvrir la boîte de dialogue <guilabel
+>Pour ouvrir la boite de dialogue <guilabel
 >Configurer - &knetwalk;</guilabel
 >, veuillez sélectionner l'élément de menu <menuchoice
 ><guimenu
