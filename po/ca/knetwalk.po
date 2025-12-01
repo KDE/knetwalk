@@ -354,15 +354,3 @@ msgstr "Temps: %1"
 #, kde-format
 msgid "Paused"
 msgstr "En pausa"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Teclat: casella dreta"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Teclat: casella esquerra"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Teclat: casella superior"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Teclat: casella inferior"
