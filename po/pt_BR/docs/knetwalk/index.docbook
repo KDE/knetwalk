@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % Brazilian-Portuguese "INCLUDE"
-> 
+<!ENTITY % Brazilian-Portuguese "INCLUDE">
 <!ENTITY % addindex "IGNORE">
 ]>
 
@@ -72,14 +71,14 @@
 <holder
 >Fela Winkelmolen</holder>
 </copyright>
-    
+
 <legalnotice
 >&FDLNotice;</legalnotice>
 
 <date
->10/05/2016</date>
+>26/07/2021</date>
 <releaseinfo
->3.3.0 (Applications 16.04)</releaseinfo>
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
 
 <abstract>
 <para
@@ -103,17 +102,36 @@
 <chapter id="introduction">
 <title
 >Introdução</title>
+  <note
+><title
+>Tipo de jogo:</title
+><para
+>Estratégia</para
+></note>
+  <note
+><title
+>Número de possíveis jogadores:</title
+><para
+>Um</para
+></note>
 
-<para
->&knetwalk; é um jogo de lógica para um único jogador. </para>
+  <para
+>&knetwalk; é um jogo de lógica para um único jogador.</para>
 
-<para
->O objetivo do jogo é iniciar a LAN, conectando todos os terminais no servidor, no menor número de jogadas. </para>
+  <para
+>O objetivo do jogo é iniciar a LAN, conectando todos os terminais no servidor, no menor número de jogadas.</para>
 </chapter>
 
 <chapter id="how-to-play">
 <title
 >Como jogar</title>
+
+<note
+><title
+>Objetivo:</title
+><para
+>Conectar cada cliente ao servidor, sem deixar nenhum cabo desconectado.</para
+></note>
 
 <screenshot>
 <mediaobject>
@@ -151,7 +169,7 @@
 ><para
 >Quando jogar no nível de dificuldade <guilabel
 >Muito difícil</guilabel
->, as conexões poderão feitas da esquerda para direita e de cima para baixo.</para
+>, as conexões poderão ser feitas da esquerda para direita e de cima para baixo.</para
 ></listitem>
 <listitem
 ><para
@@ -159,7 +177,7 @@
 ></listitem>
 <listitem
 ><para
->A pontuação representa o número de cliques que foram feitos para completar o jogo. Quanto menor a pontuação, melhor.</para
+>A pontuação premia o menor número de cliques necessários para concluir o jogo. Quanto menor esse número, melhor.</para
 ></listitem>
 </itemizedlist>
 </sect1>
@@ -318,13 +336,13 @@
 ></term>
 <listitem>
 <para
->Desbloqueia todas as células que foram bloqueadas anteriormente pelo jogador usando a tecla <keycap
->Espaço</keycap
-> ou automaticamente após assinalar a opção <guilabel
+>Desbloqueia todas as células que foram bloqueadas anteriormente pelo jogador usando a tecla &Space; ou automaticamente após assinalar a opção <guilabel
 >Bloquear automaticamente</guilabel
-> na <link linkend="config_general"
->página Geral</link
-> da caixa de diálogo Configurar o &knetwalk;. </para>
+> na página <link linkend="config_general"
+>Geral</link
+> da janela para <guilabel
+>Configurar &knetwalk;</guilabel
+>. </para>
 </listitem>
 </varlistentry>
 
@@ -370,8 +388,10 @@
 ><para
 ><guimenuitem
 >Personalizado</guimenuitem
->: Serão usadas as opções configuradas na <link linkend="config_custom_game"
->caixa de diálogo Configurar o &knetwalk;</link
+>: Serão usadas as opções configuradas na janela para <link linkend="config_custom_game"
+><guilabel
+>Configurar &knetwalk;</guilabel
+></link
 >.</para
 ></listitem>
 </itemizedlist>
@@ -385,14 +405,16 @@
 ><guimenu
 >Configurações</guimenu
 > <guimenuitem
->Configurar o &knetwalk;...</guimenuitem
+>Configurar &knetwalk;…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
 ><para
 ><action
->Abre a caixa de diálogo Configurar o &knetwalk;</action
->. Veja a seção <link linkend="configuration"
+>Abre a janela para <guilabel
+>Configurar &knetwalk;</guilabel
+>.</action
+> Veja a seção <link linkend="configuration"
 >Configuração do jogo</link
 > para obter mais informações. </para
 ></listitem>
@@ -416,11 +438,13 @@
    <title
 >Configuração do jogo</title>
    <para
->Para abrir a caixa de diálogo Configurar o &knetwalk;, selecione a opção <menuchoice
+>Para abrir a janela para <guilabel
+>Configurar &knetwalk;</guilabel
+>, selecione o menu <menuchoice
 > <guimenu
 >Configurações</guimenu
 > <guimenuitem
->Configurar o &knetwalk;...</guimenuitem
+>Configurar &knetwalk;…</guimenuitem
 > </menuchoice
 > </para>
    <sect2 id="config_general">
@@ -452,7 +476,17 @@
        <varlistentry>
 	 <term>
 	   <guilabel
->Duração da rotação </guilabel>
+>Reverter botões do mouse </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Se marcado, o &knetwalk; usa o clique esquerdo para a rotação no sentido horário e o clique direito para a rotação no sentido anti-horário. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Duração da rotação: </guilabel>
 	 </term>
 	 <listitem>
 	   <para
@@ -480,15 +514,15 @@
 >Jogo personalizado</title>
      <para
 >Esta página pode ser usada para configurar as opções do jogo personalizado. Você poderá escolher a <guilabel
->Largura</guilabel
+>Largura:</guilabel
 > e a <guilabel
->Altura</guilabel
+>Altura:</guilabel
 > do tabuleiro e assinalar a opção <guilabel
 >Envolvência</guilabel
 > se o tabuleiro deve passar da esquerda para a direita e de cima para baixo. </para>
    </sect2>
 </sect1>
- 
+
 
 <sect1 id="keybindings">
 <title id="keybindings-title"
@@ -550,7 +584,7 @@
 </row>
 <row>
 <entry
->O que é isto?</entry>
+>Ajuda 'O que é isto?'</entry>
 <entry>
 <keycombo action="simul"
 >&Shift;<keycap
@@ -561,60 +595,46 @@
 <row>
 <entry
 >Mover para a esquerda</entry>
-<entry>
-<keycap
->Seta à esquerda</keycap>
-</entry>
+<entry
+>Seta &Left; </entry>
 </row>
 <row>
 <entry
 >Mover para a direita</entry>
-<entry>
-<keycap
->Seta à direita</keycap>
-</entry>
+<entry
+>Seta &Right; </entry>
 </row>
 <row>
 <entry
 >Mover para cima</entry>
-<entry>
-<keycap
->Seta para cima</keycap>
-</entry>
+<entry
+>Seta &Up; </entry>
 </row>
 <row>
 <entry
 >Mover para baixo</entry>
-<entry>
-<keycap
->Seta para baixo</keycap>
-</entry>
+<entry
+>Seta &Down; </entry>
 </row>
 <row>
 <entry
 >Girar no sentido horário</entry>
-<entry>
-<keycap
->Return</keycap>
-</entry>
+<entry
+>&Enter; </entry>
 </row>
 <row>
 <entry
 >Girar no sentido anti-horário</entry>
 <entry>
 <keycombo
->&Ctrl;<keycap
->Return</keycap
-></keycombo>
+>&Ctrl;&Enter;</keycombo>
 </entry>
 </row>
 <row>
 <entry
 >Ativar bloqueio</entry>
-<entry>
-<keycap
->Espaço</keycap>
-</entry>
+<entry
+>&Space; </entry>
 </row>
 </tbody>
 </tgroup>
@@ -647,7 +667,7 @@
 ></para
 > &underFDL; &underGPL; </chapter>
 
-&documentation.index; 
+&documentation.index;
 </book>
 <!--
 Local Variables:
