@@ -1,0 +1,684 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Turkish "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>&knetwalk; El Kitabı</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>Ayhan</firstname
+><surname
+>YALÇINSOY</surname
+><affiliation
+><address
+><email
+>ayhanyalcinsoy@gmail.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021‒07‒26</date>
+<releaseinfo
+>3.3.2 (KDE Gear 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, sistem yöneticileri için bir oyundur.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kde oyunları</keyword>
+<keyword
+>oyun</keyword>
+<keyword
+>mantık oyunu</keyword>
+<keyword
+>K Geçit</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Giriş</title>
+  <note
+><title
+>Oyun türü:</title
+><para
+>Strateji</para
+></note>
+  <note
+><title
+>Olası en çok oyuncu sayısı:</title
+><para
+>Bir</para
+></note>
+
+  <para
+>&knetwalk; tek oyunculu bir mantık oyunudur.</para>
+
+  <para
+>Oyunun amacı LAN’ı başlatmak, tüm uçbirimleri sunucuya olabildiğince az turda bağlamaktır.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Nasıl Oynanır</title>
+
+<note
+><title
+>Hedef:</title
+><para
+>Kabloları bağlantısız bırakmadan her bir istemciyi sunucuya bağlayın.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&knetwalk; Oyun Panosu</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>Oyuncuya bir sunucu, birkaç uçbirim ve kablo parçaları içeren dikdörtgen bir ızgara sunulur. Oyunun amacı, her istemci sunucuya bağlanana ve hiçbir kablo bağlantısız kalmayana kadar bu öğeleri döndürmektir. İsteğe bağlı olarak, gereken döndürme sayısını en aza indirerek yüksek bir puan elde etmeye çalışabilirsiniz. </para>
+
+<para
+>Bir kareye sol tıklamak onu saat yönünün tersine, sağ tıklamak ise saat yönünde döndürür. Bir karenin ortasına tıklamak onu engellenmiş olarak işaretler ve başka bir orta tıklama ile engellenmediği sürece döndürülmesini engeller; bu, doğru yönde olduğu bilinen kareleri işaretlemek için çok yararlı olabilir. Durum çubuğu o ana kadarki tıklama sayısını gösterir. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>Oyun Kuralları, Stratejileri ve İpuçları</title>
+
+<sect1 id="rules">
+<title
+>Kurallar</title>
+<itemizedlist>
+<listitem
+><para
+>Her oyun için sadece bir tek doğru çözüm vardır.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Çok zor</guilabel
+> zorluk düzeyinde oynarken, bağlantılar soldan sağa ve yukarıdan aşağıya doğru sarılabilir.</para
+></listitem>
+<listitem
+><para
+>Her bir terminal ve her bir kablo sunucuya bağlandığında oyun sona erer.</para
+></listitem>
+<listitem
+><para
+>Puan, oyunu tamamlamak için gereken en az tıklama sayısını ödüllendirir. Bu sayı ne kadar küçükse o kadar iyidir.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>Stratejiler ve İpuçları</title>
+<itemizedlist>
+<listitem
+><para
+>Yönü kolayca belirlenebilen kareler aramaya başlayın.</para
+></listitem>
+<listitem
+><para
+>Bir karenin yönünden emin olduğunuzda &MMB;’yi kullanarak onu imleyebilirsiniz. Bu özellikle zor oyunlarda kullanışlıdır.</para
+></listitem>
+<listitem
+><para
+>Sınırların yakınında I ve T şeklindeki telleri ve kenarların yakınında L şeklindeki telleri arayın. <guilabel
+>Çok zor</guilabel
+> zorluk düzeyinde oynamadığınız sürece bu karelerin konumu kolayca belirlenebilir.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Çok zor</guilabel
+> zorluk düzeyinde oynarken, aramaya başlamak için iyi bir yer, varsa boş karelerin yakınları ve bir arada gruplanmış birçok uçbirim içeren bölgelerin yakınlarıdır.</para
+></listitem>
+<listitem
+><para
+>Aynı zorluk düzeyinde oynarken bile bazı oyunlar diğerlerinden daha kolaydır, farklı bir tahta almak istiyorsanız oyunu yeniden başlatın.</para
+></listitem>
+<listitem
+><para
+>İyi bir puan almak istiyorsanız bir hareketi yalnızca emin olduğunuzda yapın.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>Arayüze Genel Bakış</title>
+
+<sect1 id="menu">
+<title
+>Menü Ögeleri</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Yeni</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Yeni bir oyun başlatır. Geçerli zorluk düzeyini kullanarak rastgele bir tahta oluşturur. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>Oyunl</guimenu
+> <guimenuitem
+>Duraklat</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Oyun süresini duraklatır. Oyunun sürmesi için menü ögesine yeniden tıklayın. Zaman baskısı olmadan iyi hamleleri arayabilmeniz haksızlık olacağından, oyun duraklatıldığında tahtanın kaybolduğunu unutmayın. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Yüksek Puanları Göster</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>Çeşitli zorluk düzeyleri için Yüksek Skorlar’ı içeren bir iletişim kutusu gösterir. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Oyun</guimenu
+> <guimenuitem
+>Çık</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Programdan çıkar. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Taşı</guimenu
+> <guimenuitem
+>Çöz</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Bir oyunu bırakmak için kullanın. Size çözümü gösterir; ancak kayıt bir yüksek puan olarak değerlendirilmez.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Taşı</guimenu
+> <guimenuitem
+>Tümünün Kilidini Aç</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>Daha önceden kilitlenen tüm hücrelerin kilidini elle veya denetim sonrası kendiliğinden açmak için <guilabel
+>&knetwalk; Uygulamasını Yapılandır…</guilabel
+> penceresinin <link linkend="config_general"
+><guilabel
+>Genel</guilabel
+> sayfasındaki</link
+> <guilabel
+>Kendiliğinden kilitle</guilabel
+> seçeneğini kullanarak veya &Space; düğmesine basarak yapabilirsiniz. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guisubmenu
+>Zorluk</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Bir alt menüden zorluk düzeyini ayarlamanızı sağlar.</para>
+<para
+>Beş zorluk düzeyi vardır: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>Kolay</guimenuitem
+>: 5 satır, 5 sütun</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Orta</guimenuitem
+>:7 satır, 7 sütun</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Zor</guimenuitem
+>:9 satır, 9 sütun</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Çok zor</guimenuitem
+>:9 satır, 9 sütun; kaydırmalı</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>Özel</guimenuitem
+>: <link linkend="config_custom_game"
+><guilabel
+>&knetwalk; Uygulamasını Yapılandır…</guilabel
+> iletişim kutusunda</link
+> belirlediğiniz ayarlar kullanılacaktır.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>&knetwalk; Uygulamasını Yapılandır…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+>Daha fazla bilgi için <action
+>&knetwalk; Uygulamasını Yapılandır…</action
+> sayfasını açıp <link linkend="configuration"
+>Oyun Yapılandırması</link
+> bölümüne bakın. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>Ek olarak &knetwalk;, ortak &kde; <guimenu
+>Ayarlar</guimenu
+> ve <guimenu
+>Yardım</guimenu
+> menü ögelerini kullanın. Daha fazla bilgi için &kde; temellerinin <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Ayarlar Menüsü</ulink
+> ve <ulink url="help:/fundamentals/menus.html#menus-help"
+>Yardım Menüsü</ulink
+> menülerine bakın. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>Oyun Yapılandırması</title>
+   <para
+><guilabel
+>&knetwalk; Uygulamasını Yapılandır</guilabel
+> iletişim kutusunua açmak için <menuchoice
+><guimenu
+>Ayarlar</guimenu
+> <guimenuitem
+>&knetwalk; Uygulamasını Yapılandır…</guimenuitem
+></menuchoice
+> menü ögesini seçin. </para>
+   <sect2 id="config_general">
+     <title
+>Genel</title>
+     <para
+>Bu sayfayı kullanarak aşağıdaki oyun ayarlarını değiştirebilirsiniz. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Sesleri çal </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>İşaretlenirse &knetwalk; oyun sesleri çalınır. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Kendiliğinden kilitle </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>İşaretlenirse &knetwalk;, döndürmeden sonra kendiliğinden hücreyi kilitler. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Ters fare düğmeleri </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>İşaretlenirse &knetwalk;, saat yönünde döndürme için sol tıklamayı ve saat yönünün tersine döndürme için sağ tıklamayı kullanır. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>Döndürme süresi: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>Burada tek bir hücre dönüşünü canlandırmak için gereken süreyi belirleyebilirsiniz. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>Tema</title>
+     <para
+>Oynatmak istediğiniz temayı seçmek için <guilabel
+>Tema</guilabel
+> bölümüne gidin. Tema, <guibutton
+>Tamam</guibutton
+> veya <guibutton
+>Uygula</guibutton
+> seçeneklerine tıklanarak yüklenir. Geçerli oyun sonlandırılacak ve yeni bir oyun başlatılacaktır. Öntanımlı temayı geri yüklemek için <guibutton
+>Öntanımlılar</guibutton
+> düğmesine tıklayabilirsiniz. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>Özel Oyun</title>
+     <para
+>Bu sayfa özel oyun ayarlarını yapılandırmak için kullanılabilir. Tahtanın <guilabel
+>Genişlik:</guilabel
+> ve <guilabel
+>Yükseklik:</guilabel
+> değerlerini seçebilir ve tahtanın soldan sağa ve yukarıdan aşağıya sarılması gerekip gerekmediğini <guilabel
+>Sarma</guilabel
+> seçeneğini işaretleyebilirsiniz. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Kısayollar</title>
+
+<para
+>Öntanımlı kısayollar:</para>
+
+<table>
+<title
+>Kısayollar</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>Yeni bir oyun başlat</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Duraklat</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>Yüksek Puanları Göster</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Çık</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Yardım</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>“Bu Nedir?” yardımı</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Sola git</entry>
+<entry
+>&Left; Düğmesi </entry>
+</row>
+<row>
+<entry
+>Sağa git</entry>
+<entry
+>&Right; Düğmesi </entry>
+</row>
+<row>
+<entry
+>Yukarı git</entry>
+<entry
+>&Up; Düğmesi </entry>
+</row>
+<row>
+<entry
+>Aşağı git</entry>
+<entry
+>&Down; Düğmesi </entry>
+</row>
+<row>
+<entry
+>Saat yönünde döndür</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>Saat yönünün tersine döndür</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>Kilitle/Kilidi Aç</entry>
+<entry
+>&Space; </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Emeği Geçenler ve Lisans</title>
+
+<para
+>&knetwalk; </para>
+<para
+>Program telif hakkı 2004–2007, Andi Peredri, Thomas Nagy ve Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>Belgelendirme telif hakkı 2007, Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>Çeviri: Ayhan YALÇINSOY <email
+>ayhanyalcinsoy@gmail.com</email
+></para
+> <para
+>Çeviri: Emir SARI <email
+>emir_sari@icloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+
