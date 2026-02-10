@@ -1,7 +1,7 @@
 # translation of knetwalk to Romanian
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the knetwalk package.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2013.
+# SPDX-FileCopyrightText: 2008, 2009, 2012, 2013, 2026 Sergiu Bivol <sergiu@cip.md>
 # Laurenţiu Buzdugan <lbuz@rolix.org>, 2009.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 14:39+0000\n"
-"PO-Revision-Date: 2013-11-23 20:52+0200\n"
+"PO-Revision-Date: 2026-02-08 17:03+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -45,13 +46,13 @@ msgstr "Lățime:"
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr ""
+msgstr "Înfășoară de la stânga la dreapta și de sus în jos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
 #, kde-format
 msgid "Wrapping"
-msgstr ""
+msgstr "Înfășurare"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, height)
 #: customgame.ui:66
@@ -83,12 +84,11 @@ msgstr "Jocul nu este încă câștigat!"
 #: general.ui:17
 #, kde-format
 msgid "Duration for cell to complete one rotation in milliseconds"
-msgstr ""
+msgstr "Durata pentru ca o celulă să încheie o rotație, în milisecunde"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
-#, fuzzy, kde-format
-#| msgid "Rotate Duration:"
+#, kde-format
 msgid "Rotate duration:"
 msgstr "Durata rotației:"
 
@@ -100,10 +100,9 @@ msgstr "Redă sunete la acțiuni"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Sounds"
+#, kde-format
 msgid "Play sounds"
-msgstr "Redă sunete"
+msgstr "Redare sunete"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:60
@@ -113,8 +112,7 @@ msgstr "Blochează automat celula după rotație"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
-#, fuzzy, kde-format
-#| msgid "Auto Lock"
+#, kde-format
 msgid "Auto lock"
 msgstr "Blocare automată"
 
@@ -122,7 +120,7 @@ msgstr "Blocare automată"
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr ""
+msgstr "Inversează butoanele șoricelului"
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
@@ -140,19 +138,21 @@ msgstr "Dacă să fie redate sunetele jocului."
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr ""
+msgstr "Dacă celula să fie blocată după rotire."
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
 msgstr ""
+"Folosiți clic stâng pentru rotire pe ceas și clic drept pentru rotire "
+"împotriva ceasului."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
 #, kde-format
 msgid "Duration for cell to complete one rotation."
-msgstr ""
+msgstr "Durata pentru ca o celulă să încheie o rotație."
 
 #. i18n: ectx: label, entry (Width), group (Custom)
 #: knetwalk.kcfg:34
@@ -170,7 +170,7 @@ msgstr "Înălțimea tablei."
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr ""
+msgstr "Dacă înfășurarea de la stânga la dreapta și de sus în jos e activată."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -250,15 +250,13 @@ msgid "Port to use the QGraphicsView framework"
 msgstr "Modificări pentru a folosi platforma QGraphicsView"
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
-msgstr "Personalizat"
+msgstr "Personalizată"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Deblochează tot"
@@ -267,67 +265,58 @@ msgstr "&Deblochează tot"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Mută la dreapta"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Penalitate mutări"
+msgstr "Mută la stânga"
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Mutări: %1"
+msgstr "Mută în sus"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Mută în jos"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Tastatură: Întoarce la dreapta"
+msgstr "Rotește pe ceas"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Tastatură: Întoarce la stânga"
+msgstr "Rotește împotriva ceasului"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Tastatură: Comută blocarea"
+msgstr "Comută blocarea"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr "General"
+msgstr "Generale"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tematică"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Joc personalizat"
