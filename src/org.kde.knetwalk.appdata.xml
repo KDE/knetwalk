@@ -35,6 +35,7 @@
   <name xml:lang="pl">KNetWalk</name>
   <name xml:lang="pt">KNetWalk</name>
   <name xml:lang="pt-BR">KNetWalk</name>
+  <name xml:lang="ro">KNetWalk</name>
   <name xml:lang="ru">KNetWalk</name>
   <name xml:lang="sa">KNetWalk इति</name>
   <name xml:lang="sk">KNetWalk</name>
@@ -70,6 +71,7 @@
   <summary xml:lang="pl">KNetWalk jest grą dla administratorów systemów</summary>
   <summary xml:lang="pt">O KNetWalk é um jogo para administradores de sistemas</summary>
   <summary xml:lang="pt-BR">O KNetWalk é um jogo para administradores de sistema</summary>
+  <summary xml:lang="ro">KNetWalk e un joc pentru administratorii de sisteme</summary>
   <summary xml:lang="ru">KNetWalk — игра для системных администраторов</summary>
   <summary xml:lang="sa">KNetWalk इति प्रणालीप्रशासकानाम् एकः क्रीडा अस्ति</summary>
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
@@ -108,6 +110,7 @@
     <p xml:lang="pl">KNetWalk jest logiczną grą dla pojedynczego gracza. Stwórz sieć łącząc wszystkie terminale do serwera w najmniejszej możliwej do osiągnięcia liczbie tur.</p>
     <p xml:lang="pt">O KNetWalk é um jogo lógico para um único jogador. Construa a rede, ligando todos os terminais ao servidor no número mínimo de jogadas possível.</p>
     <p xml:lang="pt-BR">O KNetWalk é um jogo de um jogar simples de lógica. Construa a rede, conectando todos os terminais ao servidor com o menor número de giros possíveis.</p>
+    <p xml:lang="ro">KNetWalk e un joc de logică cu un singur jucător. Construiți rețeaua, conectând toate terminalele la server în cât mai puține mutări.</p>
     <p xml:lang="ru">KNetWalk — это логическая игра для одного игрока. Постройте сеть, подключив все терминалы к серверу за как можно меньшее количество ходов.</p>
     <p xml:lang="sa">KNetWalk इति एकः खिलाडी तर्कक्रीडा अस्ति । जालस्य निर्माणं कुर्वन्तु, सर्वाणि टर्मिनल्-स्थानानि सर्वर्-सङ्गणकेन सह न्यूनतमेषु वारेषु संयोजयन्तु ।</p>
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
@@ -150,6 +153,7 @@
       <caption xml:lang="pl">Granie w KNetWalk</caption>
       <caption xml:lang="pt">Jogar ao KNetWalk</caption>
       <caption xml:lang="pt-BR">Jogando KNetWalk</caption>
+      <caption xml:lang="ro">Jucând KNetWalk</caption>
       <caption xml:lang="ru">Игра в KNetWalk</caption>
       <caption xml:lang="sa">KNetWalk इति क्रीडन्</caption>
       <caption xml:lang="sk">Hranie KNetWalk</caption>
