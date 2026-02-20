@@ -184,17 +184,12 @@ msgid "KNetWalk, a game for system administrators."
 msgstr "KNetWalk, cluiche le haghaidh riarthóirí córais."
 
 #: main.cpp:48
-#, fuzzy, kde-format
-#| msgid ""
-#| "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
-#| "(C) 2007-2008 Fela Winkelmolen"
+#, kde-format
 msgid ""
 "(C) 2004-2005 Andi Peredri, ported to KDE by Thomas Nagy\n"
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"© 2004-2005 Andi Peredri, leagan KDE déanta ag Thomas Nagy\n"
-" © 2007-2008 Fela Winkelmolen"
 
 #: main.cpp:53
 #, kde-format
@@ -265,18 +260,16 @@ msgid "Move Right"
 msgstr ""
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Pionós as Bearta"
+msgstr ""
 
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "Bearta: %1"
+msgstr ""
 
 #: mainwindow.cpp:150
 #, kde-format
@@ -285,25 +278,22 @@ msgid "Move Down"
 msgstr ""
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Méarchlár: Rothlaigh ar deiseal"
+msgstr ""
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Méarchlár: Rothlaigh ar tuathal"
+msgstr ""
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Méarchlár: Scoránaigh glas"
+msgstr ""
 
 #: mainwindow.cpp:176
 #, kde-format
@@ -312,11 +302,10 @@ msgid "General"
 msgstr ""
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
-msgstr "Téama"
+msgstr ""
 
 #: mainwindow.cpp:178
 #, kde-format
@@ -355,95 +344,3 @@ msgstr "Am: %1"
 #, kde-format
 msgid "Paused"
 msgstr ""
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Méarchlár: Réimse ar dheis"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Méarchlár: Réimse ar chlé"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Méarchlár: Réimse suas"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Méarchlár: Réimse síos"
-
-#~ msgid "Fela Winkelmolen"
-#~ msgstr "Fela Winkelmolen"
-
-#~ msgid "current maintainer"
-#~ msgstr "cothaitheoir reatha"
-
-#~ msgid "Game is paused."
-#~ msgstr "Cluiche curtha ar shos."
-
-#~ msgid ""
-#~ "<h3>Rules of Game</h3><p>You are the system administrator and your goal "
-#~ "is to connect each terminal and each cable to the central server.</"
-#~ "p><p>Click the right mouse button to turn the cable in a clockwise "
-#~ "direction, and the left mouse button to turn the cable in a "
-#~ "counterclockwise direction.</p><p>Start the LAN with as few turns as "
-#~ "possible!</p>"
-#~ msgstr ""
-#~ "<h3>Rialacha an Chluiche</h3><p>Is tusa riarthóir an chórais, agus is é "
-#~ "d'aidhm gach teirminéal agus gach cábla a cheangal leis an bhfreastalaí "
-#~ "lárnach.</p><p>Deaschliceáil chun an cábla a rothlú ar deiseal, agus "
-#~ "cléchliceáil chun an cábla a rothlú ar tuathal.</p><p>Tosaigh an LAN "
-#~ "chomh tapa agus is féidir!</p>"
-
-#~ msgid "New Game"
-#~ msgstr "Cluiche Nua"
-
-#~ msgid "The graphical theme to be used."
-#~ msgstr "An téama grafach le húsáid."
-
-#~ msgid "Start with Easy difficulty level"
-#~ msgstr "Tosaigh le leibhéal éasca"
-
-#~ msgid "Start with Medium difficulty level"
-#~ msgstr "Tosaigh le meánleibhéal"
-
-#~ msgid "Start with Hard difficulty level"
-#~ msgstr "Tosaigh le leibhéal crua"
-
-#~ msgid "Start with Very Hard difficulty level"
-#~ msgstr "Tosaigh le leibhéal an-chrua"
-
-#~ msgid "The difficulty level."
-#~ msgstr "An leibhéal deacrachta."
-
-#~ msgid "Use &Keyboard"
-#~ msgstr "Úsáid an &Méarchlár"
-
-#~ msgid "Failed to load \"%1\" theme. Please check your installation."
-#~ msgstr "Níorbh fhéidir téama \"%1\" a luchtú.  Déan seiceáil ar do chóras."
-
-#~ msgid "Start in novice mode"
-#~ msgstr "Tosaigh sa mhód núíosach"
-
-#~ msgid "Start in normal mode"
-#~ msgstr "Tosaigh sa ghnáthmhód"
-
-#~ msgid "Start in expert mode"
-#~ msgstr "Tosaigh sa mhód saineolaí"
-
-#~ msgid "Start in master mode"
-#~ msgstr "Tosaigh sa mhód máistir"
-
-#~ msgid "anonymous"
-#~ msgstr "gan ainm"
-
-#~ msgid "Click: %1"
-#~ msgstr "Cliceáil: %1"
-
-#~ msgid "Novice"
-#~ msgstr "Núíosach"
-
-#~ msgid "Normal"
-#~ msgstr "Gnáthimreoir"
-
-#~ msgid "Expert"
-#~ msgstr "Saineolaí"
-
-#~ msgid "Master"
-#~ msgstr "Máistir"
