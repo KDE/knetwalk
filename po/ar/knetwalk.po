@@ -1,5 +1,5 @@
 # translation of knetwalk.po to
-# SPDX-FileCopyrightText: 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025, 2026 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 # محمد سعد  Mohamed SAAD <metehyi@free.fr>, 2006.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
 # Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012.
@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2025-08-13 18:49+0400\n"
+"PO-Revision-Date: 2026-03-15 09:55+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -300,7 +300,7 @@ msgstr "دور عكس عقارب الساعة"
 #, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "اقلب القفل"
+msgstr "بدّل حالة القفل"
 
 #: mainwindow.cpp:176
 #, kde-format
