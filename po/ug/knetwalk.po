@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 19:07-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
@@ -37,7 +38,7 @@ msgstr ""
 #: customgame.ui:33
 #, kde-format
 msgid "Width:"
-msgstr ""
+msgstr "كەڭلىك:"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:56
@@ -61,7 +62,7 @@ msgstr ""
 #: customgame.ui:69
 #, kde-format
 msgid "Height:"
-msgstr ""
+msgstr "ئېگىزلىك:"
 
 #: gameview.cpp:162
 #, kde-format
@@ -95,10 +96,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
-#, fuzzy, kde-format
-#| msgid "&Play Sounds"
+#, kde-format
 msgid "Play sounds"
-msgstr "ئاۋاز قوي(&P)"
+msgstr "ئاۋاز قوي"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:60
@@ -175,12 +175,12 @@ msgstr "ئاساسىي قورال بالداق"
 #: main.cpp:46
 #, kde-format
 msgid "KNetWalk"
-msgstr "KNetWalk"
+msgstr ""
 
 #: main.cpp:47
 #, kde-format
 msgid "KNetWalk, a game for system administrators."
-msgstr "K"
+msgstr ""
 
 #: main.cpp:48
 #, kde-format
@@ -203,7 +203,7 @@ msgstr "ئەسلى ئاپتور"
 #: main.cpp:57
 #, kde-format
 msgid "Thomas Nagy"
-msgstr "Thomas Nagy"
+msgstr ""
 
 #: main.cpp:58
 #, kde-format
@@ -233,7 +233,7 @@ msgstr ""
 #: main.cpp:69
 #, kde-format
 msgid "Brian Croom"
-msgstr "Brian Croom"
+msgstr ""
 
 #: main.cpp:70
 #, kde-format
@@ -241,8 +241,7 @@ msgid "Port to use the QGraphicsView framework"
 msgstr ""
 
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "ئىختىيارى"
@@ -257,25 +256,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "ئوڭغا يۆتكە"
 
 #: mainwindow.cpp:140
 #, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr ""
+msgstr "سولغا يۆتكە"
 
 #: mainwindow.cpp:145
 #, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr ""
+msgstr "ئۈستىگە"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "ئاستىغا"
 
 #: mainwindow.cpp:155
 #, kde-format
@@ -299,21 +298,19 @@ msgstr ""
 #, kde-format
 msgctxt "@title:tab"
 msgid "General"
-msgstr ""
+msgstr "ئادەتتىكى"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "ئۆرنەك"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
-msgstr "ئىختىيارى ئويۇن"
+msgstr ""
 
 #: mainwindow.cpp:187 mainwindow.cpp:244
 #, kde-format
@@ -331,7 +328,7 @@ msgstr[0] ""
 #, kde-format
 msgctxt "Number of mouse clicks"
 msgid "Moves: %1"
-msgstr ""
+msgstr "يۆتكەش: %1"
 
 #: mainwindow.cpp:274
 #, kde-format
@@ -342,7 +339,7 @@ msgstr "ۋاقىت: %1"
 #: qml/main.qml:66
 #, kde-format
 msgid "Paused"
-msgstr ""
+msgstr "ۋاقىتلىق توختىدى"
 
 #~ msgid "Fela Winkelmolen"
 #~ msgstr "Fela Winkelmolen"
