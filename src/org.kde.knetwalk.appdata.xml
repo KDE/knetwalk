@@ -79,6 +79,7 @@
   <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
   <summary xml:lang="tr">K Geçit, sistem yöneticileri için bir oyundur</summary>
+  <summary xml:lang="ug">KNetWalk سىستېما باشقۇرغۇچى ئۈچۈن لايىھەلەنگەن ئويۇن</summary>
   <summary xml:lang="uk">KNetWalk — гра для системних адміністраторів</summary>
   <summary xml:lang="zh-CN">KNetWalk 是一款为系统管理员设计的游戏。</summary>
   <summary xml:lang="zh-TW">KNetWalk 是款為系統管理員製作的遊戲</summary>
@@ -163,6 +164,7 @@
       <caption xml:lang="sl">Igra KNetWalk</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
       <caption xml:lang="tr">K Geçit oynarken</caption>
+      <caption xml:lang="ug">KNetWalk ئويناۋاتىدۇ</caption>
       <caption xml:lang="uk">Гра у KNetWalk</caption>
       <caption xml:lang="zh-CN">KNetWalk 游戏界面</caption>
       <caption xml:lang="zh-TW">KNetWalk 遊玩畫面</caption>
