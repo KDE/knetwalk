@@ -146,7 +146,7 @@
 </screenshot>
 
 <para
->Oyuncuya bir sunucu, birkaç uçbirim ve kablo parçaları içeren dikdörtgen bir ızgara sunulur. Oyunun amacı, her istemci sunucuya bağlanana ve hiçbir kablo bağlantısız kalmayana kadar bu öğeleri döndürmektir. İsteğe bağlı olarak, gereken döndürme sayısını en aza indirerek yüksek bir puan elde etmeye çalışabilirsiniz. </para>
+>Oyuncuya bir sunucu, birkaç uçbirim ve kablo parçaları içeren dikdörtgen bir ızgara sunulur. Oyunun amacı, her istemci sunucuya bağlanana ve hiçbir kablo bağlantısız kalmayana kadar bu ögeleri döndürmektir. İsteğe bağlı olarak, gereken döndürme sayısını en aza indirerek yüksek bir puan elde etmeye çalışabilirsiniz. </para>
 
 <para
 >Bir kareye sol tıklamak onu saat yönünün tersine, sağ tıklamak ise saat yönünde döndürür. Bir karenin ortasına tıklamak onu engellenmiş olarak işaretler ve başka bir orta tıklama ile engellenmediği sürece döndürülmesini engeller; bu, doğru yönde olduğu bilinen kareleri işaretlemek için çok yararlı olabilir. Durum çubuğu o ana kadarki tıklama sayısını gösterir. </para>
