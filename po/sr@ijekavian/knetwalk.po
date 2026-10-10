@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2005, 2009.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2006, 2009, 2010, 2013, 2016.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2016-03-20 15:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-09 22:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
 "MIME-Version: 1.0\n"
@@ -23,12 +24,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Слободан Симић"
+msgstr "Слободан Симић,Немања Хиршл"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
@@ -46,7 +47,7 @@ msgstr "Ширина:"
 #: customgame.ui:56
 #, kde-format
 msgid "Wrap from left to right and from top to bottom"
-msgstr "Омотава преко леве на десну и преко горње на доњу ивицу."
+msgstr "Омотава преко лијеве на десну и преко горње на доњу ивицу."
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Wrapping)
 #: customgame.ui:59
@@ -88,8 +89,7 @@ msgstr "Трајање једне ротације ћелије у милисе�
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
-#, fuzzy, kde-format
-#| msgid "Rotate Duration:"
+#, kde-format
 msgid "Rotate duration:"
 msgstr "Трајање ротације:"
 
@@ -101,8 +101,7 @@ msgstr "Звукови на радње"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Sounds"
+#, kde-format
 msgid "Play sounds"
 msgstr "Пуштај звукове"
 
@@ -110,12 +109,11 @@ msgstr "Пуштај звукове"
 #: general.ui:60
 #, kde-format
 msgid "Automatically lock cell after rotation"
-msgstr "Аутоматско закључавање ћелије после ротације"
+msgstr "Аутоматско закључавање ћелије послије ротације"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
-#, fuzzy, kde-format
-#| msgid "Auto Lock"
+#, kde-format
 msgid "Auto lock"
 msgstr "Аутоматско закључавање"
 
@@ -123,7 +121,7 @@ msgstr "Аутоматско закључавање"
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr ""
+msgstr "Обрнута дугмад миша"
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
@@ -141,13 +139,13 @@ msgstr "Да ли пуштати звукове у игри."
 #: knetwalk.kcfg:18
 #, kde-format
 msgid "Whether lock cell after rotation."
-msgstr "Да ли закључати ћелију после ротације."
+msgstr "Да ли закључати ћелију послије ротације."
 
 #. i18n: ectx: label, entry (ReverseButtons), group (General)
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
-msgstr ""
+msgstr "Лијеви клик окреће удесно, а десни клик улијево."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
@@ -171,7 +169,7 @@ msgstr "Висина табле."
 #: knetwalk.kcfg:46
 #, kde-format
 msgid "Whether wrap from left to right and from top to bottom is enabled."
-msgstr "Да ли омотавати преко леве на десну и преко горње на доњу ивицу."
+msgstr "Да ли омотавати преко лијеве на десну и преко горње на доњу ивицу."
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: knetwalkui.rc:13
@@ -196,7 +194,7 @@ msgid ""
 "(C) 2007-2008 Fela Winkelmolen\n"
 "(C) 2013 Ashwin Rajeev"
 msgstr ""
-"© 2004–2005 Андреј Передриј, на КДЕ пренео Тамаш Нађ\n"
+"© 2004–2005 Андреј Передриј, на КДЕ пренио Тамаш Нађ\n"
 "© 2007–2008 Фела Винкелмолен\n"
 "© 2013, Ашвин Раџив"
 
@@ -252,15 +250,13 @@ msgstr "Пренос на радни оквир QGraphicsView"
 
 # >> @item difficulty level
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "посебно"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Откључај све"
@@ -269,68 +265,59 @@ msgstr "&Откључај све"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Помјери удесно"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Казнени потези"
+msgstr "Помјери улијево"
 
 # >> @info:status
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "потеза: %1"
+msgstr "Помјери нагоре"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Помјери надоље"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Тастатура: окрет удесно"
+msgstr "Окрени удесно"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Тастатура: окрет улијево"
+msgstr "Окрени улијево"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Тастатура: закључавање"
+msgstr "Укључи/искључи закључавање"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Опште"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Тема"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Посебна игра"
@@ -365,21 +352,9 @@ msgstr "потеза: %1"
 #, kde-format
 msgctxt "Time elapsed"
 msgid "Time: %1"
-msgstr "време: %1"
+msgstr "вријеме: %1"
 
 #: qml/main.qml:66
 #, kde-format
 msgid "Paused"
 msgstr "Паузирано"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Тастатура: поље десно"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Тастатура: поље лијево"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Тастатура: поље горе"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Тастатура: поље доље"

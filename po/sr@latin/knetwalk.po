@@ -2,13 +2,14 @@
 # Slobodan Simic <slsimic@gmail.com>, 2005, 2009.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2006, 2009, 2010, 2013, 2016.
 # Dalibor Djuric <dalibor.djuric@mozilla-srbija.org>, 2010.
+# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: knetwalk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2016-03-20 15:25+0100\n"
-"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
+"PO-Revision-Date: 2026-10-09 22:30+0200\n"
+"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@latin\n"
 "MIME-Version: 1.0\n"
@@ -23,12 +24,12 @@ msgstr ""
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Slobodan Simić"
+msgstr "Slobodan Simić,Nemanja Hiršl"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "slsimic@gmail.com"
+msgstr "slsimic@gmail.com,nemhirsl@gmail.com"
 
 #. i18n: ectx: property (toolTip), widget (QLabel, width)
 #: customgame.ui:30
@@ -88,8 +89,7 @@ msgstr "Trajanje jedne rotacije ćelije u milisekundama"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: general.ui:20
-#, fuzzy, kde-format
-#| msgid "Rotate Duration:"
+#, kde-format
 msgid "Rotate duration:"
 msgstr "Trajanje rotacije:"
 
@@ -101,8 +101,7 @@ msgstr "Zvukovi na radnje"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PlaySounds)
 #: general.ui:43
-#, fuzzy, kde-format
-#| msgid "Play Sounds"
+#, kde-format
 msgid "Play sounds"
 msgstr "Puštaj zvukove"
 
@@ -114,8 +113,7 @@ msgstr "Automatsko zaključavanje ćelije posle rotacije"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_Autolock)
 #: general.ui:63
-#, fuzzy, kde-format
-#| msgid "Auto Lock"
+#, kde-format
 msgid "Auto lock"
 msgstr "Automatsko zaključavanje"
 
@@ -123,7 +121,7 @@ msgstr "Automatsko zaključavanje"
 #: general.ui:83
 #, kde-format
 msgid "Reverse mouse buttons"
-msgstr ""
+msgstr "Obrnuta dugmad miša"
 
 #. i18n: ectx: label, entry (username), group (Preferences)
 #: knetwalk.kcfg:9
@@ -147,7 +145,7 @@ msgstr "Da li zaključati ćeliju posle rotacije."
 #: knetwalk.kcfg:22
 #, kde-format
 msgid "Use left click for clockwise and right click for counter-clockwise."
-msgstr ""
+msgstr "Levi klik okreće udesno, a desni klik ulevo."
 
 #. i18n: ectx: label, entry (RotateDuration), group (General)
 #: knetwalk.kcfg:26
@@ -252,15 +250,13 @@ msgstr "Prenos na radni okvir QGraphicsView"
 
 # >> @item difficulty level
 #: mainwindow.cpp:84
-#, fuzzy, kde-format
-#| msgid "Custom"
+#, kde-format
 msgctxt "@item difficulty"
 msgid "Custom"
 msgstr "posebno"
 
 #: mainwindow.cpp:130
-#, fuzzy, kde-format
-#| msgid "&Unlock All"
+#, kde-format
 msgctxt "@action"
 msgid "&Unlock All"
 msgstr "&Otključaj sve"
@@ -269,68 +265,59 @@ msgstr "&Otključaj sve"
 #, kde-format
 msgctxt "@action"
 msgid "Move Right"
-msgstr ""
+msgstr "Pomeri udesno"
 
 #: mainwindow.cpp:140
-#, fuzzy, kde-format
-#| msgid "Moves Penalty"
+#, kde-format
 msgctxt "@action"
 msgid "Move Left"
-msgstr "Kazneni potezi"
+msgstr "Pomeri ulevo"
 
 # >> @info:status
 #: mainwindow.cpp:145
-#, fuzzy, kde-format
-#| msgctxt "Number of mouse clicks"
-#| msgid "Moves: %1"
+#, kde-format
 msgctxt "@action"
 msgid "Move Up"
-msgstr "poteza: %1"
+msgstr "Pomeri nagore"
 
 #: mainwindow.cpp:150
 #, kde-format
 msgctxt "@action"
 msgid "Move Down"
-msgstr ""
+msgstr "Pomeri nadole"
 
 #: mainwindow.cpp:155
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn clockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Clockwise"
-msgstr "Tastatura: okret udesno"
+msgstr "Okreni udesno"
 
 #: mainwindow.cpp:160
-#, fuzzy, kde-format
-#| msgid "Keyboard: Turn counterclockwise"
+#, kde-format
 msgctxt "@action"
 msgid "Turn Counterclockwise"
-msgstr "Tastatura: okret ulevo"
+msgstr "Okreni ulevo"
 
 #: mainwindow.cpp:165
-#, fuzzy, kde-format
-#| msgid "Keyboard: Toggle lock"
+#, kde-format
 msgctxt "@action"
 msgid "Toggle Lock"
-msgstr "Tastatura: zaključavanje"
+msgstr "Uključi/isključi zaključavanje"
 
 #: mainwindow.cpp:176
-#, fuzzy, kde-format
-#| msgid "General"
+#, kde-format
 msgctxt "@title:tab"
 msgid "General"
 msgstr "Opšte"
 
 #: mainwindow.cpp:177
-#, fuzzy, kde-format
-#| msgid "Theme"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Theme"
 msgstr "Tema"
 
 #: mainwindow.cpp:178
-#, fuzzy, kde-format
-#| msgid "Custom Game"
+#, kde-format
 msgctxt "@title:tab"
 msgid "Custom Game"
 msgstr "Posebna igra"
@@ -371,15 +358,3 @@ msgstr "vreme: %1"
 #, kde-format
 msgid "Paused"
 msgstr "Pauzirano"
-
-#~ msgid "Keyboard: Field right"
-#~ msgstr "Tastatura: polje desno"
-
-#~ msgid "Keyboard: Field left"
-#~ msgstr "Tastatura: polje levo"
-
-#~ msgid "Keyboard: Field up"
-#~ msgstr "Tastatura: polje gore"
-
-#~ msgid "Keyboard: Field down"
-#~ msgstr "Tastatura: polje dole"
