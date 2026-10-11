@@ -40,6 +40,10 @@
   <name xml:lang="sa">KNetWalk इति</name>
   <name xml:lang="sk">KNetWalk</name>
   <name xml:lang="sl">KNetWalk</name>
+  <name xml:lang="sr">К‑мрежоход</name>
+  <name xml:lang="sr-Latn">K‑mrežohod</name>
+  <name xml:lang="sr-ijekavian">К‑мрежоход</name>
+  <name xml:lang="sr-ijekavianlatin">K‑mrežohod</name>
   <name xml:lang="sv">Knetwalk</name>
   <name xml:lang="tr">K Geçit</name>
   <name xml:lang="uk">KNetWalk</name>
@@ -77,6 +81,10 @@
   <summary xml:lang="sa">KNetWalk इति प्रणालीप्रशासकानाम् एकः क्रीडा अस्ति</summary>
   <summary xml:lang="sk">KNetWalk je hra pre správcov systému</summary>
   <summary xml:lang="sl">KNetWalk je igra za upravitelje sistemov</summary>
+  <summary xml:lang="sr">К‑мрежоход је игра за систем-администраторе</summary>
+  <summary xml:lang="sr-Latn">K‑mrežohod je igra za sistem-administratore</summary>
+  <summary xml:lang="sr-ijekavian">К‑мрежоход је игра за систем-администраторе</summary>
+  <summary xml:lang="sr-ijekavianlatin">K‑mrežohod je igra za sistem-administratore</summary>
   <summary xml:lang="sv">Knetwalk är ett spel för systemadministratörer</summary>
   <summary xml:lang="tr">K Geçit, sistem yöneticileri için bir oyundur</summary>
   <summary xml:lang="ug">KNetWalk سىستېما باشقۇرغۇچى ئۈچۈن لايىھەلەنگەن ئويۇن</summary>
@@ -118,6 +126,10 @@
     <p xml:lang="sa">KNetWalk इति एकः खिलाडी तर्कक्रीडा अस्ति । जालस्य निर्माणं कुर्वन्तु, सर्वाणि टर्मिनल्-स्थानानि सर्वर्-सङ्गणकेन सह न्यूनतमेषु वारेषु संयोजयन्तु ।</p>
     <p xml:lang="sk">KNetWalk je logická hra pre jedného hráča. Zostavte sieť a pripojte všetky terminály k serveru v čo najmenšom možnom poradí.</p>
     <p xml:lang="sl">KNetWalk je logična igra za enega igralca. Načrtovanje omrežja tako, da so terminali povezani na strežnik z najmanj potezami.</p>
+    <p xml:lang="sr">К‑мрежоход је логичка игра за једног играча. Изградите мрежу тако што ћете све терминале повезати са сервером у што мање потеза.</p>
+    <p xml:lang="sr-Latn">K‑mrežohod je logička igra za jednog igrača. Izgradite mrežu tako što ćete sve terminale povezati sa serverom u što manje poteza.</p>
+    <p xml:lang="sr-ijekavian">К‑мрежоход је логичка игра за једног играча. Изградите мрежу тако што ћете све терминале повезати са сервером у што мање потеза.</p>
+    <p xml:lang="sr-ijekavianlatin">K‑mrežohod je logička igra za jednog igrača. Izgradite mrežu tako što ćete sve terminale povezati sa serverom u što manje poteza.</p>
     <p xml:lang="sv">Knetwalk är ett logikspel för en ensam spelare. Konstruera nätverket, och koppla ihop alla terminaler med servern med så få drag som möjligt.</p>
     <p xml:lang="tr">K Geçit, tek kişilik bir mantık oyunudur. Ağı, uçbirimleri sunucuya en az sayıda dönüş ile bağlayarak yapılandırın.</p>
     <p xml:lang="uk">KNetWalk — проста логічна гра для одного гравця. Побудуйте мережу, з'єднавши усі термінали із сервером за мінімальну кількість ходів.</p>
@@ -162,6 +174,10 @@
       <caption xml:lang="sa">KNetWalk इति क्रीडन्</caption>
       <caption xml:lang="sk">Hranie KNetWalk</caption>
       <caption xml:lang="sl">Igra KNetWalk</caption>
+      <caption xml:lang="sr">Играње К‑мрежохода</caption>
+      <caption xml:lang="sr-Latn">Igranje K‑mrežohoda</caption>
+      <caption xml:lang="sr-ijekavian">Играње К‑мрежохода</caption>
+      <caption xml:lang="sr-ijekavianlatin">Igranje K‑mrežohoda</caption>
       <caption xml:lang="sv">Spela Knetwalk</caption>
       <caption xml:lang="tr">K Geçit oynarken</caption>
       <caption xml:lang="ug">KNetWalk ئويناۋاتىدۇ</caption>
