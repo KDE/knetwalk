@@ -193,6 +193,7 @@
     <binary>knetwalk</binary>
   </provides>
   <releases>
+    <release version="3.3.26083" date="2026-11-05"/>
     <release version="3.3.26082" date="2026-10-08"/>
     <release version="3.3.26081" date="2026-09-10"/>
     <release version="3.3.26080" date="2026-08-20"/>
