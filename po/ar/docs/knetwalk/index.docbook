@@ -1,0 +1,668 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book id="knetwalk" lang="&language;">
+<bookinfo>
+<title
+>دليل مسلك الشبكة ك</title>
+
+<authorgroup>
+<author
+><firstname
+>Fela</firstname
+> <surname
+>Winkelmolen</surname
+> <affiliation
+> <address
+><email
+>fela.kde@gmail.com</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2007</year>
+<holder
+>Fela Winkelmolen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2021-07-26</date>
+<releaseinfo
+>3.3.2 (ترس كيدي 21.08)</releaseinfo>
+
+<abstract>
+<para
+>&knetwalk;, مسلك الشبكة ك، لعبة لمدراء النظام.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>ألعاب كيدي</keyword>
+<keyword
+>لعبة</keyword>
+<keyword
+>لعبة منطقية</keyword>
+<keyword
+>مسلك الشبكة ك</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+  <note
+><title
+>نوع اللعبة:</title
+><para
+>الإستراتيجية</para
+></note>
+  <note
+><title
+>عدد اللاعبين الممكنين:</title
+><para
+>واحد</para
+></note>
+
+  <para
+>مسلك الشبكة ك هي لعبة منطقية للاعب واحد.</para>
+
+  <para
+>الهدف من اللعبة هو تشغيل الشبكة المحلية، عبر وصل جميع الطرفيات بالخادم، في أقل عدد ممكن من النقلات.</para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>كيف تلعب</title>
+
+<note
+><title
+>الهدف:</title
+><para
+>صِل كل عميل بالخادم، دون ترك أي أسلاك غير موصولة.</para
+></note>
+
+<screenshot>
+<mediaobject>
+<imageobject>
+<imagedata fileref="gameboard.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>لوحة لعبة مسلك الشبكة ك</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<para
+>تُعرض للاعب شبكة مستطيلة تحتوي على خادم، وعدة طرفيات، وقطع من الأسلاك. الهدف من اللعبة هو تدوير هذه العناصر حتى يُوصل كل عميل بالخادم، ولا تتبقى أي أسلاك غير موصلة. اختياريًا، يمكنك محاولة الحصول على نتيجة عالية عبر تقليل عدد التدويرات المطلوبة. </para>
+
+<para
+>النقر الأيسر على مربع يدوّره عكس عقارب الساعة، بينما النقر الأيمن يدوّره مع عقارب الساعة. النقر الأوسط على مربع يعلمه على أنه محظور ويمنعه من التدوير ما لم يُفك حظره بنقرة وسطى أخرى؛ هذا يمكن أن يكون مفيدًا جدًا لتعليم المربعات التي يعلم أنها في الاتجاه الصحيح. شريط الحالة يعرض عدد النقرات حتى الآن. </para>
+
+</chapter>
+
+<chapter id="rules-strategies-tips">
+<title
+>قواعد اللعبة واستراتيجياتها وتلميحاتها</title>
+
+<sect1 id="rules">
+<title
+>القواعد</title>
+<itemizedlist>
+<listitem
+><para
+>يوجد حل صحيح واحد فقط لكل لعبة.</para
+></listitem>
+<listitem
+><para
+>عند اللعب بمستوى صعوبة <guilabel
+>صعب جدًا</guilabel
+>، يمكن للتوصيلات أن تلتف من اليسار إلى اليمين ومن الأعلى إلى الأسفل.</para
+></listitem>
+<listitem
+><para
+>تنتهي اللعبة عندما تُوصل كل طرفية وسلك بالخادم.</para
+></listitem>
+<listitem
+><para
+>تعتمد النتيجة على أقل عدد من النقرات المستغرقة لإكمال اللعبة. كلما صغر هذا الرقم، كان أفضل.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+<sect1 id="stategies-and-tips">
+<title
+>الاستراتيجيات والتلميحات</title>
+<itemizedlist>
+<listitem
+><para
+>ابدأ بالبحث عن المربعات التي يمكن تحديد اتجاهها بسهولة.</para
+></listitem>
+<listitem
+><para
+>بمجرد تأكدك من اتجاه المربع، يمكنك تمييزه باستخدام زر الفأرة الأوسط. هذا مفيد بشكل خاص في الألعاب الأكثر صعوبة.</para
+></listitem>
+<listitem
+><para
+>ابحث عن الأسلاك التي تأخذ شكل حرف I وشكل حرف T بالقرب من الحدود، والأسلاك التي تأخذ شكل حرف L بالقرب من الحواف. يمكن تحديد مواضع هذه المربعات بسهولة، إلا إذا كنت تلعب بمستوى الصعوبة <guilabel
+>صعب جدًا</guilabel
+>.</para
+></listitem>
+<listitem
+><para
+>عند اللعب بمستوى الصعوبة <guilabel
+>صعب جدًا</guilabel
+>، فإن أفضل مكان لبدء البحث هو بالقرب من المربعات الفارغة، إن وجدت، وبالقرب من المناطق التي تحتوي على العديد من الطرفيات المجمعة معًا.</para
+></listitem>
+<listitem
+><para
+>حتى عند اللعب بنفس مستوى الصعوبة، تكون بعض الألعاب أسهل من غيرها؛ أعد تشغيل اللعبة إذا كنت تريد الحصول على لوحة مختلفة.</para
+></listitem>
+<listitem
+><para
+>إذا كنت ترغب في الحصول على نتيجة جيدة، فلا تقم بأي حركة إلا عندما تكون متأكدًا.</para
+></listitem>
+</itemizedlist>
+</sect1>
+
+</chapter>
+
+<chapter id="interface-overview">
+<title
+>نظرة عامة على الواجهة</title>
+
+<sect1 id="menu">
+<title
+>عناصر القائمة</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>جديد</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>يبدأ لعبة جديدة. يُنشئ لوحة عشوائية باستخدام مستوى الصعوبة الحالي. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycap
+>P</keycap
+></shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>لبث</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>يُلبث وقت اللعبة. انقر فوق عنصر القائمة مرة أخرى لاستئناف اللعبة. لاحظ أن اللوحة تختفي عند إلباث اللعبة لأنه لن يكون من العدل البحث عن نقلات جيدة بدون ضغط الوقت. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أظهر أعلى النتائج</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para
+>يعرض مربع حوار يحتوي على أعلى النتائج لمختلف مستويات الصعوبة. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>الخروج من البرنامج. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>حركة</guimenu
+> <guimenuitem
+>حل</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>استخدمه للاستسلام في اللعبة. سيُظهر لك الحل، ولكن لن تُحتسب النتيجة ضمن أعلى النتائج.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>حركة</guimenu
+> <guimenuitem
+>فك قفل الكل</guimenuitem
+> </menuchoice
+></term>
+<listitem>
+<para
+>يفك قفل جميع الخلايا التي قُفلت مسبقًا من قبل اللاعب باستخدام &Space; أو آليًا بعد تفعيل خيار <guilabel
+>قفل آلي</guilabel
+> في <link linkend="config_general"
+>صفحة <guilabel
+>عام</guilabel
+></link
+> في مربع حوار <guilabel
+>اضبط - مسلك الشبكة ك</guilabel
+>. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+><guisubmenu
+>الصعوبة</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>يتيح لك ضبط مستوى الصعوبة من قائمة فرعية.</para>
+<para
+>توجد خمسة مستويات للصعوبة: <itemizedlist>
+<listitem
+><para
+><guimenuitem
+>سهل</guimenuitem
+>: 5 صفوف، 5 أعمدة، بدون التفاف.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>متوسط</guimenuitem
+>: 7 صفوف، 7 أعمدة، بدون التفاف.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>صعب</guimenuitem
+>: 9 صفوف، 9 أعمدة، بدون التفاف.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>صعب جدًا</guimenuitem
+>: 9 صفوف، 9 أعمدة، مع التفاف.</para
+></listitem>
+<listitem
+><para
+><guimenuitem
+>مخصص</guimenuitem
+>: ستُستخدم الإعدادات التي ضبطتها في <link linkend="config_custom_game"
+>مربع حوار <guilabel
+>اضبط - مسلك الشبكة ك</guilabel
+></link
+>.</para
+></listitem>
+</itemizedlist>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط مسلك الشبكة ك…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يفتح مربع حوار <guilabel
+>اضبط - مسلك الشبكة ك</guilabel
+>.</action
+> يرجى الاطلاع على <link linkend="configuration"
+>ضبط اللعبة</link
+> لمزيد من المعلومات. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، تحتوي مسلك الشبكة ك على عناصر قائمة <guimenu
+>الإعدادات</guimenu
+> و<guimenu
+>مساعدة</guimenu
+> الشائعة في كيدي، لمزيد من المعلومات اقرأ الأقسام حول <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و <ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> في أساسيات كيدي. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+   <title
+>ضبط اللعبة</title>
+   <para
+>لفتح مربع حوار <guilabel
+>اضبط - مسلك الشبكة ك</guilabel
+>، اختر عنصر القائمة <menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اضبط مسلك الشبكة ك…</guimenuitem
+></menuchoice
+>. </para>
+   <sect2 id="config_general">
+     <title
+>عامّ</title>
+     <para
+>باستخدام هذه الصفحة يمكنك تغيير إعدادات اللعبة التالية. </para>
+     <variablelist>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>شغّل الأصوات </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>إذا فُعل، ستُشغل أصوات لعبة مسلك الشبكة ك. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>قفل آليّ </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>إذا فُعل، ستقوم مسلك الشبكة ك بقفل الخلية آليًا بعد التدوير. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>عكس أزرار الفأرة </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>إذا فُعل، ستستخدم مسلك الشبكة ك النقرة اليسرى للتدوير مع عقارب الساعة والنقرة اليمنى للتدوير عكس عقارب الساعة. </para>
+	 </listitem>
+       </varlistentry>
+       <varlistentry>
+	 <term>
+	   <guilabel
+>مدة التدوير: </guilabel>
+	 </term>
+	 <listitem>
+	   <para
+>هنا يمكنك تحديد الوقت اللازم لتحريك تدوير خلية واحدة. </para>
+	 </listitem>
+       </varlistentry>
+     </variablelist>
+   </sect2>
+   <sect2 id="config_theme">
+     <title
+>السمة</title>
+     <para
+>لاختيار السمة التي تريد اللعب بها، انتقل إلى قسم <guilabel
+>السمة</guilabel
+>. تُحمل السمة بالنقر فوق <guibutton
+>موافق</guibutton
+> أو <guibutton
+>تطبيق</guibutton
+>. ستنتهي اللعبة الحالية وتُبدأ لعبة جديدة. يمكنك النقر فوق زر <guibutton
+>المبدئيات</guibutton
+> لاستعادة السمة المبدئية. </para>
+   </sect2>
+   <sect2 id="config_custom_game">
+     <title
+>لعبة مخصصة</title>
+     <para
+>يمكن استخدام هذه الصفحة لضبط إعدادات اللعبة المخصصة. يمكنك اختيار <guilabel
+>العرض:</guilabel
+> و <guilabel
+>الارتفاع:</guilabel
+> للوحة وتفعيل <guilabel
+>الالتفاف</guilabel
+> إذا كان يجب أن تلتف اللوحة من اليسار إلى اليمين ومن الأعلى إلى الأسفل. </para>
+   </sect2>
+</sect1>
+
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>الاختصارات</title>
+
+<para
+>الاختصارات المبدئية هي:</para>
+
+<table>
+<title
+>الاختصارات</title>
+<tgroup cols="2">
+<tbody>
+<row>
+<entry
+>ابدأ لعبة جديدة</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>ألبث</entry>
+<entry>
+<keycap
+>P</keycap>
+</entry>
+</row>
+<row>
+<entry
+>أظهر أعلى النتائج</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>أنهِ</entry>
+<entry>
+<keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>مساعدة</entry>
+<entry
+><keycap
+>F1</keycap
+></entry>
+</row>
+<row>
+<entry
+>مساعدة "ما هذا؟"</entry>
+<entry>
+<keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo>
+</entry>
+</row>
+<row>
+<entry
+>انقل لليسار</entry>
+<entry
+>&Left; سهم لليسار </entry>
+</row>
+<row>
+<entry
+>انقل لليمين</entry>
+<entry
+>&Right; سهم لليمين </entry>
+</row>
+<row>
+<entry
+>انقل لأعلى</entry>
+<entry
+>&Up; سهم لأعلى </entry>
+</row>
+<row>
+<entry
+>انقل لأسفل</entry>
+<entry
+>&Down; سهم لأسفل </entry>
+</row>
+<row>
+<entry
+>دور باتجاه عقارب الساعة</entry>
+<entry
+>&Enter; </entry>
+</row>
+<row>
+<entry
+>دور عكس عقارب الساعة</entry>
+<entry>
+<keycombo
+>&Ctrl;&Enter;</keycombo>
+</entry>
+</row>
+<row>
+<entry
+>بدّل حالة القفل</entry>
+<entry
+>&Space; </entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>مسلك الشبكة ك </para>
+<para
+>حقوق نشر البرنامج 2004 - 2007 بواسطة Andi Peredri و Thomas Nagy و Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+<para
+>حقوق نشر التوثيق 2007 بواسطة Fela Winkelmolen <email
+>fela.kde@gmail.com</email
+> </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+
