@@ -505,8 +505,8 @@
 >Tamam</guibutton
 > veya <guibutton
 >Uygula</guibutton
-> seçeneklerine tıklanarak yüklenir. Geçerli oyun sonlandırılacak ve yeni bir oyun başlatılacaktır. Öntanımlı temayı geri yüklemek için <guibutton
->Öntanımlılar</guibutton
+> seçeneklerine tıklanarak yüklenir. Geçerli oyun sonlandırılacak ve yeni bir oyun başlatılacaktır. Varsayılan temayı geri yüklemek için <guibutton
+>Varsayılanlar</guibutton
 > düğmesine tıklayabilirsiniz. </para>
    </sect2>
    <sect2 id="config_custom_game">
@@ -529,7 +529,7 @@
 >Kısayollar</title>
 
 <para
->Öntanımlı kısayollar:</para>
+>Varsayılan kısayollar:</para>
 
 <table>
 <title
